@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
 import type { Product } from "@/lib/catalog/types";
 import { basePrice, priceUnitLabel } from "@/lib/catalog/queries";
+import { priceView } from "@/lib/catalog/pricing";
 import { formatRub } from "@/lib/format";
 import { PromoTimer } from "@/components/ui/PromoTimer";
 
@@ -27,14 +28,9 @@ export function ProductCard({ product }: { product: Product }) {
     product.photos[0] ??
     "/images/cat-clinker.jpg";
 
-  // Промо показываем по данным (не время-гейтим в SSR во избежание рассинхрона
-  // гидратации); таймер сам гаснет по истечении даты.
-  const promo = product.promo?.old_price ? product.promo : undefined;
-  const base = basePrice(product);
-  const newPrice =
-    promo && promo.discount_percent
-      ? Math.round(promo.old_price! * (1 - promo.discount_percent / 100))
-      : base;
+  // Цена — из единого источника (lib/catalog/pricing): текущая цена всегда каталожная,
+  // акция с истёкшим дедлайном не показывается.
+  const view = priceView(product, basePrice(product));
 
   return (
     <article className="cv-card group flex flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
@@ -47,9 +43,9 @@ export function ProductCard({ product }: { product: Product }) {
           loading="lazy"
           className="img-rich object-cover transition duration-700 group-hover:scale-105"
         />
-        {promo?.label ? (
+        {view.label || view.discountPct ? (
           <span className="absolute left-3 top-3 rounded-full bg-clinker px-2.5 py-1 text-xs font-bold text-white shadow-glow">
-            {promo.discount_percent ? `−${promo.discount_percent} %` : promo.label}
+            {view.discountPct ? `−${view.discountPct} %` : view.label}
           </span>
         ) : null}
       </Link>
@@ -69,23 +65,23 @@ export function ProductCard({ product }: { product: Product }) {
 
         {/* Цена */}
         <div className="mt-3 flex items-baseline gap-2">
-          {promo ? (
+          {view.oldPrice ? (
             <>
               <span className="tabular text-stone/60 line-through">
-                {formatRub(promo.old_price!)}
+                {formatRub(view.oldPrice)}
               </span>
               <span className="tabular font-display text-xl font-extrabold text-clinker">
-                {formatRub(newPrice)}
+                {formatRub(view.price)}
               </span>
             </>
           ) : (
             <span className="tabular font-display text-xl font-extrabold text-ink">
-              от {formatRub(base)}
+              от {formatRub(view.price)}
             </span>
           )}
         </div>
         <div className="text-xs text-stone/70">{priceUnitLabel(product)}</div>
-        {promo?.ends_at ? <PromoTimer endsAt={promo.ends_at} className="mt-1.5" /> : null}
+        {view.endsAt ? <PromoTimer endsAt={view.endsAt} className="mt-1.5" /> : null}
 
         {/* Цветовые чипы вариантов */}
         {variants.length > 1 ? (

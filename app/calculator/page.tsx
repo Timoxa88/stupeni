@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Калькулятор ступеней и керамогранита для террасы — расчёт онлайн",
   description:
     "Рассчитайте комплект клинкерных ступеней поэлементно или керамогранит для террасы по площади: опоры HILST, сопутствующие материалы по городу, мгновенный результат.",
+  alternates: { canonical: "/calculator" },
 };
 
 const gridMotif: React.CSSProperties = {

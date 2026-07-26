@@ -1,4 +1,5 @@
-import Image from "next/image";
+import type { Metadata } from "next";
+import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
@@ -25,6 +26,11 @@ import { COUNTERS, ADVANTAGES, EDUCATION } from "@/lib/content/site";
 import { HOME_FAQ } from "@/lib/content/faq";
 import { BLOG_POSTS } from "@/lib/content/blog";
 import { organizationSchema, localBusinessSchema } from "@/lib/jsonld";
+
+/** Title/description наследуются из layout; здесь нужен canonical (ТЗ §4). */
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const CATEGORIES = [
   {

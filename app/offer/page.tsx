@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { LegalLayout } from "@/components/sections/LegalLayout";
 import { SITE } from "@/lib/content/site";
 
@@ -42,7 +43,10 @@ export default function OfferPage() {
       <p>
         Договор купли-продажи заключается после согласования состава заказа, цены и условий
         поставки. Порядок оплаты, доставки, возврата и обмена описан на странице{" "}
-        <a href="/payment-delivery" className="font-semibold text-clinker">«Оплата и доставка»</a>.
+        <Link href="/payment-delivery" className="font-semibold text-clinker">
+          «Оплата и доставка»
+        </Link>
+        .
       </p>
     </LegalLayout>
   );

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import type { ApplicationCode, ProductType } from "@/lib/catalog/types";
 import { activeProducts } from "@/lib/catalog/queries";
 import { LeadForm } from "@/components/forms/LeadForm";

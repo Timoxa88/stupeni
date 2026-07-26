@@ -1,10 +1,11 @@
 "use client";
 
 import { useId, useMemo, useState } from "react";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
 import type { Product } from "@/lib/catalog/types";
 import { formatRub, formatNum } from "@/lib/format";
+import { priceView } from "@/lib/catalog/pricing";
 import { PromoTimer } from "@/components/ui/PromoTimer";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Modal } from "@/components/ui/Modal";
@@ -77,9 +78,9 @@ export function ProductDetail({ product }: { product: Product }) {
   const v = variants.find((x) => x.key === variantKey) ?? variants[0];
   const photos = product.photos.length ? product.photos : ["/images/cat-clinker.jpg"];
 
-  const promo = product.promo?.discount_percent ? product.promo : undefined;
-  const oldPrice = promo ? v.price : undefined;
-  const price = promo ? Math.round(v.price * (1 - promo.discount_percent! / 100)) : v.price;
+  // Единый источник цены (lib/catalog/pricing): показываем ровно каталожную цену
+  // выбранного элемента/формата — ту же, что считает калькулятор.
+  const view = priceView(product, v.price);
 
   const specRows: [string, string][] = [
     ["Тип товара", isStep ? "Клинкерные ступени" : "Крупноформатная пластина"],
@@ -117,9 +118,9 @@ export function ProductDetail({ product }: { product: Product }) {
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="img-rich object-cover"
           />
-          {promo?.label ? (
+          {view.discountPct || view.label ? (
             <span className="absolute left-4 top-4 rounded-full bg-clinker px-3 py-1.5 text-sm font-bold text-white shadow-glow">
-              −{promo.discount_percent} %
+              {view.discountPct ? `−${view.discountPct} %` : view.label}
             </span>
           ) : null}
         </button>
@@ -173,15 +174,17 @@ export function ProductDetail({ product }: { product: Product }) {
 
         {/* Цена */}
         <div className="mt-6 flex items-baseline gap-3">
-          {oldPrice ? (
-            <span className="tabular text-lg text-stone/60 line-through">{formatRub(oldPrice)}</span>
+          {view.oldPrice ? (
+            <span className="tabular text-lg text-stone/60 line-through">
+              {formatRub(view.oldPrice)}
+            </span>
           ) : null}
           <span className="tabular font-display text-4xl font-extrabold text-clinker">
-            {formatRub(price)}
+            {formatRub(view.price)}
           </span>
         </div>
         <div className="text-sm text-stone/70">{v.unit}</div>
-        {promo?.ends_at ? <PromoTimer endsAt={promo.ends_at} className="mt-2" /> : null}
+        {view.endsAt ? <PromoTimer endsAt={view.endsAt} className="mt-2" /> : null}
         <p className="mt-1 text-xs text-stone/60">
           Цена справочная и не является публичной офертой. Актуальную стоимость
           уточняйте у менеджера.

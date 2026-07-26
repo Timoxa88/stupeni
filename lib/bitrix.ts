@@ -55,7 +55,12 @@ const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
 /**
  * Создание лида в Битрикс24 с ретраями и экспоненциальным backoff (ТЗ B.5).
- * Без настроенного вебхука — логирует и возвращает успех (локалка/превью).
+ *
+ * Без вебхука заявка НЕ считается доставленной: раньше здесь возвращался `ok: true`,
+ * из-за чего сайт показывал «Заявка отправлена», а лид оставался только в логе
+ * (проверено на превью 26.07.2026 — вебхук не был задан, заявки терялись молча).
+ * Теперь это ошибка: клиент увидит очередь/повтор, а не ложный успех.
+ * Явно разрешить приём «в лог» можно переменной ALLOW_LEADS_WITHOUT_CRM=1 (только dev).
  */
 export async function createLead(
   lead: LeadPayload,
@@ -63,8 +68,12 @@ export async function createLead(
 ): Promise<BitrixResult> {
   const base = process.env.BITRIX_WEBHOOK_URL;
   if (!base) {
-    console.info("[bitrix] lead (no webhook configured):", lead);
-    return { ok: true };
+    if (process.env.ALLOW_LEADS_WITHOUT_CRM === "1") {
+      console.info("[bitrix] lead (dev, no webhook):", lead);
+      return { ok: true };
+    }
+    console.error("[bitrix] BITRIX_WEBHOOK_URL не задан — заявка не доставлена:", lead);
+    return { ok: false, error: "crm_not_configured" };
   }
 
   const url = `${base.replace(/\/$/, "")}/crm.lead.add.json`;

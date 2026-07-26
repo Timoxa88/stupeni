@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import { Reveal } from "@/components/ui/Reveal";
 
 export interface GalleryImage {

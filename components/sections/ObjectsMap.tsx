@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import { MAP_OBJECTS, type MapObject } from "@/lib/content/map";
 
 /**

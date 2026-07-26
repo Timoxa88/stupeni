@@ -7,6 +7,7 @@
 import { SITE } from "@/lib/content/site";
 import type { Product } from "@/lib/catalog/types";
 import { activePromo, basePrice } from "@/lib/catalog/queries";
+import { priceView } from "@/lib/catalog/pricing";
 
 const abs = (path: string) =>
   path.startsWith("http") ? path : `${SITE.baseUrl}${path}`;
@@ -53,10 +54,21 @@ export function breadcrumbSchema(items: { name: string; url: string }[]) {
 }
 
 export function productSchema(p: Product) {
+  // Цена в разметке обязана совпадать с видимой на странице → тот же источник.
+  const { price } = priceView(p, basePrice(p));
   const promo = activePromo(p);
-  const price = promo?.old_price && promo.discount_percent
-    ? Math.round(promo.old_price * (1 - promo.discount_percent / 100))
-    : basePrice(p);
+  // priceValidUntil должен быть в БУДУЩЕМ: дедлайн акции, иначе +7 дней от сегодня
+  // (политика §B.9). Прежде сюда попадала прошедшая price_updated_at.
+  const validUntil = (() => {
+    const now = Date.now();
+    if (promo?.ends_at) {
+      const end = Date.parse(promo.ends_at);
+      if (Number.isFinite(end) && end > now) return new Date(end);
+    }
+    return new Date(now + 7 * 24 * 60 * 60 * 1000);
+  })()
+    .toISOString()
+    .slice(0, 10);
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -70,15 +82,13 @@ export function productSchema(p: Product) {
       "@type": "Offer",
       price,
       priceCurrency: "RUB",
+      url: abs(`/catalog/${p.id}`),
       availability:
         p.stock_status === "on_order"
           ? "https://schema.org/PreOrder"
           : "https://schema.org/InStock",
-      ...(promo?.ends_at
-        ? { priceValidUntil: promo.ends_at.slice(0, 10) }
-        : p.price_updated_at
-          ? { priceValidUntil: p.price_updated_at }
-          : {}),
+      priceValidUntil: validUntil,
+      seller: { "@type": "Organization", name: SITE.name },
     },
   };
 }

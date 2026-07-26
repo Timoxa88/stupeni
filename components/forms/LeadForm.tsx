@@ -318,7 +318,13 @@ export function LeadForm({
         />
         <span className={`text-xs ${dark ? "text-sand/70" : "text-stone"}`}>
           Я согласен на обработку персональных данных в соответствии с{" "}
-          <a href="/privacy" target="_blank" className="font-semibold underline underline-offset-2">
+          {/* withBase обязателен: на подпути сырой /privacy уходил на чужой сайт (агентства) */}
+          <a
+            href={withBase("/privacy")}
+            target="_blank"
+            rel="noreferrer"
+            className="font-semibold underline underline-offset-2"
+          >
             Политикой
           </a>
           .

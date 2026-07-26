@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import { Reveal } from "@/components/ui/Reveal";
 import { SOLUTIONS } from "@/lib/content/solutions";
 

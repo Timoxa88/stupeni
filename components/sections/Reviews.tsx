@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
+import { Img as Image } from "@/components/ui/Img";
 import { REVIEWS } from "@/lib/content/reviews";
 
 /** Отзывы: фильтр-таб частники / профи (ТЗ §6 блок 17). */
