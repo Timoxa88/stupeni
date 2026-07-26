@@ -3,6 +3,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
+import { Pagination } from "@/components/ui/Pagination";
+import { paginate, pageHref } from "@/lib/pagination";
 import { Reveal } from "@/components/ui/Reveal";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { getProductsByCategory, type CategoryKey } from "@/lib/catalog/queries";
@@ -19,8 +21,15 @@ const CATEGORY_SOLUTIONS: Record<CategoryKey, string[]> = {
   "plastiny-pod-derevo": ["terrasa", "dorozhki"],
 };
 
-export function CategoryView({ category }: { category: CategoryMeta }) {
+export function CategoryView({
+  category,
+  page = 1,
+}: {
+  category: CategoryMeta;
+  page?: number;
+}) {
   const products = getProductsByCategory(category.slug);
+  const paged = paginate(products, page);
   const brands = Array.from(new Set(products.map((p) => p.brand)));
   const solutions = SOLUTIONS.filter((s) =>
     CATEGORY_SOLUTIONS[category.slug].includes(s.slug),
@@ -62,10 +71,20 @@ export function CategoryView({ category }: { category: CategoryMeta }) {
             <h2 className="mt-3 font-display text-3xl font-extrabold text-ink sm:text-4xl">
               Коллекции категории
             </h2>
+            <p className="mt-3 text-stone">
+              {paged.total} позиций
+              {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
+            </p>
           </Reveal>
           <div className="mt-10">
-            <ProductGrid products={products} />
+            <ProductGrid products={paged.items} />
           </div>
+          <Pagination
+            base={`/${category.slug}`}
+            page={paged.page}
+            pages={paged.pages}
+            className="mt-10 justify-center"
+          />
         </section>
 
         {/* Бренды категории */}
@@ -152,8 +171,12 @@ export function CategoryView({ category }: { category: CategoryMeta }) {
         data={collectionPageSchema({
           name: category.h1,
           description: category.description,
-          url: `/${category.slug}`,
-          items: products.map((p) => ({ id: p.id, name: `${p.brand} ${p.collection} ${p.specs.color}` })),
+          // Разметка описывает ТЕКУЩУЮ страницу листинга, а не весь раздел.
+          url: pageHref(`/${category.slug}`, paged.page),
+          items: paged.items.map((p) => ({
+            id: p.id,
+            name: `${p.brand} ${p.collection} ${p.specs.color}`,
+          })),
         })}
       />
     </>

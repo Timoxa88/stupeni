@@ -15,8 +15,21 @@
 
 import type { Product } from "./types";
 import { REAL_PRODUCTS } from "./generated/products";
+import { WOOD_HC_PRODUCTS, WOOD_HC_COLLECTIONS } from "./generated/wood-hc";
 
-export const SEED_PRODUCTS: Product[] = REAL_PRODUCTS;
+/**
+ * Коллекции «под дерево» берём с hit-ceramics.ru — это свой сайт заказчика, значит
+ * цены свои, а не рыночные (характеристики к ним подмешаны из карточек Славдома).
+ * Записи тех же коллекций из общего каталога вытесняются, чтобы не было дублей.
+ */
+const REPLACED = WOOD_HC_COLLECTIONS.map((c) => c.toLowerCase());
+const isReplaced = (p: Product) =>
+  REPLACED.some((c) => p.id.includes(c));
+
+export const SEED_PRODUCTS: Product[] = [
+  ...REAL_PRODUCTS.filter((p) => !isReplaced(p)),
+  ...WOOD_HC_PRODUCTS,
+];
 
 export function getStepProducts(): Product[] {
   return SEED_PRODUCTS.filter((p) => p.product_type === "step_system" && p.active);

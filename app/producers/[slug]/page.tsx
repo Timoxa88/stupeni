@@ -9,32 +9,40 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { BRANDS, getBrand } from "@/lib/catalog/brands";
 import { getProductsByBrand } from "@/lib/catalog/queries";
+import { Pagination } from "@/components/ui/Pagination";
+import { PER_PAGE, pageHref, pageSuffix, paginate, parsePage } from "@/lib/pagination";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
 
-type Params = { params: Promise<{ slug: string }> };
+type Params = {
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ page?: string }>;
+};
 
 export function generateStaticParams() {
   return BRANDS.map((b) => ({ slug: b.slug }));
 }
 
-export async function generateMetadata({ params }: Params): Promise<Metadata> {
+export async function generateMetadata({ params, searchParams }: Params): Promise<Metadata> {
   const { slug } = await params;
   const b = getBrand(slug);
   if (!b) return {};
+  const page = parsePage((await searchParams).page);
+  const pages = Math.max(1, Math.ceil(getProductsByBrand(b.name).length / PER_PAGE));
   return {
-    title: `${b.name} — клинкер и керамогранит купить, цена`,
+    title: `${b.name} — клинкер и керамогранит купить, цена${pageSuffix(page, pages)}`,
     description: `${b.name} (${b.country}${b.founded ? `, с ${b.founded}` : ""}): ${b.tagline} Каталог коллекций, цены, расчёт комплекта и доставка.`,
-    alternates: { canonical: `/producers/${b.slug}` },
+    alternates: { canonical: pageHref(`/producers/${b.slug}`, page) },
   };
 }
 
-export default async function ProducerPage({ params }: Params) {
+export default async function ProducerPage({ params, searchParams }: Params) {
   const { slug } = await params;
   const b = getBrand(slug);
   if (!b) notFound();
 
   const products = getProductsByBrand(b.name);
+  const paged = paginate(products, parsePage((await searchParams).page));
   const heroImage = products[0]?.photos[0] ?? "/images/cat-clinker.jpg";
 
   return (
@@ -72,7 +80,7 @@ export default async function ProducerPage({ params }: Params) {
               <div className="flex flex-wrap gap-3">
                 <Badge label="Страна" value={b.country} />
                 {b.founded ? <Badge label="С года" value={String(b.founded)} /> : null}
-                <Badge label="Позиции" value={`${products.length} в наличии`} />
+                <Badge label="Позиции" value={`${products.length} в каталоге`} />
               </div>
             </Reveal>
             <Reveal delay={120}>
@@ -95,9 +103,19 @@ export default async function ProducerPage({ params }: Params) {
                 Каталог {b.name}
               </h2>
             </Reveal>
+            <p className="mt-3 text-stone">
+              {paged.total} позиций
+              {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
+            </p>
             <div className="mt-10">
-              <ProductGrid products={products} />
+              <ProductGrid products={paged.items} />
             </div>
+            <Pagination
+              base={`/producers/${b.slug}`}
+              page={paged.page}
+              pages={paged.pages}
+              className="mt-10 justify-center"
+            />
           </div>
         </section>
 
@@ -146,8 +164,8 @@ export default async function ProducerPage({ params }: Params) {
         data={collectionPageSchema({
           name: `${b.name} — каталог`,
           description: b.tagline,
-          url: `/producers/${b.slug}`,
-          items: products.map((p) => ({ id: p.id, name: `${p.collection} ${p.specs.color}` })),
+          url: pageHref(`/producers/${b.slug}`, paged.page),
+          items: paged.items.map((p) => ({ id: p.id, name: `${p.collection} ${p.specs.color}` })),
         })}
       />
     </>
