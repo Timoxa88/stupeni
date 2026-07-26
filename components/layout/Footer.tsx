@@ -114,17 +114,6 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-6 text-center text-xs text-sand/55">
-          delivered by{" "}
-          <a
-            href="https://br2nd.tech"
-            target="_blank"
-            rel="noreferrer"
-            className="font-semibold text-sand/80 underline-offset-4 transition hover:text-clinker-bright hover:underline"
-          >
-            br2nd.tech
-          </a>
-        </div>
       </div>
     </footer>
   );
