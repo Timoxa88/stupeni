@@ -1,0 +1,135 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import type { Product } from "@/lib/catalog/types";
+import { basePrice, priceUnitLabel } from "@/lib/catalog/queries";
+import { formatRub } from "@/lib/format";
+import { PromoTimer } from "@/components/ui/PromoTimer";
+
+const TYPE_LABEL: Record<Product["product_type"], string> = {
+  step_system: "Клинкерные ступени",
+  slab: "Керамогранит 20 мм",
+};
+
+/**
+ * Карточка витрины (ТЗ §6 блок 10, §8.1): фото, бейдж скидки, старая/новая
+ * цена «за шт. с НДС», цветовые чипы вариантов (наведение меняет превью,
+ * клик ведёт в карточку на выбранном цвете). Обёрнута в content-visibility.
+ */
+export function ProductCard({ product }: { product: Product }) {
+  const [activeId, setActiveId] = useState(product.id);
+  const variants = product.variants ?? [];
+
+  const preview =
+    variants.find((v) => v.id === activeId)?.photo ??
+    product.photos[0] ??
+    "/images/cat-clinker.jpg";
+
+  // Промо показываем по данным (не время-гейтим в SSR во избежание рассинхрона
+  // гидратации); таймер сам гаснет по истечении даты.
+  const promo = product.promo?.old_price ? product.promo : undefined;
+  const base = basePrice(product);
+  const newPrice =
+    promo && promo.discount_percent
+      ? Math.round(promo.old_price! * (1 - promo.discount_percent / 100))
+      : base;
+
+  return (
+    <article className="cv-card group flex flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
+      <Link href={`/catalog/${activeId}`} className="relative block aspect-[4/3] overflow-hidden">
+        <Image
+          src={preview}
+          alt={`${product.brand} ${product.collection} — ${product.specs.color}`}
+          fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+          loading="lazy"
+          className="img-rich object-cover transition duration-700 group-hover:scale-105"
+        />
+        {promo?.label ? (
+          <span className="absolute left-3 top-3 rounded-full bg-clinker px-2.5 py-1 text-xs font-bold text-white shadow-glow">
+            {promo.discount_percent ? `−${promo.discount_percent} %` : promo.label}
+          </span>
+        ) : null}
+      </Link>
+
+      <div className="flex flex-1 flex-col p-5">
+        <div className="text-xs font-semibold uppercase tracking-wide text-stone/70">
+          {product.brand} · {TYPE_LABEL[product.product_type]}
+        </div>
+        <h3 className="mt-1.5">
+          <Link
+            href={`/catalog/${activeId}`}
+            className="font-display text-lg font-bold text-ink transition hover:text-clinker"
+          >
+            {product.collection} {product.specs.color}
+          </Link>
+        </h3>
+
+        {/* Цена */}
+        <div className="mt-3 flex items-baseline gap-2">
+          {promo ? (
+            <>
+              <span className="tabular text-stone/60 line-through">
+                {formatRub(promo.old_price!)}
+              </span>
+              <span className="tabular font-display text-xl font-extrabold text-clinker">
+                {formatRub(newPrice)}
+              </span>
+            </>
+          ) : (
+            <span className="tabular font-display text-xl font-extrabold text-ink">
+              от {formatRub(base)}
+            </span>
+          )}
+        </div>
+        <div className="text-xs text-stone/70">{priceUnitLabel(product)}</div>
+        {promo?.ends_at ? <PromoTimer endsAt={promo.ends_at} className="mt-1.5" /> : null}
+
+        {/* Цветовые чипы вариантов */}
+        {variants.length > 1 ? (
+          <div className="mt-4 flex flex-wrap items-center gap-2" role="group" aria-label="Цвета коллекции">
+            {variants.map((v) => {
+              const active = v.id === activeId;
+              return (
+                <Link
+                  key={v.id}
+                  href={`/catalog/${v.id}`}
+                  aria-label={v.color}
+                  title={v.color}
+                  onMouseEnter={() => setActiveId(v.id)}
+                  onFocus={() => setActiveId(v.id)}
+                  className={`h-6 w-6 rounded-full border-2 transition ${
+                    active ? "border-clinker scale-110" : "border-white shadow-[0_0_0_1px_rgba(0,0,0,0.15)]"
+                  }`}
+                  style={{ background: v.color_hex }}
+                />
+              );
+            })}
+          </div>
+        ) : null}
+
+        {/* Мини-характеристики */}
+        <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-4">
+          {product.stock_status ? (
+            <span
+              className={`inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold ${
+                product.stock_status === "in_stock"
+                  ? "bg-olive/15 text-olive"
+                  : "bg-ember/15 text-[#9a6418]"
+              }`}
+            >
+              {product.stock_status === "in_stock" ? "В наличии" : "Под заказ"}
+            </span>
+          ) : null}
+          {[product.specs.frost_resistance, product.specs.slip_resistance].map((tag) => (
+            <span key={tag} className="rounded-full bg-sand-deep px-2.5 py-1 text-xs font-medium text-stone">
+              {tag}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
+  );
+}

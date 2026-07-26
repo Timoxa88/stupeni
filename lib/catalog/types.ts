@@ -1,0 +1,120 @@
+/** Схема данных товара (ТЗ §17). Источник в проде — headless CMS. */
+
+export type ProductType = "step_system" | "slab";
+
+export type ApplicationCode =
+  | "kryltso"
+  | "lestnitsa-ulitsa"
+  | "terrasa"
+  | "dorozhki"
+  | "landshaft-opory"
+  | "bassein";
+
+export type ElementCode =
+  | "front"
+  | "corner_l"
+  | "corner_r"
+  | "riser"
+  | "base"
+  | "plinth";
+
+export interface ProductElement {
+  code: ElementCode;
+  name: string;
+  /** «1200x320». */
+  size_mm: string;
+  /** Длина элемента, м (для линейных). */
+  length_m?: number;
+  unit: "pcs" | "sqm";
+  /** Шт/м² (для base). */
+  per_sqm?: number;
+  weight_kg: number;
+  per_pallet?: number;
+  price_rub: number;
+}
+
+export interface ProductFormat {
+  /** «600x1200». */
+  code: string;
+  size_mm: string;
+  thickness_mm: number;
+  weight_kg: number;
+  per_sqm: number;
+  per_pallet?: number;
+  price_rub_sqm: number;
+  /** Цена за штуку (если есть; иначе считается по м²). */
+  price_rub_pcs?: number;
+}
+
+export interface ProductSpecs {
+  surface: string;
+  color: string;
+  color_hex: string;
+  frost_resistance: string;
+  water_absorption_pct: number;
+  slip_resistance: string;
+}
+
+/**
+ * Промо-механика (ТЗ §8.1). Менеджер включает/выключает из CMS.
+ * По истечении `ends_at` акция считается завершённой (см. `activePromo`).
+ */
+export interface ProductPromo {
+  /** Старая (зачёркнутая) цена, ₽. */
+  old_price?: number;
+  /** Процент скидки для бейджа, напр. 15 → «−15 %». */
+  discount_percent?: number;
+  /** Метка акции, напр. «Акция», «Хит». */
+  label?: string;
+  /** ISO-дата окончания акции (для таймера); по истечении гаснет. */
+  ends_at?: string;
+}
+
+/**
+ * Цветовой вариант коллекции (ТЗ §6 блок 10 / §8.1).
+ * Чип в витрине меняет превью и ведёт в карточку на выбранном цвете.
+ */
+export interface ProductVariant {
+  /** id артикула этого цвета (ссылка на Product.id). */
+  id: string;
+  color: string;
+  color_hex: string;
+  /** Превью-фото варианта (подмена в сетке витрины). */
+  photo?: string;
+}
+
+export interface Product {
+  id: string;
+  brand: string;
+  product_type: ProductType;
+  application: ApplicationCode[];
+  collection: string;
+  sku: string;
+  active: boolean;
+  elements?: ProductElement[];
+  formats?: ProductFormat[];
+  specs: ProductSpecs;
+  /** Наличие (ТЗ B.8/B.9). Источник в проде — 1С/учётная система. */
+  stock_status?: "in_stock" | "on_order";
+  /** Срок поставки под заказ, недель (для импортных коллекций обычно 6–10). */
+  lead_time_weeks?: number;
+  /** Дата актуальности цены, ISO (ТЗ B.9 — версионность цены/курса). */
+  price_updated_at?: string;
+  /** Промо-акция (ТЗ §8.1). */
+  promo?: ProductPromo;
+  /** Цветовые варианты коллекции (ТЗ §6 блок 10). */
+  variants?: ProductVariant[];
+  photos: string[];
+  documents?: ProductDocument[];
+  seo: { title: string; description: string; h1: string };
+}
+
+/** Документ артикула (ТЗ §8.4 вкладка 5). */
+export interface ProductDocument {
+  name: string;
+  url: string;
+  /** Тип: pdf-лист/каталог свободно; bim/texture — после профи-регистрации. */
+  kind?: "tech" | "catalog" | "cert" | "bim" | "texture";
+  /** Требует профи-регистрации для скачивания (BIM/CAD, текстуры). */
+  gated?: boolean;
+}
