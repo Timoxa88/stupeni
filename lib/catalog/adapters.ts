@@ -66,6 +66,29 @@ export function toStepPallets(p: Product): StepElementPallets {
   };
 }
 
+/**
+ * Норма базовой плитки артикула, шт/м² (ТЗ §8.3). Берётся из элемента `base`:
+ * сначала явный `per_sqm` из тех. листа, иначе считается из размера.
+ * Без неё калькулятор считал площадку по норме переключателя 30×30 независимо от
+ * реального формата плитки — на 300×600 это ровно двукратное завышение.
+ */
+export function toBasePerSqm(p: Product): number | undefined {
+  const base = findEl(p, "base");
+  if (!base) return undefined;
+  if (base.per_sqm && base.per_sqm > 0) return base.per_sqm;
+  const [w, h] = parseSize(base.size_mm);
+  if (w > 0 && h > 0) return 1 / ((w / 1000) * (h / 1000));
+  return undefined;
+}
+
+/** Человекочитаемый формат базовой плитки артикула («300×600 мм»). */
+export function baseTileLabel(p: Product): string | undefined {
+  const base = findEl(p, "base");
+  if (!base) return undefined;
+  const [w, h] = parseSize(base.size_mm);
+  return w && h ? `${w}×${h} мм` : base.size_mm;
+}
+
 /** Какие элементы реально есть у артикула (для скрытия опций в UI). */
 export interface StepAvailability {
   hasRisers: boolean;

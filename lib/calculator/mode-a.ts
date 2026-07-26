@@ -96,14 +96,16 @@ export function calcModeA(input: ModeAInput): CalcResult {
     { corners: 0, fronts: 0, risers: 0, plinths: 0 },
   );
 
-  // Базовая плитка площадки: Fбаз = ceil( Дпл × Шпл × шт_м²(размер) × 1.05 )
+  // Базовая плитка площадки: Fбаз = ceil( Дпл × Шпл × шт_м² × 1.05 ).
+  // шт_м² — из артикула (per_sqm тех. листа), иначе по выбранному размеру (ТЗ §8.3).
   const platformArea = input.platform
     ? input.platform.length * input.platform.width
     : 0;
-  const baseTiles =
-    platformArea > 0
-      ? Math.ceil(platformArea * TILE_PER_SQM[input.baseTileSize] * k)
-      : 0;
+  const perSqm =
+    input.basePerSqm && input.basePerSqm > 0
+      ? input.basePerSqm
+      : TILE_PER_SQM[input.baseTileSize];
+  const baseTiles = platformArea > 0 ? Math.ceil(platformArea * perSqm * k) : 0;
 
   // Позиции продукции
   const lineDefs: Array<{ code: StepElementCode; qty: number; price: number }> =

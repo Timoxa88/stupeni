@@ -3,17 +3,18 @@
  * Чистые функции над сид-массивом (в проде — над данными CMS).
  */
 
-import type { ApplicationCode, Product, ProductPromo } from "./types";
+import type { ApplicationCode, Product, ProductCategory, ProductPromo } from "./types";
 import { SEED_PRODUCTS } from "./seed";
 
 /** Три продуктовые категории-хаба (ТЗ §3). */
-export type CategoryKey =
-  | "terrasnyy-klinker"
-  | "terrasnye-plastiny"
-  | "plastiny-pod-derevo";
+export type CategoryKey = ProductCategory;
 
-/** Категория артикула выводится из типа и поверхности (ТЗ §1). */
+/**
+ * Категория артикула: приоритет — явное поле `category` (его проставляет генератор
+ * каталога по толщине и материалу), иначе вывод из типа и поверхности (ТЗ §1).
+ */
 export function productCategory(p: Product): CategoryKey {
+  if (p.category) return p.category;
   if (p.product_type === "step_system") return "terrasnyy-klinker";
   if (p.specs.surface === "wood") return "plastiny-pod-derevo";
   return "terrasnye-plastiny";

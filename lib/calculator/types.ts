@@ -128,8 +128,14 @@ export interface ModeAInput {
   cladSides: boolean;
   /** Верхняя площадка крыльца, м (опц.). */
   platform?: { length: number; width: number };
-  /** Размер базовой плитки площадки. */
+  /** Размер базовой плитки площадки (используется, если у артикула нет своей нормы). */
   baseTileSize: BaseTileSize;
+  /**
+   * Фактическая норма базовой плитки артикула, шт/м² (ТЗ §8.3: «если у артикула задан
+   * точный per_sqm из тех. листа — берётся он»). Приоритетнее baseTileSize.
+   * Без этого поля площадка из плитки 300×600 считалась по норме 30×30 — ровно вдвое больше.
+   */
+  basePerSqm?: number;
   geometry: StepGeometry;
   prices: StepElementPrices;
   weights?: StepElementWeights;

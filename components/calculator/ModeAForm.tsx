@@ -10,7 +10,9 @@ import {
   type StepElementPrices,
 } from "@/lib/calculator";
 import {
+  baseTileLabel,
   stepAvailability,
+  toBasePerSqm,
   toStepGeometry,
   toStepPallets,
   toStepPrices,
@@ -63,6 +65,10 @@ export function ModeAForm({
   );
 
   const avail = stepAvailability(product);
+  // Норма базовой плитки — из артикула; переключатель 30×30/30×60 остаётся только
+  // для артикулов, у которых нормы нет (ТЗ §8.3).
+  const articleBasePerSqm = toBasePerSqm(product);
+  const articleBaseLabel = baseTileLabel(product);
 
   // Цены переинициализируются при смене артикула (подставляются из CMS).
   useEffect(() => {
@@ -85,6 +91,7 @@ export function ModeAForm({
         cladSides: cladSides && avail.hasPlinth,
         platform: platformOn && avail.hasBase ? dPlatform : undefined,
         baseTileSize,
+        basePerSqm: articleBasePerSqm,
         geometry: toStepGeometry(product),
         prices: dPrices,
         weights: toStepWeights(product),
@@ -99,6 +106,7 @@ export function ModeAForm({
       platformOn,
       dPlatform,
       baseTileSize,
+      articleBasePerSqm,
       product,
       dPrices,
       materials,
@@ -127,17 +135,26 @@ export function ModeAForm({
             />
           </Field>
           <div className="mt-4">
-            <Field label="Размер базовой плитки площадки">
-              <Segmented
-                value={baseTileSize}
-                onChange={setBaseTileSize}
-                options={[
-                  { value: "30x30", label: "30×30 (11.11 шт/м²)" },
-                  { value: "30x60", label: "30×60 (5.56 шт/м²)" },
-                ]}
-                size="sm"
-              />
-            </Field>
+            {articleBasePerSqm ? (
+              <Field label="Базовая плитка площадки" hint="формат и норма — из артикула">
+                <div className="rounded-lg border border-sand-divider bg-sand/40 px-3 py-2 text-sm text-ink">
+                  {articleBaseLabel} ·{" "}
+                  <span className="tabular">{articleBasePerSqm.toFixed(2)}</span> шт/м²
+                </div>
+              </Field>
+            ) : (
+              <Field label="Размер базовой плитки площадки">
+                <Segmented
+                  value={baseTileSize}
+                  onChange={setBaseTileSize}
+                  options={[
+                    { value: "30x30", label: "30×30 (11.11 шт/м²)" },
+                    { value: "30x60", label: "30×60 (5.56 шт/м²)" },
+                  ]}
+                  size="sm"
+                />
+              </Field>
+            )}
           </div>
         </section>
 

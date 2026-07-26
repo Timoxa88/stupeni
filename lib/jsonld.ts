@@ -83,10 +83,17 @@ export function productSchema(p: Product) {
       price,
       priceCurrency: "RUB",
       url: abs(`/catalog/${p.id}`),
-      availability:
-        p.stock_status === "on_order"
-          ? "https://schema.org/PreOrder"
-          : "https://schema.org/InStock",
+      // Наличие размечаем ТОЛЬКО когда оно известно (источник — 1С, ТЗ B.9).
+      // Раньше при отсутствии данных подставлялось InStock — это заявление о
+      // наличии товара, которого мы не знаем.
+      ...(p.stock_status
+        ? {
+            availability:
+              p.stock_status === "on_order"
+                ? "https://schema.org/PreOrder"
+                : "https://schema.org/InStock",
+          }
+        : {}),
       priceValidUntil: validUntil,
       seller: { "@type": "Organization", name: SITE.name },
     },

@@ -46,13 +46,24 @@ export interface ProductFormat {
   price_rub_pcs?: number;
 }
 
+/** Ключ продуктовой категории-хаба (ТЗ §3). Дублирует CategoryKey в queries.ts. */
+export type ProductCategory =
+  | "terrasnyy-klinker"
+  | "terrasnye-plastiny"
+  | "plastiny-pod-derevo";
+
+/**
+ * Характеристики. Морозостойкость, водопоглощение и R-класс опциональны:
+ * если в источнике данных марки нет, поле остаётся пустым и строка не выводится —
+ * писать «F100» или «0 %» по догадке нельзя (это заявление о свойствах товара).
+ */
 export interface ProductSpecs {
   surface: string;
   color: string;
   color_hex: string;
-  frost_resistance: string;
-  water_absorption_pct: number;
-  slip_resistance: string;
+  frost_resistance?: string;
+  water_absorption_pct?: number;
+  slip_resistance?: string;
 }
 
 /**
@@ -88,6 +99,12 @@ export interface Product {
   brand: string;
   product_type: ProductType;
   application: ApplicationCode[];
+  /**
+   * Явная категория-хаб. Нужна там, где её не вывести из типа: тонкая клинкерная
+   * напольная плитка (8–11 мм) — это «Террасный клинкер», а не «Пластины 20 мм».
+   * Не задана — категория выводится из product_type/поверхности (см. productCategory).
+   */
+  category?: ProductCategory;
   collection: string;
   sku: string;
   active: boolean;

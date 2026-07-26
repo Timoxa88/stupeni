@@ -119,7 +119,7 @@ export function ProductCard({ product }: { product: Product }) {
               {product.stock_status === "in_stock" ? "В наличии" : "Под заказ"}
             </span>
           ) : null}
-          {[product.specs.frost_resistance, product.specs.slip_resistance].map((tag) => (
+          {[product.specs.frost_resistance, product.specs.slip_resistance].filter(Boolean).map((tag) => (
             <span key={tag} className="rounded-full bg-sand-deep px-2.5 py-1 text-xs font-medium text-stone">
               {tag}
             </span>

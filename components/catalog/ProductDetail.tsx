@@ -90,10 +90,18 @@ export function ProductDetail({ product }: { product: Product }) {
     ...(v.thickness ? ([["Толщина, мм", String(v.thickness)]] as [string, string][]) : []),
     ...(v.weight ? ([["Вес штуки, кг", formatNum(v.weight)]] as [string, string][]) : []),
     ["Поверхность", SURFACE[product.specs.surface] ?? product.specs.surface],
-    ["Противоскольжение", product.specs.slip_resistance],
+    // Незаполненные характеристики не выводим: «F100» или «0 %» по догадке — это
+    // заявление о свойствах товара, которого нет в источнике данных.
+    ...(product.specs.slip_resistance
+      ? ([["Противоскольжение", product.specs.slip_resistance]] as [string, string][])
+      : []),
     ["Цвет", product.specs.color],
-    ["Морозостойкость", product.specs.frost_resistance],
-    ["Водопоглощение", `${formatNum(product.specs.water_absorption_pct)} %`],
+    ...(product.specs.frost_resistance
+      ? ([["Морозостойкость", product.specs.frost_resistance]] as [string, string][])
+      : []),
+    ...(product.specs.water_absorption_pct != null
+      ? ([["Водопоглощение", `${formatNum(product.specs.water_absorption_pct)} %`]] as [string, string][])
+      : []),
     ...(v.perSqm ? ([["Шт/м²", formatNum(v.perSqm)]] as [string, string][]) : []),
     ...(v.perPallet ? ([["Шт/поддон", String(v.perPallet)]] as [string, string][]) : []),
   ];
