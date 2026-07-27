@@ -93,7 +93,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-architeq-grey/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz ARCHITEQ GREY — цена, характеристики",
@@ -105,13 +105,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-architeq-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-architeq-grey/texture.jpg"
       },
       {
         id: "paradyz-architeq-mocca",
         color: "MOCCA",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-architeq-mocca/texture.jpg"
       }
     ]
   },
@@ -158,7 +158,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-architeq-mocca/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz ARCHITEQ MOCCA — цена, характеристики",
@@ -170,13 +170,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-architeq-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-architeq-grey/texture.jpg"
       },
       {
         id: "paradyz-architeq-mocca",
         color: "MOCCA",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-architeq-mocca/texture.jpg"
       }
     ]
   },
@@ -467,7 +467,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-ardis-dark/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ardis Dark — цена, характеристики",
@@ -479,19 +479,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-ardis-dark",
         color: "Тёмный",
         color_hex: "#5A4636",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-dark/texture.jpg"
       },
       {
         id: "paradyz-ardis-light",
         color: "Светлый",
         color_hex: "#D6C6AC",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-light/texture.jpg"
       },
       {
         id: "paradyz-ardis-rust",
         color: "Ржавый",
         color_hex: "#A8502F",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-rust/texture.jpg"
       }
     ]
   },
@@ -539,7 +539,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-ardis-light/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ardis Light — цена, характеристики",
@@ -551,19 +551,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-ardis-dark",
         color: "Тёмный",
         color_hex: "#5A4636",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-dark/texture.jpg"
       },
       {
         id: "paradyz-ardis-light",
         color: "Светлый",
         color_hex: "#D6C6AC",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-light/texture.jpg"
       },
       {
         id: "paradyz-ardis-rust",
         color: "Ржавый",
         color_hex: "#A8502F",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-rust/texture.jpg"
       }
     ]
   },
@@ -611,7 +611,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-ardis-rust/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ardis Rust — цена, характеристики",
@@ -623,19 +623,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-ardis-dark",
         color: "Тёмный",
         color_hex: "#5A4636",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-dark/texture.jpg"
       },
       {
         id: "paradyz-ardis-light",
         color: "Светлый",
         color_hex: "#D6C6AC",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-light/texture.jpg"
       },
       {
         id: "paradyz-ardis-rust",
         color: "Ржавый",
         color_hex: "#A8502F",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-ardis-rust/texture.jpg"
       }
     ]
   },
@@ -683,7 +683,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-arteon-brown/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon Brown — цена, характеристики",
@@ -695,13 +695,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
       },
       {
         id: "paradyz-arteon-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
       },
       {
         id: "paradyz-arteon-ochra",
@@ -713,7 +713,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-rosso",
         color: "Rosso",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
       },
       {
         id: "paradyz-arteon-taupe",
@@ -767,7 +767,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-arteon-grys/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon Grys — цена, характеристики",
@@ -779,13 +779,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
       },
       {
         id: "paradyz-arteon-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
       },
       {
         id: "paradyz-arteon-ochra",
@@ -797,7 +797,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-rosso",
         color: "Rosso",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
       },
       {
         id: "paradyz-arteon-taupe",
@@ -863,13 +863,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
       },
       {
         id: "paradyz-arteon-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
       },
       {
         id: "paradyz-arteon-ochra",
@@ -881,7 +881,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-rosso",
         color: "Rosso",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
       },
       {
         id: "paradyz-arteon-taupe",
@@ -935,7 +935,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-arteon-rosso/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon Rosso — цена, характеристики",
@@ -947,13 +947,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
       },
       {
         id: "paradyz-arteon-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
       },
       {
         id: "paradyz-arteon-ochra",
@@ -965,7 +965,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-rosso",
         color: "Rosso",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
       },
       {
         id: "paradyz-arteon-taupe",
@@ -1031,13 +1031,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
       },
       {
         id: "paradyz-arteon-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
       },
       {
         id: "paradyz-arteon-ochra",
@@ -1049,7 +1049,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-arteon-rosso",
         color: "Rosso",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
       },
       {
         id: "paradyz-arteon-taupe",
@@ -1549,7 +1549,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-carrizo-bazalt/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Carrizo Bazalt — цена, характеристики",
@@ -1561,19 +1561,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-carrizo-bazalt",
         color: "Bazalt",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-bazalt/texture.jpg"
       },
       {
         id: "paradyz-carrizo-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-grey/texture.jpg"
       },
       {
         id: "paradyz-carrizo-wood",
         color: "Wood",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-wood/texture.jpg"
       }
     ]
   },
@@ -1621,7 +1621,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-carrizo-grey/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Carrizo Grey — цена, характеристики",
@@ -1633,19 +1633,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-carrizo-bazalt",
         color: "Bazalt",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-bazalt/texture.jpg"
       },
       {
         id: "paradyz-carrizo-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-grey/texture.jpg"
       },
       {
         id: "paradyz-carrizo-wood",
         color: "Wood",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-wood/texture.jpg"
       }
     ]
   },
@@ -1693,7 +1693,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-carrizo-wood/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Carrizo Wood — цена, характеристики",
@@ -1705,19 +1705,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-carrizo-bazalt",
         color: "Bazalt",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-bazalt/texture.jpg"
       },
       {
         id: "paradyz-carrizo-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-grey/texture.jpg"
       },
       {
         id: "paradyz-carrizo-wood",
         color: "Wood",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-carrizo-wood/texture.jpg"
       }
     ]
   },
@@ -2037,7 +2037,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-eremite-beige/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Eremite Beige — цена, характеристики",
@@ -2049,25 +2049,25 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-eremite-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
       },
       {
         id: "paradyz-eremite-crema",
         color: "Crema",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
       },
       {
         id: "paradyz-eremite-sand",
         color: "Песочный",
         color_hex: "#D2BE9A",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
       },
       {
         id: "paradyz-eremite-taupe",
         color: "Taupe",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
       }
     ]
   },
@@ -2115,7 +2115,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-eremite-crema/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Eremite Crema — цена, характеристики",
@@ -2127,25 +2127,25 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-eremite-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
       },
       {
         id: "paradyz-eremite-crema",
         color: "Crema",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
       },
       {
         id: "paradyz-eremite-sand",
         color: "Песочный",
         color_hex: "#D2BE9A",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
       },
       {
         id: "paradyz-eremite-taupe",
         color: "Taupe",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
       }
     ]
   },
@@ -2193,7 +2193,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-eremite-sand/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Eremite Sand — цена, характеристики",
@@ -2205,25 +2205,25 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-eremite-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
       },
       {
         id: "paradyz-eremite-crema",
         color: "Crema",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
       },
       {
         id: "paradyz-eremite-sand",
         color: "Песочный",
         color_hex: "#D2BE9A",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
       },
       {
         id: "paradyz-eremite-taupe",
         color: "Taupe",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
       }
     ]
   },
@@ -2271,7 +2271,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-eremite-taupe/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Eremite Taupe — цена, характеристики",
@@ -2283,25 +2283,25 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-eremite-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
       },
       {
         id: "paradyz-eremite-crema",
         color: "Crema",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
       },
       {
         id: "paradyz-eremite-sand",
         color: "Песочный",
         color_hex: "#D2BE9A",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
       },
       {
         id: "paradyz-eremite-taupe",
         color: "Taupe",
         color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
       }
     ]
   },
@@ -2911,7 +2911,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-magnetik-antracite/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz MAGNETIK ANTRACITE — цена, характеристики",
@@ -2923,37 +2923,37 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-magnetik-antracite",
         color: "Антрацит",
         color_hex: "#3A3C3B",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-antracite/texture.jpg"
       },
       {
         id: "paradyz-magnetik-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-beige/texture.jpg"
       },
       {
         id: "paradyz-magnetik-bianco",
         color: "Белый",
         color_hex: "#E4DED2",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-bianco/texture.jpg"
       },
       {
         id: "paradyz-magnetik-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-brown/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grafit/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grys/texture.jpg"
       }
     ]
   },
@@ -2990,7 +2990,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-magnetik-beige/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz MAGNETIK BEIGE — цена, характеристики",
@@ -3002,37 +3002,37 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-magnetik-antracite",
         color: "Антрацит",
         color_hex: "#3A3C3B",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-antracite/texture.jpg"
       },
       {
         id: "paradyz-magnetik-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-beige/texture.jpg"
       },
       {
         id: "paradyz-magnetik-bianco",
         color: "Белый",
         color_hex: "#E4DED2",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-bianco/texture.jpg"
       },
       {
         id: "paradyz-magnetik-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-brown/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grafit/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grys/texture.jpg"
       }
     ]
   },
@@ -3069,7 +3069,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-magnetik-bianco/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz MAGNETIK BIANCO — цена, характеристики",
@@ -3081,37 +3081,37 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-magnetik-antracite",
         color: "Антрацит",
         color_hex: "#3A3C3B",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-antracite/texture.jpg"
       },
       {
         id: "paradyz-magnetik-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-beige/texture.jpg"
       },
       {
         id: "paradyz-magnetik-bianco",
         color: "Белый",
         color_hex: "#E4DED2",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-bianco/texture.jpg"
       },
       {
         id: "paradyz-magnetik-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-brown/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grafit/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grys/texture.jpg"
       }
     ]
   },
@@ -3148,7 +3148,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-magnetik-brown/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz MAGNETIK BROWN — цена, характеристики",
@@ -3160,37 +3160,37 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-magnetik-antracite",
         color: "Антрацит",
         color_hex: "#3A3C3B",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-antracite/texture.jpg"
       },
       {
         id: "paradyz-magnetik-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-beige/texture.jpg"
       },
       {
         id: "paradyz-magnetik-bianco",
         color: "Белый",
         color_hex: "#E4DED2",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-bianco/texture.jpg"
       },
       {
         id: "paradyz-magnetik-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-brown/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grafit/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grys/texture.jpg"
       }
     ]
   },
@@ -3227,7 +3227,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-magnetik-grafit/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz MAGNETIK GRAFIT — цена, характеристики",
@@ -3239,37 +3239,37 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-magnetik-antracite",
         color: "Антрацит",
         color_hex: "#3A3C3B",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-antracite/texture.jpg"
       },
       {
         id: "paradyz-magnetik-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-beige/texture.jpg"
       },
       {
         id: "paradyz-magnetik-bianco",
         color: "Белый",
         color_hex: "#E4DED2",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-bianco/texture.jpg"
       },
       {
         id: "paradyz-magnetik-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-brown/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grafit/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grys/texture.jpg"
       }
     ]
   },
@@ -3306,7 +3306,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-magnetik-grys/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz MAGNETIK GRYS — цена, характеристики",
@@ -3318,37 +3318,37 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-magnetik-antracite",
         color: "Антрацит",
         color_hex: "#3A3C3B",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-antracite/texture.jpg"
       },
       {
         id: "paradyz-magnetik-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-beige/texture.jpg"
       },
       {
         id: "paradyz-magnetik-bianco",
         color: "Белый",
         color_hex: "#E4DED2",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-bianco/texture.jpg"
       },
       {
         id: "paradyz-magnetik-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-brown/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grafit/texture.jpg"
       },
       {
         id: "paradyz-magnetik-grys",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-magnetik-grys/texture.jpg"
       }
     ]
   },
@@ -3512,7 +3512,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#C9B79C"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Pietra Beige — цена, характеристики",
@@ -3524,19 +3524,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-mattone-pietra-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
       },
       {
         id: "paradyz-mattone-pietra-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
       },
       {
         id: "paradyz-mattone-pietra-ochra",
         color: "Охра",
         color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
       }
     ]
   },
@@ -3590,7 +3590,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#4A4D4E"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Pietra Grafit — цена, характеристики",
@@ -3602,19 +3602,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-mattone-pietra-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
       },
       {
         id: "paradyz-mattone-pietra-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
       },
       {
         id: "paradyz-mattone-pietra-ochra",
         color: "Охра",
         color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
       }
     ]
   },
@@ -3668,7 +3668,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#C7A45C"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Pietra Ochra — цена, характеристики",
@@ -3680,19 +3680,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-mattone-pietra-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
       },
       {
         id: "paradyz-mattone-pietra-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
       },
       {
         id: "paradyz-mattone-pietra-ochra",
         color: "Охра",
         color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
       }
     ]
   },
@@ -3746,7 +3746,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#C9B79C"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Sabbia Beige — цена, характеристики",
@@ -3758,19 +3758,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-mattone-sabbia-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
       },
       {
         id: "paradyz-mattone-sabbia-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
       },
       {
         id: "paradyz-mattone-sabbia-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
       }
     ]
   },
@@ -3824,7 +3824,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#7A4B33"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Sabbia Brown — цена, характеристики",
@@ -3836,19 +3836,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-mattone-sabbia-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
       },
       {
         id: "paradyz-mattone-sabbia-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
       },
       {
         id: "paradyz-mattone-sabbia-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
       }
     ]
   },
@@ -3902,7 +3902,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#4A4D4E"
     },
     photos: [
-      "/images/cat-clinker.jpg"
+      "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Sabbia Grafit — цена, характеристики",
@@ -3914,19 +3914,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-mattone-sabbia-beige",
         color: "Бежевый",
         color_hex: "#C9B79C",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
       },
       {
         id: "paradyz-mattone-sabbia-brown",
         color: "Коричневый",
         color_hex: "#7A4B33",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
       },
       {
         id: "paradyz-mattone-sabbia-grafit",
         color: "Графит",
         color_hex: "#4A4D4E",
-        photo: "/images/cat-clinker.jpg"
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
       }
     ]
   },
@@ -3982,7 +3982,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#9A8F80"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-natural-rocks-basalt/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz NATURAL ROCKS BASALT — цена, характеристики",
@@ -3994,19 +3994,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-natural-rocks-basalt",
         color: "BASALT",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-basalt/texture.jpg"
       },
       {
         id: "paradyz-natural-rocks-silver",
         color: "Серебристый",
         color_hex: "#B4B3AE",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-silver/texture.jpg"
       },
       {
         id: "paradyz-natural-rocks-titan",
         color: "TITAN",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-titan/texture.jpg"
       }
     ]
   },
@@ -4062,7 +4062,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#C2A15A"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-natural-rocks-gold-sand/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz NATURAL ROCKS GOLD SAND — цена, характеристики",
@@ -4122,7 +4122,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#B4B3AE"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-natural-rocks-silver/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz NATURAL ROCKS SILVER — цена, характеристики",
@@ -4134,19 +4134,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-natural-rocks-basalt",
         color: "BASALT",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-basalt/texture.jpg"
       },
       {
         id: "paradyz-natural-rocks-silver",
         color: "Серебристый",
         color_hex: "#B4B3AE",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-silver/texture.jpg"
       },
       {
         id: "paradyz-natural-rocks-titan",
         color: "TITAN",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-titan/texture.jpg"
       }
     ]
   },
@@ -4182,7 +4182,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#9A8F80"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-natural-rocks-titan/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz NATURAL ROCKS TITAN — цена, характеристики",
@@ -4194,19 +4194,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-natural-rocks-basalt",
         color: "BASALT",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-basalt/texture.jpg"
       },
       {
         id: "paradyz-natural-rocks-silver",
         color: "Серебристый",
         color_hex: "#B4B3AE",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-silver/texture.jpg"
       },
       {
         id: "paradyz-natural-rocks-titan",
         color: "TITAN",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-natural-rocks-titan/texture.jpg"
       }
     ]
   },
@@ -5265,7 +5265,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#9A8F80"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-pure-art-basalt/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz PURE ART BASALT — цена, характеристики",
@@ -5277,19 +5277,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-pure-art-basalt",
         color: "BASALT",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-basalt/texture.jpg"
       },
       {
         id: "paradyz-pure-art-greige",
         color: "GREIGE",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-greige/texture.jpg"
       },
       {
         id: "paradyz-pure-art-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-grey/texture.jpg"
       }
     ]
   },
@@ -5325,7 +5325,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#5A4636"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-pure-art-dark-grey/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz PURE ART DARK GREY — цена, характеристики",
@@ -5365,7 +5365,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#9A8F80"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-pure-art-greige/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz PURE ART GREIGE — цена, характеристики",
@@ -5377,19 +5377,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-pure-art-basalt",
         color: "BASALT",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-basalt/texture.jpg"
       },
       {
         id: "paradyz-pure-art-greige",
         color: "GREIGE",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-greige/texture.jpg"
       },
       {
         id: "paradyz-pure-art-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-grey/texture.jpg"
       }
     ]
   },
@@ -5425,7 +5425,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#8A8A86"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-pure-art-grey/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz PURE ART GREY — цена, характеристики",
@@ -5437,19 +5437,19 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         id: "paradyz-pure-art-basalt",
         color: "BASALT",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-basalt/texture.jpg"
       },
       {
         id: "paradyz-pure-art-greige",
         color: "GREIGE",
         color_hex: "#9A8F80",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-greige/texture.jpg"
       },
       {
         id: "paradyz-pure-art-grey",
         color: "Серый",
         color_hex: "#8A8A86",
-        photo: "/images/cat-slab.jpg"
+        photo: "/images/products/paradyz-pure-art-grey/texture.jpg"
       }
     ]
   },
@@ -5636,7 +5636,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#9A8F80"
     },
     photos: [
-      "/images/cat-slab.jpg"
+      "/images/products/paradyz-rustic-gold/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz RUSTIC GOLD — цена, характеристики",

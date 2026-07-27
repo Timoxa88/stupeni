@@ -102,6 +102,20 @@ def color_of(name, collection):
     return " ".join(out).strip() or "—"
 
 
+def photos_for(pid, photo_url, photo_dst, is_wood, kind):
+    """Фото карточки: своё с hit-ceramics.ru → текстура производителя paradyz.com → заглушка."""
+    out = []
+    if photo_url:
+        out.append(photo_dst)
+    tex = os.path.join(SITE, "public", "images", "products", pid, "texture.jpg")
+    if os.path.exists(tex):
+        out.append(f"/images/products/{pid}/texture.jpg")
+    if out:
+        return out
+    return ["/images/cat-wood.jpg"] if is_wood else (
+        ["/images/cat-clinker.jpg"] if kind == "step" else ["/images/cat-slab.jpg"])
+
+
 def main():
     sh = json.load(open(os.path.join(D, "paradyz-price", "sheets.json"), encoding="utf-8"))
     sl = json.load(open(os.path.join(D, "slavdom", "products.json"), encoding="utf-8"))
@@ -232,9 +246,7 @@ def main():
             "elements": [{k: v for k, v in e.items() if not k.startswith("_")} for e in payload] if kind == "step" else None,
             "formats": [{k: v for k, v in e.items() if not k.startswith("_")} for e in payload] if kind == "slab" else None,
             "specs": specs,
-            "photos": [photo_dst if photo_url else
-                       ("/images/cat-wood.jpg" if is_wood else
-                        ("/images/cat-clinker.jpg" if kind == "step" else "/images/cat-slab.jpg"))],
+            "photos": photos_for(pid, photo_url, photo_dst, is_wood, kind),
             "seo": {
                 "title": f"{kind_ru.capitalize()} {title} — цена, характеристики",
                 "description": f"{kind_ru.capitalize()} {title}: розничная цена, поэлементный "
