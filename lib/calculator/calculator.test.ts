@@ -7,6 +7,7 @@ import { describe, expect, test } from "bun:test";
 import { calcModeA } from "./mode-a";
 import { calcModeB } from "./mode-b";
 import { pedestalsPerSqm } from "./reference";
+import { calcSummary } from "./summary";
 import type { ModeAInput, ModeBInput } from "./types";
 
 const close = (a: number, b: number, eps = 0.01) =>
@@ -196,5 +197,45 @@ describe("Граничные случаи", () => {
     expect(
       (diagonal.detail as { slabs: number }).slabs,
     ).toBeGreaterThan((straight.detail as { slabs: number }).slabs);
+  });
+});
+
+describe("Сводка расчёта для менеджера (ТЗ §12.3)", () => {
+  const input: ModeBInput = {
+    city: "msk",
+    areas: [{ id: "a1", length: 6, width: 4 }],
+    deductions: [{ id: "d1", shape: "circle", diameter: 1.0 }],
+    format: { code: "600x1200", widthMm: 600, heightMm: 1200, weightKg: 32, perPallet: 40 },
+    method: "glue",
+    layout: "straight",
+    pricePerPiece: 3000,
+    withMaterials: true,
+  };
+  const summary = calcSummary(calcModeB(input), {
+    article: "Paradyz Scandiano Brown",
+    extra: "Укладка: на клей, раскладка: прямая",
+  });
+
+  test("в сводке есть режим, город, артикул и способ укладки", () => {
+    expect(summary).toContain("терраса/площадка");
+    expect(summary).toContain("Москва");
+    expect(summary).toContain("Paradyz Scandiano Brown");
+    expect(summary).toContain("на клей");
+  });
+
+  test("в сводке есть площадь, состав, материалы и итог", () => {
+    expect(summary).toContain("23,21 м² нетто");
+    expect(summary).toContain("34 шт");          // плит
+    expect(summary).toContain("Клей Flex FKC");
+    expect(summary).toContain("5 уп.");
+    expect(summary).toContain("ИТОГО");
+    expect(summary).toContain("Вес поставки");
+  });
+
+  test("итог в сводке совпадает с расчётом", () => {
+    const r = calcModeB(input);
+    const total = new Intl.NumberFormat("ru-RU", { maximumFractionDigits: 0 })
+      .format(Math.round(r.grandTotal));
+    expect(summary).toContain(`ИТОГО: ${total} ₽`);
   });
 });

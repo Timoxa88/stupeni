@@ -4,7 +4,7 @@
  * <SchemaScript> в <script type="application/ld+json">.
  */
 
-import { SITE } from "@/lib/content/site";
+import { SITE, PLACES, CITY_CONTACTS } from "@/lib/content/site";
 import type { Product } from "@/lib/catalog/types";
 import { activePromo, basePrice } from "@/lib/catalog/queries";
 import { priceView } from "@/lib/catalog/pricing";
@@ -25,20 +25,44 @@ export function organizationSchema() {
   };
 }
 
+/**
+ * LocalBusiness — по одной сущности на точку (ТЗ B.3).
+ *
+ * Раньше отдавалась ОДНА сущность с массивом в `address`: по schema.org там
+ * одно значение, две точки описываются двумя объектами с разными `@id`.
+ * Координаты и часы берутся из PLACES, телефон — городской из CITY_CONTACTS.
+ */
 export function localBusinessSchema() {
-  return {
+  const phoneByCity = new Map<string, string>(
+    CITY_CONTACTS.map((c) => [c.city as string, c.phone as string]),
+  );
+  return PLACES.map((pl) => ({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: SITE.name,
+    "@id": abs(`/#${pl.kind}-${pl.city === "Москва" ? "msk" : "spb"}-${slugifyPlace(pl.address)}`),
+    name: `${SITE.name} — ${pl.kind === "showroom" ? "шоу-рум" : "склад"}, ${pl.city}`,
     url: SITE.baseUrl,
-    telephone: SITE.phone,
-    address: [
-      { "@type": "PostalAddress", addressLocality: "Москва", streetAddress: "Подольск, Домодедовское ш., 1В" },
-      { "@type": "PostalAddress", addressLocality: "Санкт-Петербург", streetAddress: "Тосненский р-н, Фёдоровское" },
-    ],
-    openingHours: "Mo-Fr 09:00-19:00",
-  };
+    telephone: phoneByCity.get(pl.city) ?? SITE.phone,
+    email: SITE.email,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: pl.city,
+      streetAddress: pl.address,
+      addressCountry: "RU",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: pl.coords[0], longitude: pl.coords[1] },
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "19:00",
+    },
+    parentOrganization: { "@type": "Organization", name: SITE.legal, taxID: SITE.inn },
+  }));
 }
+
+const slugifyPlace = (s: string) =>
+  s.toLowerCase().replace(/[^a-zа-я0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 24);
 
 export function breadcrumbSchema(items: { name: string; url: string }[]) {
   return {

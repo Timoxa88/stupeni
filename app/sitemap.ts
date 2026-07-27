@@ -5,10 +5,28 @@ import { SOLUTIONS } from "@/lib/content/solutions";
 import { BLOG_POSTS } from "@/lib/content/blog";
 import { BRANDS } from "@/lib/catalog/brands";
 import { SEED_PRODUCTS } from "@/lib/catalog/seed";
+import { productCategory } from "@/lib/catalog/queries";
 
-// Дата последней правки контента (обновлять при релизах; реальный lastmod —
-// из CMS при наличии, ТЗ B.4).
-const BUILD_DATE = new Date("2026-06-18");
+/**
+ * lastmod (ТЗ B.4 — freshness как GEO-сигнал).
+ *
+ * Раньше на ВСЕХ URL стояла одна захардкоженная дата 18.06.2026, из-за чего
+ * sitemap врал о свежести. Теперь дата берётся из самих данных:
+ *  - карточка товара — дата прайса (`price_updated_at`);
+ *  - статья — `dateModified`/`date`;
+ *  - категории, бренды, решения — максимум по их товарам/контенту;
+ *  - служебные страницы — дата сборки (меняется при деплое).
+ */
+const BUILD_DATE = new Date();
+
+/** Самая свежая дата из набора; при пустом наборе — дата сборки. */
+const latest = (dates: (string | undefined)[]): Date => {
+  const ms = dates
+    .filter(Boolean)
+    .map((d) => Date.parse(d as string))
+    .filter((n) => Number.isFinite(n));
+  return ms.length ? new Date(Math.max(...ms)) : BUILD_DATE;
+};
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.baseUrl;
@@ -23,10 +41,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  const categories = CATEGORIES.map((c) => ({ url: url(`/${c.slug}`), lastModified: BUILD_DATE, priority: 0.9 }));
-  const solutions = SOLUTIONS.map((s) => ({ url: url(`/resheniya/${s.slug}`), lastModified: BUILD_DATE, priority: 0.8 }));
-  const producers = BRANDS.map((b) => ({ url: url(`/producers/${b.slug}`), lastModified: BUILD_DATE, priority: 0.7 }));
-  const products = SEED_PRODUCTS.filter((p) => p.active).map((p) => ({
+  const active = SEED_PRODUCTS.filter((p) => p.active);
+  const categories = CATEGORIES.map((c) => ({
+    url: url(`/${c.slug}`),
+    lastModified: latest(
+      active.filter((p) => productCategory(p) === c.slug).map((p) => p.price_updated_at),
+    ),
+    priority: 0.9,
+  }));
+  const solutions = SOLUTIONS.map((s) => ({
+    url: url(`/resheniya/${s.slug}`),
+    lastModified: latest(
+      active
+        .filter((p) => p.application.includes(s.slug as (typeof p.application)[number]))
+        .map((p) => p.price_updated_at),
+    ),
+    priority: 0.8,
+  }));
+  const producers = BRANDS.map((b) => ({
+    url: url(`/producers/${b.slug}`),
+    lastModified: latest(active.filter((p) => p.brand === b.name).map((p) => p.price_updated_at)),
+    priority: 0.7,
+  }));
+  const products = active.map((p) => ({
     url: url(`/catalog/${p.id}`),
     lastModified: p.price_updated_at ? new Date(p.price_updated_at) : BUILD_DATE,
     priority: 0.6,

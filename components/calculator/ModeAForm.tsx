@@ -28,6 +28,7 @@ import {
   TextField,
   Toggle,
 } from "@/components/ui/controls";
+import { calcSummary } from "@/lib/calculator/summary";
 import { ResultPanel } from "./ResultPanel";
 import { MaterialToggles } from "./MaterialToggles";
 
@@ -344,7 +345,23 @@ export function ModeAForm({
           result={result}
           onSend={() =>
             onSend(
-              `Ступени, ${marches.length} марш(а/ей), ${product.brand} ${product.collection}, ${baseTileSize}`,
+              calcSummary(result, {
+                article: `${product.brand} ${product.collection}`,
+                extra:
+                  `Маршей: ${marches.length}` +
+                  marches
+                    .map(
+                      (m, i) =>
+                        `\n  марш ${i + 1}${m.name ? ` «${m.name}»` : ""}: ${m.steps} ступ., ` +
+                        `ширина ${m.width} м, проступь ${m.treadDepth} м, подступёнок ${m.riserHeight} м, ` +
+                        `внешних углов ${m.externalCorners}`,
+                    )
+                    .join("") +
+                  (platformOn && avail.hasBase
+                    ? `\n  площадка: ${platform.length}×${platform.width} м`
+                    : ""),
+                page: typeof window !== "undefined" ? window.location.href : undefined,
+              }),
             )
           }
         />

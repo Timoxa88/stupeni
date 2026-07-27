@@ -23,6 +23,7 @@ export default function robots(): MetadataRoute.Robots {
       ...aiBots.map((ua) => ({ userAgent: ua, allow: "/" })),
     ],
     sitemap: `${SITE.baseUrl}/sitemap.xml`,
-    host: SITE.baseUrl,
+    // Директиву Host не отдаём: Яндекс отказался от неё ещё в 2018-м, а тут она
+    // к тому же писалась со схемой и подпутём («https://…/stupeni»), что невалидно.
   };
 }

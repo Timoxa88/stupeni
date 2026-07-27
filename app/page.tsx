@@ -477,7 +477,7 @@ export default function Home() {
       <Footer />
 
       <ExitIntent />
-      <SchemaScript data={[organizationSchema(), localBusinessSchema()]} />
+      <SchemaScript data={[organizationSchema(), ...localBusinessSchema()]} />
     </>
   );
 }

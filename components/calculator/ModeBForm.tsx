@@ -24,6 +24,7 @@ import {
   TextField,
   Toggle,
 } from "@/components/ui/controls";
+import { calcSummary } from "@/lib/calculator/summary";
 import { ResultPanel } from "./ResultPanel";
 import { MaterialToggles } from "./MaterialToggles";
 
@@ -373,13 +374,30 @@ export function ModeBForm({
             result={result}
             onSend={() =>
               onSend(
-                `Терраса, ${product.brand} ${product.collection} ${format?.size_mm}, ${
-                  method === "glue"
-                    ? "на клей"
-                    : method === "pedestals"
-                      ? "на опоры HILST"
-                      : "на гравий"
-                }`,
+                calcSummary(result, {
+                  article: `${product.brand} ${product.collection} ${format?.size_mm ?? ""}`.trim(),
+                  extra:
+                    `Укладка: ${
+                      method === "glue"
+                        ? "на клей"
+                        : method === "pedestals"
+                          ? `на опоры HILST (${pedestalCode})`
+                          : "на гравий"
+                    }, раскладка: ${
+                      { straight: "прямая", offset: "со смещением", diagonal: "диагональ", complex: "сложная" }[layout]
+                    }` +
+                    areas
+                      .map((a, i) => `\n  участок ${i + 1}${a.name ? ` «${a.name}»` : ""}: ${a.length}×${a.width} м`)
+                      .join("") +
+                    deductions
+                      .map((d) =>
+                        d.shape === "circle"
+                          ? `\n  вычет: круг Ø${d.diameter} м`
+                          : `\n  вычет: ${d.length}×${d.width} м`,
+                      )
+                      .join(""),
+                  page: typeof window !== "undefined" ? window.location.href : undefined,
+                }),
               )
             }
           />
