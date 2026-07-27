@@ -305,7 +305,7 @@ export function ModeBForm({
           {tooSmallForPedestals ? (
             <p className="rounded-lg bg-clinker/10 px-3 py-2 text-sm text-clinker">
               Для опор рекомендована плитка не менее {PEDESTAL_MIN_SIDE_MM}×
-              {PEDESTAL_MIN_SIDE_MM} мм (ТЗ §9.2.4).
+              {PEDESTAL_MIN_SIDE_MM} мм.
             </p>
           ) : null}
           <Field label="Раскладка (запас на подрез)">

@@ -39,7 +39,7 @@ export default async function CalculatorPage({
             }}
           />
           <div className="relative mx-auto max-w-7xl px-5 py-16 sm:py-20">
-            <p className="eyebrow text-clinker-bright">Инструмент · ТЗ §9</p>
+            <p className="eyebrow text-clinker-bright">Инструмент</p>
             <h1 className="mt-4 max-w-3xl font-display text-4xl font-extrabold leading-[1.02] sm:text-6xl">
               Калькулятор комплекта
             </h1>

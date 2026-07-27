@@ -5,14 +5,16 @@ import { useEffect, useId, useState } from "react";
 import { Modal } from "@/components/ui/Modal";
 import { SITE } from "@/lib/content/site";
 
+/**
+ * Меню — четыре пункта вместо семи. Три категории свёрнуты в хаб «Каталог»
+ * (раньше /catalog отдавал 404), «Решения» ведут на хаб, а не сразу на крыльцо.
+ * Услуги и блог живут в футере — в шапке они отбирали внимание у главного действия.
+ */
 const NAV = [
-  { href: "/terrasnyy-klinker", label: "Клинкер" },
-  { href: "/terrasnye-plastiny", label: "Пластины" },
-  { href: "/plastiny-pod-derevo", label: "Под дерево" },
-  { href: "/resheniya/kryltso", label: "Решения" },
+  { href: "/catalog", label: "Каталог" },
+  { href: "/resheniya", label: "Решения" },
   { href: "/calculator", label: "Калькулятор" },
-  { href: "/services", label: "Услуги" },
-  { href: "/blog", label: "Блог" },
+  { href: "/contacts", label: "Контакты" },
 ];
 
 export function Header() {

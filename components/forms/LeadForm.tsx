@@ -5,7 +5,7 @@ import type { City } from "@/lib/calculator";
 import { withBase } from "@/lib/base";
 import { enqueueLead, flushLeads, installLeadQueueAutoFlush } from "@/lib/leadQueue";
 
-type FieldKey = "email" | "company" | "interest" | "region" | "comment";
+type FieldKey = "email" | "company" | "interest" | "region" | "comment" | "catalog";
 
 export interface LeadFormProps {
   /** Тег заявки в CRM (ТЗ §12.2). */
@@ -53,6 +53,9 @@ export function LeadForm({
   const [interest, setInterest] = useState(interestOptions?.[0] ?? "");
   const [region, setRegion] = useState("");
   const [note, setNote] = useState("");
+  // Бывший отдельный блок «лид-магнит» — теперь галочка в общей форме: одна форма
+  // вместо двух, и мы не отдаём ссылку на PDF, пока настоящего каталога нет.
+  const [wantCatalog, setWantCatalog] = useState(false);
   const [hp, setHp] = useState(""); // honeypot (ТЗ §15)
   const [consent, setConsent] = useState(false); // 152-ФЗ (ТЗ B.2)
   const [marketing, setMarketing] = useState(false); // отдельное согласие на рассылки
@@ -96,6 +99,7 @@ export function LeadForm({
       fields.includes("region") && region ? `Регион: ${region}` : "",
       fields.includes("comment") && note ? note : "",
       fields.includes("email") && email ? `Email: ${email}` : "",
+      fields.includes("catalog") && wantCatalog ? "Просит каталог и прайс (PDF)" : "",
       marketing ? "Согласие на маркетинговые рассылки: да" : "",
     ].filter(Boolean);
     const url = withBase("/api/lead");
@@ -292,6 +296,20 @@ export function LeadForm({
             className={inputCls}
             placeholder="Кратко опишите задачу"
           />
+        </label>
+      ) : null}
+
+      {fields.includes("catalog") ? (
+        <label className="flex items-start gap-2.5">
+          <input
+            type="checkbox"
+            checked={wantCatalog}
+            onChange={(e) => setWantCatalog(e.target.checked)}
+            className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--color-clinker)]"
+          />
+          <span className={`text-sm ${dark ? "text-sand/80" : "text-stone"}`}>
+            Пришлите заодно каталог коллекций и прайс-лист.
+          </span>
         </label>
       ) : null}
 

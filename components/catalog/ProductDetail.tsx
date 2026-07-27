@@ -256,8 +256,8 @@ export function ProductDetail({ product }: { product: Product }) {
                 <li key={d.name} className="flex items-center justify-between gap-3 rounded-lg border border-ink/10 bg-white px-4 py-2.5 text-sm">
                   <span className="text-ink">{d.name}</span>
                   {d.gated ? (
-                    <Link href="/#architects" className="font-semibold text-clinker">
-                      По профи-регистрации →
+                    <Link href="/contacts" className="font-semibold text-clinker">
+                      Запросить у менеджера →
                     </Link>
                   ) : (
                     <a href={withBase(d.url)} className="font-semibold text-clinker" download>

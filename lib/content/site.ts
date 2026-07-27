@@ -66,13 +66,11 @@ export const PLACES: Place[] = [
   },
 ];
 
-/** Живые счётчики (ТЗ §6 блок 4). Значения — TBD из CMS. */
-export const COUNTERS: { value: string; label: string }[] = [
-  { value: "11+", label: "лет на рынке" },
-  { value: "350", label: "объектов реализовано" },
-  { value: "6", label: "брендов-партнёров" },
-  { value: "85", label: "регионов доставки" },
-];
+/*
+ * Счётчики («11+ лет», «350 объектов», «85 регионов») сняты 27.07.2026:
+ * цифра 350 ничем не подтверждена и в ТЗ помечена TBD, а рядом с ней теряли
+ * доверие и остальные три. Вернуть можно только с подтверждёнными значениями.
+ */
 
 /** Преимущества (ТЗ §6 блок 5). */
 export const ADVANTAGES: { title: string; text: string }[] = [
@@ -84,55 +82,14 @@ export const ADVANTAGES: { title: string; text: string }[] = [
   { title: "Документы и гарантия", text: "Сертификаты EN/ГОСТ и тех. листы на каждый артикул." },
 ];
 
-/** Образовательный блок «Виды и характеристики» (ТЗ §6 блок 11). */
-export const EDUCATION: { title: string; text: string }[] = [
-  { title: "Клинкер для улицы", text: "Высокотемпературный обжиг, морозостойкость F100+, водопоглощение < 6%, рельеф против скольжения." },
-  { title: "Керамогранит 20 мм", text: "Толстый формат для улицы и опор, высокая нагрузка, морозостойкость F150." },
-  { title: "Противоскольжение (R-классы)", text: "R10 — вход под навесом, R11 — терраса и лестница, R12 — открытая улица и пандусы." },
-  { title: "Системы укладки", text: "На клей по стяжке, на регулируемые опоры (пьедесталы) или на гравийно-песчаное основание." },
-];
-
-// ── Хаб загрузок для архитекторов (ТЗ §6 блок 15) ─────────────────────────────
-
-export interface DownloadItem {
-  title: string;
-  format: string;
-  url: string;
-  /** Требует профи-регистрации (BIM/CAD, текстуры). */
-  gated: boolean;
-}
-
-export const DOWNLOADS: { group: string; gated: boolean; items: DownloadItem[] }[] = [
-  {
-    group: "Технические листы",
-    gated: false,
-    items: [
-      { title: "Тех. листы серий ступеней", format: "PDF", url: "/docs/demo-tech.pdf", gated: false },
-      { title: "Тех. листы керамогранита 20 мм", format: "PDF", url: "/docs/demo-tech.pdf", gated: false },
-    ],
-  },
-  {
-    group: "Каталоги и прайс-листы",
-    gated: false,
-    items: [
-      { title: "PDF-каталог коллекций", format: "PDF", url: "/docs/demo-catalog.pdf", gated: false },
-      { title: "Прайс-лист (актуальный)", format: "PDF", url: "/docs/demo-catalog.pdf", gated: false },
-    ],
-  },
-  {
-    group: "BIM / CAD-модели",
-    gated: true,
-    items: [
-      { title: "Узлы крыльца и лестницы", format: ".dwg · .dxf", url: "/docs/demo-bim.zip", gated: true },
-      { title: "Раскладки на опорах HILST", format: ".dwg · .ifc", url: "/docs/demo-bim.zip", gated: true },
-      { title: "Семейства Revit систем ступеней", format: ".rfa", url: "/docs/demo-bim.zip", gated: true },
-    ],
-  },
-  {
-    group: "Текстуры для рендеров",
-    gated: true,
-    items: [
-      { title: "Текстуры коллекций (high-res)", format: "JPG", url: "/docs/demo-textures.zip", gated: true },
-    ],
-  },
-];
+/*
+ * Образовательный блок «Виды и характеристики» (ТЗ §6 блок 11) расформирован
+ * 27.07.2026 — его четыре тезиса (клинкер, керамогранит 20 мм, R-классы, системы
+ * укладки) переехали в HOME_FAQ, где они и отвечают на реальный вопрос, и попадают
+ * в FAQPage-разметку. Отдельным блоком это был пятый по счёту «почему мы».
+ *
+ * Хаб загрузок для архитекторов (ТЗ §6 блок 15) снят вместе с ним: все четыре
+ * группы ссылались на заглушки 41–77 байт (demo-tech.pdf, demo-bim.zip и т. д.),
+ * то есть кнопка «Прайс-лист (актуальный)» скачивала 77 байт текста. Вернуть
+ * блок — отдельной страницей /architects, когда появятся настоящие файлы.
+ */

@@ -119,22 +119,9 @@ export default async function ProducerPage({ params, searchParams }: Params) {
           </div>
         </section>
 
-        {/* Документы */}
-        <section className="mx-auto max-w-7xl px-5 py-14">
-          <div className="rounded-card border border-ink/10 bg-white p-6 sm:p-8">
-            <p className="eyebrow text-clinker">Документы</p>
-            <p className="mt-3 max-w-2xl text-stone">
-              Тех. листы и PDF-каталоги серий — без регистрации. BIM/CAD-модели
-              и текстуры — после быстрой профи-регистрации.
-            </p>
-            <Link
-              href="/#architects"
-              className="mt-5 inline-flex rounded-full border border-ink/15 px-6 py-3 font-semibold text-ink transition hover:border-clinker hover:text-clinker"
-            >
-              Перейти в хаб загрузок →
-            </Link>
-          </div>
-        </section>
+        {/* Блок «Документы» снят вместе с хабом загрузок: он вёл на страницу,
+            где все файлы были заглушками 41–77 байт. Вернуть с реальными тех.
+            листами и BIM/CAD — см. lib/content/site.ts. */}
 
         {/* Форма «Хочу {Бренд}» */}
         <section className="bg-graphite-deep text-sand">

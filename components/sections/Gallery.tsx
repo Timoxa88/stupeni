@@ -7,8 +7,13 @@ export interface GalleryImage {
 }
 
 /**
- * Примеры работ — масонри-сетка с hover-зумом (ТЗ §6, блок 14).
- * Лайтбокс — следующая итерация; сейчас акцент на образности и перфе.
+ * Сценарии применения — масонри-сетка с hover-зумом (ТЗ §6, блок 14).
+ *
+ * Заголовок «Примеры работ» убран сознательно: в /public/images лежит сток
+ * (Unsplash/Pexels, см. lib/images.ts), а подпись «наши работы» под чужой
+ * фотографией — такое же заявление о несуществующем, как выдуманный отзыв.
+ * Как только появятся фото реальных объектов — возвращаем прежний заголовок
+ * и снимаем сноску.
  */
 export function Gallery({ images }: { images: GalleryImage[] }) {
   if (!images.length) return null;
@@ -16,10 +21,14 @@ export function Gallery({ images }: { images: GalleryImage[] }) {
     <section className="bg-sand-deep">
       <div className="mx-auto max-w-7xl px-5 py-20 sm:py-28">
         <Reveal>
-          <p className="eyebrow text-clinker">05 — Объекты</p>
+          <p className="eyebrow text-clinker">Сценарии</p>
           <h2 className="mt-3 max-w-2xl font-display text-4xl font-extrabold text-ink sm:text-5xl">
-            Примеры работ
+            Как это выглядит
           </h2>
+          <p className="mt-4 max-w-2xl text-stone">
+            Крыльцо, уличная лестница, терраса, дорожки и зона у воды — типовые сценарии,
+            под которые подбирается материал. Изображения иллюстративные.
+          </p>
         </Reveal>
         <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
           {images.map((img, i) => (

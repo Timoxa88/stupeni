@@ -21,19 +21,28 @@ const SHORT: Record<string, string> = {
   bassein: "Зона бассейна",
 };
 
-/** Выбор по применению — сценовые карточки, главный способ навигации (ТЗ §6 блок 6). */
-export function SceneCards() {
+/**
+ * Выбор по применению — сценовые карточки (ТЗ §6 блок 6). После пересборки главной
+ * это единственная развилка выбора: категории материала и квиз её дублировали.
+ * Заголовок переопределяется, чтобы на хабе /resheniya не повторять H1 из SubHero.
+ */
+export function SceneCards({
+  eyebrow = "Выбор по применению",
+  title = "С чего начнём — куда укладываем?",
+  intro = "Чаще выбирают не бренд и не формат, а сценарий. Откройте свой — там подборка материалов, требования и расчёт.",
+}: {
+  eyebrow?: string;
+  title?: string;
+  intro?: string;
+}) {
   return (
     <section className="mx-auto max-w-7xl px-5 py-20 sm:py-28">
       <Reveal>
-        <p className="eyebrow text-clinker">Выбор по применению</p>
+        <p className="eyebrow text-clinker">{eyebrow}</p>
         <h2 className="mt-3 max-w-2xl font-display text-4xl font-extrabold text-ink sm:text-5xl">
-          С чего начнём — куда укладываем?
+          {title}
         </h2>
-        <p className="mt-4 max-w-2xl text-stone">
-          Чаще выбирают не бренд и не формат, а сценарий. Откройте свой — там подборка
-          материалов, требования и расчёт.
-        </p>
+        {intro ? <p className="mt-4 max-w-2xl text-stone">{intro}</p> : null}
       </Reveal>
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {SOLUTIONS.map((s, i) => (

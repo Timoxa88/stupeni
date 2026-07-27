@@ -1,32 +1,37 @@
 import Link from "next/link";
 import { SITE, CITY_CONTACTS } from "@/lib/content/site";
 
+/**
+ * Второстепенная навигация. Всё, что убрали из шапки (услуги, блог, отдельные
+ * категории и сценарии), доступно отсюда. Ссылку «Архитекторам» сняли вместе
+ * с хабом загрузок — вернём, когда появятся настоящие BIM/CAD-файлы.
+ */
 const COLS = [
   {
-    title: "Продукция",
+    title: "Каталог",
     links: [
+      ["Весь каталог", "/catalog"],
       ["Террасный клинкер", "/terrasnyy-klinker"],
       ["Террасные пластины", "/terrasnye-plastiny"],
       ["Под дерево", "/plastiny-pod-derevo"],
-      ["Калькулятор", "/calculator"],
     ],
   },
   {
     title: "Решения",
     links: [
+      ["Все сценарии", "/resheniya"],
       ["Крыльцо", "/resheniya/kryltso"],
       ["Уличная лестница", "/resheniya/lestnitsa-ulitsa"],
       ["Терраса", "/resheniya/terrasa"],
-      ["Укладка на опоры", "/resheniya/landshaft-opory"],
     ],
   },
   {
     title: "Компания",
     links: [
-      ["Производители", "/producers/stroeher"],
+      ["Калькулятор", "/calculator"],
+      ["Подбор за 5 шагов", "/podbor"],
       ["Услуги", "/services"],
       ["Блог", "/blog"],
-      ["Архитекторам", "/#architects"],
     ],
   },
 ];

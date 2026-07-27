@@ -32,7 +32,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const base = SITE.baseUrl;
   const url = (p: string) => `${base}${p}`;
 
-  const staticPages = ["/", "/calculator", "/services", "/blog", "/contacts", "/payment-delivery"].map(
+  const staticPages = [
+    "/",
+    "/catalog",
+    "/resheniya",
+    "/calculator",
+    "/podbor",
+    "/services",
+    "/blog",
+    "/contacts",
+    "/payment-delivery",
+  ].map(
     (p) => ({
       url: url(p),
       lastModified: BUILD_DATE,
