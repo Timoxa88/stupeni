@@ -437,13 +437,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -509,13 +509,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -581,13 +581,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -659,7 +659,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "base",
@@ -743,7 +743,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "base",
@@ -827,7 +827,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "base",
@@ -909,7 +909,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "base",
@@ -993,7 +993,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "base",
@@ -1511,13 +1511,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -1583,13 +1583,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -1655,13 +1655,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -1727,7 +1727,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x300x8.5",
         unit: "pcs",
         weight_kg: 1.77,
@@ -1810,7 +1810,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -1865,7 +1865,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x300x8.5",
         unit: "pcs",
         weight_kg: 1.77,
@@ -1947,7 +1947,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -2002,13 +2002,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -2080,13 +2080,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -2158,13 +2158,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -2236,13 +2236,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x600x8.5",
         unit: "pcs",
         weight_kg: 3.55,
         per_pallet: 256,
         price_rub: 700,
-        length_m: 0.3
+        length_m: 0.6
       },
       {
         code: "base",
@@ -2642,7 +2642,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -2725,7 +2725,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -2808,7 +2808,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -3475,7 +3475,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.0,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -3553,7 +3553,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.0,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -3631,7 +3631,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.0,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -3709,7 +3709,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.0,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -3788,7 +3788,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.0,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -3867,7 +3867,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.0,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -4432,7 +4432,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x300x8.5",
         unit: "pcs",
         weight_kg: 1.77,
@@ -4515,7 +4515,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -4570,7 +4570,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     elements: [
       {
         code: "front",
-        name: "Ступень фронтальная (с капиносом)",
+        name: "Ступень простая (с насечками)",
         size_mm: "300x300x8.5",
         unit: "pcs",
         weight_kg: 1.77,
@@ -4652,7 +4652,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6060,7 +6060,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6149,7 +6149,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6238,7 +6238,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6327,7 +6327,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6416,7 +6416,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6505,7 +6505,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6594,7 +6594,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -6683,7 +6683,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -7065,7 +7065,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -7141,7 +7141,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -7217,7 +7217,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -7300,7 +7300,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",
@@ -7383,7 +7383,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         weight_kg: 3.05,
         per_pallet: 216,
         price_rub: 2000,
-        length_m: 0.33
+        length_m: 0.3
       },
       {
         code: "corner_l",

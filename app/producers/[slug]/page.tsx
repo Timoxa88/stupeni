@@ -13,6 +13,7 @@ import { Pagination } from "@/components/ui/Pagination";
 import { PER_PAGE, pageHref, pageSuffix, paginate, parsePage } from "@/lib/pagination";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
+import { productTitle } from "@/lib/catalog/display";
 
 type Params = {
   params: Promise<{ slug: string }>;
@@ -152,7 +153,7 @@ export default async function ProducerPage({ params, searchParams }: Params) {
           name: `${b.name} — каталог`,
           description: b.tagline,
           url: pageHref(`/producers/${b.slug}`, paged.page),
-          items: paged.items.map((p) => ({ id: p.id, name: `${p.collection} ${p.specs.color}` })),
+          items: paged.items.map((p) => ({ id: p.id, name: productTitle(p) })),
         })}
       />
     </>

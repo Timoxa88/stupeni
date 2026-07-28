@@ -27,6 +27,7 @@ import {
 import { calcSummary } from "@/lib/calculator/summary";
 import { ResultPanel } from "./ResultPanel";
 import { MaterialToggles } from "./MaterialToggles";
+import { productTitle } from "@/lib/catalog/display";
 
 const products = getSlabProducts();
 let uid = 0;
@@ -140,7 +141,7 @@ export function ModeBForm({
                 onChange={setProductId}
                 options={products.map((p) => ({
                   value: p.id,
-                  label: `${p.brand} ${p.collection} — ${p.specs.color}`,
+                  label: `${p.brand} ${productTitle(p)}`,
                 }))}
               />
             </Field>

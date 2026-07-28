@@ -7,6 +7,7 @@ import { Img as Image } from "@/components/ui/Img";
 import type { ApplicationCode, ProductType } from "@/lib/catalog/types";
 import { activeProducts } from "@/lib/catalog/queries";
 import { LeadForm } from "@/components/forms/LeadForm";
+import { productTitle } from "@/lib/catalog/display";
 
 interface Option {
   value: string;
@@ -181,7 +182,7 @@ export function Quiz() {
                   <div className="p-4">
                     <div className="text-xs font-semibold uppercase text-stone/70">{p.brand}</div>
                     <div className="font-display font-bold text-ink">
-                      {p.collection} {p.specs.color}
+                      {productTitle(p)}
                     </div>
                   </div>
                 </Link>

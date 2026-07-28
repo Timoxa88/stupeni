@@ -6,6 +6,7 @@ import Link from "next/link";
 import type { Product } from "@/lib/catalog/types";
 import { formatRub, formatNum } from "@/lib/format";
 import { priceView } from "@/lib/catalog/pricing";
+import { productTitle } from "@/lib/catalog/display";
 import { PromoTimer } from "@/components/ui/PromoTimer";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Modal } from "@/components/ui/Modal";
@@ -287,7 +288,7 @@ export function ProductDetail({ product }: { product: Product }) {
             Заявка по артикулу
           </h3>
           <p className="mt-1 text-sm text-stone">
-            {product.brand} {product.collection} {product.specs.color} · {v.label}
+            {product.brand} {productTitle(product)} · {v.label}
           </p>
           <div className="mt-4">
             <LeadForm

@@ -167,6 +167,17 @@ def main():
         }
         if code in ("front", "riser", "plinth") and dims:
             e["length_m"] = round(dims[0] / 1000, 3)
+        if code == "front" and len(dims) >= 3:
+            # Тип и длина кромки — по фактической геометрии, а НЕ по строке прайса:
+            # прайс называл «с капиносом» и простые ступени. Толщина < 10 мм —
+            # «простая с насечками» (насечки вдоль длинной стороны, она и лежит
+            # вдоль кромки: 300x600 → 0.6). Капиносная — глубина 330 в размере
+            # первая, вдоль кромки идёт меньшая сторона (330x300 → 0.3).
+            if dims[-1] < 10:
+                e["name"] = "Ступень простая (с насечками)"
+                e["length_m"] = round(max(dims[0], dims[1]) / 1000, 3)
+            else:
+                e["length_m"] = round(min(dims[0], dims[1]) / 1000, 3)
         if code == "base" and fnum(r[6]):
             e["per_sqm"] = fnum(r[6])
         groups.setdefault((coll.strip(), color, "step"), []).append(e)

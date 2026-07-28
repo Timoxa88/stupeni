@@ -8,6 +8,7 @@ import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { Reveal } from "@/components/ui/Reveal";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { SEED_PRODUCTS } from "@/lib/catalog/seed";
+import { productTitle } from "@/lib/catalog/display";
 import {
   getProductById,
   getRelatedProducts,
@@ -57,7 +58,7 @@ export default async function ProductPage({ params }: Params) {
               { name: "Главная", url: "/" },
               ...(cat ? [{ name: cat.h1, url: `/${cat.slug}` }] : []),
               ...(brandSlug ? [{ name: product.brand, url: `/producers/${brandSlug}` }] : []),
-              { name: `${product.collection} ${product.specs.color}`, url: `/catalog/tovar/${product.id}` },
+              { name: productTitle(product), url: `/catalog/tovar/${product.id}` },
             ]}
           />
         </div>

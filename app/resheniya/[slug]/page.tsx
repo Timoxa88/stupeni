@@ -13,6 +13,7 @@ import { SchemaScript } from "@/components/seo/SchemaScript";
 import { SOLUTIONS, getSolution } from "@/lib/content/solutions";
 import { getProductsByApplication } from "@/lib/catalog/queries";
 import { howToSchema, itemListSchema } from "@/lib/jsonld";
+import { productTitle } from "@/lib/catalog/display";
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ slug: s.slug }));
@@ -191,7 +192,7 @@ export default async function SolutionPage({ params }: Params) {
         data={[
           howToSchema({ name: `Монтаж: ${s.h1}`, steps: s.steps }),
           itemListSchema(
-            products.map((p) => ({ id: p.id, name: `${p.brand} ${p.collection} ${p.specs.color}` })),
+            products.map((p) => ({ id: p.id, name: `${p.brand} ${productTitle(p)}` })),
           ),
         ]}
       />

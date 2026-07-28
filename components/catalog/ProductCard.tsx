@@ -7,6 +7,7 @@ import { productHref } from "@/lib/catalog/taxonomy";
 import type { Product } from "@/lib/catalog/types";
 import { basePrice, priceUnitLabel } from "@/lib/catalog/queries";
 import { priceView } from "@/lib/catalog/pricing";
+import { productTitle } from "@/lib/catalog/display";
 import { formatRub } from "@/lib/format";
 import { PromoTimer } from "@/components/ui/PromoTimer";
 
@@ -15,12 +16,26 @@ const TYPE_LABEL: Record<Product["product_type"], string> = {
   slab: "Керамогранит 20 мм",
 };
 
+/** Имя и цена варианта для hover-превью — собирает сервер (ProductGrid). */
+export interface VariantDisplay {
+  title: string;
+  price: number;
+  oldPrice?: number;
+  unit: string;
+}
+
 /**
  * Карточка витрины (ТЗ §6 блок 10, §8.1): фото, бейдж скидки, старая/новая
  * цена «за шт. с НДС», цветовые чипы вариантов (наведение меняет превью,
  * клик ведёт в карточку на выбранном цвете). Обёрнута в content-visibility.
  */
-export function ProductCard({ product }: { product: Product }) {
+export function ProductCard({
+  product,
+  variantInfo,
+}: {
+  product: Product;
+  variantInfo?: Record<string, VariantDisplay>;
+}) {
   const [activeId, setActiveId] = useState(product.id);
   const variants = product.variants ?? [];
 
@@ -34,13 +49,23 @@ export function ProductCard({ product }: { product: Product }) {
   // акция с истёкшим дедлайном не показывается.
   const view = priceView(product, basePrice(product));
 
+  // На hover цветового чипа вместе с фото меняются имя и цена (бейдж скидки и
+  // таймер — атрибуты базового артикула, при чужом варианте их прячем).
+  const isBase = activeId === product.id;
+  const shown: VariantDisplay = (!isBase && variantInfo?.[activeId]) || {
+    title: productTitle(product),
+    price: view.price,
+    oldPrice: view.oldPrice,
+    unit: priceUnitLabel(product),
+  };
+
   return (
     <article className="cv-card group flex flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
       <Link href={productHref(activeId)} className="relative block aspect-[4/3] overflow-hidden">
         {preview ? (
           <Image
             src={preview}
-            alt={`${product.brand} ${product.collection} — ${product.specs.color}`}
+            alt={`${product.brand} ${shown.title}`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
@@ -57,7 +82,7 @@ export function ProductCard({ product }: { product: Product }) {
             <span className="text-[11px] text-white/85">фото уточняется</span>
           </div>
         )}
-        {view.label || view.discountPct ? (
+        {isBase && (view.label || view.discountPct) ? (
           <span className="absolute left-3 top-3 rounded-full bg-clinker px-2.5 py-1 text-xs font-bold text-white shadow-glow">
             {view.discountPct ? `−${view.discountPct} %` : view.label}
           </span>
@@ -73,29 +98,29 @@ export function ProductCard({ product }: { product: Product }) {
             href={productHref(activeId)}
             className="font-display text-lg font-bold text-ink transition hover:text-clinker"
           >
-            {product.collection} {product.specs.color}
+            {shown.title}
           </Link>
         </h3>
 
         {/* Цена */}
         <div className="mt-3 flex items-baseline gap-2">
-          {view.oldPrice ? (
+          {shown.oldPrice ? (
             <>
               <span className="tabular text-stone/60 line-through">
-                {formatRub(view.oldPrice)}
+                {formatRub(shown.oldPrice)}
               </span>
               <span className="tabular font-display text-xl font-extrabold text-clinker">
-                {formatRub(view.price)}
+                {formatRub(shown.price)}
               </span>
             </>
           ) : (
             <span className="tabular font-display text-xl font-extrabold text-ink">
-              от {formatRub(view.price)}
+              от {formatRub(shown.price)}
             </span>
           )}
         </div>
-        <div className="text-xs text-stone/70">{priceUnitLabel(product)}</div>
-        {view.endsAt ? <PromoTimer endsAt={view.endsAt} className="mt-1.5" /> : null}
+        <div className="text-xs text-stone/70">{shown.unit}</div>
+        {isBase && view.endsAt ? <PromoTimer endsAt={view.endsAt} className="mt-1.5" /> : null}
 
         {/* Цветовые чипы вариантов */}
         {variants.length > 1 ? (

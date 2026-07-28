@@ -31,6 +31,7 @@ import {
 import { calcSummary } from "@/lib/calculator/summary";
 import { ResultPanel } from "./ResultPanel";
 import { MaterialToggles } from "./MaterialToggles";
+import { productTitle } from "@/lib/catalog/display";
 
 const products = getStepProducts();
 let uid = 0;
@@ -131,7 +132,7 @@ export function ModeAForm({
               onChange={setProductId}
               options={products.map((p) => ({
                 value: p.id,
-                label: `${p.brand} ${p.collection} — ${p.specs.color}`,
+                label: `${p.brand} ${productTitle(p)}`,
               }))}
             />
           </Field>

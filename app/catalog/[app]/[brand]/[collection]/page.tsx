@@ -9,6 +9,7 @@ import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
+import { productTitle } from "@/lib/catalog/display";
 import {
   getApplication,
   brandBySlug,
@@ -134,7 +135,7 @@ export default async function CollectionLevel({ params }: Props) {
           url: `/catalog/${app}/${brand}/${collection}`,
           items: coll.products.map((p) => ({
             id: p.id,
-            name: `${p.brand} ${p.collection} ${p.specs.color}`,
+            name: `${p.brand} ${productTitle(p)}`,
           })),
         })}
       />

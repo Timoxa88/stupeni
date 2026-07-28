@@ -13,6 +13,7 @@ import type { CategoryMeta } from "@/lib/content/categories";
 import { SOLUTIONS } from "@/lib/content/solutions";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
+import { productTitle } from "@/lib/catalog/display";
 
 /** Применения, релевантные категории, → перелинковка на решения (ТЗ §3). */
 const CATEGORY_SOLUTIONS: Record<CategoryKey, string[]> = {
@@ -175,7 +176,7 @@ export function CategoryView({
           url: pageHref(`/${category.slug}`, paged.page),
           items: paged.items.map((p) => ({
             id: p.id,
-            name: `${p.brand} ${p.collection} ${p.specs.color}`,
+            name: `${p.brand} ${productTitle(p)}`,
           })),
         })}
       />
