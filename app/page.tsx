@@ -15,7 +15,7 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { BRANDS } from "@/lib/catalog/brands";
 import { activeProducts } from "@/lib/catalog/queries";
-import { IMAGES, GALLERY } from "@/lib/images";
+import { IMAGES, OBJECTS } from "@/lib/images";
 import { ADVANTAGES } from "@/lib/content/site";
 import { HOME_FAQ } from "@/lib/content/faq";
 import { organizationSchema, localBusinessSchema } from "@/lib/jsonld";
@@ -238,8 +238,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── 6. ГАЛЕРЕЯ ── */}
-        <Gallery images={GALLERY} />
+        {/* ── 6. ОБЪЕКТЫ ── */}
+        <Gallery images={OBJECTS} />
 
         {/* ── 7. FAQ (вобрал тезисы образовательного блока) ── */}
         <section className="bg-sand-deep">
