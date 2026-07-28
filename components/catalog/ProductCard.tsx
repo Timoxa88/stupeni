@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
+import { productHref } from "@/lib/catalog/taxonomy";
 import type { Product } from "@/lib/catalog/types";
 import { basePrice, priceUnitLabel } from "@/lib/catalog/queries";
 import { priceView } from "@/lib/catalog/pricing";
@@ -23,10 +24,11 @@ export function ProductCard({ product }: { product: Product }) {
   const [activeId, setActiveId] = useState(product.id);
   const variants = product.variants ?? [];
 
-  const preview =
-    variants.find((v) => v.id === activeId)?.photo ??
-    product.photos[0] ??
-    "/images/cat-clinker.jpg";
+  // Фото ТОЛЬКО своё. Раньше фолбэком стояла картинка категории, и подряд шли
+  // четыре одинаковые карточки, где чёрный артикул был показан серым двориком.
+  // Чужое фото хуже честной плашки: оно врёт о цвете товара.
+  const own = variants.find((v) => v.id === activeId)?.photo ?? product.photos[0];
+  const preview = own?.startsWith("/images/products/") ? own : null;
 
   // Цена — из единого источника (lib/catalog/pricing): текущая цена всегда каталожная,
   // акция с истёкшим дедлайном не показывается.
@@ -34,15 +36,27 @@ export function ProductCard({ product }: { product: Product }) {
 
   return (
     <article className="cv-card group flex flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
-      <Link href={`/catalog/${activeId}`} className="relative block aspect-[4/3] overflow-hidden">
-        <Image
-          src={preview}
-          alt={`${product.brand} ${product.collection} — ${product.specs.color}`}
-          fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-          loading="lazy"
-          className="img-rich object-cover transition duration-700 group-hover:scale-105"
-        />
+      <Link href={productHref(activeId)} className="relative block aspect-[4/3] overflow-hidden">
+        {preview ? (
+          <Image
+            src={preview}
+            alt={`${product.brand} ${product.collection} — ${product.specs.color}`}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            loading="lazy"
+            className="img-rich object-cover transition duration-700 group-hover:scale-105"
+          />
+        ) : (
+          <div
+            className="flex h-full w-full flex-col items-center justify-center gap-2"
+            style={{ background: product.specs.color_hex || "#C9B79C" }}
+          >
+            <span className="rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-ink">
+              {product.specs.color}
+            </span>
+            <span className="text-[11px] text-white/85">фото уточняется</span>
+          </div>
+        )}
         {view.label || view.discountPct ? (
           <span className="absolute left-3 top-3 rounded-full bg-clinker px-2.5 py-1 text-xs font-bold text-white shadow-glow">
             {view.discountPct ? `−${view.discountPct} %` : view.label}
@@ -56,7 +70,7 @@ export function ProductCard({ product }: { product: Product }) {
         </div>
         <h3 className="mt-1.5">
           <Link
-            href={`/catalog/${activeId}`}
+            href={productHref(activeId)}
             className="font-display text-lg font-bold text-ink transition hover:text-clinker"
           >
             {product.collection} {product.specs.color}
@@ -91,7 +105,7 @@ export function ProductCard({ product }: { product: Product }) {
               return (
                 <Link
                   key={v.id}
-                  href={`/catalog/${v.id}`}
+                  href={productHref(v.id)}
                   aria-label={v.color}
                   title={v.color}
                   onMouseEnter={() => setActiveId(v.id)}

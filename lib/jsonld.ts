@@ -106,7 +106,7 @@ export function productSchema(p: Product) {
       "@type": "Offer",
       price,
       priceCurrency: "RUB",
-      url: abs(`/catalog/${p.id}`),
+      url: abs(`/catalog/tovar/${p.id}`),
       // Наличие размечаем ТОЛЬКО когда оно известно (источник — 1С, ТЗ B.9).
       // Раньше при отсутствии данных подставлялось InStock — это заявление о
       // наличии товара, которого мы не знаем.
@@ -127,7 +127,7 @@ export function productSchema(p: Product) {
 /** ItemList товаров для листингов (ТЗ B.3). */
 export function itemListSchema(
   items: { id: string; name: string }[],
-  pathPrefix = "/catalog/",
+  pathPrefix = "/catalog/tovar/",
 ) {
   return {
     "@context": "https://schema.org",
@@ -161,7 +161,7 @@ export function collectionPageSchema(c: {
       itemListElement: c.items.map((it, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: abs(`/catalog/${it.id}`),
+        url: abs(`/catalog/tovar/${it.id}`),
         name: it.name,
       })),
     },

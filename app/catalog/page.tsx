@@ -5,29 +5,30 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { CATEGORIES } from "@/lib/content/categories";
 import { BRANDS } from "@/lib/catalog/brands";
-import { activeProducts, getProductsByCategory, getProductsByBrand } from "@/lib/catalog/queries";
+import { activeProducts, getProductsByBrand } from "@/lib/catalog/queries";
+import { applications } from "@/lib/catalog/taxonomy";
 import { IMAGES } from "@/lib/images";
-import { SchemaScript } from "@/components/seo/SchemaScript";
-import { collectionPageSchema } from "@/lib/jsonld";
 
 export const metadata: Metadata = {
   title: "Каталог — клинкерные ступени и керамогранит 20 мм для улицы",
   description:
-    "Каталог уличной керамики: террасный клинкер, крупноформатные пластины 20 мм и керамогранит под дерево. Шесть производителей, цены, поэлементный расчёт.",
+    "Каталог уличной керамики по назначению: крыльцо, уличная лестница, терраса, дорожки, укладка на опоры. Шесть производителей, цены, поэлементный расчёт.",
   alternates: { canonical: "/catalog" },
 };
 
 /**
- * Хаб каталога. Раньше /catalog отдавал 404, а чип «Весь каталог» на главной вёл
- * в категорию клинкера — то есть индекса каталога у сайта не было вовсе.
- * Хаб не дублирует листинги: он только разводит по трём категориям и брендам.
+ * Первый уровень каталога — назначение.
+ *
+ * Порядок «назначение → бренд → коллекция → цвет» выбран потому, что покупатель
+ * приходит с задачей («облицевать крыльцо»), а не с брендом. Категории по типу
+ * материала оставлены ниже вторым входом: они полезны, когда человек уже знает,
+ * что ему нужен именно крупноформат 20 мм.
  */
 export default function CatalogPage() {
   const total = activeProducts().length;
-  const popular = activeProducts().slice(0, 8);
+  const apps = applications();
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function CatalogPage() {
           alt={IMAGES.catSlab.alt}
           eyebrow="Каталог"
           h1="Каталог уличной керамики"
-          intro={`Клинкерные ступени, крупноформатные пластины 20 мм и керамогранит под дерево — ${total} позиций от шести производителей. Выберите категорию или бренд, а комплект в штуках посчитает калькулятор.`}
+          intro={`${total} позиций от шести производителей. Начните с того, куда укладываете, — дальше бренд, коллекция и цвет. Комплект в штуках посчитает калькулятор.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },
             { name: "Каталог", url: "/catalog" },
@@ -52,44 +53,40 @@ export default function CatalogPage() {
           </Link>
         </SubHero>
 
-        {/* Три категории */}
+        {/* Шаг 1 — назначение */}
         <section className="mx-auto max-w-7xl px-5 py-16 sm:py-24">
           <Reveal>
-            <p className="eyebrow text-clinker">Категории</p>
+            <p className="eyebrow text-clinker">Шаг 1 — назначение</p>
             <h2 className="mt-3 font-display text-4xl font-extrabold text-ink sm:text-5xl">
-              Три направления
+              Куда укладываем
             </h2>
           </Reveal>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
-            {CATEGORIES.map((c, i) => (
-              <Reveal key={c.slug} delay={i * 120}>
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {apps.map((a, i) => (
+              <Reveal key={a.code} delay={(i % 3) * 90}>
                 <Link
-                  href={`/${c.slug}`}
-                  className="group relative flex h-full flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition duration-500 hover:-translate-y-1.5 hover:shadow-lift"
+                  href={a.href}
+                  className="group relative block aspect-[4/3] overflow-hidden rounded-card border border-ink/10 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift"
                 >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={c.heroImage}
-                      alt={c.heroAlt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 33vw"
-                      loading="lazy"
-                      className="img-rich object-cover transition duration-700 group-hover:scale-105"
-                    />
-                    <div
-                      className="absolute inset-0"
-                      aria-hidden
-                      style={{ background: "linear-gradient(180deg, transparent 55%, rgba(18,20,19,0.35) 100%)" }}
-                    />
-                    <div className="absolute inset-x-0 bottom-0 h-1.5" style={{ background: c.accent }} />
-                  </div>
-                  <div className="flex flex-1 flex-col p-7">
-                    <h3 className="font-display text-2xl font-bold text-ink">{c.h1}</h3>
-                    <p className="mt-3 flex-1 text-stone">{c.description}</p>
-                    <span className="mt-6 inline-flex items-center gap-2 font-semibold text-clinker">
-                      {getProductsByCategory(c.slug).length} позиций
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
-                    </span>
+                  <Image
+                    src={a.image}
+                    alt={a.imageAlt}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    loading="lazy"
+                    className="img-rich object-cover transition duration-700 group-hover:scale-105"
+                  />
+                  <div
+                    className="absolute inset-0"
+                    aria-hidden
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(12,14,13,0.05) 30%, rgba(12,14,13,0.82) 100%)",
+                    }}
+                  />
+                  <div className="absolute inset-x-0 bottom-0 p-6 text-sand">
+                    <h3 className="font-display text-2xl font-bold">{a.title}</h3>
+                    <p className="mt-1 text-sm text-sand/85">{a.count} позиций</p>
                   </div>
                 </Link>
               </Reveal>
@@ -97,35 +94,27 @@ export default function CatalogPage() {
           </div>
         </section>
 
-        {/* Производители */}
+        {/* Второй вход — по типу материала */}
         <section className="bg-sand-deep">
           <div className="mx-auto max-w-7xl px-5 py-16 sm:py-24">
             <Reveal>
-              <p className="eyebrow text-clinker">Производители</p>
+              <p className="eyebrow text-clinker">Если знаете материал</p>
               <h2 className="mt-3 font-display text-4xl font-extrabold text-ink sm:text-5xl">
-                Шесть заводов
+                Три типа покрытия
               </h2>
             </Reveal>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {BRANDS.map((b, i) => (
-                <Reveal key={b.slug} delay={(i % 3) * 80}>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {CATEGORIES.map((c, i) => (
+                <Reveal key={c.slug} delay={i * 80}>
                   <Link
-                    href={`/producers/${b.slug}`}
+                    href={`/${c.slug}`}
                     className="group flex h-full flex-col rounded-card border border-ink/10 bg-white p-6 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift"
                   >
-                    <div className="flex items-baseline justify-between gap-3">
-                      <h3 className="font-display text-xl font-bold text-ink transition group-hover:text-clinker">
-                        {b.name}
-                      </h3>
-                      <span className="text-xs text-stone/70">
-                        {b.country}
-                        {b.founded ? ` · с ${b.founded}` : ""}
-                      </span>
-                    </div>
-                    <p className="mt-2 flex-1 text-sm text-stone">{b.tagline}</p>
-                    <span className="mt-4 text-sm font-semibold text-clinker">
-                      {getProductsByBrand(b.name).length} позиций →
-                    </span>
+                    <h3 className="font-display text-lg font-bold text-ink transition group-hover:text-clinker">
+                      {c.h1}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm text-stone">{c.description}</p>
+                    <span className="mt-4 text-sm font-semibold text-clinker">Смотреть →</span>
                   </Link>
                 </Reveal>
               ))}
@@ -133,33 +122,41 @@ export default function CatalogPage() {
           </div>
         </section>
 
-        {/* Популярное */}
+        {/* Производители */}
         <section className="mx-auto max-w-7xl px-5 py-16 sm:py-24">
           <Reveal>
-            <p className="eyebrow text-clinker">Популярное</p>
+            <p className="eyebrow text-clinker">Производители</p>
             <h2 className="mt-3 font-display text-4xl font-extrabold text-ink sm:text-5xl">
-              Часто выбирают
+              Шесть заводов
             </h2>
           </Reveal>
-          <div className="mt-10">
-            <ProductGrid products={popular} />
+          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {BRANDS.map((b, i) => (
+              <Reveal key={b.slug} delay={(i % 3) * 80}>
+                <Link
+                  href={`/producers/${b.slug}`}
+                  className="group flex h-full flex-col rounded-card border border-ink/10 bg-white p-6 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift"
+                >
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="font-display text-xl font-bold text-ink transition group-hover:text-clinker">
+                      {b.name}
+                    </h3>
+                    <span className="text-xs text-stone/70">
+                      {b.country}
+                      {b.founded ? ` · с ${b.founded}` : ""}
+                    </span>
+                  </div>
+                  <p className="mt-2 flex-1 text-sm text-stone">{b.tagline}</p>
+                  <span className="mt-4 text-sm font-semibold text-clinker">
+                    {getProductsByBrand(b.name).length} позиций →
+                  </span>
+                </Link>
+              </Reveal>
+            ))}
           </div>
         </section>
       </main>
       <Footer />
-
-      <SchemaScript
-        data={collectionPageSchema({
-          name: "Каталог уличной керамики",
-          description:
-            "Клинкерные ступени, крупноформатные пластины 20 мм и керамогранит под дерево.",
-          url: "/catalog",
-          items: popular.map((p) => ({
-            id: p.id,
-            name: `${p.brand} ${p.collection} ${p.specs.color}`,
-          })),
-        })}
-      />
     </>
   );
 }

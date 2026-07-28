@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { productHref } from "@/lib/catalog/taxonomy";
 import { Img as Image } from "@/components/ui/Img";
 import type { ApplicationCode, ProductType } from "@/lib/catalog/types";
 import { activeProducts } from "@/lib/catalog/queries";
@@ -164,7 +165,7 @@ export function Quiz() {
               {recommendations.map((p) => (
                 <Link
                   key={p.id}
-                  href={`/catalog/${p.id}`}
+                  href={productHref(p.id)}
                   className="group overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition hover:-translate-y-1 hover:shadow-lift"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden">

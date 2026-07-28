@@ -1646,8 +1646,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-architeq-grey/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Architeq Grey — цена, характеристики",
@@ -1688,8 +1687,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-architeq-mocca/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Architeq Mocca — цена, характеристики",
@@ -1731,8 +1729,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-ardis-dark/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Ardis, Dark — цена, характеристики",
@@ -1794,8 +1791,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-ardis-light/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Ardis, Light — цена, характеристики",
@@ -1857,8 +1853,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-ardis-rust/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Ardis, Rust — цена, характеристики",
@@ -1930,8 +1925,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-arteon-brown/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon, Brown — цена, характеристики",
@@ -2015,8 +2009,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-arteon-grys/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon, Grys — цена, характеристики",
@@ -2185,8 +2178,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-arteon-rosso/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon, Rosso — цена, характеристики",
@@ -2344,8 +2336,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-authority-beige/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Authority Beige — цена, характеристики",
@@ -2386,8 +2377,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-authority-graphite/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Authority Graphite — цена, характеристики",
@@ -2428,8 +2418,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-authority-grey/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Authority Grey — цена, характеристики",
@@ -2470,8 +2459,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-burlington-blue/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Burlington Blue — цена, характеристики",
@@ -2512,8 +2500,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-burlington-ivory/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Burlington Ivory — цена, характеристики",
@@ -2554,8 +2541,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-burlington-rust/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Burlington Rust — цена, характеристики",
@@ -2596,8 +2582,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-burlington-silver/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Burlington Silver — цена, характеристики",
@@ -2639,8 +2624,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-carrizo-bazalt/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Carrizo, Bazalt — цена, характеристики",
@@ -2702,8 +2686,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-carrizo-grey/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Carrizo, Grey — цена, характеристики",
@@ -2765,8 +2748,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-carrizo-wood/texture.jpg"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Carrizo, Wood — цена, характеристики",
@@ -2837,8 +2819,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-cloud-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Cloud, Brown — цена, характеристики",
@@ -3089,8 +3070,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-cloud-rosa/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Cloud, Rosa — цена, характеристики",
@@ -3332,8 +3312,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-eremite-beige/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Eremite, Beige — цена, характеристики",
@@ -3401,8 +3380,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-eremite-crema/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Eremite, Crema — цена, характеристики",
@@ -3470,8 +3448,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-eremite-sand/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Eremite, Sand — цена, характеристики",
@@ -3539,8 +3516,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-eremite-taupe/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Eremite, Taupe — цена, характеристики",
@@ -3607,8 +3583,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-garden-beige/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Garden Beige — цена, характеристики",
@@ -3649,8 +3624,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-garden-grys/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Garden Grys — цена, характеристики",
@@ -3711,8 +3685,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-ilario-beige/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario, Beige — цена, характеристики",
@@ -3793,8 +3766,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-ilario-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario, Brown — цена, характеристики",
@@ -3875,8 +3847,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-ilario-ochra/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario, Ochra — цена, характеристики",
@@ -3937,8 +3908,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-magnetik-antracite/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Magnetik Antracite — цена, характеристики",
@@ -3979,8 +3949,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-magnetik-beige/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Magnetik Beige — цена, характеристики",
@@ -4021,8 +3990,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-magnetik-bianco/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Magnetik Bianco — цена, характеристики",
@@ -4063,8 +4031,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-magnetik-brown/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Magnetik Brown — цена, характеристики",
@@ -4105,8 +4072,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-magnetik-grafit/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Magnetik Grafit — цена, характеристики",
@@ -4147,8 +4113,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-magnetik-grys/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Magnetik Grys — цена, характеристики",
@@ -4313,8 +4278,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Mattone Pietra, Beige — цена, характеристики",
@@ -4376,8 +4340,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Mattone Pietra, Grafit — цена, характеристики",
@@ -4439,8 +4402,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Mattone Pietra, Ochra — цена, характеристики",
@@ -4521,8 +4483,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Sabbia, Beige — цена, характеристики",
@@ -4603,8 +4564,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Sabbia, Brown — цена, характеристики",
@@ -4685,8 +4645,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Sabbia, Grafit — цена, характеристики",
@@ -4747,8 +4706,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-minster-black/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Minster Black — цена, характеристики",
@@ -4789,8 +4747,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-minster-rustic/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Minster Rustic — цена, характеристики",
@@ -4831,8 +4788,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-natural-rocks-basalt/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Natural Rocks Basalt — цена, характеристики",
@@ -4915,8 +4871,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-natural-rocks-silver/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Natural Rocks Silver — цена, характеристики",
@@ -4957,8 +4912,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-natural-rocks-titan/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Natural Rocks Titan — цена, характеристики",
@@ -5009,8 +4963,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-natural-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Natural, Brown — цена, характеристики",
@@ -5261,8 +5214,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-natural-rosa/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Natural, Rosa — цена, характеристики",
@@ -5503,8 +5455,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-optimal-antracite/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Optimal Antracite — цена, характеристики",
@@ -5545,8 +5496,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-optimal-beige/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Optimal Beige — цена, характеристики",
@@ -5587,8 +5537,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-optimal-grafit/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Optimal Grafit — цена, характеристики",
@@ -5629,8 +5578,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-optimal-grys/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Optimal Grys — цена, характеристики",
@@ -5671,8 +5619,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-path-antracite/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Path Antracite — цена, характеристики",
@@ -5713,8 +5660,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-path-beige/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Path Beige — цена, характеристики",
@@ -5755,8 +5701,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-path-grys/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Path Grys — цена, характеристики",
@@ -5797,8 +5742,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-pure-art-basalt/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Pure Art Basalt — цена, характеристики",
@@ -5839,8 +5783,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-pure-art-dark-grey/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Pure Art Dark Grey — цена, характеристики",
@@ -5881,8 +5824,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-pure-art-greige/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Pure Art Greige — цена, характеристики",
@@ -5923,8 +5865,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-pure-art-grey/texture.jpg"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Pure Art Grey — цена, характеристики",
@@ -5965,8 +5906,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-ritual-grey/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Ritual Grey — цена, характеристики",
@@ -6007,8 +5947,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-ritual-light-grey/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Ritual Light Grey — цена, характеристики",
@@ -6049,8 +5988,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-ritual-taupe/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Ritual Taupe — цена, характеристики",
@@ -6133,8 +6071,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-rustland-brown/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Rustland Brown — цена, характеристики",
@@ -6175,8 +6112,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-rustland-naturale/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Rustland Naturale — цена, характеристики",
@@ -6218,8 +6154,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-beige/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Beige — цена, характеристики",
@@ -6261,8 +6196,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Brown — цена, характеристики",
@@ -6304,8 +6238,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-rosso/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Rosso — цена, характеристики",
@@ -6366,8 +6299,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-beige/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Beige — цена, характеристики",
@@ -6454,8 +6386,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Brown — цена, характеристики",
@@ -6542,8 +6473,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-ochra/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Ochra — цена, характеристики",
@@ -6630,8 +6560,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-scandiano-rosso/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Rosso — цена, характеристики",
@@ -6718,8 +6647,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-semir-beige/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Beige — цена, характеристики",
@@ -6806,8 +6734,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-semir-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Brown — цена, характеристики",
@@ -6894,8 +6821,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-semir-grafit/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Grafit — цена, характеристики",
@@ -6982,8 +6908,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-semir-rosa/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Rosa — цена, характеристики",
@@ -7049,8 +6974,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-sherwood-bianco/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Sherwood Bianco — цена, характеристики",
@@ -7090,8 +7014,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-sherwood-grys/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Sherwood Grys — цена, характеристики",
@@ -7132,8 +7055,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-sherwood-naturale/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Sherwood Naturale — цена, характеристики",
@@ -7194,8 +7116,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-taurus-brown/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Taurus, Brown — цена, характеристики",
@@ -7269,8 +7190,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-taurus-grys/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Taurus, Grys — цена, характеристики",
@@ -7325,8 +7245,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-terrace-beige/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Terrace Beige — цена, характеристики",
@@ -7367,8 +7286,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-terrace-grafit/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Terrace Grafit — цена, характеристики",
@@ -7409,8 +7327,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/paradyz-terrace-grys/photo_1.png"
     ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Terrace Grys — цена, характеристики",
@@ -7451,8 +7368,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-trueland-gold/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Trueland Gold — цена, характеристики",
@@ -7493,8 +7409,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-trueland-honey/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Trueland Honey — цена, характеристики",
@@ -7579,8 +7494,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-viano-beige/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Beige — цена, характеристики",
@@ -7622,8 +7536,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-viano-grys/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Grys — цена, характеристики",
@@ -7684,8 +7597,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-viano-antracite/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano, Antracite — цена, характеристики",
@@ -7766,8 +7678,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-viano-beige/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano, Beige — цена, характеристики",
@@ -7848,8 +7759,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/paradyz-viano-grys/photo_1.png"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano, Grys — цена, характеристики",
@@ -7910,8 +7820,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-willow-beige/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Willow Beige — цена, характеристики",
@@ -7952,8 +7861,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/cat-wood.jpg",
-      "/images/gal-decking.jpg"
+      "/images/products/paradyz-willow-ochra/photo_1.png"
     ],
     seo: {
       title: "Керамогранит под дерево Paradyz Willow Ochra — цена, характеристики",

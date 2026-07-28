@@ -6,6 +6,7 @@ import { BLOG_POSTS } from "@/lib/content/blog";
 import { BRANDS } from "@/lib/catalog/brands";
 import { SEED_PRODUCTS } from "@/lib/catalog/seed";
 import { productCategory } from "@/lib/catalog/queries";
+import { allPaths } from "@/lib/catalog/taxonomy";
 
 /**
  * lastmod (ТЗ B.4 — freshness как GEO-сигнал).
@@ -73,8 +74,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: latest(active.filter((p) => p.brand === b.name).map((p) => p.price_updated_at)),
     priority: 0.7,
   }));
+  // Иерархия каталога «назначение → бренд → коллекция» (lib/catalog/taxonomy).
+  const facets = allPaths().map((p) => ({
+    url: url(
+      `/catalog/${p.app}${p.brand ? `/${p.brand}` : ""}${p.collection ? `/${p.collection}` : ""}`,
+    ),
+    lastModified: latest(active.map((x) => x.price_updated_at)),
+    priority: p.collection ? 0.7 : p.brand ? 0.75 : 0.85,
+  }));
   const products = active.map((p) => ({
-    url: url(`/catalog/${p.id}`),
+    url: url(`/catalog/tovar/${p.id}`),
     lastModified: p.price_updated_at ? new Date(p.price_updated_at) : BUILD_DATE,
     priority: 0.6,
   }));
@@ -84,5 +93,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...categories, ...solutions, ...producers, ...products, ...posts];
+  return [...staticPages, ...facets, ...categories, ...solutions, ...producers, ...products, ...posts];
 }

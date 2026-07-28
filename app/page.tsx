@@ -14,7 +14,7 @@ import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { BRANDS } from "@/lib/catalog/brands";
-import { activeProducts } from "@/lib/catalog/queries";
+import { showcaseProducts } from "@/lib/catalog/taxonomy";
 import { IMAGES, OBJECTS } from "@/lib/images";
 import { ADVANTAGES } from "@/lib/content/site";
 import { HOME_FAQ } from "@/lib/content/faq";
@@ -53,7 +53,7 @@ const gridMotif: React.CSSProperties = {
  * до появления реальных данных — см. docs/audit_i_plan_zapuska_2026-07-26.md §4, §8.
  */
 export default function Home() {
-  const popular = activeProducts().slice(0, 8);
+  const popular = showcaseProducts(8);
 
   return (
     <>

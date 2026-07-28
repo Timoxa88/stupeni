@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: p.seo.title,
     description: p.seo.description,
-    alternates: { canonical: `/catalog/${p.id}` },
+    alternates: { canonical: `/catalog/tovar/${p.id}` },
   };
 }
 
@@ -53,7 +53,7 @@ export default async function ProductPage({ params }: Params) {
               { name: "Главная", url: "/" },
               ...(cat ? [{ name: cat.h1, url: `/${cat.slug}` }] : []),
               ...(brandSlug ? [{ name: product.brand, url: `/producers/${brandSlug}` }] : []),
-              { name: `${product.collection} ${product.specs.color}`, url: `/catalog/${product.id}` },
+              { name: `${product.collection} ${product.specs.color}`, url: `/catalog/tovar/${product.id}` },
             ]}
           />
         </div>
