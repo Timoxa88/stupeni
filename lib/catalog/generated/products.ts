@@ -8727,7 +8727,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"
@@ -8928,7 +8928,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"
@@ -8960,7 +8960,7 @@ export const REAL_PRODUCTS: Product[] = [
     ]
   },
   {
-    id: "stroeher-keraplatte-aera-717-anthra",
+    id: "stroeher-keraplatte-aera-717-anthra-stupeni",
     brand: "Stroeher",
     product_type: "step_system",
     application: [
@@ -9019,7 +9019,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"
@@ -9122,7 +9122,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"
@@ -9234,7 +9234,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"
@@ -9341,7 +9341,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"
@@ -9453,7 +9453,7 @@ export const REAL_PRODUCTS: Product[] = [
         photo: "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg"
       },
       {
-        id: "stroeher-keraplatte-aera-717-anthra",
+        id: "stroeher-keraplatte-aera-717-anthra-stupeni",
         color: "717 anthra",
         color_hex: "#2E2E2C",
         photo: "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg"

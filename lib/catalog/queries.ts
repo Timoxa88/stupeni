@@ -5,6 +5,7 @@
 
 import type { ApplicationCode, Product, ProductCategory, ProductPromo } from "./types";
 import { SEED_PRODUCTS } from "./seed";
+import { diversify } from "./diversify";
 
 /** Три продуктовые категории-хаба (ТЗ §3). */
 export type CategoryKey = ProductCategory;
@@ -28,23 +29,31 @@ export function getProductById(id: string): Product | undefined {
   return SEED_PRODUCTS.find((p) => p.id === id);
 }
 
+/* Листинги отдаются через diversify(): генерированный каталог лежит блоками
+   (бренд за брендом, коллекция за коллекцией), и без перемешивания страница
+   из 24 карточек была одной коллекцией. Порядок детерминированный — важно
+   для пагинации и гидрации (см. diversify.ts). */
+
 export function getProductsByCategory(cat: CategoryKey): Product[] {
-  return activeProducts().filter((p) => productCategory(p) === cat);
+  return diversify(activeProducts().filter((p) => productCategory(p) === cat));
 }
 
 export function getProductsByBrand(name: string): Product[] {
-  return activeProducts().filter((p) => p.brand === name);
+  return diversify(activeProducts().filter((p) => p.brand === name));
 }
 
 export function getProductsByApplication(app: ApplicationCode): Product[] {
-  return activeProducts().filter((p) => p.application.includes(app));
+  return diversify(activeProducts().filter((p) => p.application.includes(app)));
 }
 
-/** Похожие: тот же сценарий применения, другой артикул (ТЗ §8.4 вкладка 7). */
+/** Похожие: тот же сценарий применения, другой артикул (ТЗ §8.4 вкладка 7);
+ *  за счёт diversify — четыре разные коллекции, а не четыре цвета одной. */
 export function getRelatedProducts(p: Product, limit = 4): Product[] {
-  return activeProducts()
-    .filter((x) => x.id !== p.id && x.application.some((a) => p.application.includes(a)))
-    .slice(0, limit);
+  return diversify(
+    activeProducts().filter(
+      (x) => x.id !== p.id && x.application.some((a) => p.application.includes(a)),
+    ),
+  ).slice(0, limit);
 }
 
 // ── Промо (ТЗ §8.1) ──────────────────────────────────────────────────────────
