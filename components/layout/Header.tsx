@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { Modal } from "@/components/ui/Modal";
 import { SITE } from "@/lib/content/site";
@@ -21,6 +22,10 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
+  // На главной калькулятор встроен (#calc) — уводить с лендинга на /calculator
+  // ради того же инструмента значит терять прокрутку и контекст.
+  const pathname = usePathname();
+  const calcHref = pathname === "/" ? "#calc" : "/calculator";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -84,7 +89,7 @@ export function Header() {
               {SITE.phoneLabel}
             </a>
             <Link
-              href="/calculator"
+              href={calcHref}
               className="sheen relative hidden rounded-full bg-clinker px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-12px_rgba(184,72,31,0.7)] transition hover:bg-clinker-hover sm:inline-block"
             >
               Получить расчёт
@@ -147,7 +152,7 @@ export function Header() {
               {SITE.phoneLabel}
             </a>
             <Link
-              href="/calculator"
+              href={calcHref}
               onClick={() => setMenuOpen(false)}
               className="mt-4 rounded-full bg-clinker px-5 py-3.5 text-center font-semibold text-white"
             >

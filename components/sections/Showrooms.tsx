@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
-import { LeadForm } from "@/components/forms/LeadForm";
 import { PLACES } from "@/lib/content/site";
 
 /** Шоу-румы + склады и доставка (ТЗ §6 блоки 18–19). */
@@ -45,20 +45,14 @@ export function Showrooms() {
             <p className="mt-4 text-sand/80">
               Доставка по России и СНГ — рассчитываем индивидуально под объём и регион.
             </p>
-            <details className="group mt-5">
-              <summary className="sheen w-fit cursor-pointer list-none rounded-full bg-clinker px-6 py-3 font-semibold text-white transition hover:bg-clinker-hover">
-                Рассчитать доставку
-              </summary>
-              <div className="mt-4 rounded-card bg-white/[0.06] p-5">
-                <LeadForm
-                  tag="Доставка"
-                  variant="dark"
-                  submitLabel="Рассчитать доставку"
-                  fields={["region"]}
-                  comment="Запрос расчёта доставки"
-                />
-              </div>
-            </details>
+            {/* Вторая форма на странице дублировала финальную (§«одна форма») —
+                теперь якорь на неё; поле «Регион доставки» переехало туда же. */}
+            <Link
+              href="#lead"
+              className="sheen mt-5 w-fit rounded-full bg-clinker px-6 py-3 font-semibold text-white transition hover:bg-clinker-hover"
+            >
+              Рассчитать доставку
+            </Link>
           </div>
         </Reveal>
       </div>

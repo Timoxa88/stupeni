@@ -1,14 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { SITE } from "@/lib/content/site";
 
 /**
  * Sticky-CTA-бар на мобильном (ТЗ A.3§4 / B.7): Позвонить + Рассчитать.
  * Скрыт на десктопе. Учитывает safe-area; фокус не перекрывается за счёт
- * scroll-padding-bottom в globals.css.
+ * scroll-padding-bottom в globals.css, футер — за счёт pb-компенсации в body.
  */
 export function MobileCtaBar() {
+  // На главной калькулятор встроен — якорь вместо перехода на /calculator.
+  const pathname = usePathname();
+  const calcHref = pathname === "/" ? "#calc" : "/calculator";
+
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-ink/10 bg-white/95 p-2.5 backdrop-blur lg:hidden"
@@ -21,7 +26,7 @@ export function MobileCtaBar() {
         Позвонить
       </a>
       <Link
-        href="/calculator"
+        href={calcHref}
         className="flex flex-1 items-center justify-center rounded-full bg-clinker px-4 py-3 font-semibold text-white"
       >
         Рассчитать

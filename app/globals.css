@@ -196,6 +196,15 @@ html {
   scroll-padding-bottom: 80px;
 }
 
+/* Ниже lg внизу постоянно висит MobileCtaBar (~72px): без компенсации он
+   навсегда закрывал последнюю строку футера — реквизиты и правовые ссылки
+   (scroll-padding выше решает только якоря и фокус, не раскладку). */
+@media (max-width: 1023.98px) {
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom));
+  }
+}
+
 /* Skip-link «к содержимому» — первый фокусируемый элемент (WCAG 2.4.1). */
 .skip-link {
   position: fixed;

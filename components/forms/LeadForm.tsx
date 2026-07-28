@@ -38,7 +38,7 @@ export function LeadForm({
   city,
   variant = "light",
   downloadUrl,
-  successText = "Заявка отправлена. Ответим в течение 15 минут.",
+  successText = "Заявка отправлена. Ответим в течение 15 минут в рабочее время.",
   className = "",
   onSuccess,
 }: LeadFormProps) {
@@ -50,7 +50,9 @@ export function LeadForm({
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [companyName, setCompanyName] = useState(""); // реальное поле «Компания»
-  const [interest, setInterest] = useState(interestOptions?.[0] ?? "");
+  // Пустое значение по умолчанию: предзаполненный первый пункт уходил в CRM
+  // как «Интерес: Ступени для крыльца» у всех, кто селект не трогал.
+  const [interest, setInterest] = useState("");
   const [region, setRegion] = useState("");
   const [note, setNote] = useState("");
   // Бывший отдельный блок «лид-магнит» — теперь галочка в общей форме: одна форма
@@ -205,7 +207,7 @@ export function LeadForm({
           aria-invalid={showErr("phone") || undefined}
           aria-errormessage={showErr("phone") ? `${uid}-phone-err` : undefined}
           className={inputCls}
-          placeholder="+7 ___ ___-__-__"
+          placeholder="+7 900 000-00-00"
         />
         {showErr("phone") ? (
           <span id={`${uid}-phone-err`} className="field-err">
@@ -261,6 +263,7 @@ export function LeadForm({
             onChange={(e) => setInterest(e.target.value)}
             className={inputCls}
           >
+            <option value="">— выберите —</option>
             {interestOptions.map((o) => (
               <option key={o} value={o}>
                 {o}
@@ -325,7 +328,9 @@ export function LeadForm({
         className="hidden"
       />
 
-      {/* 152-ФЗ: отдельное непредотмеченное согласие; submit заблокирован до отметки */}
+      {/* 152-ФЗ: отдельное непредотмеченное согласие; без отметки отправки нет,
+          но кнопка кликабельна — клик подсвечивает подсказку (disabled-submit
+          молчал бы о причине). */}
       <label className="flex items-start gap-2.5">
         <input
           type="checkbox"
@@ -372,7 +377,7 @@ export function LeadForm({
 
       <button
         type="submit"
-        disabled={state === "sending" || !consent}
+        disabled={state === "sending"}
         className="sheen mt-1 rounded-full bg-clinker px-6 py-3.5 font-semibold text-white transition hover:bg-clinker-hover disabled:cursor-not-allowed disabled:opacity-60"
       >
         {state === "sending" ? "Отправляем…" : submitLabel}

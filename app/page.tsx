@@ -259,8 +259,8 @@ export default function Home() {
         {/* ── 8. ШОУ-РУМЫ И СКЛАДЫ ── */}
         <Showrooms />
 
-        {/* ── 9. ФОРМА (одна на страницу) ── */}
-        <section className="relative overflow-hidden bg-graphite-deep text-sand">
+        {/* ── 9. ФОРМА (одна на страницу; #lead — якорь для CTA из других блоков) ── */}
+        <section id="lead" className="relative overflow-hidden bg-graphite-deep text-sand">
           <div className="absolute inset-0" style={gridMotif} aria-hidden />
           <div className="relative mx-auto grid max-w-7xl gap-8 px-5 py-20 sm:py-28 lg:grid-cols-[1fr_1.1fr] lg:items-center">
             <div>
@@ -286,7 +286,7 @@ export default function Home() {
                 tag="Заявка"
                 variant="dark"
                 submitLabel="Отправить заявку"
-                fields={["interest", "catalog"]}
+                fields={["interest", "region", "catalog"]}
                 interestOptions={INTEREST_OPTIONS}
               />
             </div>
