@@ -3597,7 +3597,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-ilario-beige/photo_0_own.jpg",
-      "/images/products/paradyz-ilario-beige/photo_1.png"
+      "/images/products/paradyz-ilario-beige/photo_1.png",
+      "/images/products/paradyz-ilario-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario, Beige — цена, характеристики",
@@ -3679,7 +3680,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-ilario-brown/photo_0_own.jpg",
-      "/images/products/paradyz-ilario-brown/photo_1.png"
+      "/images/products/paradyz-ilario-brown/photo_1.png",
+      "/images/products/paradyz-ilario-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario, Brown — цена, характеристики",
@@ -3761,7 +3763,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-ilario-ochra/photo_0_own.jpg",
-      "/images/products/paradyz-ilario-ochra/photo_1.png"
+      "/images/products/paradyz-ilario-ochra/photo_1.png",
+      "/images/products/paradyz-ilario-ochra/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario, Ochra — цена, характеристики",
@@ -6045,7 +6048,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-beige/photo_1.png"
+      "/images/products/paradyz-scandiano-beige/photo_1.png",
+      "/images/products/paradyz-scandiano-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Beige — цена, характеристики",
@@ -6088,7 +6092,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-brown/photo_1.png"
+      "/images/products/paradyz-scandiano-brown/photo_1.png",
+      "/images/products/paradyz-scandiano-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Brown — цена, характеристики",
@@ -6131,7 +6136,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-rosso/photo_1.png"
+      "/images/products/paradyz-scandiano-rosso/photo_1.png",
+      "/images/products/paradyz-scandiano-rosso/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Rosso — цена, характеристики",
@@ -6193,7 +6199,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-beige/photo_1.png"
+      "/images/products/paradyz-scandiano-beige/photo_1.png",
+      "/images/products/paradyz-scandiano-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Beige — цена, характеристики",
@@ -6281,7 +6288,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-brown/photo_1.png"
+      "/images/products/paradyz-scandiano-brown/photo_1.png",
+      "/images/products/paradyz-scandiano-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Brown — цена, характеристики",
@@ -6369,7 +6377,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-ochra/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-ochra/photo_1.png"
+      "/images/products/paradyz-scandiano-ochra/photo_1.png",
+      "/images/products/paradyz-scandiano-ochra/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Ochra — цена, характеристики",
@@ -6457,7 +6466,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-rosso/photo_1.png"
+      "/images/products/paradyz-scandiano-rosso/photo_1.png",
+      "/images/products/paradyz-scandiano-rosso/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano, Rosso — цена, характеристики",
@@ -6545,7 +6555,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-semir-beige/photo_0_own.jpg",
-      "/images/products/paradyz-semir-beige/photo_1.png"
+      "/images/products/paradyz-semir-beige/photo_1.png",
+      "/images/products/paradyz-semir-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Beige — цена, характеристики",
@@ -6633,7 +6644,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-semir-brown/photo_0_own.jpg",
-      "/images/products/paradyz-semir-brown/photo_1.png"
+      "/images/products/paradyz-semir-brown/photo_1.png",
+      "/images/products/paradyz-semir-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Brown — цена, характеристики",
@@ -6721,7 +6733,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-semir-grafit/photo_0_own.jpg",
-      "/images/products/paradyz-semir-grafit/photo_1.png"
+      "/images/products/paradyz-semir-grafit/photo_1.png",
+      "/images/products/paradyz-semir-grafit/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Grafit — цена, характеристики",
@@ -6809,7 +6822,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-semir-rosa/photo_0_own.jpg",
-      "/images/products/paradyz-semir-rosa/photo_1.png"
+      "/images/products/paradyz-semir-rosa/photo_1.png",
+      "/images/products/paradyz-semir-rosa/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir, Rosa — цена, характеристики",
@@ -7438,7 +7452,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-viano-grys/photo_0_own.jpg",
-      "/images/products/paradyz-viano-grys/photo_1.png"
+      "/images/products/paradyz-viano-grys/photo_1.png",
+      "/images/products/paradyz-viano-grys/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Grys — цена, характеристики",
@@ -7500,7 +7515,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-viano-antracite/photo_0_own.jpg",
-      "/images/products/paradyz-viano-antracite/photo_1.png"
+      "/images/products/paradyz-viano-antracite/photo_1.png",
+      "/images/products/paradyz-viano-antracite/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano, Antracite — цена, характеристики",
@@ -7582,7 +7598,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-viano-beige/photo_0_own.jpg",
-      "/images/products/paradyz-viano-beige/photo_1.png"
+      "/images/products/paradyz-viano-beige/photo_1.png",
+      "/images/products/paradyz-viano-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano, Beige — цена, характеристики",
@@ -7664,7 +7681,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-viano-grys/photo_0_own.jpg",
-      "/images/products/paradyz-viano-grys/photo_1.png"
+      "/images/products/paradyz-viano-grys/photo_1.png",
+      "/images/products/paradyz-viano-grys/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano, Grys — цена, характеристики",
