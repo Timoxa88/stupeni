@@ -65,7 +65,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#2E2E2C",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-ardenas-antracita/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Antracita — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Antracita: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -122,7 +124,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-ardenas-cromo/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Cromo — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Cromo: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -179,7 +183,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-ardenas-gris/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Gris — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Gris: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -236,7 +242,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-ardenas-marfil/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Marfil — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Marfil: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -273,7 +281,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R11"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-petra-bone/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Petra Bone — цена, характеристики",
       description: "Клинкерные ступени Exagres Petra Bone: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -310,7 +320,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R11"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-petra-gris/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Petra Gris — цена, характеристики",
       description: "Клинкерные ступени Exagres Petra Gris: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -347,7 +359,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R11"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-petra-ocre/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Petra Ocre — цена, характеристики",
       description: "Клинкерные ступени Exagres Petra Ocre: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -518,7 +532,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#7A4B33",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-portland-fondant/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Portland Fondant — цена, характеристики",
       description: "Клинкерные ступени Exagres Portland Fondant: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -689,7 +705,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-provenza-bianco/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Bianco — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Bianco: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -746,7 +764,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-provenza-grigio/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Grigio — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Grigio: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -803,7 +823,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-provenza-navona/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Navona — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Navona: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -860,7 +882,9 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [],
+    photos: [
+      "/images/products/exagres-provenza-nebbia/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Nebbia — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Nebbia: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -7926,7 +7950,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-epos-951-krios/photo_0_own.jpg"
+      "/images/products/stroeher-epos-951-krios/photo_0_own.jpg",
+      "/images/products/stroeher-epos-951-krios/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 951 krios — цена, характеристики",
@@ -7978,7 +8003,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-epos-952-pidra/photo_0_own.jpg"
+      "/images/products/stroeher-epos-952-pidra/photo_0_own.jpg",
+      "/images/products/stroeher-epos-952-pidra/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 952 pidra — цена, характеристики",
@@ -8030,7 +8056,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-epos-955-eres/photo_0_own.jpg"
+      "/images/products/stroeher-epos-955-eres/photo_0_own.jpg",
+      "/images/products/stroeher-epos-955-eres/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 955 eres — цена, характеристики",
@@ -8082,7 +8109,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-epos-957-kawe/photo_0_own.jpg"
+      "/images/products/stroeher-epos-957-kawe/photo_0_own.jpg",
+      "/images/products/stroeher-epos-957-kawe/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 957 kawe — цена, характеристики",
@@ -8603,7 +8631,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Keraplatte Aera 717 anthra — цена, характеристики",
@@ -8851,7 +8880,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-710-crio/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-710-crio/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-710-crio/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 710 crio — цена, характеристики",
@@ -8941,7 +8971,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 717 anthra — цена, характеристики",
@@ -9043,7 +9074,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 720 baccar — цена, характеристики",
@@ -9154,7 +9186,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 725 faveo — цена, характеристики",
@@ -9260,7 +9293,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 727 pinar — цена, характеристики",
@@ -9371,7 +9405,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 755 camaro — цена, характеристики",
@@ -9541,7 +9576,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 833 corda — цена, характеристики",
@@ -9602,7 +9638,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 835 sandos — цена, характеристики",
@@ -9663,7 +9700,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 837 marmos — цена, характеристики",
@@ -9724,7 +9762,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 840 grigio — цена, характеристики",
@@ -9785,7 +9824,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 841 rosso — цена, характеристики",
@@ -9846,7 +9886,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 845 nero — цена, характеристики",
@@ -9965,7 +10006,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Terra 307 weizengelb — цена, характеристики",
@@ -10025,7 +10067,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_0_own.jpg"
+      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_0_own.jpg",
+      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Terra 316 patrizierrot ofenbunt — цена, характеристики",
@@ -10344,7 +10387,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/stroeher-selected-981-greige/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Stroeher Selected 981 greige — цена, характеристики",
       description: "Клинкерные ступени Stroeher Selected 981 greige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10442,7 +10487,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/stroeher-selected-985-dekor/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Selected 985 dekor — цена, характеристики",
       description: "Клинкерная напольная плитка Stroeher Selected 985 dekor: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10493,7 +10540,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-zoe-970-grey/photo_0_own.jpg"
+      "/images/products/stroeher-zoe-970-grey/photo_0_own.jpg",
+      "/images/products/stroeher-zoe-970-grey/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 970 grey — цена, характеристики",
@@ -10545,7 +10593,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-zoe-971-greige/photo_0_own.jpg"
+      "/images/products/stroeher-zoe-971-greige/photo_0_own.jpg",
+      "/images/products/stroeher-zoe-971-greige/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 971 greige — цена, характеристики",
@@ -10597,7 +10646,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-zoe-972-taupe/photo_0_own.jpg"
+      "/images/products/stroeher-zoe-972-taupe/photo_0_own.jpg",
+      "/images/products/stroeher-zoe-972-taupe/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 972 taupe — цена, характеристики",
@@ -10688,7 +10738,8 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-zoe-973-anthracite/photo_0_own.jpg"
+      "/images/products/stroeher-zoe-973-anthracite/photo_0_own.jpg",
+      "/images/products/stroeher-zoe-973-anthracite/photo_2_vk.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 973 anthracite — цена, характеристики",
@@ -10747,7 +10798,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-cotto/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Cotto — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Cotto: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10805,7 +10858,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-dunkelgrau/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Dunkelgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Dunkelgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10863,7 +10918,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-graubraun/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Graubraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Graubraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10921,7 +10978,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-hellbeige/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellbeige — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellbeige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10979,7 +11038,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-hellgrau/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11229,7 +11290,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-mittelgrau/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Mittelgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Mittelgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11287,7 +11350,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-mocca/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Mocca — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Mocca: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11403,7 +11468,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-atrium-scotch/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Scotch — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Scotch: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11500,7 +11567,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-montmartre-moccabraun/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Moccabraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Moccabraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11558,7 +11627,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-montmartre-naturabeige/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Naturabeige — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Naturabeige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11616,7 +11687,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-montmartre-steingrau/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Steingrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Steingrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11674,7 +11747,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/westerwalder-klinker-montmartre-zimtbraun/photo_2_vk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Zimtbraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Zimtbraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
