@@ -379,7 +379,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Portland Black",
     sku: "exagres-portland-black",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -436,7 +436,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Portland Dakar",
     sku: "exagres-portland-dakar",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -552,7 +552,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Portland Grey",
     sku: "exagres-portland-grey",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -609,7 +609,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Portland lava",
     sku: "exagres-portland-lava",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -934,7 +934,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-abell-270-zhelto-bezhevyi/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Abell 270 желто-бежевый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 270 желто-бежевый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -984,7 +986,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-abell-271-krasno-korichnevyi/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Abell 271 красно-коричневый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 271 красно-коричневый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1034,7 +1038,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-abell-272-orehovo-korichnevyi/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Abell 272 орехово-коричневый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 272 орехово-коричневый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1084,7 +1090,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-abell-273-grafitovo-seryi/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Abell 273 графитово-серый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 273 графитово-серый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1134,7 +1142,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-abell-274-serebristo-seryi/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Abell 274 серебристо-серый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 274 серебристо-серый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1152,7 +1162,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Alpen антрацит",
     sku: "223131058",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -1223,7 +1233,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-alpen-antratsit-058/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Alpen антрацит 058 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen антрацит 058: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1282,7 +1294,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-alpen-buryi-pesok-045/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Alpen бурый песок 045 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen бурый песок 045: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1341,7 +1355,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-alpen-zolotistyi-pesok-044/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Alpen золотистый песок 044 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen золотистый песок 044: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1400,7 +1416,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-alpen-krasnaya-glina-059/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Alpen красная глина 059 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen красная глина 059: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1459,7 +1477,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [],
+    photos: [
+      "/images/products/interbau-alpen-kristalnyi-pesok-043/photo_3_kl.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Interbau Alpen кристальный песок 043 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen кристальный песок 043: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1997,7 +2017,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Arteon",
     sku: "5902610592225",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -2163,7 +2183,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Arteon",
     sku: "5902610592249",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -4070,7 +4090,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Mattone Pietra Beige с капиносом",
     sku: "5900139016673",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -4108,7 +4128,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Mattone Pietra Grafit с капиносом",
     sku: "5900139014860",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -4146,7 +4166,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Mattone Pietra Ochra с капиносом",
     sku: "5900139016772",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -4740,7 +4760,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "Natural Rocks Gold",
     sku: "5900139006891",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -5938,7 +5958,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "Rustic Gold",
     sku: "5902610503054",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -7379,7 +7399,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Viano Antracit",
     sku: "5902610525964",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -7838,7 +7858,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Epos 652 pidra",
     sku: "8063,S952",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -7878,7 +7898,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Epos 657 kawe",
     sku: "8045,S957",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -8129,7 +8149,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Euramic Cavar E541 facello",
     sku: "8030,E541",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8177,7 +8197,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Euramic Cavar E542 passione",
     sku: "8030,E542",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8225,7 +8245,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Euramic Cavar E543 fosco",
     sku: "8030,E543",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8273,7 +8293,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Euramic Cavar E544 chiaro",
     sku: "8030,E544",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8321,7 +8341,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Euramic Cavar Е544 chiaro",
     sku: "4832,0544",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8360,7 +8380,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Gravel Blend 960 beige",
     sku: "8062,S960",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8410,7 +8430,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Gravel Blend 961 brown",
     sku: "8062,S961",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8460,7 +8480,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Gravel Blend 962 grey",
     sku: "8062,S962",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8510,7 +8530,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Gravel Blend 963 black",
     sku: "8062,S963",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8560,7 +8580,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Gravel Blend 964 taupe",
     sku: "8062,S964",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -8749,7 +8769,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Keraplatte Aera",
     sku: "8045,S755",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -10087,7 +10107,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Loftstufe Gravel Blend 960 beige",
     sku: "9430,0960",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10127,7 +10147,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Loftstufe Gravel Blend 961 brown",
     sku: "9430,0961",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10167,7 +10187,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Loftstufe Gravel Blend 963 black",
     sku: "9430,0963",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10207,7 +10227,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Loftstufe Gravel Blend 964 taupe",
     sku: "9430,0964",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10247,7 +10267,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Loftstufe Stroeher Gravel Blend 962 grey",
     sku: "9430,0962",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10287,7 +10307,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Selected 980 grau",
     sku: "8031,S980",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10407,7 +10427,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Selected 982 anthrazit",
     sku: "8031,S982",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -10666,7 +10686,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Zoe 973 antharcite",
     sku: "8045,S973",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -11058,7 +11078,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "ATRIUM LOFT Dunkelgrau",
     sku: "WKL 31170",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -11106,7 +11126,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "ATRIUM LOFT Hellbeige",
     sku: "WKL 31160",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -11154,7 +11174,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "ATRIUM LOFT Mocca",
     sku: "WKL 31180",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -11202,7 +11222,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "ATRIUM LOFT Schwarz",
     sku: "WKL31190",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -11370,7 +11390,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "ATRIUM Schwarz",
     sku: "WKS31190 / 101/1-190-K",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -11488,7 +11508,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "MONTMARTRE Cottobraun",
     sku: "WKS 31200 / 101/1-200-K",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     formats: [
       {
@@ -11767,7 +11787,7 @@ export const REAL_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "флорентинер Westerwaelder Klinke MONTMARTRE Cottobraun",
     sku: "WKS 31200 S / 102/2-200-KS",
-    active: true,
+    active: false,
     price_updated_at: "2026-07-26",
     elements: [
       {
@@ -11846,7 +11866,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/markastroy-natur-vishnya/photo_3_mk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Маркастрой Natur Вишня — цена, характеристики",
       description: "Клинкерные ступени Маркастрой Natur Вишня: морозостойкость F700, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11904,7 +11926,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/markastroy-natur-dyuna/photo_3_mk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Маркастрой Natur Дюна — цена, характеристики",
       description: "Клинкерные ступени Маркастрой Natur Дюна: морозостойкость F700, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11962,7 +11986,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/markastroy-natur-shokolad/photo_3_mk.jpg"
+    ],
     seo: {
       title: "Клинкерные ступени Маркастрой Natur Шоколад — цена, характеристики",
       description: "Клинкерные ступени Маркастрой Natur Шоколад: морозостойкость F700, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",

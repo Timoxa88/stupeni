@@ -22,7 +22,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "plastiny-pod-derevo",
     collection: "AGAWOOD BROWN",
     sku: "5900139004473",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -816,7 +816,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Arteon Ochra",
     sku: "5902610584640",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     elements: [
       {
@@ -982,7 +982,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnyy-klinker",
     collection: "Arteon Taupe",
     sku: "5902610584664",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     elements: [
       {
@@ -1403,7 +1403,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "CEMENTECH ECLIPSE",
     sku: "5900139004474",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -1455,7 +1455,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "CEMENTECH MOON",
     sku: "5900139004475",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -2420,7 +2420,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "INGASTONE BEIGE",
     sku: "5900139004476",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -2478,7 +2478,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "INGASTONE BROWN",
     sku: "5900139004477",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -2536,7 +2536,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "INGASTONE GREY",
     sku: "5900139004478",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -2594,7 +2594,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "INGASTONE LIGHT GREY",
     sku: "5900139004479",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -4216,7 +4216,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "plastiny-pod-derevo",
     collection: "NATURIO BEIGE",
     sku: "5900139004480",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -4274,7 +4274,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "plastiny-pod-derevo",
     collection: "NATURIO BROWN",
     sku: "5900139004481",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -4332,7 +4332,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "plastiny-pod-derevo",
     collection: "NATURIO HONEY",
     sku: "5900139004482",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -4390,7 +4390,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "plastiny-pod-derevo",
     collection: "NATURIO LIGHT BEIGE",
     sku: "5900139004483",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -5755,7 +5755,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "SALADO ANTRACITE",
     sku: "5900139004485",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
@@ -5807,7 +5807,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     category: "terrasnye-plastiny",
     collection: "SALADO GRYS",
     sku: "5900139004486",
-    active: true,
+    active: false,
     price_updated_at: "2026-06-01",
     formats: [
       {
