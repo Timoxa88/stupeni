@@ -44,7 +44,7 @@ export function ProductCard({ product }: { product: Product }) {
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
             loading="lazy"
-            className="img-rich object-cover transition duration-700 group-hover:scale-105"
+            className="img-rich object-contain transition duration-700 group-hover:scale-105"
           />
         ) : (
           <div

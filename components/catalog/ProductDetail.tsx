@@ -124,7 +124,7 @@ export function ProductDetail({ product }: { product: Product }) {
             fill
             priority
             sizes="(max-width: 1024px) 100vw, 50vw"
-            className="img-rich object-cover"
+            className="img-rich object-contain"
           />
           {view.discountPct || view.label ? (
             <span className="absolute left-4 top-4 rounded-full bg-clinker px-3 py-1.5 text-sm font-bold text-white shadow-glow">
