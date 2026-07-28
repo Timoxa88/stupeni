@@ -20,7 +20,11 @@ import { productSchema } from "@/lib/jsonld";
 type Params = { params: Promise<{ id: string }> };
 
 export function generateStaticParams() {
-  return SEED_PRODUCTS.map((p) => ({ id: p.id }));
+  // Только активные: снятые с витрины товары (нет фото своего артикула — см.
+  // scripts/deactivate_without_photo.py) не должны иметь и своей страницы.
+  // Иначе они исчезают из листингов и счётчиков, но остаются доступны по прямой
+  // ссылке — и попадают в выдачу как страница без картинки.
+  return SEED_PRODUCTS.filter((p) => p.active).map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -37,7 +41,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 export default async function ProductPage({ params }: Params) {
   const { id } = await params;
   const product = getProductById(id);
-  if (!product) notFound();
+  if (!product || !product.active) notFound();
 
   const cat = getCategory(productCategory(product));
   const brandSlug = brandSlugByName(product.brand);
