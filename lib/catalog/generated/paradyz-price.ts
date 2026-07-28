@@ -41,9 +41,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Коричневый",
       color_hex: "#7A4B33"
     },
-    photos: [
-      "/images/cat-wood.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Керамогранит под дерево Paradyz AGAWOOD BROWN — цена, характеристики",
       description: "Керамогранит под дерево Paradyz AGAWOOD BROWN: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -850,9 +848,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon Ochra — цена, характеристики",
       description: "Клинкерные ступени Paradyz Arteon Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -1018,9 +1014,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon Taupe — цена, характеристики",
       description: "Клинкерные ступени Paradyz Arteon Taupe: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -1428,9 +1422,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "ECLIPSE",
       color_hex: "#9A8F80"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz CEMENTECH ECLIPSE — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz CEMENTECH ECLIPSE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -1482,9 +1474,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "MOON",
       color_hex: "#9A8F80"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz CEMENTECH MOON — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz CEMENTECH MOON: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -1774,7 +1764,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-cloud-brown/photo_1.png"
+      "/images/products/paradyz-cloud-brown/photo_0_own.jpg",
+      "/images/products/paradyz-cloud-brown/photo_1.png",
+      "/images/products/paradyz-cloud-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Cloud Brown — цена, характеристики",
@@ -1910,6 +1902,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-cloud-rosa/photo_0_own.jpg",
       "/images/products/paradyz-cloud-rosa/photo_1.png"
     ],
     seo: {
@@ -2446,9 +2439,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Бежевый",
       color_hex: "#C9B79C"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE BEIGE — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE BEIGE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2506,9 +2497,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Коричневый",
       color_hex: "#7A4B33"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE BROWN — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE BROWN: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2566,9 +2555,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Серый",
       color_hex: "#8A8A86"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE GREY — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE GREY: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2626,9 +2613,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "LIGHT GREY",
       color_hex: "#D6C6AC"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE LIGHT GREY — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE LIGHT GREY: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2688,7 +2673,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-ilario-beige/photo_1.png"
+      "/images/products/paradyz-ilario-beige/photo_0_own.jpg",
+      "/images/products/paradyz-ilario-beige/photo_1.png",
+      "/images/products/paradyz-ilario-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario Beige — цена, характеристики",
@@ -2769,7 +2756,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-ilario-brown/photo_1.png"
+      "/images/products/paradyz-ilario-brown/photo_0_own.jpg",
+      "/images/products/paradyz-ilario-brown/photo_1.png",
+      "/images/products/paradyz-ilario-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario Brown — цена, характеристики",
@@ -2850,7 +2839,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-ilario-ochra/photo_1.png"
+      "/images/products/paradyz-ilario-ochra/photo_0_own.jpg",
+      "/images/products/paradyz-ilario-ochra/photo_1.png",
+      "/images/products/paradyz-ilario-ochra/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Ilario Ochra — цена, характеристики",
@@ -3746,6 +3737,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#C9B79C"
     },
     photos: [
+      "/images/products/paradyz-mattone-sabbia-beige/photo_0_own.jpg",
       "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
     ],
     seo: {
@@ -3824,6 +3816,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#7A4B33"
     },
     photos: [
+      "/images/products/paradyz-mattone-sabbia-brown/photo_0_own.jpg",
       "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
     ],
     seo: {
@@ -3902,6 +3895,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color_hex: "#4A4D4E"
     },
     photos: [
+      "/images/products/paradyz-mattone-sabbia-grafit/photo_0_own.jpg",
       "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
     ],
     seo: {
@@ -4241,9 +4235,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Бежевый",
       color_hex: "#C9B79C"
     },
-    photos: [
-      "/images/cat-wood.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO BEIGE — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO BEIGE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4301,9 +4293,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Коричневый",
       color_hex: "#7A4B33"
     },
-    photos: [
-      "/images/cat-wood.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO BROWN — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO BROWN: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4361,9 +4351,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Медовый",
       color_hex: "#C98F4B"
     },
-    photos: [
-      "/images/cat-wood.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO HONEY — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO HONEY: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4421,9 +4409,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "LIGHT BEIGE",
       color_hex: "#D6C6AC"
     },
-    photos: [
-      "/images/cat-wood.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO LIGHT BEIGE — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO LIGHT BEIGE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4483,7 +4469,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-natural-brown/photo_1.png"
+      "/images/products/paradyz-natural-brown/photo_0_own.jpg",
+      "/images/products/paradyz-natural-brown/photo_1.png",
+      "/images/products/paradyz-natural-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Natural Brown — цена, характеристики",
@@ -4619,6 +4607,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-natural-rosa/photo_0_own.jpg",
       "/images/products/paradyz-natural-rosa/photo_1.png"
     ],
     seo: {
@@ -5785,9 +5774,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Антрацит",
       color_hex: "#3A3C3B"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz SALADO ANTRACITE — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz SALADO ANTRACITE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -5849,9 +5836,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Серый",
       color_hex: "#8A8A86"
     },
-    photos: [
-      "/images/cat-slab.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz SALADO GRYS — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz SALADO GRYS: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -6106,7 +6091,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-scandiano-beige/photo_1.png"
+      "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-beige/photo_1.png",
+      "/images/products/paradyz-scandiano-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Beige — цена, характеристики",
@@ -6193,7 +6180,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-scandiano-brown/photo_1.png"
+      "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-brown/photo_1.png",
+      "/images/products/paradyz-scandiano-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Brown — цена, характеристики",
@@ -6280,7 +6269,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-scandiano-ochra/photo_1.png"
+      "/images/products/paradyz-scandiano-ochra/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-ochra/photo_1.png",
+      "/images/products/paradyz-scandiano-ochra/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Ochra — цена, характеристики",
@@ -6367,7 +6358,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-scandiano-rosso/photo_1.png"
+      "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-rosso/photo_1.png",
+      "/images/products/paradyz-scandiano-rosso/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Scandiano Rosso — цена, характеристики",
@@ -6454,7 +6447,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-semir-beige/photo_1.png"
+      "/images/products/paradyz-semir-beige/photo_0_own.jpg",
+      "/images/products/paradyz-semir-beige/photo_1.png",
+      "/images/products/paradyz-semir-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir Beige — цена, характеристики",
@@ -6541,7 +6536,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-semir-brown/photo_1.png"
+      "/images/products/paradyz-semir-brown/photo_0_own.jpg",
+      "/images/products/paradyz-semir-brown/photo_1.png",
+      "/images/products/paradyz-semir-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir Brown — цена, характеристики",
@@ -6628,7 +6625,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-semir-grafit/photo_1.png"
+      "/images/products/paradyz-semir-grafit/photo_0_own.jpg",
+      "/images/products/paradyz-semir-grafit/photo_1.png",
+      "/images/products/paradyz-semir-grafit/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir Grafit — цена, характеристики",
@@ -6715,7 +6714,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-semir-rosa/photo_1.png"
+      "/images/products/paradyz-semir-rosa/photo_0_own.jpg",
+      "/images/products/paradyz-semir-rosa/photo_1.png",
+      "/images/products/paradyz-semir-rosa/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Semir Rosa — цена, характеристики",
@@ -7095,6 +7096,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-taurus-brown/photo_0_own.jpg",
       "/images/products/paradyz-taurus-brown/photo_1.png"
     ],
     seo: {
@@ -7170,6 +7172,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-taurus-grys/photo_0_own.jpg",
       "/images/products/paradyz-taurus-grys/photo_1.png"
     ],
     seo: {
@@ -7245,7 +7248,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-viano-antracite/photo_1.png"
+      "/images/products/paradyz-viano-antracite/photo_0_own.jpg",
+      "/images/products/paradyz-viano-antracite/photo_1.png",
+      "/images/products/paradyz-viano-antracite/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Antracite — цена, характеристики",
@@ -7326,7 +7331,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-viano-beige/photo_1.png"
+      "/images/products/paradyz-viano-beige/photo_0_own.jpg",
+      "/images/products/paradyz-viano-beige/photo_1.png",
+      "/images/products/paradyz-viano-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Beige — цена, характеристики",
@@ -7407,7 +7414,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-viano-grys/photo_1.png"
+      "/images/products/paradyz-viano-grys/photo_0_own.jpg",
+      "/images/products/paradyz-viano-grys/photo_1.png",
+      "/images/products/paradyz-viano-grys/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Grys — цена, характеристики",

@@ -65,11 +65,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#2E2E2C",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/products/exagres-ardenas-antracita/photo_1.jpg",
-      "/images/products/exagres-ardenas-antracita/photo_2.jpg",
-      "/images/products/exagres-ardenas-antracita/photo_3.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Antracita — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Antracita: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -126,11 +122,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/products/exagres-ardenas-cromo/photo_1.jpg",
-      "/images/products/exagres-ardenas-cromo/photo_2.jpg",
-      "/images/products/exagres-ardenas-cromo/photo_3.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Cromo — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Cromo: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -187,11 +179,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/products/exagres-ardenas-gris/photo_1.jpg",
-      "/images/products/exagres-ardenas-gris/photo_2.jpg",
-      "/images/products/exagres-ardenas-gris/photo_3.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Gris — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Gris: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -248,11 +236,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/products/exagres-ardenas-marfil/photo_1.jpg",
-      "/images/products/exagres-ardenas-marfil/photo_2.jpg",
-      "/images/products/exagres-ardenas-marfil/photo_3.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Ardenas Marfil — цена, характеристики",
       description: "Клинкерные ступени Exagres Ardenas Marfil: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -2742,7 +2726,9 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-cloud-brown/photo_1.png"
+      "/images/products/paradyz-cloud-brown/photo_0_own.jpg",
+      "/images/products/paradyz-cloud-brown/photo_1.png",
+      "/images/products/paradyz-cloud-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Cloud, Brown — цена, характеристики",
@@ -2821,7 +2807,10 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-cloud-brown-gladkaya/photo_0_own.jpg",
+      "/images/products/paradyz-cloud-brown-gladkaya/photo_1_b24.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Brown гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Brown гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -2899,7 +2888,10 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-cloud-brown-strukturnaya/photo_0_own.jpg",
+      "/images/products/paradyz-cloud-brown-strukturnaya/photo_1_b24.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Brown структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Brown структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -2987,6 +2979,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-cloud-rosa/photo_0_own.jpg",
       "/images/products/paradyz-cloud-rosa/photo_1.png"
     ],
     seo: {
@@ -3066,7 +3059,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-cloud-rosa-gladkaya/photo_0_own.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Rosa гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Rosa гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -3144,7 +3139,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-cloud-rosa-strukturnaya/photo_0_own.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Rosa структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Rosa структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -4871,7 +4868,9 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/paradyz-natural-brown/photo_1.png"
+      "/images/products/paradyz-natural-brown/photo_0_own.jpg",
+      "/images/products/paradyz-natural-brown/photo_1.png",
+      "/images/products/paradyz-natural-brown/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Natural, Brown — цена, характеристики",
@@ -4950,7 +4949,10 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-natural-brown-gladkaya/photo_0_own.jpg",
+      "/images/products/paradyz-natural-brown-gladkaya/photo_1_b24.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Brown, гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Brown, гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5028,7 +5030,10 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-natural-brown-strukturnaya/photo_0_own.jpg",
+      "/images/products/paradyz-natural-brown-strukturnaya/photo_1_b24.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Brown, структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Brown, структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5116,6 +5121,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-natural-rosa/photo_0_own.jpg",
       "/images/products/paradyz-natural-rosa/photo_1.png"
     ],
     seo: {
@@ -5195,7 +5201,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-natural-rosa-gladkaya/photo_0_own.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Rosa, гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Rosa, гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5273,7 +5281,9 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [],
+    photos: [
+      "/images/products/paradyz-natural-rosa-strukturnaya/photo_0_own.jpg"
+    ],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Rosa, структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Rosa, структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -7409,7 +7419,8 @@ export const REAL_PRODUCTS: Product[] = [
     },
     photos: [
       "/images/products/paradyz-viano-beige/photo_0_own.jpg",
-      "/images/products/paradyz-viano-beige/photo_1.png"
+      "/images/products/paradyz-viano-beige/photo_1.png",
+      "/images/products/paradyz-viano-beige/photo_1_b24.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Beige — цена, характеристики",
@@ -8730,12 +8741,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10/A"
     },
-    photos: [
-      "/images/products/stroeher-keraplatte-aera-710-camaro/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-710-camaro/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-710-camaro/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-710-camaro/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Keraplatte Aera, 710 camaro — цена, характеристики",
       description: "Клинкерная напольная плитка Stroeher Keraplatte Aera, 710 camaro: морозостойкость F300, противоскольжение R10/A, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10279,12 +10285,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/stroeher-selected-980-grau/photo_1.jpg",
-      "/images/products/stroeher-selected-980-grau/photo_2.jpg",
-      "/images/products/stroeher-selected-980-grau/photo_3.jpg",
-      "/images/products/stroeher-selected-980-grau/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Selected 980 grau — цена, характеристики",
       description: "Клинкерные ступени Stroeher Selected 980 grau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10343,12 +10344,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/stroeher-selected-981-greige/photo_1.jpg",
-      "/images/products/stroeher-selected-981-greige/photo_2.jpg",
-      "/images/products/stroeher-selected-981-greige/photo_3.jpg",
-      "/images/products/stroeher-selected-981-greige/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Selected 981 greige — цена, характеристики",
       description: "Клинкерные ступени Stroeher Selected 981 greige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10407,12 +10403,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/stroeher-selected-982-anthrazit/photo_1.jpg",
-      "/images/products/stroeher-selected-982-anthrazit/photo_2.jpg",
-      "/images/products/stroeher-selected-982-anthrazit/photo_3.jpg",
-      "/images/products/stroeher-selected-982-anthrazit/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Selected 982 anthrazit — цена, характеристики",
       description: "Клинкерные ступени Stroeher Selected 982 anthrazit: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10451,12 +10442,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/stroeher-selected-985-dekor/photo_1.jpg",
-      "/images/products/stroeher-selected-985-dekor/photo_2.jpg",
-      "/images/products/stroeher-selected-985-dekor/photo_3.jpg",
-      "/images/products/stroeher-selected-985-dekor/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Selected 985 dekor — цена, характеристики",
       description: "Клинкерная напольная плитка Stroeher Selected 985 dekor: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10761,12 +10747,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-cotto/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-cotto/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-cotto/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-cotto/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Cotto — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Cotto: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10824,12 +10805,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-dunkelgrau/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-dunkelgrau/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-dunkelgrau/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-dunkelgrau/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Dunkelgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Dunkelgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10887,12 +10863,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-graubraun/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-graubraun/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-graubraun/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-graubraun/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Graubraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Graubraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10950,12 +10921,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-hellbeige/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-hellbeige/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-hellbeige/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-hellbeige/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellbeige — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellbeige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11013,12 +10979,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-hellgrau/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-hellgrau/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-hellgrau/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-hellgrau/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Hellgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11066,12 +11027,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-loft-dunkelgrau/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-dunkelgrau/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-dunkelgrau/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-dunkelgrau/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Dunkelgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Dunkelgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11119,12 +11075,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-loft-hellbeige/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-hellbeige/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-hellbeige/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-hellbeige/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Hellbeige — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Hellbeige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11172,12 +11123,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#7A4B33",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-loft-mocca/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-mocca/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-mocca/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-mocca/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Mocca — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Mocca: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11225,12 +11171,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#2E2E2C",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-loft-schwarz/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-schwarz/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-schwarz/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-loft-schwarz/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Schwarz — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM LOFT Schwarz: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11288,12 +11229,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-mittelgrau/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-mittelgrau/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-mittelgrau/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-mittelgrau/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Mittelgrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Mittelgrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11351,12 +11287,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-mocca/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-mocca/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-mocca/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-mocca/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Mocca — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Mocca: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11414,12 +11345,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-schwarz/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-schwarz/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-schwarz/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-schwarz/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Schwarz — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Schwarz: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11477,12 +11403,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-atrium-scotch/photo_1.jpg",
-      "/images/products/westerwalder-klinker-atrium-scotch/photo_2.jpg",
-      "/images/products/westerwalder-klinker-atrium-scotch/photo_3.jpg",
-      "/images/products/westerwalder-klinker-atrium-scotch/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker ATRIUM Scotch — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker ATRIUM Scotch: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11521,12 +11442,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-montmartre-cottobraun/photo_1.jpg",
-      "/images/products/westerwalder-klinker-montmartre-cottobraun/photo_2.jpg",
-      "/images/products/westerwalder-klinker-montmartre-cottobraun/photo_3.jpg",
-      "/images/products/westerwalder-klinker-montmartre-cottobraun/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Westerwälder Klinker MONTMARTRE Cottobraun — цена, характеристики",
       description: "Клинкерная напольная плитка Westerwälder Klinker MONTMARTRE Cottobraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11584,12 +11500,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-montmartre-moccabraun/photo_1.jpg",
-      "/images/products/westerwalder-klinker-montmartre-moccabraun/photo_2.jpg",
-      "/images/products/westerwalder-klinker-montmartre-moccabraun/photo_3.jpg",
-      "/images/products/westerwalder-klinker-montmartre-moccabraun/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Moccabraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Moccabraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11647,12 +11558,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-montmartre-naturabeige/photo_1.jpg",
-      "/images/products/westerwalder-klinker-montmartre-naturabeige/photo_2.jpg",
-      "/images/products/westerwalder-klinker-montmartre-naturabeige/photo_3.jpg",
-      "/images/products/westerwalder-klinker-montmartre-naturabeige/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Naturabeige — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Naturabeige: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11710,12 +11616,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-montmartre-steingrau/photo_1.jpg",
-      "/images/products/westerwalder-klinker-montmartre-steingrau/photo_2.jpg",
-      "/images/products/westerwalder-klinker-montmartre-steingrau/photo_3.jpg",
-      "/images/products/westerwalder-klinker-montmartre-steingrau/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Steingrau — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Steingrau: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11773,12 +11674,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-montmartre-zimtbraun/photo_1.jpg",
-      "/images/products/westerwalder-klinker-montmartre-zimtbraun/photo_2.jpg",
-      "/images/products/westerwalder-klinker-montmartre-zimtbraun/photo_3.jpg",
-      "/images/products/westerwalder-klinker-montmartre-zimtbraun/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Zimtbraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker MONTMARTRE Zimtbraun: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11817,12 +11713,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 1.5,
       slip_resistance: "R11"
     },
-    photos: [
-      "/images/products/westerwalder-klinker-florentiner-westerwaelder-klinke-montmartre-cottobraun/photo_1.jpg",
-      "/images/products/westerwalder-klinker-florentiner-westerwaelder-klinke-montmartre-cottobraun/photo_2.jpg",
-      "/images/products/westerwalder-klinker-florentiner-westerwaelder-klinke-montmartre-cottobraun/photo_3.jpg",
-      "/images/products/westerwalder-klinker-florentiner-westerwaelder-klinke-montmartre-cottobraun/photo_4.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Westerwälder Klinker флорентинер Westerwaelder Klinke MONTMARTRE Cottobraun — цена, характеристики",
       description: "Клинкерные ступени Westerwälder Klinker флорентинер Westerwaelder Klinke MONTMARTRE Cottobraun: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11880,10 +11771,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/markastroy-natur-vishnya/photo_2.png",
-      "/images/products/markastroy-natur-vishnya/photo_3.png"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Маркастрой Natur Вишня — цена, характеристики",
       description: "Клинкерные ступени Маркастрой Natur Вишня: морозостойкость F700, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -11941,11 +11829,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/markastroy-natur-dyuna/photo_4_dyuna_obekt.jpg",
-      "/images/products/markastroy-natur-dyuna/photo_2.png",
-      "/images/products/markastroy-natur-dyuna/photo_3.png"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Маркастрой Natur Дюна — цена, характеристики",
       description: "Клинкерные ступени Маркастрой Natur Дюна: морозостойкость F700, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -12003,11 +11887,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/products/markastroy-natur-shokolad/photo_1_shokolad.png",
-      "/images/products/markastroy-natur-shokolad/photo_2.png",
-      "/images/products/markastroy-natur-shokolad/photo_3.png"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Маркастрой Natur Шоколад — цена, характеристики",
       description: "Клинкерные ступени Маркастрой Natur Шоколад: морозостойкость F700, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
