@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Съём собственного сайта (промежуточные данные для fetch_hitceramics_photos.py)
+scripts/hitceramics/

@@ -16,8 +16,10 @@ public/images/products/<id>/, а каталог после этого не пе�
 Запуск:  python3 scripts/wire_product_photos.py [--dry-run]
 """
 
+import hashlib
 import re
 import sys
+from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -26,12 +28,38 @@ PHOTOS = ROOT / "public" / "images" / "products"
 EXT = (".jpg", ".jpeg", ".png", ".webp")
 
 
+def shared_hashes() -> set[str]:
+    """
+    Кадры, которые лежат сразу у нескольких артикулов, — это фото КОЛЛЕКЦИИ,
+    а не цвета. Такой кадр показывать нельзя: у Exagres Ardenas один и тот же
+    рендер бассейна стоял и на Antracita (чёрный), и на Marfil (бежевый).
+    Возвращаем их хеши, чтобы карточка ушла на честную плашку цвета.
+    """
+    seen: dict[str, set[str]] = defaultdict(set)
+    for d in PHOTOS.iterdir():
+        if not d.is_dir():
+            continue
+        for f in d.iterdir():
+            if f.suffix.lower() in EXT:
+                seen[hashlib.md5(f.read_bytes()).hexdigest()].add(d.name)
+    return {h for h, owners in seen.items() if len(owners) > 1}
+
+
+SHARED = shared_hashes()
+
+
 def files_for(pid: str) -> list[str]:
     d = PHOTOS / pid
     if not d.is_dir():
         return []
-    return [f"/images/products/{pid}/{f.name}" for f in sorted(d.iterdir())
-            if f.suffix.lower() in EXT][:4]
+    out = []
+    for f in sorted(d.iterdir()):
+        if f.suffix.lower() not in EXT:
+            continue
+        if hashlib.md5(f.read_bytes()).hexdigest() in SHARED:
+            continue
+        out.append(f"/images/products/{pid}/{f.name}")
+    return out[:4]
 
 
 def main() -> int:
@@ -50,12 +78,15 @@ def main() -> int:
         inner = m.group("inner")
         has_own = "/images/products/" in inner
         found = files_for(pid)
-        if has_own or not found:
+        # --force переписывает и то, что уже проставлено: нужно, когда появились
+        # фото со своего сайта и они должны вытеснить текстуры производителя.
+        if (has_own and "--force" not in sys.argv) or not found:
             if has_own:
                 already += 1
             else:
                 missing.append(pid)
-            return m.group(0)
+            return m.group(0) if found or has_own else m.group(0).replace(
+                m.group("ph"), "\n    photos: [],")
         new_inner = ",\n".join(f'      "{u}"' for u in found)
         patched += 1
         return f'{m.group(1)}{m.group("body")}\n    photos: [\n{new_inner}\n    ],'

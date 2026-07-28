@@ -289,10 +289,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R11"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Petra Bone — цена, характеристики",
       description: "Клинкерные ступени Exagres Petra Bone: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -329,10 +326,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R11"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Petra Gris — цена, характеристики",
       description: "Клинкерные ступени Exagres Petra Gris: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -369,10 +363,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R11"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Petra Ocre — цена, характеристики",
       description: "Клинкерные ступени Exagres Petra Ocre: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -429,10 +420,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#2E2E2C",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Portland Black — цена, характеристики",
       description: "Клинкерные ступени Exagres Portland Black: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -489,10 +477,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Portland Dakar — цена, характеристики",
       description: "Клинкерные ступени Exagres Portland Dakar: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -549,10 +534,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#7A4B33",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Portland Fondant — цена, характеристики",
       description: "Клинкерные ступени Exagres Portland Fondant: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -609,10 +591,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Portland Grey — цена, характеристики",
       description: "Клинкерные ступени Exagres Portland Grey: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -669,10 +648,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#7A4B33",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Portland lava — цена, характеристики",
       description: "Клинкерные ступени Exagres Portland lava: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -729,10 +705,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Bianco — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Bianco: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -789,10 +762,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Grigio — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Grigio: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -849,10 +819,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Navona — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Navona: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -909,10 +876,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R12"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Exagres Provenza Nebbia — цена, характеристики",
       description: "Клинкерные ступени Exagres Provenza Nebbia: противоскольжение R12, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -962,10 +926,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Abell 270 желто-бежевый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 270 желто-бежевый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1015,10 +976,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Abell 271 красно-коричневый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 271 красно-коричневый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1068,10 +1026,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Abell 272 орехово-коричневый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 272 орехово-коричневый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1121,10 +1076,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Abell 273 графитово-серый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 273 графитово-серый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1174,10 +1126,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Abell 274 серебристо-серый — цена, характеристики",
       description: "Клинкерные ступени Interbau Abell 274 серебристо-серый: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1217,10 +1166,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Interbau Alpen антрацит — цена, характеристики",
       description: "Клинкерная напольная плитка Interbau Alpen антрацит: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1269,10 +1215,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Alpen антрацит 058 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen антрацит 058: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1331,10 +1274,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Alpen бурый песок 045 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen бурый песок 045: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1393,10 +1333,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Alpen золотистый песок 044 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen золотистый песок 044: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1455,10 +1392,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Alpen красная глина 059 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen красная глина 059: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1517,10 +1451,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R11/B"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Interbau Alpen кристальный песок 043 — цена, характеристики",
       description: "Клинкерные ступени Interbau Alpen кристальный песок 043: морозостойкость F300, противоскольжение R11/B, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -1561,8 +1492,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/interbau-nature-art-lava-schwarz/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Interbau Nature Art Lava schwarz — цена, характеристики",
@@ -1604,8 +1534,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
+      "/images/products/interbau-nature-art-umbra-braun/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Interbau Nature Art Umbra braun — цена, характеристики",
@@ -2092,10 +2021,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon, Ochra — цена, характеристики",
       description: "Клинкерные ступени Paradyz Arteon, Ochra: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -2261,10 +2187,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Arteon, Taupe — цена, характеристики",
       description: "Клинкерные ступени Paradyz Arteon, Taupe: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -2898,10 +2821,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Brown гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Brown гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -2979,10 +2899,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Brown структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Brown структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -3149,10 +3066,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Rosa гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Rosa гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -3230,10 +3144,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Cloud, Rosa структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Cloud, Rosa структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -3685,6 +3596,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-ilario-beige/photo_0_own.jpg",
       "/images/products/paradyz-ilario-beige/photo_1.png"
     ],
     seo: {
@@ -3766,6 +3678,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-ilario-brown/photo_0_own.jpg",
       "/images/products/paradyz-ilario-brown/photo_1.png"
     ],
     seo: {
@@ -3847,6 +3760,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-ilario-ochra/photo_0_own.jpg",
       "/images/products/paradyz-ilario-ochra/photo_1.png"
     ],
     seo: {
@@ -4152,10 +4066,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Pietra Beige с капиносом — цена, характеристики",
       description: "Клинкерные ступени Paradyz Mattone Pietra Beige с капиносом: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -4193,10 +4104,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#8A8A86",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Pietra Grafit с капиносом — цена, характеристики",
       description: "Клинкерные ступени Paradyz Mattone Pietra Grafit с капиносом: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -4234,10 +4142,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#9A9690",
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Mattone Pietra Ochra с капиносом — цена, характеристики",
       description: "Клинкерные ступени Paradyz Mattone Pietra Ochra с капиносом: противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -4483,6 +4388,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-mattone-sabbia-beige/photo_0_own.jpg",
       "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
     ],
     seo: {
@@ -4564,6 +4470,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-mattone-sabbia-brown/photo_0_own.jpg",
       "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
     ],
     seo: {
@@ -4645,6 +4552,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-mattone-sabbia-grafit/photo_0_own.jpg",
       "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
     ],
     seo: {
@@ -4828,10 +4736,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#C9B79C",
       slip_resistance: "R11"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Natural Rocks Gold — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz Natural Rocks Gold: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5042,10 +4947,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Brown, гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Brown, гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5123,10 +5025,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Brown, структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Brown, структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5293,10 +5192,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Rosa, гладкая — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Rosa, гладкая: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -5374,10 +5270,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Paradyz Natural, Rosa, структурная — цена, характеристики",
       description: "Клинкерная напольная плитка Paradyz Natural, Rosa, структурная: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -6028,10 +5921,7 @@ export const REAL_PRODUCTS: Product[] = [
       color_hex: "#7A4B33",
       slip_resistance: "R11"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Террасные пластины 20 мм Paradyz Rustic Gold, Gold — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz Rustic Gold, Gold: противоскольжение R11, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -6154,6 +6044,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-beige/photo_1.png"
     ],
     seo: {
@@ -6196,6 +6087,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-brown/photo_1.png"
     ],
     seo: {
@@ -6238,6 +6130,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-rosso/photo_1.png"
     ],
     seo: {
@@ -6299,6 +6192,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-beige/photo_1.png"
     ],
     seo: {
@@ -6386,6 +6280,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-brown/photo_1.png"
     ],
     seo: {
@@ -6473,6 +6368,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-ochra/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-ochra/photo_1.png"
     ],
     seo: {
@@ -6560,6 +6456,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
       "/images/products/paradyz-scandiano-rosso/photo_1.png"
     ],
     seo: {
@@ -6647,6 +6544,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-semir-beige/photo_0_own.jpg",
       "/images/products/paradyz-semir-beige/photo_1.png"
     ],
     seo: {
@@ -6734,6 +6632,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-semir-brown/photo_0_own.jpg",
       "/images/products/paradyz-semir-brown/photo_1.png"
     ],
     seo: {
@@ -6821,6 +6720,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-semir-grafit/photo_0_own.jpg",
       "/images/products/paradyz-semir-grafit/photo_1.png"
     ],
     seo: {
@@ -6908,6 +6808,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-semir-rosa/photo_0_own.jpg",
       "/images/products/paradyz-semir-rosa/photo_1.png"
     ],
     seo: {
@@ -7116,6 +7017,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-taurus-brown/photo_0_own.jpg",
       "/images/products/paradyz-taurus-brown/photo_1.png"
     ],
     seo: {
@@ -7190,6 +7092,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-taurus-grys/photo_0_own.jpg",
       "/images/products/paradyz-taurus-grys/photo_1.png"
     ],
     seo: {
@@ -7450,10 +7353,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 0.5,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Paradyz Viano Antracit — цена, характеристики",
       description: "Клинкерные ступени Paradyz Viano Antracit: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -7494,6 +7394,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-viano-beige/photo_0_own.jpg",
       "/images/products/paradyz-viano-beige/photo_1.png"
     ],
     seo: {
@@ -7536,6 +7437,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-viano-grys/photo_0_own.jpg",
       "/images/products/paradyz-viano-grys/photo_1.png"
     ],
     seo: {
@@ -7597,6 +7499,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-viano-antracite/photo_0_own.jpg",
       "/images/products/paradyz-viano-antracite/photo_1.png"
     ],
     seo: {
@@ -7678,6 +7581,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-viano-beige/photo_0_own.jpg",
       "/images/products/paradyz-viano-beige/photo_1.png"
     ],
     seo: {
@@ -7759,6 +7663,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
+      "/images/products/paradyz-viano-grys/photo_0_own.jpg",
       "/images/products/paradyz-viano-grys/photo_1.png"
     ],
     seo: {
@@ -7902,10 +7807,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Epos 652 pidra — цена, характеристики",
       description: "Клинкерная напольная плитка Stroeher Epos 652 pidra: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -7944,10 +7846,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 3.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Epos 657 kawe — цена, характеристики",
       description: "Клинкерная напольная плитка Stroeher Epos 657 kawe: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -7998,8 +7897,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-epos-951-krios/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 951 krios — цена, характеристики",
@@ -8051,8 +7949,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-epos-952-pidra/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 952 pidra — цена, характеристики",
@@ -8104,8 +8001,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-epos-955-eres/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 955 eres — цена, характеристики",
@@ -8157,8 +8053,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-epos-957-kawe/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Epos 957 kawe — цена, характеристики",
@@ -8207,10 +8102,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Euramic Cavar E541 facello — цена, характеристики",
       description: "Клинкерные ступени Stroeher Euramic Cavar E541 facello: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8258,10 +8150,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Euramic Cavar E542 passione — цена, характеристики",
       description: "Клинкерные ступени Stroeher Euramic Cavar E542 passione: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8309,10 +8198,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Euramic Cavar E543 fosco — цена, характеристики",
       description: "Клинкерные ступени Stroeher Euramic Cavar E543 fosco: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8360,10 +8246,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Euramic Cavar E544 chiaro — цена, характеристики",
       description: "Клинкерные ступени Stroeher Euramic Cavar E544 chiaro: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8402,10 +8285,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Euramic Cavar Е544 chiaro — цена, характеристики",
       description: "Клинкерные ступени Stroeher Euramic Cavar Е544 chiaro: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8455,10 +8335,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Gravel Blend 960 beige — цена, характеристики",
       description: "Клинкерные ступени Stroeher Gravel Blend 960 beige: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8508,10 +8385,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Gravel Blend 961 brown — цена, характеристики",
       description: "Клинкерные ступени Stroeher Gravel Blend 961 brown: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8561,10 +8435,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Gravel Blend 962 grey — цена, характеристики",
       description: "Клинкерные ступени Stroeher Gravel Blend 962 grey: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8614,10 +8485,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Gravel Blend 963 black — цена, характеристики",
       description: "Клинкерные ступени Stroeher Gravel Blend 963 black: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8667,10 +8535,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Gravel Blend 964 taupe — цена, характеристики",
       description: "Клинкерные ступени Stroeher Gravel Blend 964 taupe: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -8709,10 +8574,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Keraplatte Aera 717 anthra — цена, характеристики",
@@ -8760,10 +8622,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-705-beton/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-705-beton/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-705-beton/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-705-beton/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-705-beton/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 705 beton — цена, характеристики",
@@ -8968,10 +8827,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-710-crio/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-710-crio/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-710-crio/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-710-crio/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-710-crio/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 710 crio — цена, характеристики",
@@ -9061,10 +8917,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-717-anthra/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 717 anthra — цена, характеристики",
@@ -9166,10 +9019,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-720-baccar/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 720 baccar — цена, характеристики",
@@ -9280,10 +9130,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-725-faveo/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 725 faveo — цена, характеристики",
@@ -9389,10 +9236,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-727-pinar/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 727 pinar — цена, характеристики",
@@ -9503,10 +9347,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10/A"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_3.jpg",
-      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_4.jpg"
+      "/images/products/stroeher-keraplatte-aera-755-camaro/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Aera, 755 camaro — цена, характеристики",
@@ -9615,8 +9456,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-keraplatte-asar-640-maro/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Asar 640 maro — цена, характеристики",
@@ -9677,9 +9517,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-roccia-833-corda/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 833 corda — цена, характеристики",
@@ -9740,9 +9578,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-roccia-835-sandos/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 835 sandos — цена, характеристики",
@@ -9803,9 +9639,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-roccia-837-marmos/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 837 marmos — цена, характеристики",
@@ -9866,9 +9700,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-roccia-840-grigio/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 840 grigio — цена, характеристики",
@@ -9929,9 +9761,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-roccia-841-rosso/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 841 rosso — цена, характеристики",
@@ -9992,9 +9822,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-roccia-845-nero/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Roccia 845 nero — цена, характеристики",
@@ -10053,9 +9881,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-terra-215-patrizierrot/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-terra-215-patrizierrot/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-terra-215-patrizierrot/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-terra-215-patrizierrot/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Terra 215 patrizierrot — цена, характеристики",
@@ -10115,9 +9941,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-terra-307-weizengelb/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Terra 307 weizengelb — цена, характеристики",
@@ -10177,9 +10001,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R11"
     },
     photos: [
-      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_1.jpg",
-      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_2.jpg",
-      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_3.jpg"
+      "/images/products/stroeher-keraplatte-terra-316-patrizierrot-ofenbunt/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Keraplatte Terra 316 patrizierrot ofenbunt — цена, характеристики",
@@ -10220,10 +10042,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 960 beige — цена, характеристики",
       description: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 960 beige: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10263,10 +10082,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 961 brown — цена, характеристики",
       description: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 961 brown: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10306,10 +10122,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 963 black — цена, характеристики",
       description: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 963 black: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10349,10 +10162,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 964 taupe — цена, характеристики",
       description: "Клинкерные ступени Stroeher Loftstufe Gravel Blend 964 taupe: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10392,10 +10202,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 5.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерные ступени Stroeher Loftstufe Stroeher Gravel Blend 962 grey — цена, характеристики",
       description: "Клинкерные ступени Stroeher Loftstufe Stroeher Gravel Blend 962 grey: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10682,8 +10489,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-zoe-970-grey/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 970 grey — цена, характеристики",
@@ -10735,8 +10541,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-zoe-971-greige/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 971 greige — цена, характеристики",
@@ -10788,8 +10593,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-zoe-972-taupe/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 972 taupe — цена, характеристики",
@@ -10829,10 +10633,7 @@ export const REAL_PRODUCTS: Product[] = [
       water_absorption_pct: 6.0,
       slip_resistance: "R10"
     },
-    photos: [
-      "/images/cat-slab.jpg",
-      "/images/gal-terrace.jpg"
-    ],
+    photos: [],
     seo: {
       title: "Клинкерная напольная плитка Stroeher Zoe 973 antharcite — цена, характеристики",
       description: "Клинкерная напольная плитка Stroeher Zoe 973 antharcite: морозостойкость F300, противоскольжение R10, поэлементный расчёт комплекта, доставка по РФ и СНГ.",
@@ -10883,8 +10684,7 @@ export const REAL_PRODUCTS: Product[] = [
       slip_resistance: "R10"
     },
     photos: [
-      "/images/cat-clinker.jpg",
-      "/images/gal-porch.jpg"
+      "/images/products/stroeher-zoe-973-anthracite/photo_0_own.jpg"
     ],
     seo: {
       title: "Клинкерные ступени Stroeher Zoe 973 anthracite — цена, характеристики",
