@@ -3,8 +3,17 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
+import { FilterBar } from "@/components/catalog/FilterBar";
 import { Pagination } from "@/components/ui/Pagination";
 import { paginate, pageHref } from "@/lib/pagination";
+import {
+  SORT_OPTIONS,
+  catalogQueryString,
+  facetsOf,
+  filterProducts,
+  sortProducts,
+  type CatalogQuery,
+} from "@/lib/catalog/facets";
 import { Reveal } from "@/components/ui/Reveal";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { getProductsByCategory, type CategoryKey } from "@/lib/catalog/queries";
@@ -25,12 +34,17 @@ const CATEGORY_SOLUTIONS: Record<CategoryKey, string[]> = {
 export function CategoryView({
   category,
   page = 1,
+  query,
 }: {
   category: CategoryMeta;
   page?: number;
+  query: CatalogQuery;
 }) {
   const products = getProductsByCategory(category.slug);
-  const paged = paginate(products, page);
+  const filtered = sortProducts(filterProducts(products, query), query.sort);
+  const paged = paginate(filtered, page);
+  const facets = facetsOf(products, query);
+  const qs = catalogQueryString(query);
   const brands = Array.from(new Set(products.map((p) => p.brand)));
   const solutions = SOLUTIONS.filter((s) =>
     CATEGORY_SOLUTIONS[category.slug].includes(s.slug),
@@ -77,13 +91,22 @@ export function CategoryView({
               {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
             </p>
           </Reveal>
-          <div className="mt-10">
+          <div className="mt-7">
+            <FilterBar
+              basePath={`/${category.slug}`}
+              query={query}
+              facets={facets}
+              sortOptions={SORT_OPTIONS}
+            />
+          </div>
+          <div className="mt-8">
             <ProductGrid products={paged.items} />
           </div>
           <Pagination
             base={`/${category.slug}`}
             page={paged.page}
             pages={paged.pages}
+            query={qs}
             className="mt-10 justify-center"
           />
         </section>

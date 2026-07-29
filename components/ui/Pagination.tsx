@@ -9,12 +9,15 @@ export function Pagination({
   base,
   page,
   pages,
+  query,
   className = "",
 }: {
   /** Базовый путь листинга, напр. "/terrasnyy-klinker". */
   base: string;
   page: number;
   pages: number;
+  /** Активные фильтры каталога (строка query) — сохраняются при листании. */
+  query?: string;
   className?: string;
 }) {
   if (pages <= 1) return null;
@@ -32,7 +35,7 @@ export function Pagination({
   return (
     <nav className={`flex flex-wrap items-center gap-2 ${className}`} aria-label="Страницы каталога">
       {page > 1 ? (
-        <Link href={pageHref(base, page - 1)} rel="prev" className={`${cell} border-ink/15 text-ink hover:border-clinker hover:text-clinker`}>
+        <Link href={pageHref(base, page - 1, query)} rel="prev" className={`${cell} border-ink/15 text-ink hover:border-clinker hover:text-clinker`}>
           ← Назад
         </Link>
       ) : null}
@@ -47,14 +50,14 @@ export function Pagination({
             {n}
           </span>
         ) : (
-          <Link key={n} href={pageHref(base, n)} className={`${cell} border-ink/15 text-ink hover:border-clinker hover:text-clinker`}>
+          <Link key={n} href={pageHref(base, n, query)} className={`${cell} border-ink/15 text-ink hover:border-clinker hover:text-clinker`}>
             {n}
           </Link>
         ),
       )}
 
       {page < pages ? (
-        <Link href={pageHref(base, page + 1)} rel="next" className={`${cell} border-ink/15 text-ink hover:border-clinker hover:text-clinker`}>
+        <Link href={pageHref(base, page + 1, query)} rel="next" className={`${cell} border-ink/15 text-ink hover:border-clinker hover:text-clinker`}>
           Вперёд →
         </Link>
       ) : null}

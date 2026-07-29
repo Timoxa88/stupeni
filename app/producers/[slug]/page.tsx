@@ -14,10 +14,20 @@ import { PER_PAGE, pageHref, pageSuffix, paginate, parsePage } from "@/lib/pagin
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
 import { productTitle } from "@/lib/catalog/display";
+import { FilterBar } from "@/components/catalog/FilterBar";
+import {
+  SORT_OPTIONS,
+  catalogQueryString,
+  facetsOf,
+  filterProducts,
+  hasActiveFilters,
+  parseCatalogQuery,
+  sortProducts,
+} from "@/lib/catalog/facets";
 
 type Params = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ page?: string }>;
+  searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 
 export function generateStaticParams() {
@@ -28,12 +38,14 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
   const { slug } = await params;
   const b = getBrand(slug);
   if (!b) return {};
-  const page = parsePage((await searchParams).page);
+  const sp = await searchParams;
+  const page = parsePage(sp.page);
   const pages = Math.max(1, Math.ceil(getProductsByBrand(b.name).length / PER_PAGE));
   return {
     title: `${b.name} — клинкер и керамогранит купить, цена${pageSuffix(page, pages)}`,
     description: `${b.name} (${b.country}${b.founded ? `, с ${b.founded}` : ""}): ${b.tagline} Каталог коллекций, цены, расчёт комплекта и доставка.`,
     alternates: { canonical: pageHref(`/producers/${b.slug}`, page) },
+    ...(hasActiveFilters(parseCatalogQuery(sp)) ? { robots: { index: false, follow: true } } : {}),
   };
 }
 
@@ -42,8 +54,12 @@ export default async function ProducerPage({ params, searchParams }: Params) {
   const b = getBrand(slug);
   if (!b) notFound();
 
+  const sp = await searchParams;
+  const query = parseCatalogQuery(sp);
   const products = getProductsByBrand(b.name);
-  const paged = paginate(products, parsePage((await searchParams).page));
+  const filtered = sortProducts(filterProducts(products, query), query.sort);
+  const paged = paginate(filtered, parsePage(sp.page));
+  const qs = catalogQueryString(query);
   const heroImage = products[0]?.photos[0] ?? "/images/cat-clinker.jpg";
 
   return (
@@ -108,13 +124,22 @@ export default async function ProducerPage({ params, searchParams }: Params) {
               {paged.total} позиций
               {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
             </p>
-            <div className="mt-10">
+            <div className="mt-7">
+              <FilterBar
+                basePath={`/producers/${b.slug}`}
+                query={query}
+                facets={facetsOf(products, query)}
+                sortOptions={SORT_OPTIONS}
+              />
+            </div>
+            <div className="mt-8">
               <ProductGrid products={paged.items} />
             </div>
             <Pagination
               base={`/producers/${b.slug}`}
               page={paged.page}
               pages={paged.pages}
+              query={qs}
               className="mt-10 justify-center"
             />
           </div>

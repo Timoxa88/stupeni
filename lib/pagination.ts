@@ -38,9 +38,11 @@ export function paginate<T>(items: T[], page: number, perPage = PER_PAGE): Paged
   };
 }
 
-/** URL страницы листинга: первая — без параметра (иначе дубль главной страницы раздела). */
-export function pageHref(base: string, page: number): string {
-  return page <= 1 ? base : `${base}?page=${page}`;
+/** URL страницы листинга: первая — без параметра (иначе дубль главной страницы
+ *  раздела). `query` — активные фильтры каталога, идут перед page. */
+export function pageHref(base: string, page: number, query?: string): string {
+  const parts = [query, page > 1 ? `page=${page}` : ""].filter(Boolean);
+  return parts.length ? `${base}?${parts.join("&")}` : base;
 }
 
 /** Суффикс к title/description на страницах со второй и далее (против дублей). */
