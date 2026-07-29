@@ -14,6 +14,10 @@ export function MobileCtaBar() {
   const pathname = usePathname();
   const calcHref = pathname === "/" ? "#calc" : "/calculator";
 
+  // На самом калькуляторе кнопка «Рассчитать» бессмысленна, а низ экрана
+  // занимает липкая плашка итога (ResultPanel) — этот бар уступает ей место.
+  if (pathname.startsWith("/calculator")) return null;
+
   return (
     <div
       className="fixed inset-x-0 bottom-0 z-40 flex gap-2 border-t border-ink/10 bg-white/95 p-2.5 backdrop-blur lg:hidden"

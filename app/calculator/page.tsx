@@ -2,13 +2,23 @@ import type { Metadata } from "next";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Calculator } from "@/components/calculator/Calculator";
+import { getProductById } from "@/lib/catalog/queries";
 
-export const metadata: Metadata = {
-  title: "Калькулятор ступеней и керамогранита для террасы — расчёт онлайн",
-  description:
-    "Рассчитайте комплект клинкерных ступеней поэлементно или керамогранит для террасы по площади: опоры HILST, сопутствующие материалы по городу, мгновенный результат.",
-  alternates: { canonical: "/calculator" },
+type Props = {
+  searchParams: Promise<{ mode?: string; product?: string }>;
 };
+
+export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  const { product } = await searchParams;
+  return {
+    title: "Калькулятор ступеней и керамогранита для террасы — расчёт онлайн",
+    description:
+      "Рассчитайте комплект клинкерных ступеней поэлементно или керамогранит для террасы по площади: опоры HILST, сопутствующие материалы по городу, мгновенный результат.",
+    alternates: { canonical: "/calculator" },
+    // Диплинки из каталога (?product=…) не индексируем — canonical и так чистый.
+    ...(product ? { robots: { index: false, follow: true } } : {}),
+  };
+}
 
 const gridMotif: React.CSSProperties = {
   backgroundImage:
@@ -16,13 +26,20 @@ const gridMotif: React.CSSProperties = {
   backgroundSize: "64px 64px",
 };
 
-export default async function CalculatorPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ mode?: string }>;
-}) {
-  const { mode } = await searchParams;
-  const initialMode = mode === "B" ? "B" : "A";
+export default async function CalculatorPage({ searchParams }: Props) {
+  const { mode, product: productId } = await searchParams;
+
+  // Диплинк из каталога: ?product=<id> предвыбирает артикул, а режим выводится
+  // из типа товара (ступени → A, плиты → B) — переключатель руками не нужен.
+  const product = productId ? getProductById(productId) : undefined;
+  const initialMode = product
+    ? product.product_type === "step_system"
+      ? "A"
+      : "B"
+    : mode === "B"
+      ? "B"
+      : "A";
+
   return (
     <>
       <Header />
@@ -52,7 +69,7 @@ export default async function CalculatorPage({
         </section>
 
         <div className="mx-auto w-full max-w-7xl px-5 py-12">
-          <Calculator initialMode={initialMode} />
+          <Calculator initialMode={initialMode} initialProductId={product?.id} />
         </div>
       </main>
       <Footer />

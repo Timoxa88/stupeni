@@ -140,7 +140,10 @@ export function ProductDetail({ product }: { product: Product }) {
     ...(v.perPallet ? ([["Шт/поддон", String(v.perPallet)]] as [string, string][]) : []),
   ];
 
-  const calcHref = `/calculator?mode=${isStep ? "A" : "B"}`;
+  // Артикул уезжает в калькулятор предвыбранным — человеку не приходится
+  // искать его заново в списке из 80+ позиций (режим калькулятор выведет
+  // из типа товара сам).
+  const calcHref = `/calculator?product=${product.id}`;
 
   return (
     <div className="grid gap-10 lg:grid-cols-2">
@@ -271,7 +274,7 @@ export function ProductDetail({ product }: { product: Product }) {
             href={calcHref}
             className="rounded-full border border-ink/15 px-7 py-3.5 font-semibold text-ink transition hover:border-clinker hover:text-clinker"
           >
-            Рассчитать комплект →
+            Рассчитать с этой плиткой →
           </Link>
         </div>
 

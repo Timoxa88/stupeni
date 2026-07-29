@@ -1,28 +1,38 @@
 import type { Product } from "@/lib/catalog/types";
-import { getProductById, basePrice, priceUnitLabel } from "@/lib/catalog/queries";
+import {
+  getProductById,
+  basePrice,
+  comparableUnitPrice,
+  priceUnitLabel,
+} from "@/lib/catalog/queries";
 import { priceView } from "@/lib/catalog/pricing";
 import { productTitle } from "@/lib/catalog/display";
 import { ProductCard, type VariantDisplay } from "./ProductCard";
 
+function displayOf(p: Product): VariantDisplay {
+  const view = priceView(p, basePrice(p));
+  return {
+    title: productTitle(p),
+    price: view.price,
+    oldPrice: view.oldPrice,
+    unit: priceUnitLabel(p),
+    perUnit: comparableUnitPrice(p),
+    badge: view.discountPct ? `−${view.discountPct} %` : view.label,
+    endsAt: view.endsAt,
+  };
+}
+
 /**
- * Наведение на цветовой чип меняло фото, но имя и цена оставались от базового
- * артикула. Клиенту сами товары-соседи не отдаём — здесь, на сервере, собираем
- * компактную карту «id варианта → имя + цена», карточка подставляет её на hover.
+ * Карта «id артикула → имя + цены» для карточки: базовый артикул и цветовые
+ * варианты. Собирается на СЕРВЕРЕ — карточка клиентская, и runtime-импорт
+ * queries/pricing из неё утащил бы весь сид каталога в бандл (см. ProductCard).
  */
-function variantInfoFor(p: Product): Record<string, VariantDisplay> | undefined {
-  const variants = p.variants ?? [];
-  if (variants.length < 2) return undefined;
-  const out: Record<string, VariantDisplay> = {};
-  for (const v of variants) {
-    const sib = v.id === p.id ? p : getProductById(v.id);
-    if (!sib) continue;
-    const view = priceView(sib, basePrice(sib));
-    out[v.id] = {
-      title: productTitle(sib),
-      price: view.price,
-      oldPrice: view.oldPrice,
-      unit: priceUnitLabel(sib),
-    };
+function variantInfoFor(p: Product): Record<string, VariantDisplay> {
+  const out: Record<string, VariantDisplay> = { [p.id]: displayOf(p) };
+  for (const v of p.variants ?? []) {
+    if (out[v.id]) continue;
+    const sib = getProductById(v.id);
+    if (sib) out[v.id] = displayOf(sib);
   }
   return out;
 }

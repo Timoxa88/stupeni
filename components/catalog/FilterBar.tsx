@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState } from "react";
 import type { CatalogQuery, FacetOption, Facets, SortKey } from "@/lib/catalog/facets";
 
 /**
@@ -31,7 +32,7 @@ export function FilterBar({
     const q = { ...query, ...patch };
     const params = new URLSearchParams();
     if (q.sort && q.sort !== "recommended") params.set("sort", q.sort);
-    for (const k of ["color", "country", "brand", "surface", "slip", "type"] as const) {
+    for (const k of ["q", "color", "country", "brand", "surface", "slip", "type"] as const) {
       if (q[k]) params.set(k, q[k]!);
     }
     const qs = params.toString();
@@ -39,8 +40,21 @@ export function FilterBar({
     router.push(qs ? `${basePath}?${qs}` : basePath, { scroll: false });
   };
 
+  // Поиск — тот же query-параметр (?q=), что и фильтры: работает пагинация,
+  // ссылку можно переслать. В URL пишем с дебаунсом, чтобы не дёргать роутер
+  // на каждую букву.
+  const [search, setSearch] = useState(query.q ?? "");
+  const debounce = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => setSearch(query.q ?? ""), [query.q]);
+  useEffect(() => () => { if (debounce.current) clearTimeout(debounce.current); }, []);
+  const onSearch = (v: string) => {
+    setSearch(v);
+    if (debounce.current) clearTimeout(debounce.current);
+    debounce.current = setTimeout(() => apply({ q: v.trim() || undefined }), 350);
+  };
+
   const hasFilters = Boolean(
-    query.color || query.country || query.brand || query.surface || query.slip || query.type,
+    query.q || query.color || query.country || query.brand || query.surface || query.slip || query.type,
   );
 
   const selects: {
@@ -70,6 +84,19 @@ export function FilterBar({
 
   return (
     <div className="flex flex-wrap items-center gap-2.5" role="group" aria-label="Сортировка и фильтры каталога">
+      <label className="sr-only" htmlFor="catalog-search">
+        Поиск по каталогу
+      </label>
+      <input
+        id="catalog-search"
+        type="search"
+        value={search}
+        onChange={(e) => onSearch(e.target.value)}
+        placeholder="Поиск: коллекция, цвет…"
+        className={`h-11 w-52 rounded-full border bg-white px-4 py-0 text-sm font-medium transition placeholder:text-stone/60 focus:outline-none focus-visible:border-clinker ${
+          query.q ? "border-clinker text-clinker" : "border-ink/15 text-ink hover:border-ink/30"
+        }`}
+      />
       <label className="sr-only" htmlFor="catalog-sort">
         Сортировка
       </label>

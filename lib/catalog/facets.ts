@@ -24,6 +24,8 @@ export type SortKey = "recommended" | "popular" | "price-asc" | "price-desc";
 
 export interface CatalogQuery {
   sort: SortKey;
+  /** Поисковая строка (?q=): токены ищутся в бренде/коллекции/цвете с транслитом. */
+  q?: string;
   color?: string;
   country?: string;
   brand?: string;
@@ -50,6 +52,18 @@ const COLOR_GROUP_LABELS: Record<string, string> = {
   krasnyy: "Красный / терракота",
   zheltyy: "Жёлтый / охра",
   zelenyy: "Зелёный",
+};
+
+/** Репрезентативный цвет свотча каждой витринной группы (для визуального подбора). */
+export const COLOR_GROUP_HEX: Record<string, string> = {
+  bezhevyy: "#C9B79C",
+  korichnevyy: "#6F4E37",
+  seryy: "#9A9A94",
+  grafit: "#3B3B3B",
+  belyy: "#EFEBE2",
+  krasnyy: "#A9502F",
+  zheltyy: "#C99A4B",
+  zelenyy: "#6B7A54",
 };
 
 /** Порядок проверки важен: «антрацит» должен уйти в графит раньше серого. */
@@ -171,6 +185,7 @@ export function parseCatalogQuery(sp: RawParams): CatalogQuery {
   const sort = one(sp.sort);
   return {
     sort: SORT_OPTIONS.some((o) => o.value === sort) ? (sort as SortKey) : "recommended",
+    q: one(sp.q)?.trim() || undefined,
     color: one(sp.color) || undefined,
     country: one(sp.country) || undefined,
     brand: one(sp.brand) || undefined,
@@ -181,21 +196,35 @@ export function parseCatalogQuery(sp: RawParams): CatalogQuery {
 }
 
 export function hasActiveFilters(q: CatalogQuery): boolean {
-  return Boolean(q.color || q.country || q.brand || q.surface || q.slip || q.type);
+  return Boolean(q.q || q.color || q.country || q.brand || q.surface || q.slip || q.type);
 }
 
 /** Строка query без значений по умолчанию (пустая, если фильтров нет). */
 export function catalogQueryString(q: CatalogQuery): string {
   const params = new URLSearchParams();
   if (q.sort !== "recommended") params.set("sort", q.sort);
-  for (const k of ["color", "country", "brand", "surface", "slip", "type"] as const) {
+  for (const k of ["q", "color", "country", "brand", "surface", "slip", "type"] as const) {
     if (q[k]) params.set(k, q[k]!);
   }
   return params.toString();
 }
 
+/**
+ * Поиск: каждый токен запроса должен встретиться в «бренд + коллекция + цвет».
+ * Обе стороны прогоняются через транслит — «сканд бежевый» находит
+ * «Paradyz Scandiano Beige».
+ */
+export function matchesSearch(p: Product, query: string): boolean {
+  const hay = norm(`${p.brand} ${p.collection} ${p.specs.color ?? ""}`);
+  return query
+    .split(/\s+/)
+    .filter(Boolean)
+    .every((t) => hay.includes(norm(t)));
+}
+
 export function filterProducts(list: Product[], q: CatalogQuery): Product[] {
   return list.filter((p) => {
+    if (q.q && !matchesSearch(p, q.q)) return false;
     if (q.color && colorGroupOf(p) !== q.color) return false;
     if (q.country && slug(countryOf(p) ?? "") !== q.country) return false;
     if (q.brand && slug(p.brand) !== q.brand) return false;

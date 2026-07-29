@@ -3,11 +3,8 @@
 import { useState } from "react";
 import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
-import { productHref } from "@/lib/catalog/taxonomy";
+import { productHref } from "@/lib/catalog/hrefs";
 import type { Product } from "@/lib/catalog/types";
-import { basePrice, priceUnitLabel } from "@/lib/catalog/queries";
-import { priceView } from "@/lib/catalog/pricing";
-import { productTitle } from "@/lib/catalog/display";
 import { formatRub } from "@/lib/format";
 import { PromoTimer } from "@/components/ui/PromoTimer";
 
@@ -16,12 +13,23 @@ const TYPE_LABEL: Record<Product["product_type"], string> = {
   slab: "Керамогранит 20 мм",
 };
 
-/** Имя и цена варианта для hover-превью — собирает сервер (ProductGrid). */
+/**
+ * Отображение варианта (и базового артикула) — собирает СЕРВЕР (ProductGrid).
+ * Карточка — клиентский компонент, и любой её runtime-импорт queries/pricing
+ * утащил бы весь сид каталога в бандл; поэтому цены, бейдж и сравнимая
+ * «≈ ₽/м²»-строка приходят готовыми пропсами.
+ */
 export interface VariantDisplay {
   title: string;
   price: number;
   oldPrice?: number;
   unit: string;
+  /** Сравнимая между брендами цена: «≈ 1 250 ₽/пог. м кромки», «≈ 3 400 ₽/м²». */
+  perUnit?: string;
+  /** Бейдж акции («−15 %» / «Хит») — только у базового артикула. */
+  badge?: string;
+  /** Дедлайн акции для таймера — только у базового артикула. */
+  endsAt?: string;
 }
 
 /**
@@ -34,7 +42,7 @@ export function ProductCard({
   variantInfo,
 }: {
   product: Product;
-  variantInfo?: Record<string, VariantDisplay>;
+  variantInfo: Record<string, VariantDisplay>;
 }) {
   const [activeId, setActiveId] = useState(product.id);
   const variants = product.variants ?? [];
@@ -45,19 +53,9 @@ export function ProductCard({
   const own = variants.find((v) => v.id === activeId)?.photo ?? product.photos[0];
   const preview = own?.startsWith("/images/products/") ? own : null;
 
-  // Цена — из единого источника (lib/catalog/pricing): текущая цена всегда каталожная,
-  // акция с истёкшим дедлайном не показывается.
-  const view = priceView(product, basePrice(product));
-
-  // На hover цветового чипа вместе с фото меняются имя и цена (бейдж скидки и
-  // таймер — атрибуты базового артикула, при чужом варианте их прячем).
+  const base = variantInfo[product.id];
   const isBase = activeId === product.id;
-  const shown: VariantDisplay = (!isBase && variantInfo?.[activeId]) || {
-    title: productTitle(product),
-    price: view.price,
-    oldPrice: view.oldPrice,
-    unit: priceUnitLabel(product),
-  };
+  const shown = (!isBase && variantInfo[activeId]) || base;
 
   return (
     <article className="cv-card group flex flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
@@ -82,9 +80,9 @@ export function ProductCard({
             <span className="text-[11px] text-white/85">фото уточняется</span>
           </div>
         )}
-        {isBase && (view.label || view.discountPct) ? (
+        {isBase && base.badge ? (
           <span className="absolute left-3 top-3 rounded-full bg-clinker px-2.5 py-1 text-xs font-bold text-white shadow-glow">
-            {view.discountPct ? `−${view.discountPct} %` : view.label}
+            {base.badge}
           </span>
         ) : null}
       </Link>
@@ -119,8 +117,15 @@ export function ProductCard({
             </span>
           )}
         </div>
-        <div className="text-xs text-stone/70">{shown.unit}</div>
-        {isBase && view.endsAt ? <PromoTimer endsAt={view.endsAt} className="mt-1.5" /> : null}
+        <div className="text-xs text-stone/70">
+          {shown.unit}
+          {/* Сравнимая цена: «за шт.» у разных брендов — штуки разной длины и
+              формата, сравнить нельзя; ₽/пог. м и ₽/м² — можно. */}
+          {shown.perUnit ? (
+            <span className="tabular"> · {shown.perUnit}</span>
+          ) : null}
+        </div>
+        {isBase && base.endsAt ? <PromoTimer endsAt={base.endsAt} className="mt-1.5" /> : null}
 
         {/* Цветовые чипы вариантов */}
         {variants.length > 1 ? (
@@ -145,7 +150,7 @@ export function ProductCard({
           </div>
         ) : null}
 
-        {/* Мини-характеристики */}
+        {/* Мини-характеристики + мост в калькулятор */}
         <div className="mt-auto flex flex-wrap items-center gap-1.5 pt-4">
           {product.stock_status ? (
             <span
@@ -164,6 +169,12 @@ export function ProductCard({
             </span>
           ))}
         </div>
+        <Link
+          href={`/calculator?product=${activeId}`}
+          className="mt-3 inline-flex items-center gap-1 text-sm font-semibold text-clinker transition hover:text-clinker-hover"
+        >
+          Рассчитать комплект →
+        </Link>
       </div>
     </article>
   );

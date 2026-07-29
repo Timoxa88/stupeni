@@ -95,3 +95,23 @@ export function priceUnitLabel(p: Product): string {
   const f = p.formats?.[0];
   return f?.price_rub_pcs ? "за шт. с НДС" : "за м² с НДС";
 }
+
+/**
+ * Сравнимая между брендами цена: у ступеней витринная цена — штука фронтальной
+ * (а штуки разной длины), у плит — то за шт., то за м². Приводим к общей мере:
+ * ступени — ₽ за погонный метр кромки (цена / length_m), плиты — ₽/м².
+ * Чистая арифметика от данных артикула; нет исходных величин — строки нет.
+ */
+export function comparableUnitPrice(p: Product): string | undefined {
+  if (p.product_type === "step_system") {
+    const front = frontElement(p);
+    if (!front?.length_m || !front.price_rub) return undefined;
+    const perM = Math.round(front.price_rub / front.length_m);
+    return `≈ ${perM.toLocaleString("ru-RU")} ₽/пог. м кромки`;
+  }
+  const f = p.formats?.[0];
+  if (!f) return undefined;
+  const perSqm = f.price_rub_sqm || (f.price_rub_pcs && f.per_sqm ? f.price_rub_pcs * f.per_sqm : 0);
+  if (!perSqm) return undefined;
+  return `≈ ${Math.round(perSqm).toLocaleString("ru-RU")} ₽/м²`;
+}

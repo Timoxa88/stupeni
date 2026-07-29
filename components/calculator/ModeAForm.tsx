@@ -25,14 +25,24 @@ import {
   IconButton,
   NumberField,
   Segmented,
-  Select,
   TextField,
   Toggle,
+  Select,
 } from "@/components/ui/controls";
+import { Disclosure } from "@/components/ui/Disclosure";
 import { calcSummary } from "@/lib/calculator/summary";
+import { formatRub } from "@/lib/format";
 import { ResultPanel } from "./ResultPanel";
 import { MaterialToggles } from "./MaterialToggles";
-import { productTitle } from "@/lib/catalog/display";
+import { ArticlePicker } from "./ArticlePicker";
+import { StairDiagram } from "./Diagrams";
+
+/** Предзаполнение из чипа «Быстрый старт» (см. Calculator). */
+export interface ModeAPreset {
+  steps: number;
+  width: number;
+  nonce: number;
+}
 
 const products = getStepProducts();
 let uid = 0;
@@ -49,11 +59,19 @@ const newMarch = (): MarchInput => ({
 export function ModeAForm({
   city,
   onSend,
+  initialProductId,
+  preset,
 }: {
   city: City;
   onSend: (summary: string) => void;
+  initialProductId?: string;
+  preset?: ModeAPreset | null;
 }) {
-  const [productId, setProductId] = useState(products[0]?.id ?? "");
+  const [productId, setProductId] = useState(
+    initialProductId && products.some((p) => p.id === initialProductId)
+      ? initialProductId
+      : (products[0]?.id ?? ""),
+  );
   const product = products.find((p) => p.id === productId) ?? products[0];
 
   const [marches, setMarches] = useState<MarchInput[]>([newMarch()]);
@@ -73,6 +91,12 @@ export function ModeAForm({
   const [materials, setMaterials] = useState<Partial<Record<MaterialCode, boolean>>>(
     { glue: true, grout: true, primer: false, waterproofing: false },
   );
+
+  // Чип «Быстрый старт» перезаполняет марши типовым объектом.
+  useEffect(() => {
+    if (!preset) return;
+    setMarches([{ ...newMarch(), steps: preset.steps, width: preset.width }]);
+  }, [preset]);
 
   const avail = stepAvailability(product);
   // Норма базовой плитки — из артикула; переключатель 30×30/30×60 остаётся только
@@ -134,18 +158,9 @@ export function ModeAForm({
   return (
     <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
       <div className="flex flex-col gap-6">
-        {/* Артикул */}
+        {/* Артикул: бренд → коллекция → цвет */}
         <section className="rounded-card bg-white p-5 shadow-card">
-          <Field label="Бренд / коллекция / цвет">
-            <Select
-              value={productId}
-              onChange={setProductId}
-              options={products.map((p) => ({
-                value: p.id,
-                label: `${p.brand} ${productTitle(p)}`,
-              }))}
-            />
-          </Field>
+          <ArticlePicker products={products} value={productId} onChange={setProductId} />
           <div className="mt-4">
             {baseOptions.length > 1 ? (
               // У артикула есть оба формата — выбирает пользователь, а норма и
@@ -200,6 +215,10 @@ export function ModeAForm({
               + Добавить марш
             </button>
           </div>
+
+          {/* Схема объясняет буквы полей — форма понятна без знания терминов */}
+          <StairDiagram className="mb-4 rounded-xl border border-sand-divider bg-sand/30 p-3" />
+
           <div className="flex flex-col gap-4">
             {marches.map((m, i) => (
               <div
@@ -228,7 +247,10 @@ export function ModeAForm({
                     −
                   </IconButton>
                 </div>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                {/* На виду — два поля, которые знает каждый: сколько ступеней и
+                    какой ширины. Проступь/подступёнок/углы — стандартные размеры
+                    под раскрытием, дефолты корректны для типовой лестницы. */}
+                <div className="grid grid-cols-2 gap-3">
                   <Field label="Ступеней, N">
                     <NumberField
                       value={m.steps}
@@ -242,33 +264,43 @@ export function ModeAForm({
                       onChange={(v) => patchMarch(m.id, { width: v })}
                     />
                   </Field>
-                  <Field label="Глубина d, м">
-                    <NumberField
-                      value={m.treadDepth}
-                      onChange={(v) => patchMarch(m.id, { treadDepth: v })}
-                    />
-                  </Field>
-                  <Field label="Высота h, м">
-                    <NumberField
-                      value={m.riserHeight}
-                      onChange={(v) => patchMarch(m.id, { riserHeight: v })}
-                    />
-                  </Field>
-                  <Field label="Внешних углов">
-                    <Select
-                      value={String(m.externalCorners) as "0" | "1" | "2"}
-                      onChange={(v) =>
-                        patchMarch(m.id, {
-                          externalCorners: Number(v) as 0 | 1 | 2,
-                        })
-                      }
-                      options={[
-                        { value: "0", label: "0" },
-                        { value: "1", label: "1" },
-                        { value: "2", label: "2" },
-                      ]}
-                    />
-                  </Field>
+                </div>
+                <div className="mt-3">
+                  <Disclosure
+                    variant="inline"
+                    title="Уточнить размеры"
+                    hint={`проступь ${m.treadDepth} м · подступёнок ${m.riserHeight} м · углов ${m.externalCorners}`}
+                  >
+                    <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+                      <Field label="Глубина d, м">
+                        <NumberField
+                          value={m.treadDepth}
+                          onChange={(v) => patchMarch(m.id, { treadDepth: v })}
+                        />
+                      </Field>
+                      <Field label="Высота h, м">
+                        <NumberField
+                          value={m.riserHeight}
+                          onChange={(v) => patchMarch(m.id, { riserHeight: v })}
+                        />
+                      </Field>
+                      <Field label="Внешних углов">
+                        <Select
+                          value={String(m.externalCorners) as "0" | "1" | "2"}
+                          onChange={(v) =>
+                            patchMarch(m.id, {
+                              externalCorners: Number(v) as 0 | 1 | 2,
+                            })
+                          }
+                          options={[
+                            { value: "0", label: "0" },
+                            { value: "1", label: "1" },
+                            { value: "2", label: "2" },
+                          ]}
+                        />
+                      </Field>
+                    </div>
+                  </Disclosure>
                 </div>
               </div>
             ))}
@@ -318,14 +350,12 @@ export function ModeAForm({
           <MaterialToggles value={materials} onChange={setMaterials} />
         </section>
 
-        {/* Редактируемые цены */}
-        <section className="rounded-card bg-white p-5 shadow-card">
-          <h3 className="mb-3 font-display text-lg font-bold">
-            Цены за элемент, ₽
-            <span className="ml-2 text-sm font-normal text-stone">
-              из CMS, можно изменить
-            </span>
-          </h3>
+        {/* Редактируемые цены — инструмент сметчика, 95% посетителей их не
+            трогают; свёрнуты в строку, функция на месте. */}
+        <Disclosure
+          title="Цены за элемент, ₽"
+          hint={`из прайса: фронтальная ${formatRub(prices.front)} · можно изменить`}
+        >
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
             <Field label="Фронтальная">
               <NumberField
@@ -366,7 +396,7 @@ export function ModeAForm({
               </Field>
             ) : null}
           </div>
-        </section>
+        </Disclosure>
       </div>
 
       <div className="lg:sticky lg:top-24 lg:self-start">

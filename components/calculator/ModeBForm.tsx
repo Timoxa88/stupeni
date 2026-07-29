@@ -24,10 +24,20 @@ import {
   TextField,
   Toggle,
 } from "@/components/ui/controls";
+import { Disclosure } from "@/components/ui/Disclosure";
 import { calcSummary } from "@/lib/calculator/summary";
+import { formatRub } from "@/lib/format";
 import { ResultPanel } from "./ResultPanel";
 import { MaterialToggles } from "./MaterialToggles";
-import { productTitle } from "@/lib/catalog/display";
+import { ArticlePicker } from "./ArticlePicker";
+import { TerraceDiagram } from "./Diagrams";
+
+/** Предзаполнение из чипа «Быстрый старт» (см. Calculator). */
+export interface ModeBPreset {
+  length: number;
+  width: number;
+  nonce: number;
+}
 
 const products = getSlabProducts();
 let uid = 0;
@@ -47,11 +57,19 @@ const newDeduction = (): DeductionInput => ({
 export function ModeBForm({
   city,
   onSend,
+  initialProductId,
+  preset,
 }: {
   city: City;
   onSend: (summary: string) => void;
+  initialProductId?: string;
+  preset?: ModeBPreset | null;
 }) {
-  const [productId, setProductId] = useState(products[0]?.id ?? "");
+  const [productId, setProductId] = useState(
+    initialProductId && products.some((p) => p.id === initialProductId)
+      ? initialProductId
+      : (products[0]?.id ?? ""),
+  );
   const product = products.find((p) => p.id === productId) ?? products[0];
   const [formatCode, setFormatCode] = useState(product.formats?.[0]?.code ?? "");
   const format =
@@ -73,6 +91,13 @@ export function ModeBForm({
   const [materials, setMaterials] = useState<Partial<Record<MaterialCode, boolean>>>(
     { glue: true, grout: true, primer: false, waterproofing: true },
   );
+
+  // Чип «Быстрый старт» перезаполняет участок типовой террасой.
+  useEffect(() => {
+    if (!preset) return;
+    setAreas([{ ...newArea(), length: preset.length, width: preset.width }]);
+    setDeductions([]);
+  }, [preset]);
 
   // Формат и цена переинициализируются при смене артикула.
   useEffect(() => {
@@ -132,30 +157,23 @@ export function ModeBForm({
   return (
     <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
       <div className="flex flex-col gap-6">
-        {/* Артикул и формат */}
+        {/* Артикул: бренд → коллекция → цвет; формат — отдельным полем */}
         <section className="rounded-card bg-white p-5 shadow-card">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <Field label="Бренд / коллекция / цвет">
-              <Select
-                value={productId}
-                onChange={setProductId}
-                options={products.map((p) => ({
-                  value: p.id,
-                  label: `${p.brand} ${productTitle(p)}`,
-                }))}
-              />
-            </Field>
-            <Field label="Формат плиты">
-              <Select
-                value={formatCode}
-                onChange={setFormatCode}
-                options={(product.formats ?? []).map((f) => ({
-                  value: f.code,
-                  label: `${f.size_mm} мм · ${f.thickness_mm} мм`,
-                }))}
-              />
-            </Field>
-          </div>
+          <ArticlePicker products={products} value={productId} onChange={setProductId} />
+          {(product.formats ?? []).length > 1 ? (
+            <div className="mt-4">
+              <Field label="Формат плиты">
+                <Select
+                  value={formatCode}
+                  onChange={setFormatCode}
+                  options={(product.formats ?? []).map((f) => ({
+                    value: f.code,
+                    label: `${f.size_mm} мм · ${f.thickness_mm} мм`,
+                  }))}
+                />
+              </Field>
+            </div>
+          ) : null}
         </section>
 
         {/* Участки */}
@@ -170,6 +188,10 @@ export function ModeBForm({
               + Участок
             </button>
           </div>
+
+          {/* Схема: что такое участок и вычет */}
+          <TerraceDiagram className="mb-4 rounded-xl border border-sand-divider bg-sand/30 p-3" />
+
           <div className="flex flex-col gap-3">
             {areas.map((a, i) => (
               <div
@@ -340,19 +362,30 @@ export function ModeBForm({
             </Field>
           ) : null}
 
-          <div className="grid grid-cols-2 gap-3">
-            <Field label="Цена за плиту, ₽" hint="из CMS, можно изменить">
-              <NumberField
-                value={pricePerPiece}
-                onChange={setPricePerPiece}
-              />
-            </Field>
-            {method === "pedestals" ? (
-              <Field label="Цена опоры HILST, ₽" hint="из выбранной модели">
-                <NumberField value={pedestalPrice} onChange={setPedestalPrice} />
+          {/* Правка цен — инструмент сметчика; свёрнута, функция на месте. */}
+          <Disclosure
+            variant="inline"
+            title="Цены — изменить"
+            hint={
+              `плита ${formatRub(pricePerPiece)}` +
+              (method === "pedestals" ? ` · опора ${formatRub(pedestalPrice)}` : "") +
+              " · из прайса"
+            }
+          >
+            <div className="grid grid-cols-2 gap-3">
+              <Field label="Цена за плиту, ₽" hint="из CMS, можно изменить">
+                <NumberField
+                  value={pricePerPiece}
+                  onChange={setPricePerPiece}
+                />
               </Field>
-            ) : null}
-          </div>
+              {method === "pedestals" ? (
+                <Field label="Цена опоры HILST, ₽" hint="из выбранной модели">
+                  <NumberField value={pedestalPrice} onChange={setPedestalPrice} />
+                </Field>
+              ) : null}
+            </div>
+          </Disclosure>
 
           {method === "glue" ? (
             <>
