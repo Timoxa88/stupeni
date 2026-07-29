@@ -6,6 +6,7 @@
 import type { ApplicationCode, Product, ProductCategory, ProductPromo } from "./types";
 import { SEED_PRODUCTS } from "./seed";
 import { diversify } from "./diversify";
+import { frontElement } from "./elements";
 
 /** Три продуктовые категории-хаба (ТЗ §3). */
 export type CategoryKey = ProductCategory;
@@ -79,8 +80,10 @@ export function activePromo(
 /** Базовая «от» цена артикула, ₽ (для витрины). */
 export function basePrice(p: Product): number {
   if (p.product_type === "step_system") {
-    const front = p.elements?.find((e) => e.code === "front");
-    return front?.price_rub ?? p.elements?.[0]?.price_rub ?? 0;
+    // Карточка называется «Клинкерные ступени», поэтому и цена в витрине —
+    // ступени: сначала капиносная, если её нет у коллекции — насечная
+    // (см. frontElement), и лишь затем первый попавшийся элемент.
+    return frontElement(p)?.price_rub ?? p.elements?.[0]?.price_rub ?? 0;
   }
   const f = p.formats?.[0];
   return f?.price_rub_pcs ?? f?.price_rub_sqm ?? 0;

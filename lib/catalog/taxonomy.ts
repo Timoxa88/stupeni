@@ -64,19 +64,52 @@ function collectionsOfBrand(brand: string): string[] {
   return activeProducts().filter((p) => p.brand === brand).map((p) => p.collection);
 }
 
-/** Базовое имя коллекции товара («Ardenas Antracita» → «Ardenas»). */
+/**
+ * Технические серии, стоящие в конце имени коллекции. «Duro» у Paradyz — не
+ * цвет, а исполнение (плотнее и толще), и продаётся оно в тех же цветах.
+ * Без этого правила префиксная логика давала базу «Cloud Brown», а ярлыком
+ * цвета становилось слово «Duro» — в фильтре цветов коллекции стояли
+ * «Коричневый» и «Duro» рядом, как будто это два оттенка.
+ */
+const SERIES_SUFFIX = ["Duro"];
+
+function splitSeries(collection: string): { head: string; series?: string } {
+  for (const s of SERIES_SUFFIX) {
+    if (collection.endsWith(" " + s)) {
+      return { head: collection.slice(0, -(s.length + 1)), series: s };
+    }
+  }
+  return { head: collection };
+}
+
+/**
+ * Базовое имя коллекции товара («Ardenas Antracita» → «Ardenas»,
+ * «Cloud Brown Duro» → «Cloud Duro»). Серия сравнивается только со «своими»:
+ * Duro-коллекции образуют отдельную ветку каталога, а не подмешиваются к
+ * обычным — у них другой артикул и другая цена.
+ */
 export function collectionBase(p: Product): string {
   const key = `${p.brand}|${p.collection}`;
   const hit = baseCache.get(key);
   if (hit) return hit;
-  const base = computeBase(p.collection, collectionsOfBrand(p.brand));
+  const { head, series } = splitSeries(p.collection);
+  const siblings = collectionsOfBrand(p.brand)
+    .map(splitSeries)
+    .filter((x) => x.series === series)
+    .map((x) => x.head);
+  const head_base = computeBase(head, siblings);
+  const base = series ? `${head_base} ${series}` : head_base;
   baseCache.set(key, base);
   return base;
 }
 
 /** Ярлык цвета/варианта («Antracita», «705 beton», «Дюна»). */
 export function colorLabel(p: Product): string {
-  const rest = p.collection.slice(collectionBase(p).length).trim().replace(/^[,\s]+/, "");
+  const { head, series } = splitSeries(p.collection);
+  const base = collectionBase(p);
+  // у Duro-коллекций серия стоит в хвосте базы — цвет ищем в середине имени
+  const headBase = series ? base.slice(0, base.length - series.length - 1) : base;
+  const rest = head.slice(headBase.length).trim().replace(/^[,\s]+/, "");
   return rest || p.specs.color || "—";
 }
 
@@ -212,9 +245,33 @@ export function allPaths() {
  * коллекции подряд с одинаковым кадром — из-за чего витрина и выглядела стоковой.
  */
 export function showcaseProducts(limit = 8): Product[] {
+  return pickOnePerCollection(activeProducts(), limit);
+}
+
+/**
+ * Витрина одного бренда — по позиции на коллекцию, сначала со своим фото.
+ *
+ * Понадобилось для Paradyz: он занимает больше половины каталога, но на первом
+ * экране /catalog товара не было вообще — только плитки назначений, типов
+ * покрытия и заводов, а до карточек надо было провалиться на два уровня.
+ */
+export function brandShowcase(
+  brand: string,
+  limit = 8,
+  type?: Product["product_type"],
+): Product[] {
+  return pickOnePerCollection(
+    activeProducts().filter(
+      (p) => p.brand === brand && (!type || p.product_type === type),
+    ),
+    limit,
+  );
+}
+
+function pickOnePerCollection(list: Product[], limit: number): Product[] {
   const seen = new Set<string>();
   const pick: Product[] = [];
-  const ranked = [...activeProducts()].sort((a, b) => {
+  const ranked = [...list].sort((a, b) => {
     const ap = a.photos[0]?.startsWith("/images/products/") ? 0 : 1;
     const bp = b.photos[0]?.startsWith("/images/products/") ? 0 : 1;
     return ap - bp;

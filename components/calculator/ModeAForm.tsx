@@ -11,6 +11,7 @@ import {
 } from "@/lib/calculator";
 import {
   baseTileLabel,
+  baseTileOptions,
   stepAvailability,
   toBasePerSqm,
   toStepGeometry,
@@ -61,6 +62,13 @@ export function ModeAForm({
   const [platformOn, setPlatformOn] = useState(true);
   const [platform, setPlatform] = useState({ length: 1.5, width: 1.2 });
   const [baseTileSize, setBaseTileSize] = useState<BaseTileSize>("30x30");
+  // Формат напольной плитки артикула («300x300x8.5» / «600x300x8.5»). У Paradyz
+  // почти вся линейка выпускается в двух форматах, и это разные цена и норма.
+  const baseOptions = baseTileOptions(product);
+  const [baseSizeMm, setBaseSizeMm] = useState<string | undefined>(baseOptions[0]?.value);
+  const activeBaseSize = baseOptions.some((o) => o.value === baseSizeMm)
+    ? baseSizeMm
+    : baseOptions[0]?.value;
   const [prices, setPrices] = useState<StepElementPrices>(toStepPrices(product));
   const [materials, setMaterials] = useState<Partial<Record<MaterialCode, boolean>>>(
     { glue: true, grout: true, primer: false, waterproofing: false },
@@ -69,13 +77,14 @@ export function ModeAForm({
   const avail = stepAvailability(product);
   // Норма базовой плитки — из артикула; переключатель 30×30/30×60 остаётся только
   // для артикулов, у которых нормы нет (ТЗ §8.3).
-  const articleBasePerSqm = toBasePerSqm(product);
-  const articleBaseLabel = baseTileLabel(product);
+  const articleBasePerSqm = toBasePerSqm(product, activeBaseSize);
+  const articleBaseLabel = baseTileLabel(product, activeBaseSize);
 
-  // Цены переинициализируются при смене артикула (подставляются из CMS).
+  // Цены переинициализируются при смене артикула и формата плитки
+  // (подставляются из CMS).
   useEffect(() => {
-    setPrices(toStepPrices(product));
-  }, [product]);
+    setPrices(toStepPrices(product, activeBaseSize));
+  }, [product, activeBaseSize]);
 
   // INP (ТЗ B.5): марши/площадка/цены вводятся мгновенно, тяжёлый поэлементный
   // пересчёт (самый тяжёлый — Режим A с несколькими маршами) идёт от отложенных
@@ -96,8 +105,8 @@ export function ModeAForm({
         basePerSqm: articleBasePerSqm,
         geometry: toStepGeometry(product),
         prices: dPrices,
-        weights: toStepWeights(product),
-        pallets: toStepPallets(product),
+        weights: toStepWeights(product, activeBaseSize),
+        pallets: toStepPallets(product, activeBaseSize),
         materials,
       }),
     [
@@ -109,6 +118,7 @@ export function ModeAForm({
       dPlatform,
       baseTileSize,
       articleBasePerSqm,
+      activeBaseSize,
       product,
       dPrices,
       materials,
@@ -137,7 +147,25 @@ export function ModeAForm({
             />
           </Field>
           <div className="mt-4">
-            {articleBasePerSqm ? (
+            {baseOptions.length > 1 ? (
+              // У артикула есть оба формата — выбирает пользователь, а норма и
+              // цена подтягиваются из выбранного элемента, а не из общей таблицы.
+              <Field
+                label="Базовая плитка площадки"
+                hint={
+                  articleBasePerSqm
+                    ? `${articleBasePerSqm.toFixed(2)} шт/м² — из артикула`
+                    : "формат из артикула"
+                }
+              >
+                <Segmented
+                  value={activeBaseSize ?? ""}
+                  onChange={setBaseSizeMm}
+                  options={baseOptions}
+                  size="sm"
+                />
+              </Field>
+            ) : articleBasePerSqm ? (
               <Field label="Базовая плитка площадки" hint="формат и норма — из артикула">
                 <div className="rounded-lg border border-sand-divider bg-sand/40 px-3 py-2 text-sm text-ink">
                   {articleBaseLabel} ·{" "}

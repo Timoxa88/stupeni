@@ -3,7 +3,7 @@
 import { useId, useMemo, useState } from "react";
 import { Img as Image } from "@/components/ui/Img";
 import Link from "next/link";
-import type { Product } from "@/lib/catalog/types";
+import type { ElementCode, Product } from "@/lib/catalog/types";
 import { formatRub, formatNum } from "@/lib/format";
 import { priceView } from "@/lib/catalog/pricing";
 import { productTitle } from "@/lib/catalog/display";
@@ -11,6 +11,7 @@ import { PromoTimer } from "@/components/ui/PromoTimer";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { Modal } from "@/components/ui/Modal";
 import { withBase } from "@/lib/base";
+import { elementKey, elementLabel, orderedElements } from "@/lib/catalog/elements";
 
 const SURFACE: Record<string, string> = {
   structured: "Структурированная",
@@ -39,22 +40,33 @@ type Variant = {
   perPallet?: number;
   thickness?: number;
   perSqm?: number;
+  /** Артикул именно этого элемента (у ступеней каждый элемент — свой SKU). */
+  sku?: string;
+  /** Фото этого элемента: ступень с капиносом ≠ ступень с насечками ≠ плитка. */
+  photo?: string;
+  code?: ElementCode;
 };
 
 export function ProductDetail({ product }: { product: Product }) {
   const isStep = product.product_type === "step_system";
 
   const variants: Variant[] = useMemo(() => {
-    if (isStep && product.elements) {
-      return product.elements.map((e) => ({
-        key: e.code,
-        label: e.name,
+    if (isStep && product.elements?.length) {
+      const els = orderedElements(product);
+      return els.map((e) => ({
+        // Ключ — код + размер: у одного кода бывает два формата (плитка 300×300
+        // и 600×300), и по одному только коду селектор их бы склеил.
+        key: elementKey(e),
+        label: elementLabel(e, els),
         size_mm: e.size_mm,
         unit: e.unit === "sqm" ? "за м² с НДС" : "за шт. с НДС",
         price: e.price_rub,
         weight: e.weight_kg,
         perPallet: e.per_pallet,
         perSqm: e.per_sqm,
+        sku: e.sku,
+        photo: e.photo,
+        code: e.code,
       }));
     }
     return (product.formats ?? []).map((f) => ({
@@ -79,12 +91,33 @@ export function ProductDetail({ product }: { product: Product }) {
   const v = variants.find((x) => x.key === variantKey) ?? variants[0];
   const photos = product.photos.length ? product.photos : ["/images/cat-clinker.jpg"];
 
+  /**
+   * Смена элемента ведёт галерею за собой: у каждого элемента системы своё фото,
+   * и показывать капинос кадром базовой плитки — прямая дезинформация покупателя.
+   * Если фото элемента в галерее нет, кадр не трогаем.
+   */
+  const selectVariant = (key: string) => {
+    setVariantKey(key);
+    const target = variants.find((x) => x.key === key)?.photo;
+    const i = target ? photos.indexOf(target) : -1;
+    if (i >= 0) setPhoto(i);
+  };
+
   // Единый источник цены (lib/catalog/pricing): показываем ровно каталожную цену
   // выбранного элемента/формата — ту же, что считает калькулятор.
   const view = priceView(product, v.price);
 
   const specRows: [string, string][] = [
-    ["Тип товара", isStep ? "Клинкерные ступени" : "Крупноформатная пластина"],
+    // Внутри одной системы «тип товара» у элементов разный: базовая плитка —
+    // это напольная плитка, а не ступень. Подписываем по выбранному элементу.
+    [
+      "Тип товара",
+      isStep
+        ? v?.code === "base"
+          ? "Напольная клинкерная плитка"
+          : "Клинкерные ступени"
+        : "Крупноформатная пластина",
+    ],
     ["Применение", product.application.map((a) => APP_LABEL[a]).join(", ")],
     [isStep ? "Элемент" : "Формат", v.label],
     ["Размер, мм", v.size_mm],
@@ -134,20 +167,28 @@ export function ProductDetail({ product }: { product: Product }) {
           ) : null}
         </button>
         {photos.length > 1 ? (
-          <div className="mt-3 flex gap-3">
-            {photos.map((p, i) => (
-              <button
-                key={p + i}
-                type="button"
-                onClick={() => setPhoto(i)}
-                className={`relative h-20 w-24 shrink-0 overflow-hidden rounded-lg border-2 transition ${
-                  i === photo ? "border-clinker" : "border-transparent opacity-70 hover:opacity-100"
-                }`}
-                aria-label={`Фото ${i + 1}`}
-              >
-                <Image src={p} alt="" fill sizes="96px" loading="lazy" className="object-cover" />
-              </button>
-            ))}
+          <div className="mt-3 flex flex-wrap gap-3">
+            {photos.map((p, i) => {
+              // Миниатюра, за которой стоит элемент системы, переключает и его:
+              // иначе на экране кадр капиноса, а цена и характеристики — плитки.
+              const owner = variants.find((x) => x.photo === p);
+              return (
+                <button
+                  key={p + i}
+                  type="button"
+                  onClick={() => (owner ? selectVariant(owner.key) : setPhoto(i))}
+                  className={`relative h-20 w-24 shrink-0 overflow-hidden rounded-lg border-2 bg-white transition ${
+                    i === photo ? "border-clinker" : "border-transparent opacity-70 hover:opacity-100"
+                  }`}
+                  aria-label={owner ? owner.label : `Фото ${i + 1}`}
+                  title={owner?.label}
+                >
+                  {/* contain, а не cover: у кадров элементов важна форма кромки —
+                      обрезка миниатюры съедала как раз капинос и насечки */}
+                  <Image src={p} alt="" fill sizes="96px" loading="lazy" className="object-contain" />
+                </button>
+              );
+            })}
           </div>
         ) : null}
       </div>
@@ -155,7 +196,7 @@ export function ProductDetail({ product }: { product: Product }) {
       {/* Инфо */}
       <div>
         <div className="text-sm font-semibold uppercase tracking-wide text-stone/70">
-          {product.brand} · арт. {product.sku}
+          {product.brand} · арт. {v?.sku ?? product.sku}
         </div>
         <h1 className="mt-2 font-display text-3xl font-extrabold text-ink sm:text-4xl">
           {product.seo.h1}
@@ -170,7 +211,7 @@ export function ProductDetail({ product }: { product: Product }) {
             <select
               className="field-input"
               value={variantKey}
-              onChange={(e) => setVariantKey(e.target.value)}
+              onChange={(e) => selectVariant(e.target.value)}
             >
               {variants.map((x) => (
                 <option key={x.key} value={x.key}>
@@ -294,7 +335,7 @@ export function ProductDetail({ product }: { product: Product }) {
             <LeadForm
               tag="Образец"
               submitLabel="Отправить"
-              comment={`Артикул: ${product.sku} (${product.brand} ${product.collection}), ${v.label}`}
+              comment={`Артикул: ${v?.sku ?? product.sku} (${product.brand} ${product.collection}), ${v.label}`}
             />
           </div>
         </Modal>

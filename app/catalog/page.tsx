@@ -5,10 +5,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { CATEGORIES } from "@/lib/content/categories";
 import { BRANDS } from "@/lib/catalog/brands";
 import { activeProducts, getProductsByBrand } from "@/lib/catalog/queries";
-import { applications } from "@/lib/catalog/taxonomy";
+import { applications, brandShowcase } from "@/lib/catalog/taxonomy";
 import { IMAGES } from "@/lib/images";
 
 export const metadata: Metadata = {
@@ -29,6 +30,11 @@ export const metadata: Metadata = {
 export default function CatalogPage() {
   const total = activeProducts().length;
   const apps = applications();
+  // Paradyz — основной поставщик и больше половины каталога, но на /catalog он
+  // раньше упоминался только плашкой «N позиций» среди шести заводов: товара на
+  // странице не было ни одного. Восемь коллекций сразу под шапкой.
+  const paradyz = brandShowcase("Paradyz", 8, "step_system");
+  const paradyzCount = getProductsByBrand("Paradyz").length;
 
   return (
     <>
@@ -52,6 +58,35 @@ export default function CatalogPage() {
             Рассчитать комплект →
           </Link>
         </SubHero>
+
+        {/* Витрина Paradyz — до навигации по назначениям */}
+        {paradyz.length ? (
+          <section className="mx-auto max-w-7xl px-5 pt-16 sm:pt-24">
+            <Reveal>
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <div>
+                  <p className="eyebrow text-clinker">Paradyz · Польша</p>
+                  <h2 className="mt-3 font-display text-4xl font-extrabold text-ink sm:text-5xl">
+                    Клинкерные ступени Paradyz
+                  </h2>
+                  <p className="mt-3 max-w-2xl text-stone">
+                    Система целиком: ступень с капиносом и с насечками, угловые элементы
+                    и напольная плитка 30×30 и 30×60 — в одном цвете и обжиге.
+                  </p>
+                </div>
+                <Link
+                  href="/producers/paradyz"
+                  className="rounded-full border border-ink/15 px-6 py-3 font-semibold text-ink transition hover:border-clinker hover:text-clinker"
+                >
+                  Все {paradyzCount} позиций Paradyz →
+                </Link>
+              </div>
+            </Reveal>
+            <div className="mt-10">
+              <ProductGrid products={paradyz} />
+            </div>
+          </section>
+        ) : null}
 
         {/* Шаг 1 — назначение */}
         <section className="mx-auto max-w-7xl px-5 py-16 sm:py-24">

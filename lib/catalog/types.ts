@@ -10,10 +10,23 @@ export type ApplicationCode =
   | "landshaft-opory"
   | "bassein";
 
+/**
+ * Элементы системы ступеней.
+ *
+ * Ступень бывает двух исполнений, и это РАЗНЫЕ товары с разной ценой и геометрией:
+ *  - «с капиносом» (`front`, `corner_l`) — с выступающим носиком, кладётся на
+ *    проступь как готовая кромка;
+ *  - «с насечками» (`front_notch`, `corner_notch`) — простая плитка с рифлением
+ *    на лицевой стороне, кромку формирует подрезка.
+ * До 29.07.2026 в каталоге жил один код `front`, и у 14 коллекций Paradyz
+ * насечная ступень вытеснила капиносную (генератор оставлял «самую длинную»).
+ */
 export type ElementCode =
   | "front"
+  | "front_notch"
   | "corner_l"
   | "corner_r"
+  | "corner_notch"
   | "riser"
   | "base"
   | "plinth";
@@ -28,9 +41,18 @@ export interface ProductElement {
   unit: "pcs" | "sqm";
   /** Шт/м² (для base). */
   per_sqm?: number;
-  weight_kg: number;
+  /** Вес штуки, кг. Нет в источнике — строка в карточке не выводится. */
+  weight_kg?: number;
   per_pallet?: number;
   price_rub: number;
+  /**
+   * Фото именно этого элемента. Один код может встречаться несколько раз
+   * (плитка 300×300 и 300×600 — два элемента), поэтому ключ элемента —
+   * пара code + size_mm; см. elementKey() в lib/catalog/elements.ts.
+   */
+  photo?: string;
+  /** Артикул элемента у поставщика (в карточке — под выбранный элемент). */
+  sku?: string;
 }
 
 export interface ProductFormat {

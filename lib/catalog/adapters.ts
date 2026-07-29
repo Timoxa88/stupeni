@@ -2,6 +2,10 @@
  * Адаптеры: товар из каталога → входные данные калькулятора.
  * Реализуют правило §9.1.2/§9.2.2: используются только элементы/форматы,
  * которые есть у артикула.
+ *
+ * Выбор элемента вынесен в lib/catalog/elements: у одного кода бывает несколько
+ * элементов (плитка 300×300 и 600×300), а фронтальная ступень — двух исполнений
+ * (капинос / насечки). Просто `find(e => e.code === code)` брал первый попавшийся.
  */
 
 import type {
@@ -11,22 +15,24 @@ import type {
   StepElementWeights,
   StepGeometry,
 } from "@/lib/calculator";
-import type { ElementCode, Product, ProductFormat } from "./types";
-
-function parseSize(size_mm: string): [number, number] {
-  const [w, h] = size_mm.split("x").map((v) => parseInt(v, 10));
-  return [w || 0, h || 0];
-}
-
-const findEl = (p: Product, code: ElementCode) =>
-  p.elements?.find((e) => e.code === code);
+import type { Product, ProductFormat } from "./types";
+import {
+  baseElement,
+  cornerElement,
+  elementsOf,
+  findElement,
+  frontElement,
+  parseSize,
+  perSqmOf,
+  shortSize,
+} from "./elements";
 
 /** Геометрия элементов (м) из артикула ступеней. */
 export function toStepGeometry(p: Product): StepGeometry {
-  const front = findEl(p, "front");
-  const riser = findEl(p, "riser");
-  const plinth = findEl(p, "plinth");
-  const corner = findEl(p, "corner_l") ?? findEl(p, "corner_r");
+  const front = frontElement(p);
+  const riser = findElement(p, "riser");
+  const plinth = findElement(p, "plinth");
+  const corner = cornerElement(p);
   const cornerWidth = corner ? parseSize(corner.size_mm)[0] / 1000 : 0;
   return {
     frontLength: front?.length_m ?? 0,
@@ -36,57 +42,57 @@ export function toStepGeometry(p: Product): StepGeometry {
   };
 }
 
-export function toStepPrices(p: Product): StepElementPrices {
+export function toStepPrices(p: Product, baseSize?: string): StepElementPrices {
   return {
-    front: findEl(p, "front")?.price_rub ?? 0,
-    corner: findEl(p, "corner_l")?.price_rub ?? 0,
-    riser: findEl(p, "riser")?.price_rub ?? 0,
-    base: findEl(p, "base")?.price_rub ?? 0,
-    plinth: findEl(p, "plinth")?.price_rub ?? 0,
+    front: frontElement(p)?.price_rub ?? 0,
+    corner: cornerElement(p)?.price_rub ?? 0,
+    riser: findElement(p, "riser")?.price_rub ?? 0,
+    base: baseElement(p, baseSize)?.price_rub ?? 0,
+    plinth: findElement(p, "plinth")?.price_rub ?? 0,
   };
 }
 
-export function toStepWeights(p: Product): StepElementWeights {
+export function toStepWeights(p: Product, baseSize?: string): StepElementWeights {
   return {
-    front: findEl(p, "front")?.weight_kg,
-    corner: findEl(p, "corner_l")?.weight_kg,
-    riser: findEl(p, "riser")?.weight_kg,
-    base: findEl(p, "base")?.weight_kg,
-    plinth: findEl(p, "plinth")?.weight_kg,
+    front: frontElement(p)?.weight_kg,
+    corner: cornerElement(p)?.weight_kg,
+    riser: findElement(p, "riser")?.weight_kg,
+    base: baseElement(p, baseSize)?.weight_kg,
+    plinth: findElement(p, "plinth")?.weight_kg,
   };
 }
 
-export function toStepPallets(p: Product): StepElementPallets {
+export function toStepPallets(p: Product, baseSize?: string): StepElementPallets {
   return {
-    front: findEl(p, "front")?.per_pallet,
-    corner: findEl(p, "corner_l")?.per_pallet,
-    riser: findEl(p, "riser")?.per_pallet,
-    base: findEl(p, "base")?.per_pallet,
-    plinth: findEl(p, "plinth")?.per_pallet,
+    front: frontElement(p)?.per_pallet,
+    corner: cornerElement(p)?.per_pallet,
+    riser: findElement(p, "riser")?.per_pallet,
+    base: baseElement(p, baseSize)?.per_pallet,
+    plinth: findElement(p, "plinth")?.per_pallet,
   };
 }
 
 /**
- * Норма базовой плитки артикула, шт/м² (ТЗ §8.3). Берётся из элемента `base`:
- * сначала явный `per_sqm` из тех. листа, иначе считается из размера.
+ * Норма базовой плитки артикула, шт/м² (ТЗ §8.3) — для выбранного формата.
  * Без неё калькулятор считал площадку по норме переключателя 30×30 независимо от
  * реального формата плитки — на 300×600 это ровно двукратное завышение.
  */
-export function toBasePerSqm(p: Product): number | undefined {
-  const base = findEl(p, "base");
-  if (!base) return undefined;
-  if (base.per_sqm && base.per_sqm > 0) return base.per_sqm;
-  const [w, h] = parseSize(base.size_mm);
-  if (w > 0 && h > 0) return 1 / ((w / 1000) * (h / 1000));
-  return undefined;
+export function toBasePerSqm(p: Product, baseSize?: string): number | undefined {
+  return perSqmOf(baseElement(p, baseSize));
 }
 
 /** Человекочитаемый формат базовой плитки артикула («300×600 мм»). */
-export function baseTileLabel(p: Product): string | undefined {
-  const base = findEl(p, "base");
-  if (!base) return undefined;
-  const [w, h] = parseSize(base.size_mm);
-  return w && h ? `${w}×${h} мм` : base.size_mm;
+export function baseTileLabel(p: Product, baseSize?: string): string | undefined {
+  const base = baseElement(p, baseSize);
+  return base ? `${shortSize(base.size_mm)} мм` : undefined;
+}
+
+/** Форматы напольной плитки артикула — для переключателя в калькуляторе. */
+export function baseTileOptions(p: Product): { value: string; label: string }[] {
+  return elementsOf(p, "base").map((e) => ({
+    value: e.size_mm,
+    label: `${shortSize(e.size_mm)} мм`,
+  }));
 }
 
 /** Какие элементы реально есть у артикула (для скрытия опций в UI). */
@@ -99,10 +105,10 @@ export interface StepAvailability {
 
 export function stepAvailability(p: Product): StepAvailability {
   return {
-    hasRisers: !!findEl(p, "riser"),
-    hasPlinth: !!findEl(p, "plinth"),
-    hasBase: !!findEl(p, "base"),
-    hasCorners: !!(findEl(p, "corner_l") || findEl(p, "corner_r")),
+    hasRisers: !!findElement(p, "riser"),
+    hasPlinth: !!findElement(p, "plinth"),
+    hasBase: !!baseElement(p),
+    hasCorners: !!cornerElement(p),
   };
 }
 

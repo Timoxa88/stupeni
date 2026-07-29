@@ -1,15 +1,4796 @@
 /**
- * Paradyz — из прайса «Прайс Paradyz полный от 01.06.26.xlsx», цены РОЗНИЧНЫЕ.
- * Артикул, размер, вес, шт/м², шт/поддон и цена — из прайса; R-класс, морозостойкость
- * и водопоглощение подмешаны из карточек Славдома; фото — с hit-ceramics.ru.
- * Сгенерировано scripts/gen_paradyz_price.py, вручную не править.
+ * Paradyz — с сайта заказчика hit-ceramics.ru (съём 29.07.2026), цены РОЗНИЧНЫЕ.
  *
- * Товаров: 108. Прайс действителен с 01.06.2026.
+ * Система ступеней выложена ПОЭЛЕМЕНТНО: ступень с капиносом и ступень с
+ * насечками — разные артикулы, напольная плитка и насечная ступень идут в двух
+ * форматах (300×300 и 600×300). У каждого элемента свой артикул, цена, вес,
+ * шт/поддон и СВОЁ фото — карточка показывает кадр выбранного элемента.
+ *
+ * Морозостойкость, водопоглощение и R-класс — из карточек Славдома (прежняя
+ * выгрузка); террасные плиты 20 мм — оттуда же без изменений (цены сверены).
+ *
+ * Сгенерировано scripts/gen_paradyz.py, вручную не править.
+ *
+ * Ступеней: 45 (элементов 188). Плит: 63.
  */
 
 import type { Product } from "../types";
 
 export const PARADYZ_PRICE_PRODUCTS: Product[] = [
+  {
+    id: "paradyz-ardis-dark",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Ardis Dark",
+    sku: "18337",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18337",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-ardis-dark/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18273",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-ardis-dark/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Тёмный",
+      color_hex: "#5A4636",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-ardis-dark/el-front_notch-600x300.webp",
+      "/images/products/paradyz-ardis-dark/el-base-600x300.webp",
+      "/images/products/paradyz-ardis-dark/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Ardis Dark — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Ardis Dark: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Ardis Dark"
+    },
+    variants: [
+      {
+        id: "paradyz-ardis-dark",
+        color: "Тёмный",
+        color_hex: "#5A4636",
+        photo: "/images/products/paradyz-ardis-dark/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-ardis-light",
+        color: "Светлый",
+        color_hex: "#D6C6AC",
+        photo: "/images/products/paradyz-ardis-light/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-ardis-rust",
+        color: "Ржавый",
+        color_hex: "#A8502F",
+        photo: "/images/products/paradyz-ardis-rust/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-ardis-light",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Ardis Light",
+    sku: "18626",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18626",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-ardis-light/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18572",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-ardis-light/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Светлый",
+      color_hex: "#D6C6AC",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-ardis-light/el-front_notch-600x300.webp",
+      "/images/products/paradyz-ardis-light/el-base-600x300.webp",
+      "/images/products/paradyz-ardis-light/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Ardis Light — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Ardis Light: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Ardis Light"
+    },
+    variants: [
+      {
+        id: "paradyz-ardis-dark",
+        color: "Тёмный",
+        color_hex: "#5A4636",
+        photo: "/images/products/paradyz-ardis-dark/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-ardis-light",
+        color: "Светлый",
+        color_hex: "#D6C6AC",
+        photo: "/images/products/paradyz-ardis-light/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-ardis-rust",
+        color: "Ржавый",
+        color_hex: "#A8502F",
+        photo: "/images/products/paradyz-ardis-rust/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-ardis-rust",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Ardis Rust",
+    sku: "18627",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18627",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-ardis-rust/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18573",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-ardis-rust/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Ржавый",
+      color_hex: "#A8502F",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-ardis-rust/el-front_notch-600x300.webp",
+      "/images/products/paradyz-ardis-rust/el-base-600x300.webp",
+      "/images/products/paradyz-ardis-rust/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Ardis Rust — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Ardis Rust: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Ardis Rust"
+    },
+    variants: [
+      {
+        id: "paradyz-ardis-dark",
+        color: "Тёмный",
+        color_hex: "#5A4636",
+        photo: "/images/products/paradyz-ardis-dark/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-ardis-light",
+        color: "Светлый",
+        color_hex: "#D6C6AC",
+        photo: "/images/products/paradyz-ardis-light/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-ardis-rust",
+        color: "Ржавый",
+        color_hex: "#A8502F",
+        photo: "/images/products/paradyz-ardis-rust/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-arteon-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Arteon Brown",
+    sku: "18640",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18640",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-brown/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18639",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18585",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-arteon-brown/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-arteon-brown/el-front-300x330.webp",
+      "/images/products/paradyz-arteon-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-arteon-brown/el-base-300x300.webp",
+      "/images/products/paradyz-arteon-brown/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Arteon Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Arteon Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Arteon Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-arteon-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-arteon-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-arteon-grys/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-arteon-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-rosso/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-taupe/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-arteon-grys",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Arteon Grys",
+    sku: "18643",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18643",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-grys/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18636",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-grys/el-front_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18581",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-arteon-grys/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Серый",
+      color_hex: "#8A8A86",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-arteon-grys/el-front-300x330.webp",
+      "/images/products/paradyz-arteon-grys/el-front_notch-300x300.webp",
+      "/images/products/paradyz-arteon-grys/el-base-300x300.webp",
+      "/images/products/paradyz-arteon-grys/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Arteon Grys — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Arteon Grys: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Arteon Grys"
+    },
+    variants: [
+      {
+        id: "paradyz-arteon-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-arteon-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-arteon-grys/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-arteon-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-rosso/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-taupe/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-arteon-ochra",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Arteon Ochra",
+    sku: "18641",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18641",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-ochra/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18638",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-ochra/el-front_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18584",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-arteon-ochra/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Охра",
+      color_hex: "#C7A45C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-arteon-ochra/el-front-300x330.webp",
+      "/images/products/paradyz-arteon-ochra/el-front_notch-300x300.webp",
+      "/images/products/paradyz-arteon-ochra/el-base-300x300.webp"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Arteon Ochra — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Arteon Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Arteon Ochra"
+    },
+    variants: [
+      {
+        id: "paradyz-arteon-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-arteon-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-arteon-grys/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-arteon-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-rosso/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-taupe/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-arteon-rosso",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Arteon Rosso",
+    sku: "18644",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18644",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-rosso/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18635",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-rosso/el-front_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18582",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-arteon-rosso/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Красный",
+      color_hex: "#9A8F80",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-arteon-rosso/el-front-300x330.webp",
+      "/images/products/paradyz-arteon-rosso/el-front_notch-300x300.webp",
+      "/images/products/paradyz-arteon-rosso/el-base-300x300.webp",
+      "/images/products/paradyz-arteon-rosso/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Arteon Rosso — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Arteon Rosso: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Arteon Rosso"
+    },
+    variants: [
+      {
+        id: "paradyz-arteon-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-arteon-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-arteon-grys/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-arteon-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-rosso/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-taupe/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-arteon-taupe",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Arteon Taupe",
+    sku: "18642",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18642",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-taupe/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18637",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-arteon-taupe/el-front_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18583",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-arteon-taupe/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Тёмно-серый",
+      color_hex: "#9A8F80",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-arteon-taupe/el-front-300x330.webp",
+      "/images/products/paradyz-arteon-taupe/el-front_notch-300x300.webp",
+      "/images/products/paradyz-arteon-taupe/el-base-300x300.webp"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Arteon Taupe — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Arteon Taupe: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Arteon Taupe"
+    },
+    variants: [
+      {
+        id: "paradyz-arteon-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-arteon-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-arteon-grys/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-arteon-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-rosso/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-arteon-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-arteon-taupe/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-carrizo-bazalt",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Carrizo Bazalt",
+    sku: "18628",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18628",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-carrizo-bazalt/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18574",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-carrizo-bazalt/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Базальт",
+      color_hex: "#4A4D4E",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-carrizo-bazalt/el-front_notch-600x300.webp",
+      "/images/products/paradyz-carrizo-bazalt/el-base-600x300.webp",
+      "/images/products/paradyz-carrizo-bazalt/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Carrizo Bazalt — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Carrizo Bazalt: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Carrizo Bazalt"
+    },
+    variants: [
+      {
+        id: "paradyz-carrizo-bazalt",
+        color: "Базальт",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-carrizo-bazalt/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-carrizo-grey",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-carrizo-grey/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-carrizo-wood",
+        color: "Под дерево",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-carrizo-wood/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-carrizo-grey",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Carrizo Grey",
+    sku: "18629",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18629",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-carrizo-grey/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18575",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-carrizo-grey/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Серый",
+      color_hex: "#8A8A86",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-carrizo-grey/el-front_notch-600x300.webp",
+      "/images/products/paradyz-carrizo-grey/el-base-600x300.webp",
+      "/images/products/paradyz-carrizo-grey/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Carrizo Grey — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Carrizo Grey: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Carrizo Grey"
+    },
+    variants: [
+      {
+        id: "paradyz-carrizo-bazalt",
+        color: "Базальт",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-carrizo-bazalt/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-carrizo-grey",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-carrizo-grey/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-carrizo-wood",
+        color: "Под дерево",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-carrizo-wood/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-carrizo-wood",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Carrizo Wood",
+    sku: "18630",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18630",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-carrizo-wood/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18576",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-carrizo-wood/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Под дерево",
+      color_hex: "#9A8F80",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-carrizo-wood/el-front_notch-600x300.webp",
+      "/images/products/paradyz-carrizo-wood/el-base-600x300.webp",
+      "/images/products/paradyz-carrizo-wood/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Carrizo Wood — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Carrizo Wood: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Carrizo Wood"
+    },
+    variants: [
+      {
+        id: "paradyz-carrizo-bazalt",
+        color: "Базальт",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-carrizo-bazalt/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-carrizo-grey",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-carrizo-grey/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-carrizo-wood",
+        color: "Под дерево",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-carrizo-wood/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-cloud-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Cloud Brown",
+    sku: "18664",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18664",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-cloud-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18665",
+        photo: "/images/products/paradyz-cloud-brown/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18586",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-cloud-brown/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-cloud-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-cloud-brown/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-cloud-brown/el-base-300x300.webp",
+      "/images/products/paradyz-cloud-brown/photo_0_own.jpg",
+      "/images/products/paradyz-cloud-brown/photo_1.png",
+      "/images/products/paradyz-cloud-brown/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Cloud Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Cloud Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Cloud Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-cloud-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-cloud-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-cloud-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-cloud-rosa/el-front_notch-300x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-cloud-brown-duro",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Cloud Brown Duro",
+    sku: "18668",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18668",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-cloud-brown-duro/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18666",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-cloud-brown-duro/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18669",
+        photo: "/images/products/paradyz-cloud-brown-duro/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18667",
+        photo: "/images/products/paradyz-cloud-brown-duro/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18587",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-cloud-brown-duro/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-cloud-brown-duro/el-front-300x330.webp",
+      "/images/products/paradyz-cloud-brown-duro/el-front_notch-300x300.webp",
+      "/images/products/paradyz-cloud-brown-duro/el-corner_l-330x330.webp",
+      "/images/products/paradyz-cloud-brown-duro/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-cloud-brown-duro/el-base-300x300.webp",
+      "/images/products/paradyz-cloud-brown-duro/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Cloud Brown Duro — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Cloud Brown Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Cloud Brown Duro"
+    }
+  },
+  {
+    id: "paradyz-cloud-rosa",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Cloud Rosa",
+    sku: "18672",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18672",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-cloud-rosa/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18670",
+        photo: "/images/products/paradyz-cloud-rosa/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18588",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-cloud-rosa/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Розовый",
+      color_hex: "#C98B7A",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-cloud-rosa/el-front_notch-300x300.webp",
+      "/images/products/paradyz-cloud-rosa/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-cloud-rosa/el-base-300x300.webp",
+      "/images/products/paradyz-cloud-rosa/photo_0_own.jpg",
+      "/images/products/paradyz-cloud-rosa/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Cloud Rosa — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Cloud Rosa: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Cloud Rosa"
+    },
+    variants: [
+      {
+        id: "paradyz-cloud-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-cloud-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-cloud-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-cloud-rosa/el-front_notch-300x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-cloud-rosa-duro",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Cloud Rosa Duro",
+    sku: "18674",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18674",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-cloud-rosa-duro/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18673",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-cloud-rosa-duro/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18675",
+        photo: "/images/products/paradyz-cloud-rosa-duro/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18671",
+        photo: "/images/products/paradyz-cloud-rosa-duro/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18589",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-cloud-rosa-duro/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Розовый",
+      color_hex: "#C98B7A",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-cloud-rosa-duro/el-front-300x330.webp",
+      "/images/products/paradyz-cloud-rosa-duro/el-front_notch-300x300.webp",
+      "/images/products/paradyz-cloud-rosa-duro/el-corner_l-330x330.webp",
+      "/images/products/paradyz-cloud-rosa-duro/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-cloud-rosa-duro/el-base-300x300.webp",
+      "/images/products/paradyz-cloud-rosa-duro/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Cloud Rosa Duro — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Cloud Rosa Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Cloud Rosa Duro"
+    }
+  },
+  {
+    id: "paradyz-eremite-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Eremite Beige",
+    sku: "18631",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18631",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-eremite-beige/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18577",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-eremite-beige/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-eremite-beige/el-front_notch-600x300.webp",
+      "/images/products/paradyz-eremite-beige/el-base-600x300.webp",
+      "/images/products/paradyz-eremite-beige/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Eremite Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Eremite Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Eremite Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-eremite-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-eremite-beige/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-crema",
+        color: "Кремовый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-crema/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-sand",
+        color: "Песочный",
+        color_hex: "#D2BE9A",
+        photo: "/images/products/paradyz-eremite-sand/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-taupe/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-eremite-crema",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Eremite Crema",
+    sku: "18632",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18632",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-eremite-crema/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18578",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-eremite-crema/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Кремовый",
+      color_hex: "#9A8F80",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-eremite-crema/el-front_notch-600x300.webp",
+      "/images/products/paradyz-eremite-crema/el-base-600x300.webp",
+      "/images/products/paradyz-eremite-crema/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Eremite Crema — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Eremite Crema: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Eremite Crema"
+    },
+    variants: [
+      {
+        id: "paradyz-eremite-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-eremite-beige/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-crema",
+        color: "Кремовый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-crema/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-sand",
+        color: "Песочный",
+        color_hex: "#D2BE9A",
+        photo: "/images/products/paradyz-eremite-sand/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-taupe/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-eremite-sand",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Eremite Sand",
+    sku: "18633",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18633",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-eremite-sand/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18579",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-eremite-sand/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Песочный",
+      color_hex: "#D2BE9A",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-eremite-sand/el-front_notch-600x300.webp",
+      "/images/products/paradyz-eremite-sand/el-base-600x300.webp",
+      "/images/products/paradyz-eremite-sand/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Eremite Sand — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Eremite Sand: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Eremite Sand"
+    },
+    variants: [
+      {
+        id: "paradyz-eremite-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-eremite-beige/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-crema",
+        color: "Кремовый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-crema/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-sand",
+        color: "Песочный",
+        color_hex: "#D2BE9A",
+        photo: "/images/products/paradyz-eremite-sand/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-taupe/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-eremite-taupe",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Eremite Taupe",
+    sku: "18634",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18634",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-eremite-taupe/el-front_notch-600x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18580",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-eremite-taupe/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Тёмно-серый",
+      color_hex: "#9A8F80",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-eremite-taupe/el-front_notch-600x300.webp",
+      "/images/products/paradyz-eremite-taupe/el-base-600x300.webp",
+      "/images/products/paradyz-eremite-taupe/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Eremite Taupe — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Eremite Taupe: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Eremite Taupe"
+    },
+    variants: [
+      {
+        id: "paradyz-eremite-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-eremite-beige/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-crema",
+        color: "Кремовый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-crema/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-sand",
+        color: "Песочный",
+        color_hex: "#D2BE9A",
+        photo: "/images/products/paradyz-eremite-sand/el-front_notch-600x300.webp"
+      },
+      {
+        id: "paradyz-eremite-taupe",
+        color: "Тёмно-серый",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-eremite-taupe/el-front_notch-600x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-ilario-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Ilario Beige",
+    sku: "18336",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18336",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-ilario-beige/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18647",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-ilario-beige/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18335",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-ilario-beige/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18649",
+        photo: "/images/products/paradyz-ilario-beige/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18652",
+        photo: "/images/products/paradyz-ilario-beige/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18331",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-ilario-beige/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18593",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-ilario-beige/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-ilario-beige/el-front-300x330.webp",
+      "/images/products/paradyz-ilario-beige/el-front_notch-300x300.webp",
+      "/images/products/paradyz-ilario-beige/el-front_notch-600x300.webp",
+      "/images/products/paradyz-ilario-beige/el-corner_l-330x330.webp",
+      "/images/products/paradyz-ilario-beige/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-ilario-beige/el-base-300x300.webp",
+      "/images/products/paradyz-ilario-beige/el-base-600x300.webp",
+      "/images/products/paradyz-ilario-beige/photo_0_own.jpg",
+      "/images/products/paradyz-ilario-beige/photo_1.png",
+      "/images/products/paradyz-ilario-beige/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Ilario Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Ilario Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Ilario Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-ilario-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-ilario-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-ilario-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-ilario-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-ilario-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-ilario-ochra/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-ilario-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Ilario Brown",
+    sku: "18654",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18654",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-ilario-brown/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18657",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-ilario-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18658",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-ilario-brown/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18653",
+        photo: "/images/products/paradyz-ilario-brown/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18656",
+        photo: "/images/products/paradyz-ilario-brown/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18590",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-ilario-brown/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18594",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-ilario-brown/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-ilario-brown/el-front-300x330.webp",
+      "/images/products/paradyz-ilario-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-ilario-brown/el-front_notch-600x300.webp",
+      "/images/products/paradyz-ilario-brown/el-corner_l-330x330.webp",
+      "/images/products/paradyz-ilario-brown/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-ilario-brown/el-base-300x300.webp",
+      "/images/products/paradyz-ilario-brown/el-base-600x300.webp",
+      "/images/products/paradyz-ilario-brown/photo_0_own.jpg",
+      "/images/products/paradyz-ilario-brown/photo_1.png",
+      "/images/products/paradyz-ilario-brown/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Ilario Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Ilario Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Ilario Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-ilario-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-ilario-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-ilario-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-ilario-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-ilario-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-ilario-ochra/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-ilario-ochra",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Ilario Ochra",
+    sku: "18662",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18662",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-ilario-ochra/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18660",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-ilario-ochra/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18661",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-ilario-ochra/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18651",
+        photo: "/images/products/paradyz-ilario-ochra/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18659",
+        photo: "/images/products/paradyz-ilario-ochra/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18591",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-ilario-ochra/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18595",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-ilario-ochra/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Охра",
+      color_hex: "#C7A45C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-ilario-ochra/el-front-300x330.webp",
+      "/images/products/paradyz-ilario-ochra/el-front_notch-300x300.webp",
+      "/images/products/paradyz-ilario-ochra/el-front_notch-600x300.webp",
+      "/images/products/paradyz-ilario-ochra/el-corner_l-330x330.webp",
+      "/images/products/paradyz-ilario-ochra/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-ilario-ochra/el-base-300x300.webp",
+      "/images/products/paradyz-ilario-ochra/el-base-600x300.webp",
+      "/images/products/paradyz-ilario-ochra/photo_0_own.jpg",
+      "/images/products/paradyz-ilario-ochra/photo_1.png",
+      "/images/products/paradyz-ilario-ochra/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Ilario Ochra — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Ilario Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Ilario Ochra"
+    },
+    variants: [
+      {
+        id: "paradyz-ilario-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-ilario-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-ilario-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-ilario-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-ilario-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-ilario-ochra/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-mattone-pietra-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Mattone Pietra Beige",
+    sku: "18681",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18681",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18680",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18682",
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18616",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100"
+    },
+    photos: [
+      "/images/products/paradyz-mattone-pietra-beige/el-front-300x330.webp",
+      "/images/products/paradyz-mattone-pietra-beige/el-front_notch-300x300.webp",
+      "/images/products/paradyz-mattone-pietra-beige/el-corner_l-330x330.webp",
+      "/images/products/paradyz-mattone-pietra-beige/el-base-300x300.webp",
+      "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Mattone Pietra Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Mattone Pietra Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Mattone Pietra Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-mattone-pietra-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-pietra-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-pietra-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-mattone-pietra-grafit",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Mattone Pietra Grafit",
+    sku: "18676",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18676",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18677",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18679",
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18615",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Графит",
+      color_hex: "#4A4D4E",
+      frost_resistance: "F100"
+    },
+    photos: [
+      "/images/products/paradyz-mattone-pietra-grafit/el-front-300x330.webp",
+      "/images/products/paradyz-mattone-pietra-grafit/el-front_notch-300x300.webp",
+      "/images/products/paradyz-mattone-pietra-grafit/el-corner_l-330x330.webp",
+      "/images/products/paradyz-mattone-pietra-grafit/el-base-300x300.webp",
+      "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Mattone Pietra Grafit — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Mattone Pietra Grafit: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Mattone Pietra Grafit"
+    },
+    variants: [
+      {
+        id: "paradyz-mattone-pietra-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-pietra-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-pietra-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-mattone-pietra-ochra",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Mattone Pietra Ochra",
+    sku: "18684",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18684",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18683",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18685",
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18617",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Охра",
+      color_hex: "#C7A45C",
+      frost_resistance: "F100"
+    },
+    photos: [
+      "/images/products/paradyz-mattone-pietra-ochra/el-front-300x330.webp",
+      "/images/products/paradyz-mattone-pietra-ochra/el-front_notch-300x300.webp",
+      "/images/products/paradyz-mattone-pietra-ochra/el-corner_l-330x330.webp",
+      "/images/products/paradyz-mattone-pietra-ochra/el-base-300x300.webp",
+      "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Mattone Pietra Ochra — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Mattone Pietra Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Mattone Pietra Ochra"
+    },
+    variants: [
+      {
+        id: "paradyz-mattone-pietra-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-mattone-pietra-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-pietra-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-mattone-pietra-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-pietra-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-mattone-pietra-ochra/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-mattone-sabbia-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Mattone Sabbia Beige",
+    sku: "18687",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18687",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18686",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18688",
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18612",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100"
+    },
+    photos: [
+      "/images/products/paradyz-mattone-sabbia-beige/el-front-300x330.webp",
+      "/images/products/paradyz-mattone-sabbia-beige/el-front_notch-300x300.webp",
+      "/images/products/paradyz-mattone-sabbia-beige/el-corner_l-330x330.webp",
+      "/images/products/paradyz-mattone-sabbia-beige/el-base-300x300.webp",
+      "/images/products/paradyz-mattone-sabbia-beige/photo_0_own.jpg",
+      "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Mattone Sabbia Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Mattone Sabbia Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Mattone Sabbia Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-mattone-sabbia-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-sabbia-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-sabbia-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-mattone-sabbia-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Mattone Sabbia Brown",
+    sku: "18690",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18690",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18689",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18691",
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18613",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100"
+    },
+    photos: [
+      "/images/products/paradyz-mattone-sabbia-brown/el-front-300x330.webp",
+      "/images/products/paradyz-mattone-sabbia-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-mattone-sabbia-brown/el-corner_l-330x330.webp",
+      "/images/products/paradyz-mattone-sabbia-brown/el-base-300x300.webp",
+      "/images/products/paradyz-mattone-sabbia-brown/photo_0_own.jpg",
+      "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Mattone Sabbia Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Mattone Sabbia Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Mattone Sabbia Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-mattone-sabbia-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-sabbia-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-sabbia-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-mattone-sabbia-grafit",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Mattone Sabbia Grafit",
+    sku: "18692",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18692",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18694",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18693",
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18614",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Графит",
+      color_hex: "#4A4D4E",
+      frost_resistance: "F100"
+    },
+    photos: [
+      "/images/products/paradyz-mattone-sabbia-grafit/el-front-300x330.webp",
+      "/images/products/paradyz-mattone-sabbia-grafit/el-front_notch-300x300.webp",
+      "/images/products/paradyz-mattone-sabbia-grafit/el-corner_l-330x330.webp",
+      "/images/products/paradyz-mattone-sabbia-grafit/el-base-300x300.webp",
+      "/images/products/paradyz-mattone-sabbia-grafit/photo_0_own.jpg",
+      "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Mattone Sabbia Grafit — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Mattone Sabbia Grafit: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Mattone Sabbia Grafit"
+    },
+    variants: [
+      {
+        id: "paradyz-mattone-sabbia-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-mattone-sabbia-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-sabbia-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-mattone-sabbia-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-mattone-sabbia-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-mattone-sabbia-grafit/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-natural-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Natural Brown",
+    sku: "18695",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18695",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-natural-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18697",
+        photo: "/images/products/paradyz-natural-brown/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18596",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-natural-brown/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-natural-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-natural-brown/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-natural-brown/el-base-300x300.webp",
+      "/images/products/paradyz-natural-brown/photo_0_own.jpg",
+      "/images/products/paradyz-natural-brown/photo_1.png",
+      "/images/products/paradyz-natural-brown/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Natural Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Natural Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Natural Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-natural-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-natural-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-natural-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-natural-rosa/el-front_notch-300x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-natural-brown-duro",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Natural Brown Duro",
+    sku: "18698",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18698",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-natural-brown-duro/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18699",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-natural-brown-duro/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18700",
+        photo: "/images/products/paradyz-natural-brown-duro/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18701",
+        photo: "/images/products/paradyz-natural-brown-duro/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18597",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-natural-brown-duro/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-natural-brown-duro/el-front-300x330.webp",
+      "/images/products/paradyz-natural-brown-duro/el-front_notch-300x300.webp",
+      "/images/products/paradyz-natural-brown-duro/el-corner_l-330x330.webp",
+      "/images/products/paradyz-natural-brown-duro/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-natural-brown-duro/el-base-300x300.webp",
+      "/images/products/paradyz-natural-brown-duro/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Natural Brown Duro — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Natural Brown Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Natural Brown Duro"
+    }
+  },
+  {
+    id: "paradyz-natural-rosa",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Natural Rosa",
+    sku: "18702",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18702",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-natural-rosa/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18704",
+        photo: "/images/products/paradyz-natural-rosa/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18599",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-natural-rosa/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Розовый",
+      color_hex: "#C98B7A",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-natural-rosa/el-front_notch-300x300.webp",
+      "/images/products/paradyz-natural-rosa/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-natural-rosa/el-base-300x300.webp",
+      "/images/products/paradyz-natural-rosa/photo_0_own.jpg",
+      "/images/products/paradyz-natural-rosa/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Natural Rosa — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Natural Rosa: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Natural Rosa"
+    },
+    variants: [
+      {
+        id: "paradyz-natural-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-natural-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-natural-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-natural-rosa/el-front_notch-300x300.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-natural-rosa-duro",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Natural Rosa Duro",
+    sku: "18706",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18706",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-natural-rosa-duro/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18703",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-natural-rosa-duro/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18707",
+        photo: "/images/products/paradyz-natural-rosa-duro/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18705",
+        photo: "/images/products/paradyz-natural-rosa-duro/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18598",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-natural-rosa-duro/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Розовый",
+      color_hex: "#C98B7A",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-natural-rosa-duro/el-front-300x330.webp",
+      "/images/products/paradyz-natural-rosa-duro/el-front_notch-300x300.webp",
+      "/images/products/paradyz-natural-rosa-duro/el-corner_l-330x330.webp",
+      "/images/products/paradyz-natural-rosa-duro/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-natural-rosa-duro/el-base-300x300.webp",
+      "/images/products/paradyz-natural-rosa-duro/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Natural Rosa Duro — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Natural Rosa Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Natural Rosa Duro"
+    }
+  },
+  {
+    id: "paradyz-scandiano-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Scandiano Beige",
+    sku: "18708",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18708",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-beige/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18709",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-beige/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18710",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-scandiano-beige/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18711",
+        photo: "/images/products/paradyz-scandiano-beige/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18712",
+        photo: "/images/products/paradyz-scandiano-beige/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18618",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-scandiano-beige/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18622",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-scandiano-beige/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-scandiano-beige/el-front-300x330.webp",
+      "/images/products/paradyz-scandiano-beige/el-front_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-beige/el-front_notch-600x300.webp",
+      "/images/products/paradyz-scandiano-beige/el-corner_l-330x330.webp",
+      "/images/products/paradyz-scandiano-beige/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-beige/el-base-300x300.webp",
+      "/images/products/paradyz-scandiano-beige/el-base-600x300.webp",
+      "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-beige/photo_1.png",
+      "/images/products/paradyz-scandiano-beige/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Scandiano Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Scandiano Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Scandiano Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-scandiano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-scandiano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-scandiano-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-scandiano-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-scandiano-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-scandiano-rosso/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-scandiano-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Scandiano Brown",
+    sku: "18714",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18714",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18715",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-scandiano-brown/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18716",
+        photo: "/images/products/paradyz-scandiano-brown/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18717",
+        photo: "/images/products/paradyz-scandiano-brown/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18619",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-scandiano-brown/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18623",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-scandiano-brown/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-scandiano-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-brown/el-front_notch-600x300.webp",
+      "/images/products/paradyz-scandiano-brown/el-corner_l-330x330.webp",
+      "/images/products/paradyz-scandiano-brown/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-brown/el-base-300x300.webp",
+      "/images/products/paradyz-scandiano-brown/el-base-600x300.webp",
+      "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-brown/photo_1.png",
+      "/images/products/paradyz-scandiano-brown/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Scandiano Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Scandiano Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Scandiano Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-scandiano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-scandiano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-scandiano-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-scandiano-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-scandiano-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-scandiano-rosso/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-scandiano-ochra",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Scandiano Ochra",
+    sku: "18713",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18713",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-ochra/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18718",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-ochra/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18719",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-scandiano-ochra/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18720",
+        photo: "/images/products/paradyz-scandiano-ochra/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18721",
+        photo: "/images/products/paradyz-scandiano-ochra/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18620",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-scandiano-ochra/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18624",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-scandiano-ochra/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Охра",
+      color_hex: "#C7A45C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-scandiano-ochra/el-front-300x330.webp",
+      "/images/products/paradyz-scandiano-ochra/el-front_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-ochra/el-front_notch-600x300.webp",
+      "/images/products/paradyz-scandiano-ochra/el-corner_l-330x330.webp",
+      "/images/products/paradyz-scandiano-ochra/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-ochra/el-base-300x300.webp",
+      "/images/products/paradyz-scandiano-ochra/el-base-600x300.webp",
+      "/images/products/paradyz-scandiano-ochra/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-ochra/photo_1.png",
+      "/images/products/paradyz-scandiano-ochra/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Scandiano Ochra — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Scandiano Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Scandiano Ochra"
+    },
+    variants: [
+      {
+        id: "paradyz-scandiano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-scandiano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-scandiano-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-scandiano-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-scandiano-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-scandiano-rosso/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-scandiano-rosso",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Scandiano Rosso",
+    sku: "18722",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18722",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-rosso/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18723",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-scandiano-rosso/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18724",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-scandiano-rosso/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18725",
+        photo: "/images/products/paradyz-scandiano-rosso/el-corner_l-330x330.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18621",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-scandiano-rosso/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18625",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-scandiano-rosso/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Красный",
+      color_hex: "#9A8F80",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-scandiano-rosso/el-front-300x330.webp",
+      "/images/products/paradyz-scandiano-rosso/el-front_notch-300x300.webp",
+      "/images/products/paradyz-scandiano-rosso/el-front_notch-600x300.webp",
+      "/images/products/paradyz-scandiano-rosso/el-corner_l-330x330.webp",
+      "/images/products/paradyz-scandiano-rosso/el-base-300x300.webp",
+      "/images/products/paradyz-scandiano-rosso/el-base-600x300.webp",
+      "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
+      "/images/products/paradyz-scandiano-rosso/photo_1.png",
+      "/images/products/paradyz-scandiano-rosso/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Scandiano Rosso — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Scandiano Rosso: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Scandiano Rosso"
+    },
+    variants: [
+      {
+        id: "paradyz-scandiano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-scandiano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-scandiano-brown/el-front_notch-300x300.webp"
+      },
+      {
+        id: "paradyz-scandiano-ochra",
+        color: "Охра",
+        color_hex: "#C7A45C",
+        photo: "/images/products/paradyz-scandiano-ochra/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-scandiano-rosso",
+        color: "Красный",
+        color_hex: "#9A8F80",
+        photo: "/images/products/paradyz-scandiano-rosso/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-semir-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Semir Beige",
+    sku: "18727",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18727",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-beige/el-front-300x330.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18729",
+        photo: "/images/products/paradyz-semir-beige/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18730",
+        photo: "/images/products/paradyz-semir-beige/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18600",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-semir-beige/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-semir-beige/el-front-300x330.webp",
+      "/images/products/paradyz-semir-beige/el-corner_l-330x330.webp",
+      "/images/products/paradyz-semir-beige/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-semir-beige/el-base-300x300.webp",
+      "/images/products/paradyz-semir-beige/photo_0_own.jpg",
+      "/images/products/paradyz-semir-beige/photo_1.png",
+      "/images/products/paradyz-semir-beige/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Semir Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Semir Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Semir Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-semir-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-semir-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-semir-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-semir-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-semir-rosa/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-semir-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Semir Brown",
+    sku: "18732",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18732",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-brown/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 256,
+        price_rub: 350,
+        sku: "18733",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18731",
+        photo: "/images/products/paradyz-semir-brown/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18734",
+        photo: "/images/products/paradyz-semir-brown/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18601",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-semir-brown/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-semir-brown/el-front-300x330.webp",
+      "/images/products/paradyz-semir-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-semir-brown/el-corner_l-330x330.webp",
+      "/images/products/paradyz-semir-brown/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-semir-brown/el-base-300x300.webp",
+      "/images/products/paradyz-semir-brown/photo_0_own.jpg",
+      "/images/products/paradyz-semir-brown/photo_1.png",
+      "/images/products/paradyz-semir-brown/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Semir Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Semir Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Semir Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-semir-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-semir-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-semir-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-semir-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-semir-rosa/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-semir-grafit",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Semir Grafit",
+    sku: "18736",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18736",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-grafit/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 256,
+        price_rub: 350,
+        sku: "18735",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-grafit/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18737",
+        photo: "/images/products/paradyz-semir-grafit/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18738",
+        photo: "/images/products/paradyz-semir-grafit/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18602",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-semir-grafit/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Графит",
+      color_hex: "#4A4D4E",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-semir-grafit/el-front-300x330.webp",
+      "/images/products/paradyz-semir-grafit/el-front_notch-300x300.webp",
+      "/images/products/paradyz-semir-grafit/el-corner_l-330x330.webp",
+      "/images/products/paradyz-semir-grafit/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-semir-grafit/el-base-300x300.webp",
+      "/images/products/paradyz-semir-grafit/photo_0_own.jpg",
+      "/images/products/paradyz-semir-grafit/photo_1.png",
+      "/images/products/paradyz-semir-grafit/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Semir Grafit — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Semir Grafit: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Semir Grafit"
+    },
+    variants: [
+      {
+        id: "paradyz-semir-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-semir-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-semir-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-semir-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-semir-rosa/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-semir-rosa",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Semir Rosa",
+    sku: "18739",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18739",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-rosa/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 256,
+        price_rub: 350,
+        sku: "18740",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-semir-rosa/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18741",
+        photo: "/images/products/paradyz-semir-rosa/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18742",
+        photo: "/images/products/paradyz-semir-rosa/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18603",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-semir-rosa/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Розовый",
+      color_hex: "#C98B7A",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-semir-rosa/el-front-300x330.webp",
+      "/images/products/paradyz-semir-rosa/el-front_notch-300x300.webp",
+      "/images/products/paradyz-semir-rosa/el-corner_l-330x330.webp",
+      "/images/products/paradyz-semir-rosa/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-semir-rosa/el-base-300x300.webp",
+      "/images/products/paradyz-semir-rosa/photo_0_own.jpg",
+      "/images/products/paradyz-semir-rosa/photo_1.png",
+      "/images/products/paradyz-semir-rosa/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Semir Rosa — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Semir Rosa: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Semir Rosa"
+    },
+    variants: [
+      {
+        id: "paradyz-semir-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-semir-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-semir-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-grafit",
+        color: "Графит",
+        color_hex: "#4A4D4E",
+        photo: "/images/products/paradyz-semir-grafit/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-semir-rosa",
+        color: "Розовый",
+        color_hex: "#C98B7A",
+        photo: "/images/products/paradyz-semir-rosa/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-taurus-brown",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Taurus Brown",
+    sku: "18764",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18764",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-taurus-brown/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 256,
+        price_rub: 350,
+        sku: "18765",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-taurus-brown/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18763",
+        photo: "/images/products/paradyz-taurus-brown/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18766",
+        photo: "/images/products/paradyz-taurus-brown/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18604",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-taurus-brown/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Коричневый",
+      color_hex: "#7A4B33",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-taurus-brown/el-front-300x330.webp",
+      "/images/products/paradyz-taurus-brown/el-front_notch-300x300.webp",
+      "/images/products/paradyz-taurus-brown/el-corner_l-330x330.webp",
+      "/images/products/paradyz-taurus-brown/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-taurus-brown/el-base-300x300.webp",
+      "/images/products/paradyz-taurus-brown/photo_0_own.jpg",
+      "/images/products/paradyz-taurus-brown/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Taurus Brown — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Taurus Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Taurus Brown"
+    },
+    variants: [
+      {
+        id: "paradyz-taurus-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-taurus-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-taurus-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-taurus-grys/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-taurus-grys",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Taurus Grys",
+    sku: "18761",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18761",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-taurus-grys/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 256,
+        price_rub: 350,
+        sku: "18762",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-taurus-grys/el-front_notch-300x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18759",
+        photo: "/images/products/paradyz-taurus-grys/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18760",
+        photo: "/images/products/paradyz-taurus-grys/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18605",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-taurus-grys/el-base-300x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Серый",
+      color_hex: "#8A8A86",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-taurus-grys/el-front-300x330.webp",
+      "/images/products/paradyz-taurus-grys/el-front_notch-300x300.webp",
+      "/images/products/paradyz-taurus-grys/el-corner_l-330x330.webp",
+      "/images/products/paradyz-taurus-grys/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-taurus-grys/el-base-300x300.webp",
+      "/images/products/paradyz-taurus-grys/photo_0_own.jpg",
+      "/images/products/paradyz-taurus-grys/photo_1.png"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Taurus Grys — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Taurus Grys: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Taurus Grys"
+    },
+    variants: [
+      {
+        id: "paradyz-taurus-brown",
+        color: "Коричневый",
+        color_hex: "#7A4B33",
+        photo: "/images/products/paradyz-taurus-brown/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-taurus-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-taurus-grys/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-viano-antracite",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Viano Antracite",
+    sku: "18743",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18743",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-viano-antracite/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18744",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-viano-antracite/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18747",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-viano-antracite/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18745",
+        photo: "/images/products/paradyz-viano-antracite/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18746",
+        photo: "/images/products/paradyz-viano-antracite/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18606",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-viano-antracite/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18609",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-viano-antracite/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Антрацит",
+      color_hex: "#3A3C3B",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-viano-antracite/el-front-300x330.webp",
+      "/images/products/paradyz-viano-antracite/el-front_notch-300x300.webp",
+      "/images/products/paradyz-viano-antracite/el-front_notch-600x300.webp",
+      "/images/products/paradyz-viano-antracite/el-corner_l-330x330.webp",
+      "/images/products/paradyz-viano-antracite/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-viano-antracite/el-base-300x300.webp",
+      "/images/products/paradyz-viano-antracite/el-base-600x300.webp",
+      "/images/products/paradyz-viano-antracite/photo_0_own.jpg",
+      "/images/products/paradyz-viano-antracite/photo_1.png",
+      "/images/products/paradyz-viano-antracite/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Viano Antracite — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Viano Antracite: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Viano Antracite"
+    },
+    variants: [
+      {
+        id: "paradyz-viano-antracite",
+        color: "Антрацит",
+        color_hex: "#3A3C3B",
+        photo: "/images/products/paradyz-viano-antracite/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-viano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-viano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-viano-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-viano-grys/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-viano-beige",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Viano Beige",
+    sku: "18753",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18753",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-viano-beige/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18751",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-viano-beige/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18750",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-viano-beige/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18749",
+        photo: "/images/products/paradyz-viano-beige/el-corner_l-330x330.webp"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18748",
+        photo: "/images/products/paradyz-viano-beige/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18607",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-viano-beige/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18610",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-viano-beige/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Бежевый",
+      color_hex: "#C9B79C",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-viano-beige/el-front-300x330.webp",
+      "/images/products/paradyz-viano-beige/el-front_notch-300x300.webp",
+      "/images/products/paradyz-viano-beige/el-front_notch-600x300.webp",
+      "/images/products/paradyz-viano-beige/el-corner_l-330x330.webp",
+      "/images/products/paradyz-viano-beige/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-viano-beige/el-base-300x300.webp",
+      "/images/products/paradyz-viano-beige/el-base-600x300.webp",
+      "/images/products/paradyz-viano-beige/photo_0_own.jpg",
+      "/images/products/paradyz-viano-beige/photo_1.png",
+      "/images/products/paradyz-viano-beige/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Viano Beige — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Viano Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Viano Beige"
+    },
+    variants: [
+      {
+        id: "paradyz-viano-antracite",
+        color: "Антрацит",
+        color_hex: "#3A3C3B",
+        photo: "/images/products/paradyz-viano-antracite/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-viano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-viano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-viano-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-viano-grys/el-front-300x330.webp"
+      }
+    ]
+  },
+  {
+    id: "paradyz-viano-grys",
+    brand: "Paradyz",
+    product_type: "step_system",
+    application: [
+      "kryltso",
+      "lestnitsa-ulitsa"
+    ],
+    category: "terrasnyy-klinker",
+    collection: "Viano Grys",
+    sku: "18755",
+    active: true,
+    price_updated_at: "2026-07-29",
+    elements: [
+      {
+        code: "front",
+        name: "Ступень фронтальная (с капиносом)",
+        size_mm: "300x330x11",
+        unit: "pcs",
+        weight_kg: 3.0,
+        per_pallet: 216,
+        price_rub: 2000,
+        sku: "18755",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-viano-grys/el-front-300x330.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 546,
+        price_rub: 350,
+        sku: "18757",
+        length_m: 0.3,
+        photo: "/images/products/paradyz-viano-grys/el-front_notch-300x300.webp"
+      },
+      {
+        code: "front_notch",
+        name: "Ступень фронтальная (с насечками)",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 700,
+        sku: "18756",
+        length_m: 0.6,
+        photo: "/images/products/paradyz-viano-grys/el-front_notch-600x300.webp"
+      },
+      {
+        code: "corner_l",
+        name: "Угловая ступень (с капиносом)",
+        size_mm: "330x330x11",
+        unit: "pcs",
+        weight_kg: 3.78,
+        per_pallet: 124,
+        price_rub: 3300,
+        sku: "18772"
+      },
+      {
+        code: "corner_notch",
+        name: "Угловая ступень (с насечками)",
+        size_mm: "300x300x11",
+        unit: "pcs",
+        weight_kg: 2.3,
+        per_pallet: 420,
+        price_rub: 500,
+        sku: "18758",
+        photo: "/images/products/paradyz-viano-grys/el-corner_notch-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "300x300x8.5",
+        unit: "pcs",
+        weight_kg: 1.77,
+        per_pallet: 588,
+        price_rub: 250,
+        sku: "18608",
+        per_sqm: 11.111,
+        photo: "/images/products/paradyz-viano-grys/el-base-300x300.webp"
+      },
+      {
+        code: "base",
+        name: "Базовая плитка",
+        size_mm: "600x300x8.5",
+        unit: "pcs",
+        weight_kg: 3.55,
+        per_pallet: 256,
+        price_rub: 500,
+        sku: "18611",
+        per_sqm: 5.556,
+        photo: "/images/products/paradyz-viano-grys/el-base-600x300.webp"
+      }
+    ],
+    specs: {
+      surface: "structured",
+      color: "Серый",
+      color_hex: "#8A8A86",
+      frost_resistance: "F100",
+      water_absorption_pct: 0.5,
+      slip_resistance: "R10"
+    },
+    photos: [
+      "/images/products/paradyz-viano-grys/el-front-300x330.webp",
+      "/images/products/paradyz-viano-grys/el-front_notch-300x300.webp",
+      "/images/products/paradyz-viano-grys/el-front_notch-600x300.webp",
+      "/images/products/paradyz-viano-grys/el-corner_notch-300x300.webp",
+      "/images/products/paradyz-viano-grys/el-base-300x300.webp",
+      "/images/products/paradyz-viano-grys/el-base-600x300.webp",
+      "/images/products/paradyz-viano-grys/photo_0_own.jpg",
+      "/images/products/paradyz-viano-grys/photo_1.png",
+      "/images/products/paradyz-viano-grys/photo_1_b24.jpg"
+    ],
+    seo: {
+      title: "Клинкерные ступени Paradyz Viano Grys — цена, характеристики",
+      description: "Клинкерные ступени Paradyz Viano Grys: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
+      h1: "Клинкерные ступени Paradyz Viano Grys"
+    },
+    variants: [
+      {
+        id: "paradyz-viano-antracite",
+        color: "Антрацит",
+        color_hex: "#3A3C3B",
+        photo: "/images/products/paradyz-viano-antracite/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-viano-beige",
+        color: "Бежевый",
+        color_hex: "#C9B79C",
+        photo: "/images/products/paradyz-viano-beige/el-front-300x330.webp"
+      },
+      {
+        id: "paradyz-viano-grys",
+        color: "Серый",
+        color_hex: "#8A8A86",
+        photo: "/images/products/paradyz-viano-grys/el-front-300x330.webp"
+      }
+    ]
+  },
   {
     id: "paradyz-agawood-brown",
     brand: "Paradyz",
@@ -41,7 +4822,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Коричневый",
       color_hex: "#7A4B33"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Керамогранит под дерево Paradyz AGAWOOD BROWN — цена, характеристики",
       description: "Керамогранит под дерево Paradyz AGAWOOD BROWN: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -67,7 +4850,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -132,7 +4915,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -197,7 +4980,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -278,7 +5061,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -359,7 +5142,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -422,638 +5205,6 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     ]
   },
   {
-    id: "paradyz-ardis-dark",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Ardis Dark",
-    sku: "5900139001150",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Тёмный",
-      color_hex: "#5A4636",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-ardis-dark/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Ardis Dark — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Ardis Dark: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Ardis Dark"
-    },
-    variants: [
-      {
-        id: "paradyz-ardis-dark",
-        color: "Тёмный",
-        color_hex: "#5A4636",
-        photo: "/images/products/paradyz-ardis-dark/texture.jpg"
-      },
-      {
-        id: "paradyz-ardis-light",
-        color: "Светлый",
-        color_hex: "#D6C6AC",
-        photo: "/images/products/paradyz-ardis-light/texture.jpg"
-      },
-      {
-        id: "paradyz-ardis-rust",
-        color: "Ржавый",
-        color_hex: "#A8502F",
-        photo: "/images/products/paradyz-ardis-rust/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-ardis-light",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Ardis Light",
-    sku: "5900139001204",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Светлый",
-      color_hex: "#D6C6AC",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-ardis-light/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Ardis Light — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Ardis Light: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Ardis Light"
-    },
-    variants: [
-      {
-        id: "paradyz-ardis-dark",
-        color: "Тёмный",
-        color_hex: "#5A4636",
-        photo: "/images/products/paradyz-ardis-dark/texture.jpg"
-      },
-      {
-        id: "paradyz-ardis-light",
-        color: "Светлый",
-        color_hex: "#D6C6AC",
-        photo: "/images/products/paradyz-ardis-light/texture.jpg"
-      },
-      {
-        id: "paradyz-ardis-rust",
-        color: "Ржавый",
-        color_hex: "#A8502F",
-        photo: "/images/products/paradyz-ardis-rust/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-ardis-rust",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Ardis Rust",
-    sku: "5900139001266",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Ржавый",
-      color_hex: "#A8502F",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-ardis-rust/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Ardis Rust — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Ardis Rust: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Ardis Rust"
-    },
-    variants: [
-      {
-        id: "paradyz-ardis-dark",
-        color: "Тёмный",
-        color_hex: "#5A4636",
-        photo: "/images/products/paradyz-ardis-dark/texture.jpg"
-      },
-      {
-        id: "paradyz-ardis-light",
-        color: "Светлый",
-        color_hex: "#D6C6AC",
-        photo: "/images/products/paradyz-ardis-light/texture.jpg"
-      },
-      {
-        id: "paradyz-ardis-rust",
-        color: "Ржавый",
-        color_hex: "#A8502F",
-        photo: "/images/products/paradyz-ardis-rust/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-arteon-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Arteon Brown",
-    sku: "5902610584688",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-arteon-brown/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Arteon Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Arteon Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Arteon Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-arteon-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
-      },
-      {
-        id: "paradyz-arteon-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-arteon-grys",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Arteon Grys",
-    sku: "5902610584701",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Серый",
-      color_hex: "#8A8A86",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-arteon-grys/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Arteon Grys — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Arteon Grys: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Arteon Grys"
-    },
-    variants: [
-      {
-        id: "paradyz-arteon-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
-      },
-      {
-        id: "paradyz-arteon-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-arteon-ochra",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Arteon Ochra",
-    sku: "5902610584640",
-    active: false,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Охра",
-      color_hex: "#C7A45C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [],
-    seo: {
-      title: "Клинкерные ступени Paradyz Arteon Ochra — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Arteon Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Arteon Ochra"
-    },
-    variants: [
-      {
-        id: "paradyz-arteon-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
-      },
-      {
-        id: "paradyz-arteon-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-arteon-rosso",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Arteon Rosso",
-    sku: "5902610584626",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosso",
-      color_hex: "#9A8F80",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-arteon-rosso/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Arteon Rosso — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Arteon Rosso: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Arteon Rosso"
-    },
-    variants: [
-      {
-        id: "paradyz-arteon-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
-      },
-      {
-        id: "paradyz-arteon-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-arteon-taupe",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Arteon Taupe",
-    sku: "5902610584664",
-    active: false,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Taupe",
-      color_hex: "#9A8F80",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [],
-    seo: {
-      title: "Клинкерные ступени Paradyz Arteon Taupe — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Arteon Taupe: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Arteon Taupe"
-    },
-    variants: [
-      {
-        id: "paradyz-arteon-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-arteon-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-arteon-grys/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/cat-clinker.jpg"
-      },
-      {
-        id: "paradyz-arteon-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-arteon-rosso/texture.jpg"
-      },
-      {
-        id: "paradyz-arteon-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/cat-clinker.jpg"
-      }
-    ]
-  },
-  {
     id: "paradyz-burlington-blue",
     brand: "Paradyz",
     product_type: "slab",
@@ -1072,7 +5223,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -1149,7 +5300,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -1236,7 +5387,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -1323,7 +5474,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -1410,7 +5561,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -1422,7 +5573,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "ECLIPSE",
       color_hex: "#9A8F80"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz CEMENTECH ECLIPSE — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz CEMENTECH ECLIPSE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -1462,7 +5615,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -1474,7 +5627,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "MOON",
       color_hex: "#9A8F80"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz CEMENTECH MOON — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz CEMENTECH MOON: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -1492,809 +5647,6 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         color: "MOON",
         color_hex: "#9A8F80",
         photo: "/images/cat-slab.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-carrizo-bazalt",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Carrizo Bazalt",
-    sku: "5900139001327",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Bazalt",
-      color_hex: "#4A4D4E",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-carrizo-bazalt/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Carrizo Bazalt — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Carrizo Bazalt: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Carrizo Bazalt"
-    },
-    variants: [
-      {
-        id: "paradyz-carrizo-bazalt",
-        color: "Bazalt",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-carrizo-bazalt/texture.jpg"
-      },
-      {
-        id: "paradyz-carrizo-grey",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-carrizo-grey/texture.jpg"
-      },
-      {
-        id: "paradyz-carrizo-wood",
-        color: "Wood",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-carrizo-wood/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-carrizo-grey",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Carrizo Grey",
-    sku: "5900139001402",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Серый",
-      color_hex: "#8A8A86",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-carrizo-grey/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Carrizo Grey — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Carrizo Grey: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Carrizo Grey"
-    },
-    variants: [
-      {
-        id: "paradyz-carrizo-bazalt",
-        color: "Bazalt",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-carrizo-bazalt/texture.jpg"
-      },
-      {
-        id: "paradyz-carrizo-grey",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-carrizo-grey/texture.jpg"
-      },
-      {
-        id: "paradyz-carrizo-wood",
-        color: "Wood",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-carrizo-wood/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-carrizo-wood",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Carrizo Wood",
-    sku: "5900139001549",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Wood",
-      color_hex: "#9A8F80",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-carrizo-wood/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Carrizo Wood — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Carrizo Wood: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Carrizo Wood"
-    },
-    variants: [
-      {
-        id: "paradyz-carrizo-bazalt",
-        color: "Bazalt",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-carrizo-bazalt/texture.jpg"
-      },
-      {
-        id: "paradyz-carrizo-grey",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-carrizo-grey/texture.jpg"
-      },
-      {
-        id: "paradyz-carrizo-wood",
-        color: "Wood",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-carrizo-wood/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-cloud-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Cloud Brown",
-    sku: "5902610524912",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 546,
-        price_rub: 350,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "300x300x11",
-        unit: "pcs",
-        weight_kg: 2.29,
-        per_pallet: 420,
-        price_rub: 500
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-cloud-brown/photo_0_own.jpg",
-      "/images/products/paradyz-cloud-brown/photo_1.png",
-      "/images/products/paradyz-cloud-brown/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Cloud Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Cloud Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Cloud Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-cloud-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-cloud-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-cloud-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-cloud-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-cloud-brown-duro",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Cloud Brown Duro",
-    sku: "5902610585951",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Brown Duro",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-cloud-brown-duro/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Cloud Brown Duro — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Cloud Brown Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Cloud Brown Duro"
-    }
-  },
-  {
-    id: "paradyz-cloud-rosa",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Cloud Rosa",
-    sku: "5902610524875",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 546,
-        price_rub: 350,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "300x300x11",
-        unit: "pcs",
-        weight_kg: 2.29,
-        per_pallet: 420,
-        price_rub: 500
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosa",
-      color_hex: "#C98B7A",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-cloud-rosa/photo_0_own.jpg",
-      "/images/products/paradyz-cloud-rosa/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Cloud Rosa — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Cloud Rosa: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Cloud Rosa"
-    },
-    variants: [
-      {
-        id: "paradyz-cloud-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-cloud-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-cloud-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-cloud-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-cloud-rosa-duro",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Cloud Rosa Duro",
-    sku: "5900139017793",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosa Duro",
-      color_hex: "#C98B7A",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-cloud-rosa-duro/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Cloud Rosa Duro — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Cloud Rosa Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Cloud Rosa Duro"
-    }
-  },
-  {
-    id: "paradyz-eremite-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Eremite Beige",
-    sku: "5900139001594",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-eremite-beige/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Eremite Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Eremite Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Eremite Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-eremite-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-crema",
-        color: "Crema",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-sand",
-        color: "Песочный",
-        color_hex: "#D2BE9A",
-        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-eremite-crema",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Eremite Crema",
-    sku: "5900139001631",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Crema",
-      color_hex: "#9A8F80",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-eremite-crema/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Eremite Crema — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Eremite Crema: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Eremite Crema"
-    },
-    variants: [
-      {
-        id: "paradyz-eremite-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-crema",
-        color: "Crema",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-sand",
-        color: "Песочный",
-        color_hex: "#D2BE9A",
-        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-eremite-sand",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Eremite Sand",
-    sku: "5900139001686",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Песочный",
-      color_hex: "#D2BE9A",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-eremite-sand/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Eremite Sand — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Eremite Sand: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Eremite Sand"
-    },
-    variants: [
-      {
-        id: "paradyz-eremite-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-crema",
-        color: "Crema",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-sand",
-        color: "Песочный",
-        color_hex: "#D2BE9A",
-        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-eremite-taupe",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Eremite Taupe",
-    sku: "5900139001747",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 700,
-        length_m: 0.6
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x600x8.5",
-        unit: "pcs",
-        weight_kg: 3.55,
-        per_pallet: 256,
-        price_rub: 500,
-        per_sqm: 5.56
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Taupe",
-      color_hex: "#9A8F80",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-eremite-taupe/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Eremite Taupe — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Eremite Taupe: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Eremite Taupe"
-    },
-    variants: [
-      {
-        id: "paradyz-eremite-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-eremite-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-crema",
-        color: "Crema",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-crema/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-sand",
-        color: "Песочный",
-        color_hex: "#D2BE9A",
-        photo: "/images/products/paradyz-eremite-sand/texture.jpg"
-      },
-      {
-        id: "paradyz-eremite-taupe",
-        color: "Taupe",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-eremite-taupe/texture.jpg"
       }
     ]
   },
@@ -2317,7 +5669,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2372,7 +5724,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2427,7 +5779,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2439,7 +5791,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Бежевый",
       color_hex: "#C9B79C"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE BEIGE — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE BEIGE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2485,7 +5839,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2497,7 +5851,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Коричневый",
       color_hex: "#7A4B33"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE BROWN — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE BROWN: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2543,7 +5899,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2555,7 +5911,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Серый",
       color_hex: "#8A8A86"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE GREY — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE GREY: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -2601,7 +5959,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2613,261 +5971,14 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "LIGHT GREY",
       color_hex: "#D6C6AC"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz INGASTONE LIGHT GREY — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz INGASTONE LIGHT GREY: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
       h1: "Террасные пластины 20 мм Paradyz INGASTONE LIGHT GREY"
     }
-  },
-  {
-    id: "paradyz-ilario-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Ilario Beige",
-    sku: "5902610571213",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-ilario-beige/photo_0_own.jpg",
-      "/images/products/paradyz-ilario-beige/photo_1.png",
-      "/images/products/paradyz-ilario-beige/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Ilario Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Ilario Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Ilario Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-ilario-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-ilario-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-ilario-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-ilario-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-ilario-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-ilario-ochra/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-ilario-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Ilario Brown",
-    sku: "5902610571251",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-ilario-brown/photo_0_own.jpg",
-      "/images/products/paradyz-ilario-brown/photo_1.png",
-      "/images/products/paradyz-ilario-brown/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Ilario Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Ilario Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Ilario Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-ilario-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-ilario-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-ilario-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-ilario-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-ilario-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-ilario-ochra/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-ilario-ochra",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Ilario Ochra",
-    sku: "5902610571237",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Охра",
-      color_hex: "#C7A45C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-ilario-ochra/photo_0_own.jpg",
-      "/images/products/paradyz-ilario-ochra/photo_1.png",
-      "/images/products/paradyz-ilario-ochra/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Ilario Ochra — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Ilario Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Ilario Ochra"
-    },
-    variants: [
-      {
-        id: "paradyz-ilario-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-ilario-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-ilario-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-ilario-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-ilario-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-ilario-ochra/photo_1.png"
-      }
-    ]
   },
   {
     id: "paradyz-magnetik-antracite",
@@ -2888,7 +5999,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -2967,7 +6078,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -3046,7 +6157,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -3125,7 +6236,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -3204,7 +6315,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -3283,7 +6394,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -3454,477 +6565,6 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     ]
   },
   {
-    id: "paradyz-mattone-pietra-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Mattone Pietra Beige",
-    sku: "5900139016673",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.0,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.7,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C"
-    },
-    photos: [
-      "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Mattone Pietra Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Mattone Pietra Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Mattone Pietra Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-mattone-pietra-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-pietra-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-pietra-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-mattone-pietra-grafit",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Mattone Pietra Grafit",
-    sku: "5900139014860",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.0,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.7,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Графит",
-      color_hex: "#4A4D4E"
-    },
-    photos: [
-      "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Mattone Pietra Grafit — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Mattone Pietra Grafit: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Mattone Pietra Grafit"
-    },
-    variants: [
-      {
-        id: "paradyz-mattone-pietra-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-pietra-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-pietra-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-mattone-pietra-ochra",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Mattone Pietra Ochra",
-    sku: "5900139016772",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.0,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.7,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Охра",
-      color_hex: "#C7A45C"
-    },
-    photos: [
-      "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Mattone Pietra Ochra — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Mattone Pietra Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Mattone Pietra Ochra"
-    },
-    variants: [
-      {
-        id: "paradyz-mattone-pietra-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-mattone-pietra-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-pietra-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-mattone-pietra-grafit/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-pietra-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-mattone-pietra-ochra/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-mattone-sabbia-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Mattone Sabbia Beige",
-    sku: "5902610584824",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.0,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.7,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C"
-    },
-    photos: [
-      "/images/products/paradyz-mattone-sabbia-beige/photo_0_own.jpg",
-      "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Mattone Sabbia Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Mattone Sabbia Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Mattone Sabbia Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-mattone-sabbia-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-sabbia-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-sabbia-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-mattone-sabbia-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Mattone Sabbia Brown",
-    sku: "5902610584800",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.0,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.7,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33"
-    },
-    photos: [
-      "/images/products/paradyz-mattone-sabbia-brown/photo_0_own.jpg",
-      "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Mattone Sabbia Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Mattone Sabbia Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Mattone Sabbia Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-mattone-sabbia-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-sabbia-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-sabbia-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
-      }
-    ]
-  },
-  {
-    id: "paradyz-mattone-sabbia-grafit",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Mattone Sabbia Grafit",
-    sku: "5902610584787",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.0,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.7,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Графит",
-      color_hex: "#4A4D4E"
-    },
-    photos: [
-      "/images/products/paradyz-mattone-sabbia-grafit/photo_0_own.jpg",
-      "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Mattone Sabbia Grafit — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Mattone Sabbia Grafit: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Mattone Sabbia Grafit"
-    },
-    variants: [
-      {
-        id: "paradyz-mattone-sabbia-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-mattone-sabbia-beige/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-sabbia-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-mattone-sabbia-brown/texture.jpg"
-      },
-      {
-        id: "paradyz-mattone-sabbia-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-mattone-sabbia-grafit/texture.jpg"
-      }
-    ]
-  },
-  {
     id: "paradyz-natural-rocks-basalt",
     brand: "Paradyz",
     product_type: "slab",
@@ -3943,7 +6583,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -3953,7 +6593,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4023,7 +6663,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4083,7 +6723,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4163,7 +6803,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4235,7 +6875,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Бежевый",
       color_hex: "#C9B79C"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO BEIGE — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO BEIGE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4293,7 +6935,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Коричневый",
       color_hex: "#7A4B33"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO BROWN — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO BROWN: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4351,7 +6995,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Медовый",
       color_hex: "#C98F4B"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO HONEY — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO HONEY: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -4409,286 +7055,13 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "LIGHT BEIGE",
       color_hex: "#D6C6AC"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Керамогранит под дерево Paradyz NATURIO LIGHT BEIGE — цена, характеристики",
       description: "Керамогранит под дерево Paradyz NATURIO LIGHT BEIGE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
       h1: "Керамогранит под дерево Paradyz NATURIO LIGHT BEIGE"
-    }
-  },
-  {
-    id: "paradyz-natural-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Natural Brown",
-    sku: "5902610525223",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 546,
-        price_rub: 350,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "300x300x11",
-        unit: "pcs",
-        weight_kg: 2.29,
-        per_pallet: 420,
-        price_rub: 500
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-natural-brown/photo_0_own.jpg",
-      "/images/products/paradyz-natural-brown/photo_1.png",
-      "/images/products/paradyz-natural-brown/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Natural Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Natural Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Natural Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-natural-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-natural-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-natural-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-natural-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-natural-brown-duro",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Natural Brown Duro",
-    sku: "5902610585999",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Brown Duro",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-natural-brown-duro/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Natural Brown Duro — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Natural Brown Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Natural Brown Duro"
-    }
-  },
-  {
-    id: "paradyz-natural-rosa",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Natural Rosa",
-    sku: "5902610525209",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень простая (с насечками)",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 546,
-        price_rub: 350,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "300x300x11",
-        unit: "pcs",
-        weight_kg: 2.29,
-        per_pallet: 420,
-        price_rub: 500
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosa",
-      color_hex: "#C98B7A",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-natural-rosa/photo_0_own.jpg",
-      "/images/products/paradyz-natural-rosa/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Natural Rosa — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Natural Rosa: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Natural Rosa"
-    },
-    variants: [
-      {
-        id: "paradyz-natural-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-natural-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-natural-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-natural-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-natural-rosa-duro",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Natural Rosa Duro",
-    sku: "5902610586019",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosa Duro",
-      color_hex: "#C98B7A",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-natural-rosa-duro/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Natural Rosa Duro — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Natural Rosa Duro: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Natural Rosa Duro"
     }
   },
   {
@@ -4710,7 +7083,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4797,7 +7170,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4884,7 +7257,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -4971,7 +7344,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5058,7 +7431,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5119,7 +7492,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5180,7 +7553,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5241,7 +7614,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5301,7 +7674,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5341,7 +7714,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5401,7 +7774,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5612,7 +7985,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5762,7 +8135,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5774,7 +8147,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Антрацит",
       color_hex: "#3A3C3B"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz SALADO ANTRACITE — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz SALADO ANTRACITE: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -5814,7 +8189,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -5836,7 +8211,9 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
       color: "Серый",
       color_hex: "#8A8A86"
     },
-    photos: [],
+    photos: [
+
+    ],
     seo: {
       title: "Террасные пластины 20 мм Paradyz SALADO GRYS — цена, характеристики",
       description: "Террасные пластины 20 мм Paradyz SALADO GRYS: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
@@ -6039,718 +8416,6 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
     ]
   },
   {
-    id: "paradyz-scandiano-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Scandiano Beige",
-    sku: "5900139086812",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-scandiano-beige/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-beige/photo_1.png",
-      "/images/products/paradyz-scandiano-beige/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Scandiano Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Scandiano Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Scandiano Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-scandiano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-scandiano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-scandiano-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-scandiano-ochra/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-scandiano-rosso/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-scandiano-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Scandiano Brown",
-    sku: "5900139086782",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-scandiano-brown/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-brown/photo_1.png",
-      "/images/products/paradyz-scandiano-brown/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Scandiano Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Scandiano Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Scandiano Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-scandiano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-scandiano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-scandiano-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-scandiano-ochra/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-scandiano-rosso/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-scandiano-ochra",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Scandiano Ochra",
-    sku: "5900139086836",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.0
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Охра",
-      color_hex: "#C7A45C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-scandiano-ochra/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-ochra/photo_1.png",
-      "/images/products/paradyz-scandiano-ochra/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Scandiano Ochra — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Scandiano Ochra: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Scandiano Ochra"
-    },
-    variants: [
-      {
-        id: "paradyz-scandiano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-scandiano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-scandiano-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-scandiano-ochra/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-scandiano-rosso/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-scandiano-rosso",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Scandiano Rosso",
-    sku: "5900139086850",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosso",
-      color_hex: "#9A8F80",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-scandiano-rosso/photo_0_own.jpg",
-      "/images/products/paradyz-scandiano-rosso/photo_1.png",
-      "/images/products/paradyz-scandiano-rosso/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Scandiano Rosso — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Scandiano Rosso: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Scandiano Rosso"
-    },
-    variants: [
-      {
-        id: "paradyz-scandiano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-scandiano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-scandiano-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-ochra",
-        color: "Охра",
-        color_hex: "#C7A45C",
-        photo: "/images/products/paradyz-scandiano-ochra/photo_1.png"
-      },
-      {
-        id: "paradyz-scandiano-rosso",
-        color: "Rosso",
-        color_hex: "#9A8F80",
-        photo: "/images/products/paradyz-scandiano-rosso/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-semir-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Semir Beige",
-    sku: "5902610586033",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-semir-beige/photo_0_own.jpg",
-      "/images/products/paradyz-semir-beige/photo_1.png",
-      "/images/products/paradyz-semir-beige/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Semir Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Semir Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Semir Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-semir-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-semir-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-semir-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-semir-grafit/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-semir-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-semir-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Semir Brown",
-    sku: "5902610586057",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-semir-brown/photo_0_own.jpg",
-      "/images/products/paradyz-semir-brown/photo_1.png",
-      "/images/products/paradyz-semir-brown/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Semir Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Semir Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Semir Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-semir-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-semir-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-semir-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-semir-grafit/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-semir-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-semir-grafit",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Semir Grafit",
-    sku: "5900139022124",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Графит",
-      color_hex: "#4A4D4E",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-semir-grafit/photo_0_own.jpg",
-      "/images/products/paradyz-semir-grafit/photo_1.png",
-      "/images/products/paradyz-semir-grafit/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Semir Grafit — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Semir Grafit: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Semir Grafit"
-    },
-    variants: [
-      {
-        id: "paradyz-semir-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-semir-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-semir-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-semir-grafit/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-semir-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-semir-rosa",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Semir Rosa",
-    sku: "5900139024494",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Rosa",
-      color_hex: "#C98B7A",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-semir-rosa/photo_0_own.jpg",
-      "/images/products/paradyz-semir-rosa/photo_1.png",
-      "/images/products/paradyz-semir-rosa/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Semir Rosa — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Semir Rosa: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Semir Rosa"
-    },
-    variants: [
-      {
-        id: "paradyz-semir-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-semir-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-semir-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-grafit",
-        color: "Графит",
-        color_hex: "#4A4D4E",
-        photo: "/images/products/paradyz-semir-grafit/photo_1.png"
-      },
-      {
-        id: "paradyz-semir-rosa",
-        color: "Rosa",
-        color_hex: "#C98B7A",
-        photo: "/images/products/paradyz-semir-rosa/photo_1.png"
-      }
-    ]
-  },
-  {
     id: "paradyz-terrace-beige",
     brand: "Paradyz",
     product_type: "slab",
@@ -6769,7 +8434,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -6830,7 +8495,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -6891,7 +8556,7 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         code: "595x595",
         size_mm: "595x595x20",
         thickness_mm: 20,
-        weight_kg: 15.0,
+        weight_kg: 15,
         per_sqm: 2.83,
         per_pallet: 60,
         price_rub_pcs: 1767,
@@ -7040,407 +8705,6 @@ export const PARADYZ_PRICE_PRODUCTS: Product[] = [
         color: "Медовый",
         color_hex: "#C98F4B",
         photo: "/images/products/paradyz-trueland-honey/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-taurus-brown",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Taurus Brown",
-    sku: "5902610586118",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "300x300x11",
-        unit: "pcs",
-        weight_kg: 2.29,
-        per_pallet: 420,
-        price_rub: 500
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Коричневый",
-      color_hex: "#7A4B33",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-taurus-brown/photo_0_own.jpg",
-      "/images/products/paradyz-taurus-brown/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Taurus Brown — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Taurus Brown: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Taurus Brown"
-    },
-    variants: [
-      {
-        id: "paradyz-taurus-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-taurus-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-taurus-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-taurus-grys/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-taurus-grys",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Taurus Grys",
-    sku: "5900139024678",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "300x300x11",
-        unit: "pcs",
-        weight_kg: 2.29,
-        per_pallet: 420,
-        price_rub: 500
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Серый",
-      color_hex: "#8A8A86",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-taurus-grys/photo_0_own.jpg",
-      "/images/products/paradyz-taurus-grys/photo_1.png"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Taurus Grys — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Taurus Grys: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Taurus Grys"
-    },
-    variants: [
-      {
-        id: "paradyz-taurus-brown",
-        color: "Коричневый",
-        color_hex: "#7A4B33",
-        photo: "/images/products/paradyz-taurus-brown/photo_1.png"
-      },
-      {
-        id: "paradyz-taurus-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-taurus-grys/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-viano-antracite",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Viano Antracite",
-    sku: "5902610571152",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Антрацит",
-      color_hex: "#3A3C3B",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-viano-antracite/photo_0_own.jpg",
-      "/images/products/paradyz-viano-antracite/photo_1.png",
-      "/images/products/paradyz-viano-antracite/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Viano Antracite — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Viano Antracite: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Viano Antracite"
-    },
-    variants: [
-      {
-        id: "paradyz-viano-antracite",
-        color: "Антрацит",
-        color_hex: "#3A3C3B",
-        photo: "/images/products/paradyz-viano-antracite/photo_1.png"
-      },
-      {
-        id: "paradyz-viano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-viano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-viano-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-viano-grys/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-viano-beige",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Viano Beige",
-    sku: "5902610571176",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Бежевый",
-      color_hex: "#C9B79C",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-viano-beige/photo_0_own.jpg",
-      "/images/products/paradyz-viano-beige/photo_1.png",
-      "/images/products/paradyz-viano-beige/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Viano Beige — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Viano Beige: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Viano Beige"
-    },
-    variants: [
-      {
-        id: "paradyz-viano-antracite",
-        color: "Антрацит",
-        color_hex: "#3A3C3B",
-        photo: "/images/products/paradyz-viano-antracite/photo_1.png"
-      },
-      {
-        id: "paradyz-viano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-viano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-viano-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-viano-grys/photo_1.png"
-      }
-    ]
-  },
-  {
-    id: "paradyz-viano-grys",
-    brand: "Paradyz",
-    product_type: "step_system",
-    application: [
-      "kryltso",
-      "lestnitsa-ulitsa"
-    ],
-    category: "terrasnyy-klinker",
-    collection: "Viano Grys",
-    sku: "5902610571190",
-    active: true,
-    price_updated_at: "2026-06-01",
-    elements: [
-      {
-        code: "front",
-        name: "Ступень фронтальная (с капиносом)",
-        size_mm: "330x300x11",
-        unit: "pcs",
-        weight_kg: 3.05,
-        per_pallet: 216,
-        price_rub: 2000,
-        length_m: 0.3
-      },
-      {
-        code: "corner_l",
-        name: "Угловая ступень с капиносом",
-        size_mm: "330x330x11",
-        unit: "pcs",
-        weight_kg: 3.78,
-        per_pallet: 124,
-        price_rub: 3300
-      },
-      {
-        code: "base",
-        name: "Базовая плитка",
-        size_mm: "300x300x8.5",
-        unit: "pcs",
-        weight_kg: 1.77,
-        per_pallet: 588,
-        price_rub: 250,
-        per_sqm: 11.111
-      }
-    ],
-    specs: {
-      surface: "structured",
-      color: "Серый",
-      color_hex: "#8A8A86",
-      frost_resistance: "F300",
-      water_absorption_pct: 0.5,
-      slip_resistance: "R10"
-    },
-    photos: [
-      "/images/products/paradyz-viano-grys/photo_0_own.jpg",
-      "/images/products/paradyz-viano-grys/photo_1.png",
-      "/images/products/paradyz-viano-grys/photo_1_b24.jpg"
-    ],
-    seo: {
-      title: "Клинкерные ступени Paradyz Viano Grys — цена, характеристики",
-      description: "Клинкерные ступени Paradyz Viano Grys: розничная цена, поэлементный расчёт комплекта, доставка по России и СНГ.",
-      h1: "Клинкерные ступени Paradyz Viano Grys"
-    },
-    variants: [
-      {
-        id: "paradyz-viano-antracite",
-        color: "Антрацит",
-        color_hex: "#3A3C3B",
-        photo: "/images/products/paradyz-viano-antracite/photo_1.png"
-      },
-      {
-        id: "paradyz-viano-beige",
-        color: "Бежевый",
-        color_hex: "#C9B79C",
-        photo: "/images/products/paradyz-viano-beige/photo_1.png"
-      },
-      {
-        id: "paradyz-viano-grys",
-        color: "Серый",
-        color_hex: "#8A8A86",
-        photo: "/images/products/paradyz-viano-grys/photo_1.png"
       }
     ]
   },

@@ -41,19 +41,28 @@ const RU_TO_LAT: Record<string, string[]> = {
   "chernyy": ["nero", "black"], "grafit": ["grafit"], "serebristyy": ["silver"],
   "zolotistyy": ["gold"], "medovyy": ["honey"], "pesochnyy": ["sand"],
   "terrakota": ["terra"], "kotto": ["cotto"], "tundra": ["tundra"],
-  "krasnyy": ["red"], "antracit": ["antracite", "anthracite"],
+  "krasnyy": ["red", "rosso"], "antracit": ["antracite", "anthracite"],
+  "rozovyy": ["rosa"], "kremovyy": ["crema", "cream"], "bazalt": ["bazalt"],
+  "temno seryy": ["taupe"], "pod derevo": ["wood"],
 };
 
-/** Цвет для витрины: пустая строка, если он уже назван в коллекции. */
+/**
+ * Цвет для витрины: пустая строка, если он уже назван в коллекции.
+ *
+ * Проверяем цвет по ВСЕМ словам коллекции, а не только по последнему: у серии
+ * Duro цвет стоит в середине («Cloud Brown Duro»), и хвостовая проверка его не
+ * находила — на витрине выходило «Cloud Brown Duro Коричневый».
+ */
 export function displayColor(p: Product): string {
   const color = p.specs.color?.trim();
   if (!color) return "";
   const c = norm(color);
   if (!c) return color;
-  const coll = norm(p.collection);
+  // пробелы по краям — чтобы «grey» не срабатывал внутри «greystone»
+  const coll = ` ${norm(p.collection)} `;
   const candidates = [c, ...(RU_TO_LAT[c] ?? [])];
   for (const cand of candidates) {
-    if (coll === cand || coll.endsWith(" " + cand)) return "";
+    if (coll.includes(` ${cand} `)) return "";
   }
   return color;
 }
