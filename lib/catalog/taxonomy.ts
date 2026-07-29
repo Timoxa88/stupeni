@@ -191,6 +191,43 @@ export function brandBySlug(app: ApplicationCode, brandSlug: string): string | u
   return brandsOf(app).find((b) => b.slug === brandSlug)?.name;
 }
 
+/**
+ * Назначение, под которым у бренда больше всего позиций нужного типа.
+ *
+ * Нужно, чтобы дать ссылку на коллекции бренда: адрес коллекции содержит сегмент
+ * назначения (`/catalog/kryltso/paradyz/scandiano`), а одна и та же коллекция
+ * попадает в несколько назначений. Берём то, где ассортимент полнее.
+ *
+ * Тип обязателен по делу: у Paradyz больше всего позиций в «террасе» (50 плит),
+ * но витрина каталога показывает ступени — и ссылки на коллекции без фильтра
+ * вели бы на плиты, которых в витрине нет.
+ */
+export function primaryApplicationOf(
+  brand: string,
+  type?: Product["product_type"],
+): ApplicationCode | undefined {
+  let best: { app: ApplicationCode; count: number } | undefined;
+  for (const a of applications()) {
+    const count = getProductsByApplication(a.code).filter(
+      (p) => p.brand === brand && (!type || p.product_type === type),
+    ).length;
+    if (count && (!best || count > best.count)) best = { app: a.code, count };
+  }
+  return best?.app;
+}
+
+/** Коллекции бренда для перелинковки: назначение выбирается автоматически. */
+export function collectionsOfBrandForLinks(
+  brand: string,
+  type?: Product["product_type"],
+): CollectionNode[] {
+  const app = primaryApplicationOf(brand, type);
+  if (!app) return [];
+  return collectionsOf(app, brand).filter(
+    (c) => !type || c.products.some((p) => p.product_type === type),
+  );
+}
+
 /** Третий уровень — коллекции бренда внутри назначения. */
 export function collectionsOf(app: ApplicationCode, brand: string): CollectionNode[] {
   const items = getProductsByApplication(app).filter((p) => p.brand === brand);

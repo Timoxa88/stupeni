@@ -14,6 +14,7 @@ import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { BRANDS } from "@/lib/catalog/brands";
+import { CATEGORIES } from "@/lib/content/categories";
 import { showcaseProducts } from "@/lib/catalog/taxonomy";
 import { IMAGES, OBJECTS } from "@/lib/images";
 import { ADVANTAGES } from "@/lib/content/site";
@@ -139,6 +140,38 @@ export default function Home() {
 
         {/* ── 2. СЦЕНАРИИ — единственная развилка выбора ── */}
         <SceneCards />
+
+        {/* ── 2б. ТИПЫ ПОКРЫТИЯ — второй вход, для тех, кто уже знает материал.
+               Переехал сюда с /catalog: там он стоял третьим уровнем навигации
+               перед товаром, здесь же честно дополняет выбор по сценарию. ── */}
+        {/* фон светлый: следом идёт калькулятор на sand-deep, два тонированных
+            блока подряд слились бы в одну полосу */}
+        <section className="border-t border-ink/5">
+          <div className="mx-auto max-w-7xl px-5 py-16 sm:py-20">
+            <Reveal>
+              <p className="eyebrow text-clinker">Если знаете материал</p>
+              <h2 className="mt-3 font-display text-4xl font-extrabold text-ink sm:text-5xl">
+                Три типа покрытия
+              </h2>
+            </Reveal>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {CATEGORIES.map((c, i) => (
+                <Reveal key={c.slug} delay={i * 80}>
+                  <Link
+                    href={`/${c.slug}`}
+                    className="group flex h-full flex-col rounded-card border border-ink/10 bg-white p-6 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift"
+                  >
+                    <h3 className="font-display text-lg font-bold text-ink transition group-hover:text-clinker">
+                      {c.h1}
+                    </h3>
+                    <p className="mt-2 flex-1 text-sm text-stone">{c.description}</p>
+                    <span className="mt-4 text-sm font-semibold text-clinker">Смотреть →</span>
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* ── 3. КАЛЬКУЛЯТОР ── */}
         <section id="calc" className="bg-sand-deep scroll-mt-20">
