@@ -52,8 +52,8 @@ export function SceneCards({
               className="group relative block aspect-[4/3] overflow-hidden rounded-card border border-ink/10 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift"
             >
               <Image
-                src={s.heroImage}
-                alt={s.heroAlt}
+                src={s.cardImage ?? s.heroImage}
+                alt={s.cardAlt ?? s.heroAlt}
                 fill
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 loading="lazy"

@@ -30,7 +30,7 @@ import {
 import { applications, collectionsOfBrandForLinks, slug } from "@/lib/catalog/taxonomy";
 import { productTitle } from "@/lib/catalog/display";
 import { formatRub } from "@/lib/format";
-import { IMAGES, OBJECTS } from "@/lib/images";
+import { IMAGES } from "@/lib/images";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
 
@@ -60,27 +60,67 @@ function facetHref(query: CatalogQuery, key: "color" | "type", value: string): s
   return qs ? `/catalog?${qs}` : "/catalog";
 }
 
-/** Врезка «как это выглядит на объекте» между рядами товарной сетки. */
-function ObjectBanner({ image }: { image: { src: string; alt: string } }) {
+type MosaicImage = { src: string; alt: string };
+
+/**
+ * Врезка «как это выглядит на объекте» между рядами товарной сетки:
+ * разноформатная мозаика из четырёх кадров (большой 2×2, вертикальный на два
+ * ряда и два горизонтальных) вместо одинаковых широких баннеров.
+ * Кадры — реальные объекты, те же, что в галерее главной и карточках.
+ */
+function ObjectMosaic({ images }: { images: MosaicImage[] }) {
+  const [big, wide1, tall, wide2] = images;
+  const cell =
+    "group relative overflow-hidden rounded-card border border-ink/10 shadow-card";
+  const caption =
+    "pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-graphite-deep/80 to-transparent p-4 text-sm text-sand opacity-0 transition duration-500 group-hover:translate-y-0 group-hover:opacity-100";
+  const img = (i: MosaicImage, sizes: string) => (
+    <>
+      <Image
+        src={i.src}
+        alt={i.alt}
+        fill
+        sizes={sizes}
+        loading="lazy"
+        className="object-cover transition duration-700 group-hover:scale-105"
+      />
+      <figcaption className={caption}>{i.alt}</figcaption>
+    </>
+  );
   return (
-    <figure className="relative mt-5 overflow-hidden rounded-card border border-ink/10 shadow-card">
-      <div className="relative aspect-[21/9] w-full sm:aspect-[3/1]">
-        <Image
-          src={image.src}
-          alt={image.alt}
-          fill
-          sizes="(max-width: 1280px) 100vw, 1280px"
-          loading="lazy"
-          className="object-cover"
-        />
+    <div className="mt-5">
+      <p className="mb-3 text-sm font-medium text-stone/70">Наши работы на объектах</p>
+      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:grid-rows-2">
+        <figure className={`${cell} col-span-2 aspect-[4/3] sm:row-span-2 sm:aspect-auto`}>
+          {img(big, "(max-width: 640px) 100vw, 50vw")}
+        </figure>
+        <figure className={`${cell} aspect-[4/3]`}>
+          {img(wide1, "(max-width: 640px) 50vw, 25vw")}
+        </figure>
+        <figure className={`${cell} aspect-[3/4] sm:row-span-2 sm:aspect-auto`}>
+          {img(tall, "(max-width: 640px) 50vw, 25vw")}
+        </figure>
+        <figure className={`${cell} aspect-[4/3]`}>
+          {img(wide2, "(max-width: 640px) 50vw, 25vw")}
+        </figure>
       </div>
-      <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/75 to-transparent px-5 pb-4 pt-10 text-sm font-medium text-white">
-        {image.alt}
-        <span className="ml-2 text-white/70">— наши работы</span>
-      </figcaption>
-    </figure>
+    </div>
   );
 }
+
+/** Наборы мозаик: кадры фиксированы по src (порядок OBJECTS меняется). */
+const MOSAIC_1: MosaicImage[] = [
+  { src: "/images/objects/scandiano-ochra-lestnica.jpg", alt: "Уличная лестница в семь ступеней с капиносом, клинкер Paradyz Scandiano Ochra" },
+  { src: "/images/objects/cloud-brown-terrasa.jpg", alt: "Терраса с кованым ограждением, клинкер Paradyz Cloud Brown" },
+  { src: "/images/objects/catalog/viano-grys-1.jpg", alt: "Лестница с перилами у дома, клинкер Paradyz Viano Grys" },
+  { src: "/images/objects/semir-rosa-kryltso.jpg", alt: "Входная группа с терракотовыми ступенями, клинкер Paradyz Semir Rosa" },
+];
+const MOSAIC_2: MosaicImage[] = [
+  { src: "/images/objects/catalog/ilario-ochra-1.jpg", alt: "Крыльцо с каменными колоннами, клинкер Paradyz Ilario Ochra" },
+  { src: "/images/objects/scandiano-brown-terrasa.jpg", alt: "Терраса с обеденной зоной у кирпичного дома, клинкер Paradyz Scandiano Brown" },
+  { src: "/images/objects/catalog/semir-brown-1.jpg", alt: "Крыльцо у входной двери, клинкер Paradyz Semir Brown" },
+  { src: "/images/objects/catalog/mattone-grafit-1.jpg", alt: "Крыльцо в три ступени у входа, клинкер Paradyz Mattone Grafit" },
+];
 
 /**
  * Каталог = магазин, а не список заводов: одна сетка всех позиций с фильтрами,
@@ -121,17 +161,12 @@ export default async function CatalogPage({ searchParams }: Props) {
     .sort((a, b) => b.count - a.count);
 
   // Врезки объектов — только там, где страница достаточно длинная: после 8-й
-  // и после 16-й карточки текущей страницы. Кадры фиксированы по src, а не по
-  // индексу: порядок OBJECTS меняется при пополнении галереи главной.
-  const banner1 =
-    OBJECTS.find((o) => o.src.includes("scandiano-ochra-lestnica")) ?? OBJECTS[0];
-  const banner2 =
-    OBJECTS.find((o) => o.src.includes("cloud-brown-terrasa")) ?? OBJECTS[1];
-  const chunks: { items: typeof paged.items; banner?: (typeof OBJECTS)[number] }[] = [];
+  // и после 16-й карточки текущей страницы.
+  const chunks: { items: typeof paged.items; mosaic?: MosaicImage[] }[] = [];
   if (paged.items.length > 12) {
-    chunks.push({ items: paged.items.slice(0, 8), banner: banner1 });
+    chunks.push({ items: paged.items.slice(0, 8), mosaic: MOSAIC_1 });
     if (paged.items.length > 20) {
-      chunks.push({ items: paged.items.slice(8, 16), banner: banner2 });
+      chunks.push({ items: paged.items.slice(8, 16), mosaic: MOSAIC_2 });
       chunks.push({ items: paged.items.slice(16) });
     } else {
       chunks.push({ items: paged.items.slice(8) });
@@ -231,7 +266,7 @@ export default async function CatalogPage({ searchParams }: Props) {
             {chunks.map((chunk, i) => (
               <div key={i}>
                 <ProductGrid products={chunk.items} />
-                {chunk.banner ? <ObjectBanner image={chunk.banner} /> : null}
+                {chunk.mosaic ? <ObjectMosaic images={chunk.mosaic} /> : null}
               </div>
             ))}
           </div>

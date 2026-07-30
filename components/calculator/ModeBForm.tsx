@@ -39,7 +39,10 @@ export interface ModeBPreset {
   nonce: number;
 }
 
-const products = getSlabProducts();
+// Решение Кирилла 30.07.2026: «Терраса / площадка» считается только по Paradyz.
+// Плиты других брендов из калькулятора убраны; сами бренды остаются доступны
+// в режиме «Лестница / крыльцо» (ступени) и в каталоге.
+const products = getSlabProducts().filter((p) => p.brand === "Paradyz");
 let uid = 0;
 const newArea = (): AreaInput => ({
   id: `s${++uid}`,
