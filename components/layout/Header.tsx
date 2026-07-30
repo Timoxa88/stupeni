@@ -7,14 +7,16 @@ import { Modal } from "@/components/ui/Modal";
 import { SITE } from "@/lib/content/site";
 
 /**
- * Меню — четыре пункта вместо семи. Три категории свёрнуты в хаб «Каталог»
- * (раньше /catalog отдавал 404), «Решения» ведут на хаб, а не сразу на крыльцо.
- * Услуги и блог живут в футере — в шапке они отбирали внимание у главного действия.
+ * Меню: три категории свёрнуты в хаб «Каталог» (раньше /catalog отдавал 404),
+ * «Решения» ведут на хаб, а не сразу на крыльцо. Услуги и Блог возвращены
+ * в шапку по просьбе Кирилла 30.07.2026 (жили только в футере).
  */
 const NAV = [
   { href: "/catalog", label: "Каталог" },
   { href: "/resheniya", label: "Решения" },
   { href: "/calculator", label: "Калькулятор" },
+  { href: "/services", label: "Услуги" },
+  { href: "/blog", label: "Блог" },
   { href: "/contacts", label: "Контакты" },
 ];
 
@@ -82,9 +84,11 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
           </nav>
 
           <div className="flex items-center gap-3">
+            {/* с шестью пунктами меню телефону тесно на lg (1024–1280) —
+                ломался на две строки; показываем его с xl */}
             <a
               href={`tel:${SITE.phone}`}
-              className={`hidden text-sm font-semibold transition-colors sm:block ${
+              className={`hidden whitespace-nowrap text-sm font-semibold transition-colors xl:block ${
                 onDark ? "text-sand" : "text-ink"
               }`}
             >
@@ -92,7 +96,7 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
             </a>
             <Link
               href={calcHref}
-              className="sheen relative hidden rounded-full bg-clinker px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-12px_rgba(184,72,31,0.7)] transition hover:bg-clinker-hover sm:inline-block"
+              className="sheen relative hidden whitespace-nowrap rounded-full bg-clinker px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-12px_rgba(184,72,31,0.7)] transition hover:bg-clinker-hover sm:inline-block"
             >
               Получить расчёт
             </Link>

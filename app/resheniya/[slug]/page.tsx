@@ -77,9 +77,11 @@ export default async function SolutionPage({ params }: Params) {
             </h2>
           </Reveal>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {/* h-full по цепочке: карточки одного ряда одной высоты, даже если
+                текст разной длины («Монтаж» не короче «Элементов») */}
             {s.requirements.map((r, i) => (
-              <Reveal key={r.label} delay={i * 70}>
-                <div className="rounded-card border border-ink/10 bg-white p-6 shadow-card">
+              <Reveal key={r.label} delay={i * 70} className="h-full">
+                <div className="h-full rounded-card border border-ink/10 bg-white p-6 shadow-card">
                   <div className="text-sm font-semibold uppercase tracking-wide text-stone/70">
                     {r.label}
                   </div>

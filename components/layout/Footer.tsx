@@ -59,9 +59,11 @@ export function Footer() {
             </p>
             <div className="mt-6 flex flex-col gap-1.5">
               {CITY_CONTACTS.map((c) => (
+                // номер и «— город» — неразрывные блоки: перенос допустим только
+                // между ними, а не посреди «Санкт-Петербург»
                 <a key={c.phone} href={`tel:${c.phone}`} className="font-display text-lg font-bold">
-                  {c.phoneLabel}{" "}
-                  <span className="text-sm font-normal text-sand/60">— {c.city}</span>
+                  <span className="whitespace-nowrap">{c.phoneLabel}</span>{" "}
+                  <span className="whitespace-nowrap text-sm font-normal text-sand/60">— {c.city}</span>
                 </a>
               ))}
               <a href={`mailto:${SITE.email}`} className="mt-1 text-sm text-sand/85 transition hover:text-clinker-bright">

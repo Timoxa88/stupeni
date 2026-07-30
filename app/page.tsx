@@ -18,7 +18,7 @@ import { BRANDS } from "@/lib/catalog/brands";
 import { CATEGORIES } from "@/lib/content/categories";
 import { showcaseProducts } from "@/lib/catalog/taxonomy";
 import { IMAGES, OBJECTS } from "@/lib/images";
-import { ADVANTAGES } from "@/lib/content/site";
+import { ADVANTAGES, CITY_CONTACTS } from "@/lib/content/site";
 import { HOME_FAQ } from "@/lib/content/faq";
 import { organizationSchema, localBusinessSchema } from "@/lib/jsonld";
 
@@ -310,9 +310,16 @@ export default function Home() {
                 комплектацию с ценами, а по запросу и каталог с прайсом.
               </p>
               <div className="mt-8 flex flex-col gap-2 text-sand/85">
-                <a href="tel:+74993977727" className="font-display text-2xl font-bold">
-                  +7 499 397-77-27
-                </a>
+                {/* Оба города: номер и «— город» — неразрывные блоки, чтобы
+                    «Санкт-Петербург» не ломался посреди слова на узких экранах */}
+                {CITY_CONTACTS.map((c) => (
+                  <a key={c.phone} href={`tel:${c.phone}`} className="font-display text-2xl font-bold">
+                    <span className="whitespace-nowrap">{c.phoneLabel}</span>{" "}
+                    <span className="whitespace-nowrap text-base font-normal text-sand/60">
+                      — {c.city}
+                    </span>
+                  </a>
+                ))}
                 <a href="mailto:sales@hit-ceramics.ru" className="text-sand/70 transition hover:text-clinker-bright">
                   sales@hit-ceramics.ru
                 </a>
