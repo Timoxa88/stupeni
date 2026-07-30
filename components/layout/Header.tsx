@@ -86,16 +86,28 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
           </nav>
 
           <div className="flex items-center gap-3">
-            {/* с шестью пунктами меню телефону тесно на lg (1024–1280) —
-                ломался на две строки; показываем его с xl */}
-            <a
-              href={`tel:${contacts.phone}`}
-              className={`hidden whitespace-nowrap text-sm font-semibold transition-colors xl:block ${
-                onDark ? "text-sand" : "text-ink"
-              }`}
-            >
-              {contacts.phoneLabel}
-            </a>
+            {/* Оба города компактной колонкой (просьба Кирилла 30.07: СПб тоже
+                в шапке). С шестью пунктами меню телефонам тесно на lg
+                (1024–1280) — показываем с xl. */}
+            <div className="hidden flex-col gap-0.5 xl:flex">
+              {(contacts.cities.length ? contacts.cities : [contacts]).map((c) => (
+                <a
+                  key={c.phone}
+                  href={`tel:${c.phone}`}
+                  className={`whitespace-nowrap text-xs font-semibold leading-tight transition-colors ${
+                    onDark ? "text-sand hover:text-white" : "text-ink hover:text-clinker"
+                  }`}
+                >
+                  {c.phoneLabel}
+                  {"city" in c ? (
+                    <span className={onDark ? "text-sand/60" : "text-stone/70"}>
+                      {" "}
+                      — {c.city === "Москва" ? "Мск" : c.city === "Санкт-Петербург" ? "СПб" : c.city}
+                    </span>
+                  ) : null}
+                </a>
+              ))}
+            </div>
             <Link
               href={calcHref}
               className="sheen relative hidden whitespace-nowrap rounded-full bg-clinker px-5 py-2.5 text-sm font-semibold text-white shadow-[0_8px_24px_-12px_rgba(184,72,31,0.7)] transition hover:bg-clinker-hover sm:inline-block"
@@ -153,12 +165,19 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
                 </Link>
               ))}
             </nav>
-            <a
-              href={`tel:${contacts.phone}`}
-              className="mt-5 font-display text-xl font-bold text-ink"
-            >
-              {contacts.phoneLabel}
-            </a>
+            <div className="mt-5 flex flex-col gap-2">
+              {(contacts.cities.length ? contacts.cities : [contacts]).map((c) => (
+                <a key={c.phone} href={`tel:${c.phone}`} className="font-display text-xl font-bold text-ink">
+                  <span className="whitespace-nowrap">{c.phoneLabel}</span>
+                  {"city" in c ? (
+                    <span className="whitespace-nowrap text-sm font-normal text-stone">
+                      {" "}
+                      — {c.city}
+                    </span>
+                  ) : null}
+                </a>
+              ))}
+            </div>
             <Link
               href={calcHref}
               onClick={() => setMenuOpen(false)}
