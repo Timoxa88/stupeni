@@ -18,6 +18,7 @@
  */
 
 import type { Product } from "./types";
+import { collectionBaseOf } from "./collection-base";
 
 function fnv1a(s: string): number {
   let h = 0x811c9dc5;
@@ -28,24 +29,13 @@ function fnv1a(s: string): number {
   return h >>> 0;
 }
 
-/**
- * База коллекции в пределах переданного списка — то же правило «самый длинный
- * префикс из слов у ≥2 товаров бренда», что в taxonomy.ts. Продублировано
- * сознательно: импорт taxonomy отсюда замкнул бы цикл
- * queries → diversify → taxonomy → queries.
- */
-function baseWithin(name: string, siblings: string[]): string {
-  const toks = name.split(/\s+/).filter(Boolean);
-  for (let k = toks.length; k > 0; k--) {
-    const pref = toks.slice(0, k).join(" ");
-    const hits = siblings.filter((s) => s === pref || s.startsWith(pref + " ")).length;
-    if (hits >= 2) return pref;
-  }
-  return name;
-}
-
 /** Стабильно перемешивает список так, чтобы соседние карточки не были из одной
- *  коллекции и по возможности от разных брендов. Вход не мутирует. */
+ *  коллекции и по возможности от разных брендов. Вход не мутирует.
+ *
+ *  База коллекции — общий модуль collection-base (siblings — в пределах
+ *  переданного списка). Раньше здесь жила своя копия правила без серии Duro,
+ *  и «Cloud Rosa Duro» с «Cloud Brown Duro» уходили в разные корзины — для
+ *  taxonomy (и теста смежности) это одна коллекция «Cloud Duro». */
 export function diversify(products: Product[]): Product[] {
   if (products.length < 3) return products;
 
@@ -56,7 +46,7 @@ export function diversify(products: Product[]): Product[] {
     collectionsByBrand.set(p.brand, list);
   }
   const keyOf = (p: Product) =>
-    `${p.brand}|${baseWithin(p.collection, collectionsByBrand.get(p.brand) ?? [])}`;
+    `${p.brand}|${collectionBaseOf(p.collection, collectionsByBrand.get(p.brand) ?? [])}`;
 
   // Корзины; внутри корзины порядок тоже псевдослучайный (по хешу id).
   const buckets = new Map<string, Product[]>();

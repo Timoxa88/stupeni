@@ -22,6 +22,7 @@
 
 import type { ApplicationCode, Product } from "@/lib/catalog/types";
 import { activeProducts, getProductsByApplication } from "@/lib/catalog/queries";
+import { collectionBaseOf, splitSeries } from "@/lib/catalog/collection-base";
 import { SOLUTIONS } from "@/lib/content/solutions";
 
 const CYR: Record<string, string> = {
@@ -47,40 +48,15 @@ export function slug(s: string): string {
 export { productHref } from "./hrefs";
 
 // ── База коллекции ────────────────────────────────────────────────────────────
-
-/** Самый длинный префикс из слов, который встречается у ≥2 товаров бренда. */
-function computeBase(name: string, siblings: string[]): string {
-  const toks = name.split(/\s+/).filter(Boolean);
-  for (let k = toks.length; k > 0; k--) {
-    const pref = toks.slice(0, k).join(" ");
-    const hits = siblings.filter((s) => s === pref || s.startsWith(pref + " ")).length;
-    if (hits >= 2) return pref;
-  }
-  return name;
-}
+// Правило (префикс из слов + серия Duro) — в collection-base.ts: тем же
+// модулем пользуется diversify, иначе их представления о «коллекции»
+// расходились и разнесение листинга пропускало пары вроде
+// «Cloud Rosa Duro | Cloud Brown Duro».
 
 const baseCache = new Map<string, string>();
 
 function collectionsOfBrand(brand: string): string[] {
   return activeProducts().filter((p) => p.brand === brand).map((p) => p.collection);
-}
-
-/**
- * Технические серии, стоящие в конце имени коллекции. «Duro» у Paradyz — не
- * цвет, а исполнение (плотнее и толще), и продаётся оно в тех же цветах.
- * Без этого правила префиксная логика давала базу «Cloud Brown», а ярлыком
- * цвета становилось слово «Duro» — в фильтре цветов коллекции стояли
- * «Коричневый» и «Duro» рядом, как будто это два оттенка.
- */
-const SERIES_SUFFIX = ["Duro"];
-
-function splitSeries(collection: string): { head: string; series?: string } {
-  for (const s of SERIES_SUFFIX) {
-    if (collection.endsWith(" " + s)) {
-      return { head: collection.slice(0, -(s.length + 1)), series: s };
-    }
-  }
-  return { head: collection };
 }
 
 /**
@@ -93,13 +69,7 @@ export function collectionBase(p: Product): string {
   const key = `${p.brand}|${p.collection}`;
   const hit = baseCache.get(key);
   if (hit) return hit;
-  const { head, series } = splitSeries(p.collection);
-  const siblings = collectionsOfBrand(p.brand)
-    .map(splitSeries)
-    .filter((x) => x.series === series)
-    .map((x) => x.head);
-  const head_base = computeBase(head, siblings);
-  const base = series ? `${head_base} ${series}` : head_base;
+  const base = collectionBaseOf(p.collection, collectionsOfBrand(p.brand));
   baseCache.set(key, base);
   return base;
 }
@@ -309,7 +279,12 @@ export function brandShowcase(
 function pickOnePerCollection(list: Product[], limit: number): Product[] {
   const seen = new Set<string>();
   const pick: Product[] = [];
+  // Paradyz — основной бренд (30.07.2026): его коллекции занимают витрину
+  // первыми, внутри бренда приоритет у позиций со своим фото.
   const ranked = [...list].sort((a, b) => {
+    const ab = a.brand === "Paradyz" ? 0 : 1;
+    const bb = b.brand === "Paradyz" ? 0 : 1;
+    if (ab !== bb) return ab - bb;
     const ap = a.photos[0]?.startsWith("/images/products/") ? 0 : 1;
     const bp = b.photos[0]?.startsWith("/images/products/") ? 0 : 1;
     return ap - bp;

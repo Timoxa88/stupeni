@@ -35,8 +35,25 @@ export function getProductById(id: string): Product | undefined {
    из 24 карточек была одной коллекцией. Порядок детерминированный — важно
    для пагинации и гидрации (см. diversify.ts). */
 
+/**
+ * Paradyz — основной бренд со своими ценами (решение Кирилла, 30.07.2026):
+ * листинги с пагинацией открываются его позициями, остальные бренды — следом.
+ * Внутри каждой части порядок разнесён diversify (соседние карточки — разные
+ * коллекции), поэтому первые страницы — Paradyz, но не «4 цвета одной серии».
+ */
+function paradyzFirst(list: Product[]): Product[] {
+  const own = list.filter((p) => p.brand === "Paradyz");
+  const rest = list.filter((p) => p.brand !== "Paradyz");
+  return [...diversify(own), ...diversify(rest)];
+}
+
+/** Полный листинг каталога (/catalog): Paradyz на первых страницах. */
+export function getCatalogProducts(): Product[] {
+  return paradyzFirst(activeProducts());
+}
+
 export function getProductsByCategory(cat: CategoryKey): Product[] {
-  return diversify(
+  return paradyzFirst(
     activeProducts().filter(
       (p) =>
         productCategory(p) === cat &&
@@ -53,7 +70,7 @@ export function getProductsByBrand(name: string): Product[] {
 }
 
 export function getProductsByApplication(app: ApplicationCode): Product[] {
-  return diversify(activeProducts().filter((p) => p.application.includes(app)));
+  return paradyzFirst(activeProducts().filter((p) => p.application.includes(app)));
 }
 
 /** Похожие: тот же сценарий применения, другой артикул (ТЗ §8.4 вкладка 7);

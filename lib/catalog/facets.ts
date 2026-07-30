@@ -172,7 +172,10 @@ function popularityScore(p: Product): number {
   );
   const w = key ? POPULAR_COLLECTIONS[key] : 0;
   const photo = p.photos[0]?.startsWith("/images/products/") ? 1 : 0;
-  return w * 10 + photo;
+  // Paradyz — основной бренд (30.07.2026): в «Популярных» весь его ассортимент
+  // стоит выше чужого; внутри бренда сохраняются веса коллекций по продажам.
+  const brand = p.brand === "Paradyz" ? 100 : 0;
+  return brand + w * 10 + photo;
 }
 
 // ── Разбор query, фильтрация, сортировка ──────────────────────────────────────

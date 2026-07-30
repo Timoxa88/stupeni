@@ -21,8 +21,12 @@ import {
   type CatalogQuery,
 } from "@/lib/catalog/facets";
 import { BRANDS } from "@/lib/catalog/brands";
-import { activeProducts, basePrice, getProductsByBrand } from "@/lib/catalog/queries";
-import { diversify } from "@/lib/catalog/diversify";
+import {
+  activeProducts,
+  basePrice,
+  getCatalogProducts,
+  getProductsByBrand,
+} from "@/lib/catalog/queries";
 import { applications, collectionsOfBrandForLinks, slug } from "@/lib/catalog/taxonomy";
 import { productTitle } from "@/lib/catalog/display";
 import { formatRub } from "@/lib/format";
@@ -93,7 +97,9 @@ export default async function CatalogPage({ searchParams }: Props) {
   const query = parseCatalogQuery(sp);
   const page = parsePage(sp.page);
 
-  const all = diversify(activeProducts());
+  // Paradyz открывает листинг (paradyzFirst в queries) — «первые страницы
+  // каталога = Paradyz», дальше остальные бренды разнесённым порядком.
+  const all = getCatalogProducts();
   const filtered = sortProducts(filterProducts(all, query), query.sort);
   const paged = paginate(filtered, page);
   const facets = facetsOf(all, query);
