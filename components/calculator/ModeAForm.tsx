@@ -13,11 +13,13 @@ import {
   baseTileLabel,
   baseTileOptions,
   stepAvailability,
+  stepTypeOptions,
   toBasePerSqm,
   toStepGeometry,
   toStepPallets,
   toStepPrices,
   toStepWeights,
+  type StepFrontType,
 } from "@/lib/catalog/adapters";
 import { getStepProducts } from "@/lib/catalog/seed";
 import {
@@ -74,6 +76,17 @@ export function ModeAForm({
   );
   const product = products.find((p) => p.id === productId) ?? products[0];
 
+  // Исполнение фронтальной ступени: у Paradyz коллекции обычно выпускают обе —
+  // с капиносом (готовая кромка) и с насечками (простая плитка с рифлением);
+  // это разные цена, длина кромки и вес. Переключатель виден, где есть выбор.
+  const typeOptions = stepTypeOptions(product);
+  const [stepType, setStepType] = useState<StepFrontType | undefined>(
+    typeOptions[0]?.value,
+  );
+  const activeStepType = typeOptions.some((o) => o.value === stepType)
+    ? stepType
+    : typeOptions[0]?.value;
+
   const [marches, setMarches] = useState<MarchInput[]>([newMarch()]);
   const [cladRisers, setCladRisers] = useState(true);
   const [cladSides, setCladSides] = useState(true);
@@ -104,11 +117,11 @@ export function ModeAForm({
   const articleBasePerSqm = toBasePerSqm(product, activeBaseSize);
   const articleBaseLabel = baseTileLabel(product, activeBaseSize);
 
-  // Цены переинициализируются при смене артикула и формата плитки
-  // (подставляются из CMS).
+  // Цены переинициализируются при смене артикула, формата плитки и типа
+  // ступени (подставляются из CMS).
   useEffect(() => {
-    setPrices(toStepPrices(product, activeBaseSize));
-  }, [product, activeBaseSize]);
+    setPrices(toStepPrices(product, activeBaseSize, activeStepType));
+  }, [product, activeBaseSize, activeStepType]);
 
   // INP (ТЗ B.5): марши/площадка/цены вводятся мгновенно, тяжёлый поэлементный
   // пересчёт (самый тяжёлый — Режим A с несколькими маршами) идёт от отложенных
@@ -127,10 +140,10 @@ export function ModeAForm({
         platform: platformOn && avail.hasBase ? dPlatform : undefined,
         baseTileSize,
         basePerSqm: articleBasePerSqm,
-        geometry: toStepGeometry(product),
+        geometry: toStepGeometry(product, activeStepType),
         prices: dPrices,
-        weights: toStepWeights(product, activeBaseSize),
-        pallets: toStepPallets(product, activeBaseSize),
+        weights: toStepWeights(product, activeBaseSize, activeStepType),
+        pallets: toStepPallets(product, activeBaseSize, activeStepType),
         materials,
       }),
     [
@@ -143,6 +156,7 @@ export function ModeAForm({
       baseTileSize,
       articleBasePerSqm,
       activeBaseSize,
+      activeStepType,
       product,
       dPrices,
       materials,
@@ -161,6 +175,25 @@ export function ModeAForm({
         {/* Артикул: бренд → коллекция → цвет */}
         <section className="rounded-card bg-white p-5 shadow-card">
           <ArticlePicker products={products} value={productId} onChange={setProductId} />
+          {typeOptions.length > 1 ? (
+            <div className="mt-4">
+              <Field
+                label="Тип ступени"
+                hint={
+                  activeStepType === "front"
+                    ? "готовая кромка с выступающим носиком"
+                    : "простая плитка с противоскользящим рифлением"
+                }
+              >
+                <Segmented
+                  value={activeStepType ?? ""}
+                  onChange={(v) => setStepType(v as StepFrontType)}
+                  options={typeOptions}
+                  size="sm"
+                />
+              </Field>
+            </div>
+          ) : null}
           <div className="mt-4">
             {baseOptions.length > 1 ? (
               // У артикула есть оба формата — выбирает пользователь, а норма и
@@ -405,7 +438,11 @@ export function ModeAForm({
           onSend={() =>
             onSend(
               calcSummary(result, {
-                article: `${product.brand} ${product.collection}`,
+                article:
+                  `${product.brand} ${product.collection}` +
+                  (typeOptions.length > 1
+                    ? `, ступень ${activeStepType === "front" ? "с капиносом" : "с насечками"}`
+                    : ""),
                 extra:
                   `Маршей: ${marches.length}` +
                   marches

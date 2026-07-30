@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Marquee } from "@/components/ui/Marquee";
 import { Faq } from "@/components/ui/Faq";
 import { Gallery } from "@/components/sections/Gallery";
+import { PromoBar } from "@/components/sections/PromoBar";
 import { SceneCards } from "@/components/sections/SceneCards";
 import { Showrooms } from "@/components/sections/Showrooms";
 import { Calculator } from "@/components/calculator/Calculator";
@@ -137,6 +138,9 @@ export default function Home() {
             <Marquee items={BRANDS.map((b) => b.name)} />
           </div>
         </section>
+
+        {/* ── 1б. АКЦИЯ с обратным отсчётом (по образцу fintherm) ── */}
+        <PromoBar />
 
         {/* ── 2. СЦЕНАРИИ — единственная развилка выбора ── */}
         <SceneCards />

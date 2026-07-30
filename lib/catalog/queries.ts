@@ -36,7 +36,16 @@ export function getProductById(id: string): Product | undefined {
    для пагинации и гидрации (см. diversify.ts). */
 
 export function getProductsByCategory(cat: CategoryKey): Product[] {
-  return diversify(activeProducts().filter((p) => productCategory(p) === cat));
+  return diversify(
+    activeProducts().filter(
+      (p) =>
+        productCategory(p) === cat &&
+        // Решение Кирилла 30.07.2026: в «Террасных пластинах» витрина только
+        // Paradyz. Чужие плиты остаются в каталоге (бренд/поиск/карточки),
+        // но из категории-хаба убраны.
+        (cat !== "terrasnye-plastiny" || p.brand === "Paradyz"),
+    ),
+  );
 }
 
 export function getProductsByBrand(name: string): Product[] {

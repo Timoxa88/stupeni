@@ -68,7 +68,7 @@ export default async function BlogPost({ params }: Params) {
 
   return (
     <>
-      <Header />
+      <Header tone="light" />
       <main id="main" className="pt-[72px]">
         <article className="mx-auto max-w-3xl px-5 py-10">
           <Breadcrumbs

@@ -74,17 +74,36 @@ export function elementsOf(p: Product, code: ElementCode): ProductElement[] {
   return orderedElements(p).filter((e) => e.code === code);
 }
 
+/** Исполнение фронтальной ступени: с капиносом (`front`) или с насечками. */
+export type StepFrontType = "front" | "front_notch";
+
 /**
- * Фронтальная ступень для расчёта: приоритет у капиносной — это «настоящая»
- * ступень системы. Насечная (`front_notch`) идёт в дело, только если капиносной
- * у коллекции нет; иначе калькулятор считал бы кромку по цене простой плитки.
+ * Фронтальная ступень для расчёта. `prefer` — явный выбор исполнения
+ * (у Paradyz коллекции обычно выпускают оба, и это разные цена и геометрия:
+ * капиносная 330 мм / кромка 0,30 м, насечная — формат базовой плитки).
+ * Без `prefer` приоритет у капиносной — это «настоящая» ступень системы;
+ * насечная идёт в дело, только если капиносной у коллекции нет.
  */
-export function frontElement(p: Product): ProductElement | undefined {
+export function frontElement(p: Product, prefer?: StepFrontType): ProductElement | undefined {
+  if (prefer) {
+    const hit = findElement(p, prefer);
+    if (hit) return hit;
+  }
   return findElement(p, "front") ?? findElement(p, "front_notch");
 }
 
-/** Угловая ступень: та же логика — сначала капинос, потом насечки. */
-export function cornerElement(p: Product): ProductElement | undefined {
+/** Исполнения фронтальной ступени, которые реально есть у артикула. */
+export function stepFrontTypes(p: Product): StepFrontType[] {
+  return (["front", "front_notch"] as const).filter((c) => !!findElement(p, c));
+}
+
+/** Угловая ступень: следует за исполнением фронтальной (капинос ↔ насечки). */
+export function cornerElement(p: Product, prefer?: StepFrontType): ProductElement | undefined {
+  if (prefer === "front_notch") {
+    return (
+      findElement(p, "corner_notch") ?? findElement(p, "corner_l") ?? findElement(p, "corner_r")
+    );
+  }
   return (
     findElement(p, "corner_l") ?? findElement(p, "corner_r") ?? findElement(p, "corner_notch")
   );

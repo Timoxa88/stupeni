@@ -50,7 +50,7 @@ export default async function ProductPage({ params }: Params) {
 
   return (
     <>
-      <Header />
+      <Header tone="light" />
       <main id="main" className="pt-[72px]">
         <div className="mx-auto max-w-7xl px-5 pt-6">
           <Breadcrumbs

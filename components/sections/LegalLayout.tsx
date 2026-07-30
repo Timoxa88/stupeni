@@ -19,7 +19,7 @@ export function LegalLayout({
 }) {
   return (
     <>
-      <Header />
+      <Header tone="light" />
       <main id="main" className="pt-[72px]">
         <div className="mx-auto max-w-3xl px-5 py-10">
           <Breadcrumbs items={[{ name: "Главная", url: "/" }, { name: title, url: `/${slug}` }]} />

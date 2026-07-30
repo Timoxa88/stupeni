@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { Reveal } from "@/components/ui/Reveal";
 import { PLACES } from "@/lib/content/site";
+import { ShowroomVideo } from "./ShowroomVideo";
+
+/** Ролики шоурумов — общие с fintherm.com.ru (шоурумы одни и те же). */
+const SHOWROOM_VIDEOS: Record<string, string> = {
+  "Санкт-Петербург": "/videos/showroom-spb.mp4",
+  "Москва": "/videos/showroom-msk.mp4",
+};
 
 /** Шоу-румы + склады и доставка (ТЗ §6 блоки 18–19). */
 export function Showrooms() {
@@ -19,16 +26,22 @@ export function Showrooms() {
       <div className="mt-10 grid gap-5 lg:grid-cols-2">
         {/* Шоу-румы */}
         <div className="grid gap-4 sm:grid-cols-2">
-          {showrooms.map((p) => (
-            <Reveal key={`${p.city}-show`}>
-              <div className="flex h-full flex-col rounded-card border border-ink/10 bg-white p-6 shadow-card">
-                <div className="eyebrow text-clinker">Шоу-рум</div>
-                <h3 className="mt-2 font-display text-xl font-bold text-ink">{p.city}</h3>
-                <p className="mt-2 text-stone">{p.address}</p>
-                <p className="mt-1 text-sm text-stone/70">{p.hours}</p>
-              </div>
-            </Reveal>
-          ))}
+          {showrooms.map((p) => {
+            const video = SHOWROOM_VIDEOS[p.city];
+            return (
+              <Reveal key={`${p.city}-show`}>
+                <div className="flex h-full flex-col overflow-hidden rounded-card border border-ink/10 bg-white shadow-card">
+                  {video ? <ShowroomVideo src={video} city={p.city} /> : null}
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="eyebrow text-clinker">Шоу-рум</div>
+                    <h3 className="mt-2 font-display text-xl font-bold text-ink">{p.city}</h3>
+                    <p className="mt-2 text-stone">{p.address}</p>
+                    <p className="mt-1 text-sm text-stone/70">{p.hours}</p>
+                  </div>
+                </div>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* Склады + доставка */}

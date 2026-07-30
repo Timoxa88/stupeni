@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 export default function NotFound() {
   return (
     <>
-      <Header />
+      <Header tone="light" />
       <main id="main" className="grid min-h-[60vh] place-items-center px-5 pt-[72px]">
         <div className="text-center">
           <p className="font-display text-7xl font-extrabold text-clinker">404</p>

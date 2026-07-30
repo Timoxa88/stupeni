@@ -18,7 +18,7 @@ const NAV = [
   { href: "/contacts", label: "Контакты" },
 ];
 
-export function Header() {
+export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
@@ -34,8 +34,10 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // В самом верху хедер прозрачный и лежит на тёмном hero — текст светлый.
-  const onDark = !scrolled;
+  // В самом верху хедер прозрачный. По умолчанию под ним тёмный hero — текст
+  // светлый; страницы со светлым верхом (карточка товара, контакты, блог,
+  // правовые) передают tone="light", иначе «Hit» белым сливался с фоном.
+  const onDark = tone === "light" ? false : !scrolled;
 
   return (
     <header className="vt-header sticky top-0 z-50">

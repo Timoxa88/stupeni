@@ -78,7 +78,10 @@ export function Quiz() {
     if (!done) return [];
     const app = answers.app as ApplicationCode | undefined;
     const mat = answers.material as ProductType | "any" | undefined;
+    // Решение Кирилла 30.07.2026: в подборе рекомендуем только Paradyz —
+    // основной бренд со своими ценами; остальные доступны через каталог.
     return activeProducts()
+      .filter((p) => p.brand === "Paradyz")
       .filter((p) => (app ? p.application.includes(app) : true))
       .filter((p) => (mat && mat !== "any" ? p.product_type === mat : true))
       .slice(0, 3);

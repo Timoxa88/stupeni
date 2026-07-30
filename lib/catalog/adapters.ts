@@ -25,14 +25,30 @@ import {
   parseSize,
   perSqmOf,
   shortSize,
+  stepFrontTypes,
+  type StepFrontType,
 } from "./elements";
 
+export type { StepFrontType } from "./elements";
+
+/**
+ * Переключатель исполнения ступени для UI: показывается, только если у артикула
+ * есть оба варианта (капинос и насечки — разные цена, кромка и вес).
+ */
+export function stepTypeOptions(p: Product): { value: StepFrontType; label: string }[] {
+  const labels: Record<StepFrontType, string> = {
+    front: "С капиносом",
+    front_notch: "С насечками",
+  };
+  return stepFrontTypes(p).map((value) => ({ value, label: labels[value] }));
+}
+
 /** Геометрия элементов (м) из артикула ступеней. */
-export function toStepGeometry(p: Product): StepGeometry {
-  const front = frontElement(p);
+export function toStepGeometry(p: Product, stepType?: StepFrontType): StepGeometry {
+  const front = frontElement(p, stepType);
   const riser = findElement(p, "riser");
   const plinth = findElement(p, "plinth");
-  const corner = cornerElement(p);
+  const corner = cornerElement(p, stepType);
   const cornerWidth = corner ? parseSize(corner.size_mm)[0] / 1000 : 0;
   return {
     frontLength: front?.length_m ?? 0,
@@ -42,30 +58,42 @@ export function toStepGeometry(p: Product): StepGeometry {
   };
 }
 
-export function toStepPrices(p: Product, baseSize?: string): StepElementPrices {
+export function toStepPrices(
+  p: Product,
+  baseSize?: string,
+  stepType?: StepFrontType,
+): StepElementPrices {
   return {
-    front: frontElement(p)?.price_rub ?? 0,
-    corner: cornerElement(p)?.price_rub ?? 0,
+    front: frontElement(p, stepType)?.price_rub ?? 0,
+    corner: cornerElement(p, stepType)?.price_rub ?? 0,
     riser: findElement(p, "riser")?.price_rub ?? 0,
     base: baseElement(p, baseSize)?.price_rub ?? 0,
     plinth: findElement(p, "plinth")?.price_rub ?? 0,
   };
 }
 
-export function toStepWeights(p: Product, baseSize?: string): StepElementWeights {
+export function toStepWeights(
+  p: Product,
+  baseSize?: string,
+  stepType?: StepFrontType,
+): StepElementWeights {
   return {
-    front: frontElement(p)?.weight_kg,
-    corner: cornerElement(p)?.weight_kg,
+    front: frontElement(p, stepType)?.weight_kg,
+    corner: cornerElement(p, stepType)?.weight_kg,
     riser: findElement(p, "riser")?.weight_kg,
     base: baseElement(p, baseSize)?.weight_kg,
     plinth: findElement(p, "plinth")?.weight_kg,
   };
 }
 
-export function toStepPallets(p: Product, baseSize?: string): StepElementPallets {
+export function toStepPallets(
+  p: Product,
+  baseSize?: string,
+  stepType?: StepFrontType,
+): StepElementPallets {
   return {
-    front: frontElement(p)?.per_pallet,
-    corner: cornerElement(p)?.per_pallet,
+    front: frontElement(p, stepType)?.per_pallet,
+    corner: cornerElement(p, stepType)?.per_pallet,
     riser: findElement(p, "riser")?.per_pallet,
     base: baseElement(p, baseSize)?.per_pallet,
     plinth: findElement(p, "plinth")?.per_pallet,
