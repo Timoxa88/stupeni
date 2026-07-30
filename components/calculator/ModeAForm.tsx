@@ -171,7 +171,8 @@ export function ModeAForm({
 
   return (
     <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
-      <div className="flex flex-col gap-6">
+      {/* min-w-0: иначе селекты внутри распирают колонку на мобильном */}
+      <div className="flex min-w-0 flex-col gap-6">
         {/* Артикул: бренд → коллекция → цвет */}
         <section className="rounded-card bg-white p-5 shadow-card">
           <ArticlePicker products={products} value={productId} onChange={setProductId} />
@@ -432,7 +433,7 @@ export function ModeAForm({
         </Disclosure>
       </div>
 
-      <div className="lg:sticky lg:top-24 lg:self-start">
+      <div className="min-w-0 lg:sticky lg:top-24 lg:self-start">
         <ResultPanel
           result={result}
           onSend={() =>

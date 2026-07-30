@@ -13,7 +13,10 @@ export function Field({
   children: ReactNode;
 }) {
   return (
-    <label className="flex flex-col gap-1.5">
+    // min-w-0: поле в grid/flex-ячейке не должно распирать колонку своей
+    // внутренней шириной (у <select>/<input> она большая — длинные опции,
+    // дефолтный size) — иначе на мобильном вся страница получает гориз. скролл
+    <label className="flex min-w-0 flex-col gap-1.5">
       <span className="text-sm font-medium text-stone">{label}</span>
       {children}
       {hint ? <span className="text-xs text-stone/70">{hint}</span> : null}
@@ -22,7 +25,7 @@ export function Field({
 }
 
 const inputCls =
-  "w-full rounded-lg border border-sand-divider bg-white px-3 py-2 text-ink outline-none transition focus:border-clinker focus:ring-2 focus:ring-clinker/20";
+  "w-full min-w-0 rounded-lg border border-sand-divider bg-white px-3 py-2 text-ink outline-none transition focus:border-clinker focus:ring-2 focus:ring-clinker/20";
 
 export function NumberField({
   value,

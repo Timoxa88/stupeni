@@ -147,8 +147,9 @@ export function ProductDetail({ product }: { product: Product }) {
 
   return (
     <div className="grid gap-10 lg:grid-cols-2">
-      {/* Галерея */}
-      <div>
+      {/* Галерея. min-w-0 на колонках: <select> элементов с длинными названиями
+          не должен распирать колонку (на 360px давал гориз. скролл страницы) */}
+      <div className="min-w-0">
         <button
           type="button"
           onClick={() => setZoom(true)}
@@ -197,7 +198,7 @@ export function ProductDetail({ product }: { product: Product }) {
       </div>
 
       {/* Инфо */}
-      <div>
+      <div className="min-w-0">
         <div className="text-sm font-semibold uppercase tracking-wide text-stone/70">
           {product.brand} · арт. {v?.sku ?? product.sku}
         </div>
