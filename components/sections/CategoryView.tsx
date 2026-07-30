@@ -181,6 +181,8 @@ export function CategoryView({
             <div className="rounded-card bg-white/[0.06] p-6 sm:p-8">
               <LeadForm
                 tag="Подбор"
+                source="category"
+                data={{ category: category.h1 }}
                 variant="dark"
                 submitLabel="Получить подбор"
                 comment={`Категория: ${category.h1}`}

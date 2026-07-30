@@ -10,6 +10,13 @@ type FieldKey = "email" | "company" | "interest" | "region" | "comment" | "catal
 export interface LeadFormProps {
   /** Тег заявки в CRM (ТЗ §12.2). */
   tag: string;
+  /**
+   * Слаг формы для меток Битрикса (calculator | sample | quiz | …): из него
+   * строится название формы в заголовке лида и UF-поле (см. lib/bitrix.ts).
+   */
+  source?: string;
+  /** Структурированные поля для CRM: product, area, total_cost, brand, … */
+  data?: Record<string, unknown>;
   submitLabel?: string;
   /** Доп. поля сверх Имя+Телефон. */
   fields?: FieldKey[];
@@ -31,6 +38,8 @@ const digits = (s: string) => (s.match(/\d/g) ?? []).length;
 
 export function LeadForm({
   tag,
+  source = "cta",
+  data,
   submitLabel = "Отправить",
   fields = [],
   interestOptions,
@@ -94,16 +103,18 @@ export function LeadForm({
         if (k.startsWith("utm_")) utm[k] = v;
       });
     }
-    const commentParts = [
-      comment,
-      fields.includes("company") && companyName ? `Компания: ${companyName}` : "",
-      fields.includes("interest") && interest ? `Интерес: ${interest}` : "",
-      fields.includes("region") && region ? `Регион: ${region}` : "",
-      fields.includes("comment") && note ? note : "",
-      fields.includes("email") && email ? `Email: ${email}` : "",
-      fields.includes("catalog") && wantCatalog ? "Просит каталог и прайс (PDF)" : "",
-      marketing ? "Согласие на маркетинговые рассылки: да" : "",
-    ].filter(Boolean);
+    const commentParts = [comment, fields.includes("comment") && note ? note : ""].filter(Boolean);
+    // Поля формы уходят структурой (data): из неё Битрикс собирает заголовок,
+    // UF-поля и сумму сделки, а не парсит текст комментария.
+    const payloadData: Record<string, unknown> = {
+      ...(data ?? {}),
+      ...(city ? { city } : {}),
+      ...(fields.includes("company") && companyName ? { company: companyName } : {}),
+      ...(fields.includes("interest") && interest ? { interest } : {}),
+      ...(fields.includes("region") && region ? { region } : {}),
+      ...(fields.includes("catalog") && wantCatalog ? { wants_catalog: true } : {}),
+      ...(marketing ? { marketing: true } : {}),
+    };
     const url = withBase("/api/lead");
     const idempotencyKey =
       typeof crypto !== "undefined" && crypto.randomUUID
@@ -112,10 +123,14 @@ export function LeadForm({
     const payloadBody = JSON.stringify({
       name,
       phone,
+      email: fields.includes("email") && email ? email : undefined,
       hp_field: hp,
       tag,
+      source,
+      data: payloadData,
       comment: commentParts.join("\n"),
       city,
+      consent,
       page: typeof window !== "undefined" ? window.location.href : "",
       utm,
       idempotencyKey,

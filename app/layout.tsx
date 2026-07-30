@@ -2,9 +2,13 @@ import type { Metadata, Viewport } from "next";
 import { Manrope, Unbounded } from "next/font/google";
 import "./globals.css";
 import { WebVitals } from "@/components/analytics/WebVitals";
+import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 import { CookieBanner } from "@/components/sections/CookieBanner";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { ContactsProvider } from "@/components/layout/ContactsProvider";
 import { SITE, IS_PREVIEW } from "@/lib/content/site";
+import { getContent } from "@/lib/store/content";
+import { getSettings } from "@/lib/store/settings";
 
 const manrope = Manrope({
   variable: "--font-manrope",
@@ -32,7 +36,13 @@ export const viewport: Viewport = {
   ],
 };
 
-export const metadata: Metadata = {
+/**
+ * Метаданные зависят от настроек из админки (коды подтверждения Вебмастера и
+ * Search Console), поэтому generateMetadata, а не константа.
+ */
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSettings();
+  return {
   metadataBase: new URL(SITE.baseUrl),
   // Превью на домене агентства не должно индексироваться (правильный домен — TBD).
   ...(IS_PREVIEW ? { robots: { index: false, follow: false } } : {}),
@@ -63,13 +73,23 @@ export const metadata: Metadata = {
       "Клинкерные ступени и керамогранит 20 мм для улицы: морозостойко, не скользит, расчёт комплекта онлайн.",
   },
   twitter: { card: "summary_large_image" },
-};
+  ...(settings.yandexVerification || settings.googleVerification
+    ? {
+        verification: {
+          ...(settings.yandexVerification ? { yandex: settings.yandexVerification } : {}),
+          ...(settings.googleVerification ? { google: settings.googleVerification } : {}),
+        },
+      }
+    : {}),
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const [contacts, settings] = await Promise.all([getContent("contacts"), getSettings()]);
   return (
     <html
       lang="ru"
@@ -79,11 +99,21 @@ export default function RootLayout({
         <a href="#main" className="skip-link">
           К основному содержимому
         </a>
-        {children}
-        <div className="grain" aria-hidden="true" />
-        <MobileCtaBar />
+        <ContactsProvider
+          value={{
+            phone: contacts.phone,
+            phoneLabel: contacts.phoneLabel,
+            email: contacts.email,
+            cities: contacts.cities,
+          }}
+        >
+          {children}
+          <div className="grain" aria-hidden="true" />
+          <MobileCtaBar />
+        </ContactsProvider>
         <CookieBanner />
         <WebVitals />
+        <YandexMetrika counterId={settings.ymCounterId} />
       </body>
     </html>
   );

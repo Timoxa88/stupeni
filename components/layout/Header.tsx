@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 import { Modal } from "@/components/ui/Modal";
+import { useContacts } from "@/components/layout/ContactsProvider";
 import { SITE } from "@/lib/content/site";
 
 /**
@@ -21,6 +22,7 @@ const NAV = [
 ];
 
 export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
+  const contacts = useContacts();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuId = useId();
@@ -87,12 +89,12 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
             {/* с шестью пунктами меню телефону тесно на lg (1024–1280) —
                 ломался на две строки; показываем его с xl */}
             <a
-              href={`tel:${SITE.phone}`}
+              href={`tel:${contacts.phone}`}
               className={`hidden whitespace-nowrap text-sm font-semibold transition-colors xl:block ${
                 onDark ? "text-sand" : "text-ink"
               }`}
             >
-              {SITE.phoneLabel}
+              {contacts.phoneLabel}
             </a>
             <Link
               href={calcHref}
@@ -152,10 +154,10 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
               ))}
             </nav>
             <a
-              href={`tel:${SITE.phone}`}
+              href={`tel:${contacts.phone}`}
               className="mt-5 font-display text-xl font-bold text-ink"
             >
-              {SITE.phoneLabel}
+              {contacts.phoneLabel}
             </a>
             <Link
               href={calcHref}

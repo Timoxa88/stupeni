@@ -5,22 +5,33 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
-import { BLOG_POSTS } from "@/lib/content/blog";
+import { publishedPosts } from "@/lib/store/blog";
+import { resolveSeo } from "@/lib/store/seo";
 
-export const metadata: Metadata = {
-  title: "Блог «Идеи для крыльца и террасы» — кейсы и инструкции",
-  description:
-    "Идеи, кейсы и пошаговые инструкции по облицовке крыльца, лестниц и террас клинкером и керамогранитом 20 мм. Монтаж, выбор материала, расчёт.",
-  alternates: { canonical: "/blog" },
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolveSeo("blog", {
+    title: "Блог «Идеи для крыльца и террасы» — кейсы и инструкции",
+    description:
+      "Идеи, кейсы и пошаговые инструкции по облицовке крыльца, лестниц и террас клинкером и керамогранитом 20 мм. Монтаж, выбор материала, расчёт.",
+  });
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: { canonical: "/blog" },
+    ...(seo.ogImage ? { openGraph: { images: [seo.ogImage] } } : {}),
+    ...(seo.noindex ? { robots: { index: false, follow: false } } : {}),
+  };
+}
 
 const fmtDate = (iso: string) =>
   new Intl.DateTimeFormat("ru-RU", { day: "numeric", month: "long", year: "numeric" }).format(
     new Date(iso),
   );
 
-export default function BlogIndex() {
-  const posts = [...BLOG_POSTS].sort((a, b) => b.date.localeCompare(a.date));
+export default async function BlogIndex() {
+  const posts = await publishedPosts();
   return (
     <>
       <Header />

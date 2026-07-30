@@ -1,5 +1,7 @@
 "use client";
 
+import { useEffect } from "react";
+
 export default function GlobalError({
   error,
   reset,
@@ -7,6 +9,24 @@ export default function GlobalError({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  useEffect(() => {
+    // basePath инлайнится на сборке: global-error рендерится вне layout,
+    // поэтому withBase отсюда недоступен.
+    const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+    void fetch(`${base}/api/error`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: error.message,
+        stack: error.stack,
+        digest: error.digest,
+        url: typeof window !== "undefined" ? window.location.href : undefined,
+        context: { boundary: "global-error" },
+      }),
+      keepalive: true,
+    }).catch(() => {});
+  }, [error]);
+
   return (
     <html lang="ru">
       <body

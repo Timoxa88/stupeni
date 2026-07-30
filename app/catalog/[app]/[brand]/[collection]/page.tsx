@@ -17,6 +17,10 @@ import {
   colorLabel,
   allPaths,
 } from "@/lib/catalog/taxonomy";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Props = { params: Promise<{ app: string; brand: string; collection: string }> };
 
@@ -35,6 +39,7 @@ async function resolve(params: Props["params"]) {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  await primeOverrides();
   const { app, brand, collection, node, name, coll } = await resolve(params);
   if (!node || !name || !coll) return {};
   const colors = coll.products.map(colorLabel).join(", ");
@@ -47,6 +52,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 /** Четвёртый уровень: цвета коллекции. Дальше — карточка товара. */
 export default async function CollectionLevel({ params }: Props) {
+  await primeOverrides();
   const { app, brand, collection, node, name, coll } = await resolve(params);
   if (!node || !name || !coll) notFound();
 
@@ -117,6 +123,8 @@ export default async function CollectionLevel({ params }: Props) {
             <div className="rounded-xl2 bg-white/[0.06] p-7 sm:p-9">
               <LeadForm
                 tag="Подбор цвета"
+                source="product"
+                data={{ product: `${name} ${coll.base}`, collection: coll.base, brand: name }}
                 variant="dark"
                 submitLabel="Проверить наличие"
                 fields={["comment"]}

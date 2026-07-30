@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
+import { withBase } from "@/lib/base";
 
 export default function Error({
   error,
@@ -11,8 +12,19 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // В проде здесь — отправка в Sentry (ТЗ B.5).
     console.error("[app error]", error);
+    // Журнал ошибок админки (/admin/errors) — свой сбор вместо Sentry (ТЗ B.5).
+    void fetch(withBase("/api/error"), {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        message: error.message,
+        stack: error.stack,
+        digest: error.digest,
+        url: typeof window !== "undefined" ? window.location.href : undefined,
+      }),
+      keepalive: true,
+    }).catch(() => {});
   }, [error]);
 
   return (

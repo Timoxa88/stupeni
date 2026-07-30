@@ -33,10 +33,15 @@ import { formatRub } from "@/lib/format";
 import { IMAGES } from "@/lib/images";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Props = { searchParams: Promise<Record<string, string | string[] | undefined>> };
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  await primeOverrides();
   const sp = await searchParams;
   const page = parsePage(sp.page);
   const pages = Math.max(1, Math.ceil(activeProducts().length / PER_PAGE));
@@ -133,6 +138,7 @@ const MOSAIC_2: MosaicImage[] = [
  * это единственный вход внутренних ссылок на ~130 страниц коллекций.
  */
 export default async function CatalogPage({ searchParams }: Props) {
+  await primeOverrides();
   const sp = await searchParams;
   const query = parseCatalogQuery(sp);
   const page = parsePage(sp.page);

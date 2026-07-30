@@ -15,6 +15,7 @@ import {
 } from "@/lib/calculator";
 import { toSlabFormat } from "@/lib/catalog/adapters";
 import { getSlabProducts } from "@/lib/catalog/seed";
+import type { Product } from "@/lib/catalog/types";
 import {
   Field,
   IconButton,
@@ -42,7 +43,7 @@ export interface ModeBPreset {
 // Решение Кирилла 30.07.2026: «Терраса / площадка» считается только по Paradyz.
 // Плиты других брендов из калькулятора убраны; сами бренды остаются доступны
 // в режиме «Лестница / крыльцо» (ступени) и в каталоге.
-const products = getSlabProducts().filter((p) => p.brand === "Paradyz");
+const SEED_SLAB_PRODUCTS = getSlabProducts().filter((p) => p.brand === "Paradyz");
 let uid = 0;
 const newArea = (): AreaInput => ({
   id: `s${++uid}`,
@@ -60,11 +61,14 @@ const newDeduction = (): DeductionInput => ({
 export function ModeBForm({
   city,
   onSend,
+  products = SEED_SLAB_PRODUCTS,
   initialProductId,
   preset,
 }: {
   city: City;
-  onSend: (summary: string) => void;
+  onSend: (lead: { summary: string; data: Record<string, unknown> }) => void;
+  /** Каталог с ценами из админки; дефолт — сид (для клиентского фолбэка). */
+  products?: Product[];
   initialProductId?: string;
   preset?: ModeBPreset | null;
 }) {
@@ -411,8 +415,15 @@ export function ModeBForm({
           <ResultPanel
             result={result}
             onSend={() =>
-              onSend(
-                calcSummary(result, {
+              onSend({
+                data: {
+                  product: `${product.brand} ${product.collection} ${format?.size_mm ?? ""}`.trim(),
+                  sku: product.sku,
+                  area: result.detail.kind === "B" ? Number(result.detail.netArea.toFixed(2)) : undefined,
+                  total_cost: result.grandTotal,
+                  mode: "B — терраса",
+                },
+                summary: calcSummary(result, {
                   article: `${product.brand} ${product.collection} ${format?.size_mm ?? ""}`.trim(),
                   extra:
                     `Укладка: ${
@@ -436,7 +447,7 @@ export function ModeBForm({
                       .join(""),
                   page: typeof window !== "undefined" ? window.location.href : undefined,
                 }),
-              )
+              })
             }
           />
         ) : null}

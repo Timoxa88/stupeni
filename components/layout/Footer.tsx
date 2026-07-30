@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE, CITY_CONTACTS } from "@/lib/content/site";
+import { getContent } from "@/lib/store/content";
 
 /**
  * Второстепенная навигация. Всё, что убрали из шапки (услуги, блог, отдельные
@@ -36,7 +36,8 @@ const COLS = [
   },
 ];
 
-export function Footer() {
+export async function Footer() {
+  const contacts = await getContent("contacts");
   return (
     <footer className="relative mt-auto overflow-hidden bg-graphite-deep text-sand">
       <div
@@ -58,7 +59,7 @@ export function Footer() {
               лестниц и террас. Доставка по России и СНГ.
             </p>
             <div className="mt-6 flex flex-col gap-1.5">
-              {CITY_CONTACTS.map((c) => (
+              {contacts.cities.map((c) => (
                 // номер и «— город» — неразрывные блоки: перенос допустим только
                 // между ними, а не посреди «Санкт-Петербург»
                 <a key={c.phone} href={`tel:${c.phone}`} className="font-display text-lg font-bold">
@@ -66,8 +67,8 @@ export function Footer() {
                   <span className="whitespace-nowrap text-sm font-normal text-sand/60">— {c.city}</span>
                 </a>
               ))}
-              <a href={`mailto:${SITE.email}`} className="mt-1 text-sm text-sand/85 transition hover:text-clinker-bright">
-                {SITE.email}
+              <a href={`mailto:${contacts.email}`} className="mt-1 text-sm text-sand/85 transition hover:text-clinker-bright">
+                {contacts.email}
               </a>
             </div>
           </div>

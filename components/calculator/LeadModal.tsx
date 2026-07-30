@@ -8,10 +8,13 @@ import { LeadForm } from "@/components/forms/LeadForm";
 /** Сбор контакта и отправка расчёта менеджеру (ТЗ §9.4, §12). Доступный диалог. */
 export function LeadModal({
   summary,
+  data,
   city,
   onClose,
 }: {
   summary: string;
+  /** Структура расчёта для меток CRM (товар, площадь, сумма). */
+  data?: Record<string, unknown>;
   city: City;
   onClose: () => void;
 }) {
@@ -35,6 +38,8 @@ export function LeadModal({
       <div className="mt-4">
         <LeadForm
           tag="Расчёт"
+          source="calculator"
+          data={data}
           submitLabel="Отправить расчёт"
           comment={summary}
           city={city}

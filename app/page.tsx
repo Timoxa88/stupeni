@@ -18,9 +18,14 @@ import { BRANDS } from "@/lib/catalog/brands";
 import { CATEGORIES } from "@/lib/content/categories";
 import { showcaseProducts } from "@/lib/catalog/taxonomy";
 import { IMAGES, OBJECTS } from "@/lib/images";
-import { ADVANTAGES, CITY_CONTACTS } from "@/lib/content/site";
-import { HOME_FAQ } from "@/lib/content/faq";
+import { CITY_CONTACTS } from "@/lib/content/site";
+import { getAllContent, getFaq } from "@/lib/store/content";
+import { stepProductsForCalc, slabProductsForCalc } from "@/lib/catalog/queries";
 import { organizationSchema, localBusinessSchema } from "@/lib/jsonld";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 /** Title/description наследуются из layout; здесь нужен canonical (ТЗ §4). */
 export const metadata: Metadata = {
@@ -54,7 +59,10 @@ const gridMotif: React.CSSProperties = {
  * Квиз переехал на /podbor. Отзывы, карта объектов, счётчики и хаб загрузок сняты
  * до появления реальных данных — см. docs/audit_i_plan_zapuska_2026-07-26.md §4, §8.
  */
-export default function Home() {
+export default async function Home() {
+  await primeOverrides();
+  const [content, faq] = await Promise.all([getAllContent(), getFaq("home")]);
+  const hero = content.hero;
   const popular = showcaseProducts(8);
 
   return (
@@ -96,40 +104,38 @@ export default function Home() {
 
           <div className="relative mx-auto max-w-7xl px-5 py-24 sm:py-32">
             <p className="eyebrow rise text-clinker-bright" style={{ ["--rise-delay" as string]: "0ms" }}>
-              Клинкер · керамогранит 20 мм · для улицы
+              {hero.eyebrow}
             </p>
             <h1 className="mt-6 max-w-4xl font-display text-[clamp(2.6rem,7vw,5.5rem)] font-extrabold leading-[0.98]">
               <span className="rise block" style={{ ["--rise-delay" as string]: "80ms" }}>
-                Клинкерные ступени
+                {hero.titleLine1}
               </span>
               <span className="rise block" style={{ ["--rise-delay" as string]: "180ms" }}>
-                и крупноформат для
+                {hero.titleLine2}
               </span>
               <span
                 className="rise block bg-gradient-to-r from-clinker-bright to-ember bg-clip-text text-transparent"
                 style={{ ["--rise-delay" as string]: "280ms" }}
               >
-                крыльца и террас
+                {hero.titleAccent}
               </span>
             </h1>
             <p className="rise mt-7 max-w-xl text-lg text-sand/85" style={{ ["--rise-delay" as string]: "420ms" }}>
-              Морозостойко, не скользит, открытые цены. Считаем комплект в штуках, а не
-              «в квадратах» — поэлементно для ступеней и по площади для террасы. Доставка
-              по России и СНГ.
+              {hero.subtitle}
             </p>
             {/* Один главный CTA — калькулятор (он же дифференциатор), второй вторичным стилем. */}
             <div className="rise mt-9 flex flex-wrap gap-4" style={{ ["--rise-delay" as string]: "540ms" }}>
               <Link
-                href="#calc"
+                href={hero.primaryCta.href}
                 className="sheen rounded-full bg-clinker px-7 py-4 font-semibold text-white shadow-glow transition hover:bg-clinker-hover"
               >
-                Рассчитать комплект
+                {hero.primaryCta.label}
               </Link>
               <Link
-                href="/podbor"
+                href={hero.secondaryCta.href}
                 className="rounded-full border border-sand/25 px-7 py-4 font-semibold text-sand transition hover:bg-sand/10"
               >
-                Подобрать за 5 шагов
+                {hero.secondaryCta.label}
               </Link>
             </div>
           </div>
@@ -191,7 +197,7 @@ export default function Home() {
               </p>
             </Reveal>
             <div className="mt-8 rounded-xl2 border border-ink/10 bg-white p-5 shadow-card sm:p-8">
-              <Calculator />
+              <Calculator stepProducts={stepProductsForCalc()} slabProducts={slabProductsForCalc()} />
             </div>
           </div>
         </section>
@@ -226,7 +232,7 @@ export default function Home() {
                 </Link>
               </div>
             </Reveal>
-            {ADVANTAGES.map((a, i) => (
+            {content.advantages.items.map((a, i) => (
               <Reveal key={a.title} delay={i * 70}>
                 <div className="flex h-full flex-col rounded-card border border-ink/10 bg-white p-6 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift">
                   <h3 className="font-display text-lg font-bold text-ink">{a.title}</h3>
@@ -288,7 +294,7 @@ export default function Home() {
               </h2>
             </Reveal>
             <div className="mt-8">
-              <Faq items={HOME_FAQ} />
+              <Faq items={faq} />
             </div>
           </div>
         </section>
@@ -328,6 +334,7 @@ export default function Home() {
             <div className="rounded-xl2 bg-white/[0.06] p-7 sm:p-9">
               <LeadForm
                 tag="Заявка"
+                source="cta"
                 variant="dark"
                 submitLabel="Отправить заявку"
                 fields={["interest", "region", "catalog"]}

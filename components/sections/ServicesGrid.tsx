@@ -5,14 +5,15 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { Modal } from "@/components/ui/Modal";
 import { SERVICES, type Service } from "@/lib/content/services";
 
-export function ServicesGrid() {
+/** `items` — услуги из мини-CMS (админка), дефолт — из кода. */
+export function ServicesGrid({ items = SERVICES }: { items?: Service[] }) {
   const [active, setActive] = useState<Service | null>(null);
   const titleId = useId();
 
   return (
     <>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        {SERVICES.map((s) => (
+        {items.map((s) => (
           <div
             key={s.tag}
             className="flex flex-col rounded-card border border-ink/10 bg-white p-6 shadow-card transition duration-500 hover:-translate-y-1 hover:shadow-lift"
@@ -39,6 +40,8 @@ export function ServicesGrid() {
           <div className="mt-4">
             <LeadForm
               tag={active.tag}
+              source="service"
+              data={{ service: active.title }}
               submitLabel="Отправить заявку"
               fields={["comment"]}
               comment={`Услуга: ${active.title}`}

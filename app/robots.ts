@@ -19,8 +19,8 @@ export default function robots(): MetadataRoute.Robots {
   ];
   return {
     rules: [
-      { userAgent: "*", allow: "/", disallow: ["/api/"] },
-      ...aiBots.map((ua) => ({ userAgent: ua, allow: "/" })),
+      { userAgent: "*", allow: "/", disallow: ["/api/", "/admin"] },
+      ...aiBots.map((ua) => ({ userAgent: ua, allow: "/", disallow: ["/admin"] })),
     ],
     sitemap: `${SITE.baseUrl}/sitemap.xml`,
     // Директиву Host не отдаём: Яндекс отказался от неё ещё в 2018-м, а тут она

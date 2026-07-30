@@ -2,7 +2,9 @@ import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/content/site";
 import { CATEGORIES } from "@/lib/content/categories";
 import { SOLUTIONS } from "@/lib/content/solutions";
-import { BLOG_POSTS } from "@/lib/content/blog";
+import { publishedPosts } from "@/lib/store/blog";
+import { listSeoOverrides } from "@/lib/store/seo";
+import { primeOverrides } from "@/lib/store/products";
 import { BRANDS } from "@/lib/catalog/brands";
 import { SEED_PRODUCTS } from "@/lib/catalog/seed";
 import { productCategory } from "@/lib/catalog/queries";
@@ -29,9 +31,15 @@ const latest = (dates: (string | undefined)[]): Date => {
   return ms.length ? new Date(Math.max(...ms)) : BUILD_DATE;
 };
 
-export default function sitemap(): MetadataRoute.Sitemap {
+/** Карта сайта учитывает правки админки: скрытые артикулы и noindex-страницы. */
+export const revalidate = 300;
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const base = SITE.baseUrl;
   const url = (p: string) => `${base}${p}`;
+  await primeOverrides();
+  const [posts, seo] = await Promise.all([publishedPosts(), listSeoOverrides()]);
+  const noindex = new Set(seo.filter((s) => s.noindex).map((s) => s.key));
 
   const staticPages = [
     "/",
@@ -82,16 +90,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: latest(active.map((x) => x.price_updated_at)),
     priority: p.collection ? 0.7 : p.brand ? 0.75 : 0.85,
   }));
-  const products = active.map((p) => ({
-    url: url(`/catalog/tovar/${p.id}`),
-    lastModified: p.price_updated_at ? new Date(p.price_updated_at) : BUILD_DATE,
-    priority: 0.6,
-  }));
-  const posts = BLOG_POSTS.map((p) => ({
-    url: url(`/blog/${p.slug}`),
-    lastModified: new Date(p.dateModified ?? p.date),
-    priority: 0.6,
-  }));
+  const products = active
+    .filter((p) => !noindex.has(`product:${p.id}`))
+    .map((p) => ({
+      url: url(`/catalog/tovar/${p.id}`),
+      lastModified: p.price_updated_at ? new Date(p.price_updated_at) : BUILD_DATE,
+      priority: 0.6,
+    }));
+  const postPages = posts
+    .filter((p) => !noindex.has(`blog:${p.slug}`))
+    .map((p) => ({
+      url: url(`/blog/${p.slug}`),
+      lastModified: new Date(p.dateModified ?? p.date),
+      priority: 0.6,
+    }));
 
-  return [...staticPages, ...facets, ...categories, ...solutions, ...producers, ...products, ...posts];
+  return [...staticPages, ...facets, ...categories, ...solutions, ...producers, ...products, ...postPages];
 }

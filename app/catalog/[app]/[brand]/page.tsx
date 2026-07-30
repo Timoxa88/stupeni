@@ -8,6 +8,10 @@ import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { getApplication, brandsOf, brandBySlug, collectionsOf, allPaths } from "@/lib/catalog/taxonomy";
 import { brandSlugByName } from "@/lib/catalog/brands";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Props = { params: Promise<{ app: string; brand: string }> };
 
@@ -18,6 +22,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  await primeOverrides();
   const { app, brand } = await params;
   const node = getApplication(app);
   const name = node && brandBySlug(node.code, brand);
@@ -31,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 /** Третий уровень каталога: коллекции бренда внутри назначения. */
 export default async function BrandLevel({ params }: Props) {
+  await primeOverrides();
   const { app, brand } = await params;
   const node = getApplication(app);
   const name = node && brandBySlug(node.code, brand);

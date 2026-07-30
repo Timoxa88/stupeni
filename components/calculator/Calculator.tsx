@@ -5,6 +5,7 @@ import type { City } from "@/lib/calculator";
 import { Segmented } from "@/components/ui/controls";
 import { ModeAForm, type ModeAPreset } from "./ModeAForm";
 import { ModeBForm, type ModeBPreset } from "./ModeBForm";
+import type { Product } from "@/lib/catalog/types";
 import { LeadModal } from "./LeadModal";
 
 /**
@@ -27,14 +28,19 @@ const PRESETS: {
 export function Calculator({
   initialMode = "A",
   initialProductId,
+  stepProducts,
+  slabProducts,
 }: {
   initialMode?: "A" | "B";
   /** Диплинк из каталога (?product=): артикул уже выбран за пользователя. */
   initialProductId?: string;
+  /** Каталоги с ценами из админки (передаёт серверная страница). */
+  stepProducts?: Product[];
+  slabProducts?: Product[];
 }) {
   const [mode, setMode] = useState<"A" | "B">(initialMode);
   const [city, setCity] = useState<City>("msk");
-  const [lead, setLead] = useState<string | null>(null);
+  const [lead, setLead] = useState<{ summary: string; data: Record<string, unknown> } | null>(null);
   const [presetA, setPresetA] = useState<ModeAPreset | null>(null);
   const [presetB, setPresetB] = useState<ModeBPreset | null>(null);
   const [activePreset, setActivePreset] = useState<string | null>(null);
@@ -99,6 +105,7 @@ export function Calculator({
           onSend={setLead}
           initialProductId={initialProductId}
           preset={presetA}
+          {...(stepProducts ? { products: stepProducts } : {})}
         />
       ) : (
         <ModeBForm
@@ -106,11 +113,12 @@ export function Calculator({
           onSend={setLead}
           initialProductId={initialProductId}
           preset={presetB}
+          {...(slabProducts ? { products: slabProducts } : {})}
         />
       )}
 
       {lead ? (
-        <LeadModal summary={lead} city={city} onClose={() => setLead(null)} />
+        <LeadModal summary={lead.summary} data={lead.data} city={city} onClose={() => setLead(null)} />
       ) : null}
     </div>
   );

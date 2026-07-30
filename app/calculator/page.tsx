@@ -3,12 +3,17 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Calculator } from "@/components/calculator/Calculator";
 import { getProductById } from "@/lib/catalog/queries";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Props = {
   searchParams: Promise<{ mode?: string; product?: string }>;
 };
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
+  await primeOverrides();
   const { product } = await searchParams;
   return {
     title: "Калькулятор ступеней и керамогранита для террасы — расчёт онлайн",
@@ -27,6 +32,7 @@ const gridMotif: React.CSSProperties = {
 };
 
 export default async function CalculatorPage({ searchParams }: Props) {
+  await primeOverrides();
   const { mode, product: productId } = await searchParams;
 
   // Диплинк из каталога: ?product=<id> предвыбирает артикул, а режим выводится

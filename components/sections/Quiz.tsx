@@ -221,6 +221,13 @@ export function Quiz() {
             </div>
             <LeadForm
               tag="Квиз"
+              source="quiz"
+              data={{
+                quiz: summary,
+                product: recommendations[0]
+                  ? `${recommendations[0].brand} ${recommendations[0].collection}`
+                  : undefined,
+              }}
               submitLabel="Получить подбор и образец"
               comment={`Квиз — ${summary}`}
             />

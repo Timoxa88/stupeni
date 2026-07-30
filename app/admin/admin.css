@@ -1,0 +1,233 @@
+/*
+  Стили админки. Отдельный файл (импортируется в layout админки), чтобы не
+  раздувать globals.css публичного сайта. Классы с префиксом `a-`, токены
+  берутся из @theme дизайн-системы (--color-clinker и т.д.).
+*/
+
+.a-shell {
+  min-height: 100vh;
+  background: #f6f5f2;
+}
+
+/* Скрываем публичные оверлеи на страницах админки (зерно, мобильная CTA-панель) */
+.a-shell ~ .grain,
+body:has(.a-shell) .grain {
+  display: none;
+}
+
+/* ── Типографика ── */
+.a-h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 1.2rem + 1.6vw, 2.5rem);
+  color: var(--color-ink);
+  line-height: 1.1;
+}
+.a-h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--color-ink);
+}
+.a-muted {
+  color: var(--color-stone);
+}
+.a-eyebrow {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--color-stone);
+}
+
+/* ── Поля ── */
+.a-input,
+.a-select,
+.a-textarea {
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--color-sand-divider);
+  background: #fff;
+  padding: 0.5rem 0.7rem;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.a-textarea {
+  min-height: 5.5rem;
+  line-height: 1.5;
+  font-family: inherit;
+}
+.a-input:focus,
+.a-select:focus,
+.a-textarea:focus {
+  border-color: var(--color-clinker);
+  box-shadow: 0 0 0 3px rgb(184 72 31 / 0.14);
+}
+.a-input:disabled {
+  background: #f3f1ec;
+  color: var(--color-stone);
+}
+.a-label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-stone);
+  margin-bottom: 0.3rem;
+}
+
+/* ── Кнопки ── */
+.a-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: 38px;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.a-btn:disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.a-btn-primary {
+  background: var(--color-clinker);
+  color: #fff;
+}
+.a-btn-primary:hover {
+  background: var(--color-clinker-hover);
+}
+.a-btn-ghost {
+  background: #fff;
+  color: var(--color-ink);
+  border-color: var(--color-sand-divider);
+}
+.a-btn-ghost:hover {
+  border-color: var(--color-ink);
+}
+.a-btn-danger {
+  background: #fff;
+  color: #a3261a;
+  border-color: #e3c3bd;
+}
+.a-btn-danger:hover {
+  background: #fdf2f0;
+}
+.a-btn-sm {
+  min-height: 30px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+/* ── Карточки и таблицы ── */
+.a-card {
+  background: #fff;
+  border: 1px solid var(--color-sand-divider);
+  border-radius: 0.9rem;
+  overflow: hidden;
+}
+.a-card-pad {
+  padding: 1.1rem 1.25rem;
+}
+.a-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+.a-table th {
+  text-align: left;
+  padding: 0.7rem 0.9rem;
+  background: #f3f1ec;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-stone);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.a-table td {
+  padding: 0.7rem 0.9rem;
+  border-top: 1px solid var(--color-sand-divider);
+  vertical-align: top;
+}
+.a-table tr:hover td {
+  background: #fbfaf8;
+}
+.a-scroll-x {
+  overflow-x: auto;
+}
+
+/* ── Бейджи ── */
+.a-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: #f3f1ec;
+  color: var(--color-stone);
+  white-space: nowrap;
+}
+.a-badge-accent {
+  background: rgb(184 72 31 / 0.1);
+  color: var(--color-clinker);
+}
+.a-badge-ok {
+  background: rgb(79 97 71 / 0.12);
+  color: #3c5236;
+}
+.a-badge-warn {
+  background: rgb(227 147 63 / 0.16);
+  color: #8a5410;
+}
+.a-badge-err {
+  background: #fdeceb;
+  color: #a3261a;
+}
+
+.a-dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  display: inline-block;
+  flex: none;
+}
+.a-dot-ok { background: #4f6147; }
+.a-dot-warn { background: var(--color-ember); }
+.a-dot-err { background: #c0392b; }
+
+/* ── Навигация ── */
+.a-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.875rem;
+  color: rgb(243 241 236 / 0.72);
+  border-left: 2px solid transparent;
+  transition: background 0.15s, color 0.15s;
+}
+.a-nav-link:hover {
+  color: #fff;
+  background: rgb(255 255 255 / 0.06);
+}
+.a-nav-link[data-active="true"] {
+  color: #fff;
+  background: rgb(255 255 255 / 0.1);
+  border-left-color: var(--color-clinker-bright);
+}
+.a-nav-group {
+  padding: 0.75rem 1.2rem 0.25rem;
+  font-size: 0.625rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgb(243 241 236 / 0.38);
+}

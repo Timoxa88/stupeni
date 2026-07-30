@@ -17,6 +17,12 @@ import {
 import { getCategory } from "@/lib/content/categories";
 import { brandSlugByName } from "@/lib/catalog/brands";
 import { productSchema } from "@/lib/jsonld";
+import { primeOverrides } from "@/lib/store/products";
+import { resolveSeo } from "@/lib/store/seo";
+import { ViewTracker } from "@/components/analytics/ViewTracker";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Params = { params: Promise<{ id: string }> };
 
@@ -29,17 +35,25 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  await primeOverrides();
   const { id } = await params;
   const p = getProductById(id);
   if (!p) return {};
-  return {
+  const seo = await resolveSeo(`product:${p.id}`, {
     title: p.seo.title,
     description: p.seo.description,
+  });
+  return {
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/catalog/tovar/${p.id}` },
+    ...(seo.ogImage ? { openGraph: { images: [seo.ogImage] } } : {}),
+    ...(seo.noindex ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
 export default async function ProductPage({ params }: Params) {
+  await primeOverrides();
   const { id } = await params;
   const product = getProductById(id);
   if (!product || !product.active) notFound();
@@ -86,6 +100,7 @@ export default async function ProductPage({ params }: Params) {
       </main>
       <Footer />
       <SchemaScript data={productSchema(product)} />
+      <ViewTracker id={product.id} />
     </>
   );
 }

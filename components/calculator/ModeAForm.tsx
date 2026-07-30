@@ -22,6 +22,7 @@ import {
   type StepFrontType,
 } from "@/lib/catalog/adapters";
 import { getStepProducts } from "@/lib/catalog/seed";
+import type { Product } from "@/lib/catalog/types";
 import {
   Field,
   IconButton,
@@ -46,7 +47,7 @@ export interface ModeAPreset {
   nonce: number;
 }
 
-const products = getStepProducts();
+const SEED_STEP_PRODUCTS = getStepProducts();
 let uid = 0;
 const newMarch = (): MarchInput => ({
   id: `m${++uid}`,
@@ -61,11 +62,14 @@ const newMarch = (): MarchInput => ({
 export function ModeAForm({
   city,
   onSend,
+  products = SEED_STEP_PRODUCTS,
   initialProductId,
   preset,
 }: {
   city: City;
-  onSend: (summary: string) => void;
+  onSend: (lead: { summary: string; data: Record<string, unknown> }) => void;
+  /** Каталог с ценами из админки; дефолт — сид (для клиентского фолбэка). */
+  products?: Product[];
   initialProductId?: string;
   preset?: ModeAPreset | null;
 }) {
@@ -437,8 +441,17 @@ export function ModeAForm({
         <ResultPanel
           result={result}
           onSend={() =>
-            onSend(
-              calcSummary(result, {
+            onSend({
+              // Метки для CRM: товар, площадь и сумма уходят структурой —
+              // из них строится заголовок лида, UF-поля и OPPORTUNITY.
+              data: {
+                product: `${product.brand} ${product.collection}`,
+                sku: product.sku,
+                area: result.detail.kind === "A" ? Number(result.detail.cladArea.toFixed(2)) : undefined,
+                total_cost: result.grandTotal,
+                mode: "A — ступени",
+              },
+              summary: calcSummary(result, {
                 article:
                   `${product.brand} ${product.collection}` +
                   (typeOptions.length > 1
@@ -459,7 +472,7 @@ export function ModeAForm({
                     : ""),
                 page: typeof window !== "undefined" ? window.location.href : undefined,
               }),
-            )
+            })
           }
         />
       </div>

@@ -8,25 +8,40 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { Reveal } from "@/components/ui/Reveal";
 import { SchemaScript } from "@/components/seo/SchemaScript";
-import { BLOG_POSTS, getPost } from "@/lib/content/blog";
+import { BLOG_POSTS } from "@/lib/content/blog";
+import { publishedPost, publishedPosts } from "@/lib/store/blog";
 import { getProductById } from "@/lib/catalog/queries";
+import { primeOverrides } from "@/lib/store/products";
+import { resolveSeo } from "@/lib/store/seo";
 import { articleSchema, howToSchema } from "@/lib/jsonld";
 
 type Params = { params: Promise<{ slug: string }> };
 
-export function generateStaticParams() {
-  return BLOG_POSTS.map((p) => ({ slug: p.slug }));
+export const revalidate = 60;
+
+/** Статьи из админки добавляются в рантайме — на сборке знаем только сидовые. */
+export async function generateStaticParams() {
+  const fromDb = await publishedPosts();
+  const slugs = new Set([...BLOG_POSTS.map((p) => p.slug), ...fromDb.map((p) => p.slug)]);
+  return [...slugs].map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
-  const p = getPost(slug);
+  const p = await publishedPost(slug);
   if (!p) return {};
+  const seo = await resolveSeo(`blog:${p.slug}`, { title: p.title, description: p.description });
   return {
-    title: p.title,
-    description: p.description,
+    title: seo.title,
+    description: seo.description,
     alternates: { canonical: `/blog/${p.slug}` },
-    openGraph: { title: p.title, description: p.description, images: [p.cover], type: "article" },
+    openGraph: {
+      title: seo.title,
+      description: seo.description,
+      images: [seo.ogImage ?? p.cover],
+      type: "article",
+    },
+    ...(seo.noindex ? { robots: { index: false, follow: false } } : {}),
   };
 }
 
@@ -37,7 +52,8 @@ const fmtDate = (iso: string) =>
 
 export default async function BlogPost({ params }: Params) {
   const { slug } = await params;
-  const post = getPost(slug);
+  await primeOverrides();
+  const post = await publishedPost(slug);
   if (!post) notFound();
 
   const related = post.relatedProductIds

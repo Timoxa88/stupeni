@@ -14,6 +14,10 @@ import { SOLUTIONS, getSolution } from "@/lib/content/solutions";
 import { getProductsByApplication } from "@/lib/catalog/queries";
 import { howToSchema, itemListSchema } from "@/lib/jsonld";
 import { productTitle } from "@/lib/catalog/display";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return SOLUTIONS.map((s) => ({ slug: s.slug }));
@@ -22,6 +26,7 @@ export function generateStaticParams() {
 type Params = { params: Promise<{ slug: string }> };
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  await primeOverrides();
   const { slug } = await params;
   const s = getSolution(slug);
   if (!s) return {};
@@ -33,6 +38,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 }
 
 export default async function SolutionPage({ params }: Params) {
+  await primeOverrides();
   const { slug } = await params;
   const s = getSolution(slug);
   if (!s) notFound();
@@ -181,6 +187,8 @@ export default async function SolutionPage({ params }: Params) {
             <div className="rounded-card border border-ink/10 bg-white p-6 shadow-card sm:p-8">
               <LeadForm
                 tag={s.h1}
+                source="solution"
+                data={{ scenario: s.h1 }}
                 submitLabel="Отправить заявку"
                 comment={`Сценарий: ${s.h1}`}
                 fields={["comment"]}

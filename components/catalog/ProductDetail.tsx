@@ -338,6 +338,12 @@ export function ProductDetail({ product }: { product: Product }) {
           <div className="mt-4">
             <LeadForm
               tag="Образец"
+              source="product"
+              data={{
+                product: `${product.brand} ${product.collection}`,
+                sku: v?.sku ?? product.sku,
+                variant: v.label,
+              }}
               submitLabel="Отправить"
               comment={`Артикул: ${v?.sku ?? product.sku} (${product.brand} ${product.collection}), ${v.label}`}
             />

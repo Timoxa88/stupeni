@@ -5,6 +5,10 @@ import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Quiz } from "@/components/sections/Quiz";
 import { IMAGES } from "@/lib/images";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: "Подбор материала для крыльца и террасы — 5 шагов",
@@ -18,7 +22,8 @@ export const metadata: Metadata = {
  * (шаг 1) и выбор категории (шаг 2) и конкурировал с калькулятором за внимание.
  * Отдельной страницей он остаётся доступен — ссылкой из hero и из шапки.
  */
-export default function PodborPage() {
+export default async function PodborPage() {
+  await primeOverrides();
   return (
     <>
       <Header />

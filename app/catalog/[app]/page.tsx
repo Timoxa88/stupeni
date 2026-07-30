@@ -8,6 +8,10 @@ import { Reveal } from "@/components/ui/Reveal";
 import { getApplication, brandsOf, applications, productHref } from "@/lib/catalog/taxonomy";
 import { getProductById } from "@/lib/catalog/queries";
 import { getSolution } from "@/lib/content/solutions";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Props = { params: Promise<{ app: string }> };
 
@@ -16,6 +20,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  await primeOverrides();
   const a = getApplication((await params).app);
   if (!a) return {};
   return {
@@ -27,6 +32,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 /** Второй уровень каталога: бренды, у которых есть материал под это назначение. */
 export default async function AppLevel({ params }: Props) {
+  await primeOverrides();
   const { app } = await params;
 
   // Старые адреса карточек были /catalog/<id> и теперь попадают сюда.

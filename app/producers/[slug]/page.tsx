@@ -24,6 +24,10 @@ import {
   parseCatalogQuery,
   sortProducts,
 } from "@/lib/catalog/facets";
+import { primeOverrides } from "@/lib/store/products";
+
+/* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
+export const revalidate = 60;
 
 type Params = {
   params: Promise<{ slug: string }>;
@@ -35,6 +39,7 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params, searchParams }: Params): Promise<Metadata> {
+  await primeOverrides();
   const { slug } = await params;
   const b = getBrand(slug);
   if (!b) return {};
@@ -50,6 +55,7 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
 }
 
 export default async function ProducerPage({ params, searchParams }: Params) {
+  await primeOverrides();
   const { slug } = await params;
   const b = getBrand(slug);
   if (!b) notFound();
@@ -164,6 +170,8 @@ export default async function ProducerPage({ params, searchParams }: Params) {
             <div className="rounded-card bg-white/[0.06] p-6 sm:p-8">
               <LeadForm
                 tag={b.name}
+                source="brand"
+                data={{ brand: b.name }}
                 variant="dark"
                 submitLabel={`Запросить ${b.name}`}
                 comment={`Бренд: ${b.name}`}

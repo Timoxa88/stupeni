@@ -7,6 +7,7 @@ import type { ApplicationCode, Product, ProductCategory, ProductPromo } from "./
 import { SEED_PRODUCTS } from "./seed";
 import { diversify } from "./diversify";
 import { frontElement } from "./elements";
+import { applyOverrideCached } from "./overrides-cache";
 
 /** Три продуктовые категории-хаба (ТЗ §3). */
 export type CategoryKey = ProductCategory;
@@ -22,12 +23,30 @@ export function productCategory(p: Product): CategoryKey {
   return "terrasnye-plastiny";
 }
 
+/*
+ * Единственная точка, где сид встречается с правками из админки: цены, тексты,
+ * фото, промо, наличие и скрытие применяются здесь — и дальше их «видят» все
+ * листинги, фасеты, карточки и калькулятор, ничего не зная про БД.
+ * Правки берутся из кэша, который серверная страница обновляет вызовом
+ * primeOverrides() (см. lib/store/products.ts). Кэш пуст (нет БД) → чистый сид.
+ */
 export function activeProducts(): Product[] {
-  return SEED_PRODUCTS.filter((p) => p.active);
+  return SEED_PRODUCTS.map(applyOverrideCached).filter((p) => p.active);
+}
+
+/** Товары калькулятора — через activeProducts(), т.е. с ценами из админки. */
+export function stepProductsForCalc(): Product[] {
+  return activeProducts().filter((p) => p.product_type === "step_system");
+}
+
+/** Режим B — только Paradyz (решение 30.07.2026, см. getProductsByCategory). */
+export function slabProductsForCalc(): Product[] {
+  return activeProducts().filter((p) => p.product_type === "slab" && p.brand === "Paradyz");
 }
 
 export function getProductById(id: string): Product | undefined {
-  return SEED_PRODUCTS.find((p) => p.id === id);
+  const p = SEED_PRODUCTS.find((x) => x.id === id);
+  return p ? applyOverrideCached(p) : undefined;
 }
 
 /* Листинги отдаются через diversify(): генерированный каталог лежит блоками

@@ -3,18 +3,30 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { ServicesGrid } from "@/components/sections/ServicesGrid";
-import { SERVICES } from "@/lib/content/services";
+import { getContent } from "@/lib/store/content";
+import { resolveSeo } from "@/lib/store/seo";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { servicesCatalogSchema } from "@/lib/jsonld";
 
-export const metadata: Metadata = {
-  title: "Услуги — образец, расчёт, замер, монтаж, доставка",
-  description:
-    "Услуги Hit Ceramics: заказ образца, расчёт комплекта, замер, монтаж клинкера и керамогранита, 3D-визуализация, распил, доставка по РФ и СНГ.",
-  alternates: { canonical: "/services" },
-};
+export const revalidate = 60;
 
-export default function ServicesPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const seo = await resolveSeo("static:services", {
+    title: "Услуги — образец, расчёт, замер, монтаж, доставка",
+    description:
+      "Услуги Hit Ceramics: заказ образца, расчёт комплекта, замер, монтаж клинкера и керамогранита, 3D-визуализация, распил, доставка по РФ и СНГ.",
+  });
+  return {
+    title: seo.title,
+    description: seo.description,
+    alternates: { canonical: "/services" },
+    ...(seo.ogImage ? { openGraph: { images: [seo.ogImage] } } : {}),
+    ...(seo.noindex ? { robots: { index: false, follow: false } } : {}),
+  };
+}
+
+export default async function ServicesPage() {
+  const { items: services } = await getContent("services");
   return (
     <>
       <Header />
@@ -31,11 +43,11 @@ export default function ServicesPage() {
           ]}
         />
         <section className="mx-auto max-w-7xl px-5 py-16 sm:py-24">
-          <ServicesGrid />
+          <ServicesGrid items={services} />
         </section>
       </main>
       <Footer />
-      <SchemaScript data={servicesCatalogSchema(SERVICES.map((s) => ({ title: s.title, desc: s.desc })))} />
+      <SchemaScript data={servicesCatalogSchema(services.map((s) => ({ title: s.title, desc: s.desc })))} />
     </>
   );
 }

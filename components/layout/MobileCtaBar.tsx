@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useContacts } from "@/components/layout/ContactsProvider";
 import { SITE } from "@/lib/content/site";
 
 /**
@@ -10,6 +11,7 @@ import { SITE } from "@/lib/content/site";
  * scroll-padding-bottom в globals.css, футер — за счёт pb-компенсации в body.
  */
 export function MobileCtaBar() {
+  const contacts = useContacts();
   // На главной калькулятор встроен — якорь вместо перехода на /calculator.
   const pathname = usePathname();
   const calcHref = pathname === "/" ? "#calc" : "/calculator";
@@ -24,7 +26,7 @@ export function MobileCtaBar() {
       style={{ paddingBottom: "calc(0.625rem + env(safe-area-inset-bottom))" }}
     >
       <a
-        href={`tel:${SITE.phone}`}
+        href={`tel:${contacts.phone}`}
         className="flex flex-1 items-center justify-center rounded-full border border-ink/15 px-4 py-3 font-semibold text-ink"
       >
         Позвонить
