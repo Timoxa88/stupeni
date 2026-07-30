@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { getApplication, brandsOf, applications, productHref } from "@/lib/catalog/taxonomy";
 import { getProductById } from "@/lib/catalog/queries";
 import { getSolution } from "@/lib/content/solutions";
+import { plural } from "@/lib/format";
 import { primeOverrides } from "@/lib/store/products";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
@@ -25,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!a) return {};
   return {
     title: `${a.title} — клинкер и керамогранит по брендам`,
-    description: `Материалы для сценария «${a.title.toLowerCase()}»: ${a.count} позиций от заводов-производителей. Выберите бренд, коллекцию и цвет.`,
+    description: `Материалы для сценария «${a.title.toLowerCase()}»: ${a.count} ${plural(a.count, "позиция", "позиции", "позиций")} от заводов-производителей. Выберите бренд, коллекцию и цвет.`,
     alternates: { canonical: `/catalog/${a.code}` },
   };
 }
@@ -55,7 +56,7 @@ export default async function AppLevel({ params }: Props) {
           alt={node.imageAlt}
           eyebrow="Каталог"
           h1={`${node.title} — материалы`}
-          intro={`${node.count} позиций под этот сценарий от ${brands.length} производителей. Выберите бренд, дальше — коллекцию и цвет.`}
+          intro={`${node.count} ${plural(node.count, "позиция", "позиции", "позиций")} под этот сценарий от ${brands.length} ${plural(brands.length, "производителя", "производителей", "производителей")}. Выберите бренд, дальше — коллекцию и цвет.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },
             { name: "Каталог", url: "/catalog" },
@@ -90,10 +91,10 @@ export default async function AppLevel({ params }: Props) {
                     {b.name}
                   </h3>
                   <p className="mt-2 flex-1 text-sm text-stone">
-                    {b.collections} коллекц{b.collections === 1 ? "ия" : b.collections < 5 ? "ии" : "ий"}
+                    {b.collections} {plural(b.collections, "коллекция", "коллекции", "коллекций")}
                   </p>
                   <span className="mt-4 text-sm font-semibold text-clinker">
-                    {b.count} позиций →
+                    {b.count} {plural(b.count, "позиция", "позиции", "позиций")} →
                   </span>
                 </Link>
               </Reveal>

@@ -8,6 +8,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { BRANDS, getBrand } from "@/lib/catalog/brands";
+import { plural } from "@/lib/format";
 import { getProductsByBrand } from "@/lib/catalog/queries";
 import { Pagination } from "@/components/ui/Pagination";
 import { PER_PAGE, pageHref, pageSuffix, paginate, parsePage } from "@/lib/pagination";
@@ -127,7 +128,7 @@ export default async function ProducerPage({ params, searchParams }: Params) {
               </h2>
             </Reveal>
             <p className="mt-3 text-stone">
-              {paged.total} позиций
+              {paged.total} {plural(paged.total, "позиция", "позиции", "позиций")}
               {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
             </p>
             <div className="mt-7">

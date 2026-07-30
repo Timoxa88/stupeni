@@ -8,6 +8,7 @@ import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { getApplication, brandsOf, brandBySlug, collectionsOf, allPaths } from "@/lib/catalog/taxonomy";
 import { brandSlugByName } from "@/lib/catalog/brands";
+import { plural } from "@/lib/format";
 import { primeOverrides } from "@/lib/store/products";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
@@ -55,7 +56,7 @@ export default async function BrandLevel({ params }: Props) {
           alt={collections[0]?.coverAlt ?? node.imageAlt}
           eyebrow={node.title}
           h1={`${name} — коллекции`}
-          intro={`${collections.length} коллекций и ${total} позиций ${name} под сценарий «${node.title.toLowerCase()}». В коллекции — цвета одной серии с общим форматом и составом элементов.`}
+          intro={`${collections.length} ${plural(collections.length, "коллекция", "коллекции", "коллекций")} и ${total} ${plural(total, "позиция", "позиции", "позиций")} ${name} под сценарий «${node.title.toLowerCase()}». В коллекции — цвета одной серии с общим форматом и составом элементов.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },
             { name: "Каталог", url: "/catalog" },

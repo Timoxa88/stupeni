@@ -29,7 +29,7 @@ import {
 } from "@/lib/catalog/queries";
 import { applications, collectionsOfBrandForLinks, slug } from "@/lib/catalog/taxonomy";
 import { productTitle } from "@/lib/catalog/display";
-import { formatRub } from "@/lib/format";
+import { formatRub, plural } from "@/lib/format";
 import { IMAGES } from "@/lib/images";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
@@ -190,7 +190,7 @@ export default async function CatalogPage({ searchParams }: Props) {
           alt={IMAGES.catSlab.alt}
           eyebrow="Каталог"
           h1="Каталог уличной керамики"
-          intro={`${all.length} позиций от шести производителей. Клинкерные ступени поэлементно — с капиносом и с насечками, угловые, напольная плитка 30×30 и 30×60. Комплект в штуках посчитает калькулятор.`}
+          intro={`${all.length} ${plural(all.length, "позиция", "позиции", "позиций")} от шести производителей. Клинкерные ступени поэлементно — с капиносом и с насечками, угловые, напольная плитка 30×30 и 30×60. Комплект в штуках посчитает калькулятор.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },
             { name: "Каталог", url: "/catalog" },
@@ -256,7 +256,7 @@ export default async function CatalogPage({ searchParams }: Props) {
         <section className="mx-auto max-w-7xl px-5 py-10 sm:py-14">
           <Reveal>
             <p className="mt-1 text-stone">
-              {paged.total} позиций
+              {paged.total} {plural(paged.total, "позиция", "позиции", "позиций")}
               {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
             </p>
           </Reveal>
@@ -319,7 +319,7 @@ export default async function CatalogPage({ searchParams }: Props) {
                           href={`/catalog?brand=${slug(brand.name)}`}
                           className="text-sm font-semibold text-clinker underline-offset-2 hover:underline"
                         >
-                          {count} позиций
+                          {count} {plural(count, "позиция", "позиции", "позиций")}
                         </Link>
                         {minPrice ? (
                           <span className="tabular text-sm text-stone">

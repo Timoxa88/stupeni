@@ -5,6 +5,7 @@ import { SubHero } from "@/components/sections/SubHero";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { FilterBar } from "@/components/catalog/FilterBar";
 import { Pagination } from "@/components/ui/Pagination";
+import { plural } from "@/lib/format";
 import { paginate, pageHref } from "@/lib/pagination";
 import {
   SORT_OPTIONS,
@@ -87,7 +88,7 @@ export function CategoryView({
               Коллекции категории
             </h2>
             <p className="mt-3 text-stone">
-              {paged.total} позиций
+              {paged.total} {plural(paged.total, "позиция", "позиции", "позиций")}
               {paged.pages > 1 ? ` · страница ${paged.page} из ${paged.pages}` : ""}
             </p>
           </Reveal>

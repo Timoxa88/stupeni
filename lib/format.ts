@@ -20,4 +20,22 @@ export function formatNum(value: number, digits = 2): string {
   }).format(value);
 }
 
+const pluralRu = new Intl.PluralRules("ru-RU");
+
+/**
+ * «162 позиции»: plural(162, "позиция", "позиции", "позиций").
+ * Формы — им. падеж; для родительного («от 3 производителей») передавать
+ * его формы: plural(n, "производителя", "производителей", "производителей").
+ */
+export function plural(n: number, one: string, few: string, many: string): string {
+  switch (pluralRu.select(n)) {
+    case "one":
+      return one;
+    case "few":
+      return few;
+    default:
+      return many;
+  }
+}
+
 export { num };

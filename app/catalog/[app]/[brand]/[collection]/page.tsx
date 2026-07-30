@@ -10,6 +10,7 @@ import { LeadForm } from "@/components/forms/LeadForm";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
 import { productTitle } from "@/lib/catalog/display";
+import { plural } from "@/lib/format";
 import {
   getApplication,
   brandBySlug,
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const colors = coll.products.map(colorLabel).join(", ");
   return {
     title: `${name} ${coll.base} — цвета и цены, ${node.title.toLowerCase()}`,
-    description: `Коллекция ${name} ${coll.base}: ${coll.products.length} цветов (${colors}). Состав элементов, цены и расчёт комплекта.`,
+    description: `Коллекция ${name} ${coll.base}: ${coll.products.length} ${plural(coll.products.length, "цвет", "цвета", "цветов")} (${colors}). Состав элементов, цены и расчёт комплекта.`,
     alternates: { canonical: `/catalog/${app}/${brand}/${collection}` },
   };
 }
@@ -65,7 +66,7 @@ export default async function CollectionLevel({ params }: Props) {
           alt={coll.coverAlt ?? node.imageAlt}
           eyebrow={`${node.title} · ${name}`}
           h1={`${name} ${coll.base}`}
-          intro={`${coll.products.length} цветов и исполнений коллекции. Цвета одной серии совпадают по формату и составу элементов — проступь, угол, подступёнок и базовая плитка считаются одинаково.`}
+          intro={`${coll.products.length} ${plural(coll.products.length, "цвет и исполнение", "цвета и исполнения", "цветов и исполнений")} коллекции. Цвета одной серии совпадают по формату и составу элементов — проступь, угол, подступёнок и базовая плитка считаются одинаково.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },
             { name: "Каталог", url: "/catalog" },
