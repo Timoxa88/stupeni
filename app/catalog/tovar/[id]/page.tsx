@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
@@ -18,6 +19,7 @@ import { getCategory } from "@/lib/content/categories";
 import { brandSlugByName } from "@/lib/catalog/brands";
 import { productSchema } from "@/lib/jsonld";
 import { primeOverrides } from "@/lib/store/products";
+import { applyOverrideCached } from "@/lib/catalog/overrides-cache";
 import { resolveSeo } from "@/lib/store/seo";
 import { ViewTracker } from "@/components/analytics/ViewTracker";
 
@@ -26,12 +28,16 @@ export const revalidate = 60;
 
 type Params = { params: Promise<{ id: string }> };
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   // Только активные: снятые с витрины товары (нет фото своего артикула — см.
   // scripts/deactivate_without_photo.py) не должны иметь и своей страницы.
   // Иначе они исчезают из листингов и счётчиков, но остаются доступны по прямой
   // ссылке — и попадают в выдачу как страница без картинки.
-  return SEED_PRODUCTS.filter((p) => p.active).map((p) => ({ id: p.id }));
+  // Артикулы, скрытые в админке, тоже не пререндерим.
+  await primeOverrides();
+  return SEED_PRODUCTS.map(applyOverrideCached)
+    .filter((p) => p.active)
+    .map((p) => ({ id: p.id }));
 }
 
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
@@ -39,6 +45,14 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params;
   const p = getProductById(id);
   if (!p) return {};
+  // Снятый с витрины артикул из индекса убираем, страницу оставляем «заглушкой».
+  if (!p.active) {
+    return {
+      title: `${productTitle(p)} — снят с витрины`,
+      robots: { index: false, follow: false },
+      alternates: { canonical: `/catalog/tovar/${p.id}` },
+    };
+  }
   const seo = await resolveSeo(`product:${p.id}`, {
     title: p.seo.title,
     description: p.seo.description,
@@ -56,7 +70,51 @@ export default async function ProductPage({ params }: Params) {
   await primeOverrides();
   const { id } = await params;
   const product = getProductById(id);
-  if (!product || !product.active) notFound();
+  // Несуществующий артикул — честный 404.
+  if (!product) notFound();
+
+  /*
+   * Артикул, скрытый в админке, отдаём страницей-заглушкой (noindex), а не 404.
+   * Причина техническая: notFound() бросает ошибку, а при ошибке ревалидации
+   * Next «продолжает отдавать последнюю успешно сгенерированную страницу»
+   * (docs → guides/incremental-static-regeneration, «Handling uncaught
+   * exceptions»). То есть после скрытия карточка навсегда осталась бы в кэше
+   * со старым содержимым. Заглушка рендерится штатно — кэш обновляется, из
+   * листингов, карты сайта и цветовых чипов артикул уже убран.
+   */
+  if (!product.active) {
+    return (
+      <>
+        <Header tone="light" />
+        <main id="main" className="pt-[72px]">
+          <section className="mx-auto max-w-3xl px-5 py-24 text-center">
+            <h1 className="font-display text-3xl font-extrabold text-ink sm:text-4xl">
+              {productTitle(product)} — снят с витрины
+            </h1>
+            <p className="mt-4 text-stone">
+              Этой позиции сейчас нет в продаже. Подберём замену в том же цвете и формате —
+              посмотрите каталог или напишите нам.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-3">
+              <Link
+                href="/catalog"
+                className="rounded-full bg-clinker px-6 py-3 font-semibold text-white transition hover:bg-clinker-hover"
+              >
+                В каталог
+              </Link>
+              <Link
+                href="/podbor"
+                className="rounded-full border border-ink/15 px-6 py-3 font-semibold text-ink transition hover:border-ink/40"
+              >
+                Подобрать замену
+              </Link>
+            </div>
+          </section>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   const cat = getCategory(productCategory(product));
   const brandSlug = brandSlugByName(product.brand);
