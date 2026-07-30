@@ -84,8 +84,22 @@ export function applyOverride(p: Product, o: ProductOverride | undefined): Produ
   return out;
 }
 
-/** Синхронное применение из кэша — точка входа для `queries.ts`. */
+/** Скрыт ли артикул правкой из админки. */
+function hidden(id: string): boolean {
+  return cache.get(id)?.active === false;
+}
+
+/**
+ * Синхронное применение из кэша — точка входа для `queries.ts`.
+ *
+ * Дополнительно вычищаются цветовые варианты, указывающие на скрытые артикулы:
+ * иначе снятый с витрины цвет остаётся доступен чипом в карточке-соседе.
+ */
 export function applyOverrideCached(p: Product): Product {
   if (cache.size === 0) return p;
-  return applyOverride(p, cache.get(p.id));
+  const out = applyOverride(p, cache.get(p.id));
+  if (out.variants?.some((v) => hidden(v.id))) {
+    return { ...out, variants: out.variants.filter((v) => !hidden(v.id)) };
+  }
+  return out;
 }
