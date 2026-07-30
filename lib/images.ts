@@ -54,16 +54,28 @@ export const IMAGES = {
  * файл заново), но при смене пайплайна проверять, что GPS-тегов в JPEG нет.
  */
 export const OBJECTS: SiteImage[] = [
-  { src: "/images/objects/natural-brown-kryltso.jpg", alt: "Крыльцо-подиум в три ступени, клинкер Paradyz Natural Brown" },
+  // 30.07.2026: галерея покрывает ВСЕ 17 цветов Paradyz, по которым есть фото
+  // объектов (кадры /objects/catalog/ — те же, что в карточках товаров, отбор
+  // см. коммит 8a1dada). Порядок перемешан вручную: соседние кадры — разные
+  // коллекции, тёмные/светлые чередуются.
   { src: "/images/objects/scandiano-brown-terrasa.jpg", alt: "Терраса с обеденной зоной у кирпичного дома, клинкер Paradyz Scandiano Brown" },
-  { src: "/images/objects/scandiano-ochra-lestnica.jpg", alt: "Уличная лестница в семь ступеней с капиносом, клинкер Paradyz Scandiano Ochra" },
-  { src: "/images/objects/cloud-brown-kryltso.jpg", alt: "Крыльцо с тёмными ступенями и каменным цоколем, клинкер Paradyz Cloud Brown" },
   { src: "/images/objects/viano-grys-lestnica.jpg", alt: "Парадная лестница в сад с коваными перилами, клинкер Paradyz Viano Grys" },
-  { src: "/images/objects/scandiano-brown-kryltso.jpg", alt: "Входная группа и площадка с креслом, клинкер Paradyz Scandiano Brown" },
-  { src: "/images/objects/semir-brown-kryltso.jpg", alt: "Широкое крыльцо с кирпичным цоколем, клинкер Paradyz Semir Brown" },
-  { src: "/images/objects/scandiano-ochra-stupeni.jpg", alt: "Ступени с капиносом крупным планом, клинкер Paradyz Scandiano Ochra" },
-  { src: "/images/objects/ilario-brown-kryltso.jpg", alt: "Крыльцо под навесом у кирпичного дома, клинкер Paradyz Ilario Brown" },
-  { src: "/images/objects/cloud-brown-terrasa.jpg", alt: "Терраса с кованым ограждением, клинкер Paradyz Cloud Brown" },
-  { src: "/images/objects/scandiano-rosso-stupeni.jpg", alt: "Терракотовые ступени с рифлёной проступью, клинкер Paradyz Scandiano Rosso" },
   { src: "/images/objects/semir-rosa-kryltso.jpg", alt: "Входная группа с терракотовыми ступенями, клинкер Paradyz Semir Rosa" },
+  { src: "/images/objects/catalog/ilario-beige-3.jpg", alt: "Крыльцо на каменном цоколе, клинкер Paradyz Ilario Beige" },
+  { src: "/images/objects/cloud-brown-kryltso.jpg", alt: "Крыльцо с тёмными ступенями и каменным цоколем, клинкер Paradyz Cloud Brown" },
+  { src: "/images/objects/catalog/scandiano-beige-2.jpg", alt: "Крыльцо в три ступени у входной группы, клинкер Paradyz Scandiano Beige" },
+  { src: "/images/objects/semir-brown-kryltso.jpg", alt: "Широкое крыльцо с кирпичным цоколем, клинкер Paradyz Semir Brown" },
+  { src: "/images/objects/catalog/viano-antracite-3.jpg", alt: "Крыльцо на брусчатой площадке, клинкер Paradyz Viano Antracite" },
+  { src: "/images/objects/scandiano-ochra-lestnica.jpg", alt: "Уличная лестница в семь ступеней с капиносом, клинкер Paradyz Scandiano Ochra" },
+  { src: "/images/objects/ilario-brown-kryltso.jpg", alt: "Крыльцо под навесом у кирпичного дома, клинкер Paradyz Ilario Brown" },
+  { src: "/images/objects/catalog/mattone-grafit-1.jpg", alt: "Крыльцо в три ступени у входа, клинкер Paradyz Mattone Grafit" },
+  { src: "/images/objects/natural-brown-kryltso.jpg", alt: "Крыльцо-подиум в три ступени, клинкер Paradyz Natural Brown" },
+  { src: "/images/objects/scandiano-brown-kryltso.jpg", alt: "Входная группа и площадка с креслом, клинкер Paradyz Scandiano Brown" },
+  { src: "/images/objects/catalog/semir-grafit-1.jpg", alt: "Ступени входной группы с перилами, клинкер Paradyz Semir Grafit" },
+  { src: "/images/objects/catalog/ilario-ochra-1.jpg", alt: "Крыльцо с каменными колоннами, клинкер Paradyz Ilario Ochra" },
+  { src: "/images/objects/cloud-brown-terrasa.jpg", alt: "Терраса с кованым ограждением, клинкер Paradyz Cloud Brown" },
+  { src: "/images/objects/scandiano-ochra-stupeni.jpg", alt: "Ступени с капиносом крупным планом, клинкер Paradyz Scandiano Ochra" },
+  { src: "/images/objects/catalog/viano-beige-1.jpg", alt: "Ступени с рифлёной проступью у кирпичной стены, клинкер Paradyz Viano Beige" },
+  { src: "/images/objects/catalog/semir-beige-1.jpg", alt: "Полукруглое крыльцо, клинкер Paradyz Semir Beige" },
+  { src: "/images/objects/scandiano-rosso-stupeni.jpg", alt: "Терракотовые ступени с рифлёной проступью, клинкер Paradyz Scandiano Rosso" },
 ];

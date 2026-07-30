@@ -121,12 +121,17 @@ export default async function CatalogPage({ searchParams }: Props) {
     .sort((a, b) => b.count - a.count);
 
   // Врезки объектов — только там, где страница достаточно длинная: после 8-й
-  // и после 16-й карточки текущей страницы.
+  // и после 16-й карточки текущей страницы. Кадры фиксированы по src, а не по
+  // индексу: порядок OBJECTS меняется при пополнении галереи главной.
+  const banner1 =
+    OBJECTS.find((o) => o.src.includes("scandiano-ochra-lestnica")) ?? OBJECTS[0];
+  const banner2 =
+    OBJECTS.find((o) => o.src.includes("cloud-brown-terrasa")) ?? OBJECTS[1];
   const chunks: { items: typeof paged.items; banner?: (typeof OBJECTS)[number] }[] = [];
   if (paged.items.length > 12) {
-    chunks.push({ items: paged.items.slice(0, 8), banner: OBJECTS[2] });
+    chunks.push({ items: paged.items.slice(0, 8), banner: banner1 });
     if (paged.items.length > 20) {
-      chunks.push({ items: paged.items.slice(8, 16), banner: OBJECTS[9] });
+      chunks.push({ items: paged.items.slice(8, 16), banner: banner2 });
       chunks.push({ items: paged.items.slice(16) });
     } else {
       chunks.push({ items: paged.items.slice(8) });
