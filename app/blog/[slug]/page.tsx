@@ -10,7 +10,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { BLOG_POSTS, getPost } from "@/lib/content/blog";
 import { getProductById } from "@/lib/catalog/queries";
-import { articleSchema, howToSchema } from "@/lib/jsonld";
+import { articleSchema, faqSchema, howToSchema } from "@/lib/jsonld";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -65,6 +65,11 @@ export default async function BlogPost({ params }: Params) {
       }),
     );
   }
+  // FAQ с микроразметкой (AEO): формулировки близки к запросам, каждый ответ
+  // самодостаточен — см. website-full-cycle, этап 9.
+  if (post.faq?.length) {
+    schema.push(faqSchema(post.faq));
+  }
 
   return (
     <>
@@ -113,6 +118,22 @@ export default async function BlogPost({ params }: Params) {
               </section>
             ))}
           </div>
+
+          {/* Частые вопросы (AEO): ответы самодостаточны, дублируются
+              FAQPage-разметкой выше по schema */}
+          {post.faq?.length ? (
+            <section className="mt-12">
+              <h2 className="font-display text-2xl font-bold text-ink">Частые вопросы</h2>
+              <div className="mt-5 space-y-5">
+                {post.faq.map((f) => (
+                  <div key={f.q} className="rounded-card border border-ink/10 bg-white p-5 shadow-card">
+                    <h3 className="font-display text-lg font-bold text-ink">{f.q}</h3>
+                    <p className="mt-2 leading-relaxed text-stone">{f.a}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ) : null}
         </article>
 
         {/* Связанные артикулы */}
