@@ -22,6 +22,8 @@ export type SiteSettings = {
   yandexMapsKey: string;
 
   // ── Метки Битрикс24 (см. lib/bitrix.ts) ──
+  /** Префикс заголовка лида — по нему заявки сайта видно в списке CRM. */
+  bitrixTitlePrefix: string;
   /** SOURCE_ID лида в портале. */
   bitrixSourceId: string;
   /** ASSIGNED_BY_ID — ответственный менеджер. */
@@ -46,6 +48,7 @@ function envDefaults(): SiteSettings {
     googleVerification: e("GOOGLE_SITE_VERIFICATION"),
     yandexMapsKey: e("NEXT_PUBLIC_YANDEX_MAPS_API_KEY"),
 
+    bitrixTitlePrefix: e("LEAD_TITLE_PREFIX", "ступени ХИТ"),
     bitrixSourceId: e("LEAD_BITRIX_SOURCE_ID", "WEB"),
     bitrixAssignedById: e("BITRIX_ASSIGNED_BY_ID", "6"),
     bitrixSiteLabel: e("LEAD_SITE_LABEL", "Лендинг ступени/террасы Hit Ceramics"),

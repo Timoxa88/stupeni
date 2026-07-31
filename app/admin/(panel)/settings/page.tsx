@@ -77,11 +77,18 @@ export default async function AdminSettings({
           <div className="border-b border-sand-divider px-5 py-4">
             <h2 className="a-h2">Метки заявок в Битрикс24</h2>
             <p className="a-muted text-sm">
-              Заявка создаётся как <code>crm.lead.add</code>; заголовок — «Форма: Имя | Город ·
-              Товар · Площадь», название формы дублируется в UF-поле и в описании источника.
+              Заявка создаётся как <code>crm.lead.add</code>; заголовок — «Префикс — Форма: Имя |
+              Город · Товар · Площадь», название формы дублируется в UF-поле и в описании источника.
             </p>
           </div>
           <div className="a-card-pad grid gap-4 sm:grid-cols-2">
+            <Field
+              name="bitrixTitlePrefix"
+              label="Префикс заголовка лида"
+              value={override.bitrixTitlePrefix}
+              env={env.bitrixTitlePrefix}
+              wide
+            />
             <Field
               name="bitrixSourceId"
               label="SOURCE_ID (источник в портале)"

@@ -15,6 +15,7 @@ export async function saveSettingsAction(fd: FormData) {
     yandexVerification: s(fd, "yandexVerification"),
     googleVerification: s(fd, "googleVerification"),
     yandexMapsKey: s(fd, "yandexMapsKey"),
+    bitrixTitlePrefix: s(fd, "bitrixTitlePrefix"),
     bitrixSourceId: s(fd, "bitrixSourceId"),
     bitrixAssignedById: s(fd, "bitrixAssignedById"),
     bitrixSiteLabel: s(fd, "bitrixSiteLabel"),

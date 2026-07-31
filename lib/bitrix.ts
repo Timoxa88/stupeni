@@ -100,6 +100,7 @@ export async function buildLeadFields(lead: BitrixLead): Promise<Record<string, 
   const product = str(data.product ?? data.article ?? data.collection ?? data.sku);
   const area = str(data.area ?? data.area_m2 ?? data.qty);
   const who = str(lead.name) || str(lead.phone) || "без имени";
+  const prefix = str(s.bitrixTitlePrefix);
   const details = [city, product, area].filter(Boolean).join(" · ");
 
   // ── Комментарий: метка формы + текст пользователя + прочие поля + страница ──
@@ -125,7 +126,13 @@ export async function buildLeadFields(lead: BitrixLead): Promise<Record<string, 
   if (lead.page) parts.push(`\nСтраница: ${str(lead.page)}`);
 
   const fields: Record<string, unknown> = {
-    TITLE: str(`${title}: ${who}${details ? ` | ${details}` : ""}`),
+    // «ступени ХИТ — Калькулятор: Иван | Москва · Товар · Площадь»: префикс
+    // помечает сайт-источник (в общем портале лиды идут вперемешку с ФинТермом
+    // и хиткерамикс.рф), дальше — форма, имя и суть заявки. Префикс правится
+    // в админке («Настройки»), пустой — заголовок как раньше, без пометки.
+    TITLE: str(
+      `${prefix ? `${prefix} — ` : ""}${title}: ${who}${details ? ` | ${details}` : ""}`,
+    ),
     SOURCE_ID: s.bitrixSourceId,
     SOURCE_DESCRIPTION: `${s.bitrixSiteLabel} · ${title}${lead.page ? ` · ${lead.page}` : ""}`,
     STATUS_ID: "NEW",
