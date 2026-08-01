@@ -165,15 +165,16 @@ export function Header({ tone = "auto" }: { tone?: "auto" | "light" }) {
                 </Link>
               ))}
             </nav>
-            <div className="mt-5 flex flex-col gap-2">
+            {/* Город — отдельной строкой под номером: «— Санкт-Петербург»
+                в одну строку с номером не влезает на 390px и уезжает за край. */}
+            <div className="mt-5 flex flex-col gap-3">
               {(contacts.cities.length ? contacts.cities : [contacts]).map((c) => (
-                <a key={c.phone} href={`tel:${c.phone}`} className="font-display text-xl font-bold text-ink">
-                  <span className="whitespace-nowrap">{c.phoneLabel}</span>
+                <a key={c.phone} href={`tel:${c.phone}`} className="flex flex-col">
+                  <span className="font-display text-xl font-bold leading-tight text-ink">
+                    {c.phoneLabel}
+                  </span>
                   {"city" in c ? (
-                    <span className="whitespace-nowrap text-sm font-normal text-stone">
-                      {" "}
-                      — {c.city}
-                    </span>
+                    <span className="text-sm font-normal text-stone">{c.city}</span>
                   ) : null}
                 </a>
               ))}

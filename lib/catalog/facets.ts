@@ -10,15 +10,17 @@
  * классифицируется по color_hex (HSL). Страна берётся из BRANDS.
  *
  * «Популярные» — реальной аналитики у лендинга нет (Метрика не подключена),
- * ранжируем по продажам ЗЕ ВАН: ходовые коллекции получают вес, внутри одного
- * веса сохраняется разнесённый порядок листинга (см. diversify.ts) — поэтому
- * даже топ выдачи не слипается в одну коллекцию.
+ * ранжируем по продажам ЗЕ ВАН: у Paradyz это фактическая выручка янв–июнь 2026
+ * из 1С (generated/paradyz-rank.ts), у остальных брендов — веса коллекций
+ * «на глаз». Внутри одного веса сохраняется порядок листинга (склад у Paradyz,
+ * diversify у остальных).
  */
 
 import type { Product } from "./types";
 import { basePrice } from "./queries";
 import { collectionBase, slug } from "./taxonomy";
 import { BRANDS } from "./brands";
+import { PARADYZ_RANK } from "./generated/paradyz-rank";
 
 export type SortKey = "recommended" | "popular" | "price-asc" | "price-desc";
 
@@ -166,16 +168,23 @@ const POPULAR_COLLECTIONS: Record<string, number> = {
 };
 
 function popularityScore(p: Product): number {
+  // Paradyz — основной бренд (30.07.2026): в «Популярных» весь его ассортимент
+  // стоит выше чужого. Внутри Paradyz с 01.08.2026 не веса «на глаз», а
+  // фактическая выручка янв–июнь 2026 из 1С (generated/paradyz-rank.ts).
+  const rank = PARADYZ_RANK[p.id];
+  if (rank) {
+    // 30 — потолок шкалы чужих брендов (w*10 + photo), выше него начинается
+    // Paradyz; выручка нормируется в 0…100, чтобы не зависеть от масштаба сумм.
+    const sold = Math.min(100, Math.round(rank.soldSum / 100_000));
+    return 100 + sold;
+  }
   const base = collectionBase(p);
   const key = Object.keys(POPULAR_COLLECTIONS).find(
     (k) => base === k || base.startsWith(k + " "),
   );
   const w = key ? POPULAR_COLLECTIONS[key] : 0;
   const photo = p.photos[0]?.startsWith("/images/products/") ? 1 : 0;
-  // Paradyz — основной бренд (30.07.2026): в «Популярных» весь его ассортимент
-  // стоит выше чужого; внутри бренда сохраняются веса коллекций по продажам.
-  const brand = p.brand === "Paradyz" ? 100 : 0;
-  return brand + w * 10 + photo;
+  return w * 10 + photo;
 }
 
 // ── Разбор query, фильтрация, сортировка ──────────────────────────────────────

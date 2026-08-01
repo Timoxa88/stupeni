@@ -6,6 +6,7 @@
 import type { ApplicationCode, Product, ProductCategory, ProductPromo } from "./types";
 import { SEED_PRODUCTS } from "./seed";
 import { diversify } from "./diversify";
+import { PARADYZ_RANK } from "./generated/paradyz-rank";
 import { frontElement } from "./elements";
 import { applyOverrideCached } from "./overrides-cache";
 
@@ -55,15 +56,32 @@ export function getProductById(id: string): Product | undefined {
    для пагинации и гидрации (см. diversify.ts). */
 
 /**
+ * Порядок Paradyz по складу (01.08.2026) — то же правило, что в разделах
+ * каталога hit-ceramics.ru: сверху то, чего больше на складе, затем то, чего
+ * нет, но что продавалось, затем остальное по алфавиту. Данные — в
+ * generated/paradyz-rank.ts (пересобирается scripts/rank_paradyz.py со свежего
+ * среза остатков). Артикул без ранга (появился после генерации) уходит в хвост.
+ */
+export function paradyzStockOrder(list: Product[]): Product[] {
+  const rank = (p: Product) => PARADYZ_RANK[p.id]?.sort ?? 9000;
+  // Сравнение по id вторым ключом — порядок обязан быть детерминированным:
+  // он должен совпадать между сборкой, SSR и гидрацией, иначе пагинация по 24
+  // теряет и дублирует карточки (та же причина, что у diversify).
+  return [...list].sort((a, b) => rank(a) - rank(b) || a.id.localeCompare(b.id));
+}
+
+/**
  * Paradyz — основной бренд со своими ценами (решение Кирилла, 30.07.2026):
  * листинги с пагинацией открываются его позициями, остальные бренды — следом.
- * Внутри каждой части порядок разнесён diversify (соседние карточки — разные
- * коллекции), поэтому первые страницы — Paradyz, но не «4 цвета одной серии».
+ * Блок Paradyz с 01.08.2026 идёт по складу (см. paradyzStockOrder), а не через
+ * diversify: «сначала то, что реально лежит на складе» важнее чередования
+ * коллекций. Остальные бренды по-прежнему разносятся diversify — остатков по
+ * ним у нас нет (витрина Славдома, не наш склад).
  */
 function paradyzFirst(list: Product[]): Product[] {
   const own = list.filter((p) => p.brand === "Paradyz");
   const rest = list.filter((p) => p.brand !== "Paradyz");
-  return [...diversify(own), ...diversify(rest)];
+  return [...paradyzStockOrder(own), ...diversify(rest)];
 }
 
 /** Полный листинг каталога (/catalog): Paradyz на первых страницах. */
@@ -85,7 +103,10 @@ export function getProductsByCategory(cat: CategoryKey): Product[] {
 }
 
 export function getProductsByBrand(name: string): Product[] {
-  return diversify(activeProducts().filter((p) => p.brand === name));
+  const list = activeProducts().filter((p) => p.brand === name);
+  // У Paradyz есть наш склад — страница бренда идёт по нему; у остальных
+  // брендов остатков нет, там по-прежнему разнесение по коллекциям.
+  return name === "Paradyz" ? paradyzStockOrder(list) : diversify(list);
 }
 
 export function getProductsByApplication(app: ApplicationCode): Product[] {

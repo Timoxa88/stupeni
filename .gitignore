@@ -42,3 +42,7 @@ next-env.d.ts
 
 # Съём собственного сайта (промежуточные данные для fetch_hitceramics_photos.py)
 scripts/hitceramics/
+
+# Питон-скрипты каталога: кэш и промежуточный аудит сопоставления с 1С
+scripts/__pycache__/
+scripts/paradyz_rank.json

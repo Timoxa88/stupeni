@@ -50,8 +50,13 @@ export function ProductCard({
   // Фото ТОЛЬКО своё. Раньше фолбэком стояла картинка категории, и подряд шли
   // четыре одинаковые карточки, где чёрный артикул был показан серым двориком.
   // Чужое фото хуже честной плашки: оно врёт о цвете товара.
-  const own = variants.find((v) => v.id === activeId)?.photo ?? product.photos[0];
+  const activeVariant = variants.find((v) => v.id === activeId);
+  const own = activeVariant?.photo ?? product.photos[0];
   const preview = own?.startsWith("/images/products/") ? own : null;
+  // Плашка-фолбэк должна показывать цвет ВЫБРАННОГО варианта, а не базового:
+  // иначе переключение на артикул без фото не меняло ни цвет, ни подпись.
+  const fallbackColor = activeVariant?.color ?? product.specs.color;
+  const fallbackHex = activeVariant?.color_hex || product.specs.color_hex;
 
   const base = variantInfo[product.id];
   const isBase = activeId === product.id;
@@ -72,10 +77,10 @@ export function ProductCard({
         ) : (
           <div
             className="flex h-full w-full flex-col items-center justify-center gap-2"
-            style={{ background: product.specs.color_hex || "#C9B79C" }}
+            style={{ background: fallbackHex || "#C9B79C" }}
           >
             <span className="rounded-full bg-white/85 px-3 py-1 text-xs font-semibold text-ink">
-              {product.specs.color}
+              {fallbackColor}
             </span>
             <span className="text-[11px] text-white/85">фото уточняется</span>
           </div>
@@ -133,13 +138,19 @@ export function ProductCard({
             {variants.map((v) => {
               const active = v.id === activeId;
               return (
-                <Link
+                /* Чип ПЕРЕКЛЮЧАЕТ цвет прямо в карточке (фото, название, цена),
+                   а не уводит на страницу товара: на мобильном тап по ссылке
+                   не давал посмотреть цвета — сразу открывалась карточка.
+                   Открыть выбранный цвет — по фото, заголовку или «Рассчитать». */
+                <button
                   key={v.id}
-                  href={productHref(v.id)}
-                  aria-label={v.color}
-                  title={v.color}
+                  type="button"
+                  onClick={() => setActiveId(v.id)}
                   onMouseEnter={() => setActiveId(v.id)}
                   onFocus={() => setActiveId(v.id)}
+                  aria-label={v.color}
+                  aria-pressed={active}
+                  title={v.color}
                   className={`h-6 w-6 rounded-full border-2 transition ${
                     active ? "border-clinker scale-110" : "border-white shadow-[0_0_0_1px_rgba(0,0,0,0.15)]"
                   }`}

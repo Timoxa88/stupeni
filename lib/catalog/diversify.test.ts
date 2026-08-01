@@ -2,6 +2,7 @@ import { describe, expect, test } from "bun:test";
 import { diversify } from "./diversify";
 import { activeProducts, getProductsByCategory } from "./queries";
 import { collectionBase } from "./taxonomy";
+import { PARADYZ_RANK } from "./generated/paradyz-rank";
 import type { Product } from "./types";
 
 const key = (p: Product) => `${p.brand}|${collectionBase(p)}`;
@@ -32,11 +33,11 @@ describe("diversify", () => {
     expect(adjacentSameCollection(diversify(all))).toBe(0);
   });
 
-  test("листинги категорий: соседи не из одной коллекции (внутри блока бренда)", () => {
+  test("листинги категорий: Paradyz по складу, остальные — разнесены", () => {
     // Листинг с 30.07.2026 — два блока: сначала Paradyz (основной бренд),
-    // затем остальные; каждый разнесён diversify отдельно (paradyzFirst в
-    // queries). Гарантия смежности действует внутри блока; шов между блоками —
-    // всегда смена бренда, т.е. одной коллекцией быть не может.
+    // затем остальные. С 01.08.2026 блок Paradyz идёт по складу (правило
+    // основного сайта: больше остаток — выше), поэтому разнесение коллекций
+    // требуем только от второго блока; шов между блоками — смена бренда.
     for (const cat of [
       "terrasnyy-klinker",
       "terrasnye-plastiny",
@@ -44,23 +45,30 @@ describe("diversify", () => {
     ] as const) {
       const list = getProductsByCategory(cat);
       const seam = list.findIndex((p) => p.brand !== "Paradyz");
-      const parts = seam <= 0 ? [list] : [list.slice(0, seam), list.slice(seam)];
-      expect(parts.reduce((n, part) => n + part.length, 0)).toBe(list.length);
-      for (const part of parts) {
-        if (!part.length) continue;
+      const head = seam <= 0 ? list : list.slice(0, seam);
+      const tail = seam <= 0 ? [] : list.slice(seam);
+      expect(head.length + tail.length).toBe(list.length);
+
+      if (tail.length) {
         // Если в блоке доминирует одна коллекция (>50%), нулевая смежность
         // недостижима математически — допускаем вынужденный минимум.
         const counts = new Map<string, number>();
-        for (const p of part) counts.set(key(p), (counts.get(key(p)) ?? 0) + 1);
+        for (const p of tail) counts.set(key(p), (counts.get(key(p)) ?? 0) + 1);
         const max = Math.max(...counts.values());
-        const forced = Math.max(0, 2 * max - part.length - 1);
-        expect(adjacentSameCollection(part)).toBeLessThanOrEqual(forced);
+        const forced = Math.max(0, 2 * max - tail.length - 1);
+        expect(adjacentSameCollection(tail)).toBeLessThanOrEqual(forced);
       }
+
+      // Блок Paradyz — невозрастающий остаток: сортировка по складу.
+      const paradyz = head.filter((p) => p.brand === "Paradyz");
+      const ranks = paradyz.map((p) => PARADYZ_RANK[p.id]?.sort ?? 9000);
+      expect(ranks).toEqual([...ranks].sort((a, b) => a - b));
+
       // Paradyz действительно открывает листинг (если он в категории есть).
       if (seam > 0) {
         expect(list[0].brand).toBe("Paradyz");
-        expect(list.slice(0, seam).every((p) => p.brand === "Paradyz")).toBe(true);
-        expect(list.slice(seam).every((p) => p.brand !== "Paradyz")).toBe(true);
+        expect(head.every((p) => p.brand === "Paradyz")).toBe(true);
+        expect(tail.every((p) => p.brand !== "Paradyz")).toBe(true);
       }
     }
   });

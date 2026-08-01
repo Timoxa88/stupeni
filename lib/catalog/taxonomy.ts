@@ -23,6 +23,7 @@
 import type { ApplicationCode, Product } from "@/lib/catalog/types";
 import { activeProducts, getProductsByApplication } from "@/lib/catalog/queries";
 import { collectionBaseOf, splitSeries } from "@/lib/catalog/collection-base";
+import { PARADYZ_RANK } from "@/lib/catalog/generated/paradyz-rank";
 import { SOLUTIONS } from "@/lib/content/solutions";
 
 const CYR: Record<string, string> = {
@@ -287,7 +288,10 @@ function pickOnePerCollection(list: Product[], limit: number): Product[] {
     if (ab !== bb) return ab - bb;
     const ap = a.photos[0]?.startsWith("/images/products/") ? 0 : 1;
     const bp = b.photos[0]?.startsWith("/images/products/") ? 0 : 1;
-    return ap - bp;
+    if (ap !== bp) return ap - bp;
+    // Дальше — по складу (01.08.2026): витрину открывают коллекции, которые
+    // реально лежат на складе, а не первые по порядку генерации каталога.
+    return (PARADYZ_RANK[a.id]?.sort ?? 9000) - (PARADYZ_RANK[b.id]?.sort ?? 9000);
   });
   for (const p of ranked) {
     const key = `${p.brand}|${collectionBase(p)}`;
