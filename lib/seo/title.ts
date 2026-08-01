@@ -34,7 +34,8 @@ export function clampTitle(raw: string, limit = TITLE_LIMIT): string {
   const base = stripTails(raw);
   // «Цену» дописываем только если её ещё нет: у листингов в заголовке уже
   // стоит «цвета и цены», и второй раз выходит «…цены, крыльцо — цена».
-  const priced = /цен[аыу]?\b/i.test(base);
+  // Без \b: в JS он работает по ASCII и на кириллице границу не находит.
+  const priced = /цен[аыуе]/i.test(base);
 
   const candidates = (
     priced
