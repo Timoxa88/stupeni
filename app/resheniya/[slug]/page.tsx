@@ -15,6 +15,7 @@ import { getProductsByApplication } from "@/lib/catalog/queries";
 import { howToSchema, itemListSchema } from "@/lib/jsonld";
 import { productTitle } from "@/lib/catalog/display";
 import { primeOverrides } from "@/lib/store/products";
+import { clampTitle } from "@/lib/seo/title";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
 export const revalidate = 60;
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const s = getSolution(slug);
   if (!s) return {};
   return {
-    title: s.title,
+    title: { absolute: clampTitle(s.title, { sell: false }) },
     description: s.description,
     alternates: { canonical: `/resheniya/${s.slug}` },
   };

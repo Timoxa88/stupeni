@@ -8,7 +8,7 @@ import { IMAGES } from "@/lib/images";
 import { SOLUTIONS } from "@/lib/content/solutions";
 
 export const metadata: Metadata = {
-  title: "Решения по применению — крыльцо, лестница, терраса, дорожки",
+  title: "Решения: крыльцо, лестница, терраса, дорожки",
   description:
     "Подбор уличной керамики по сценарию: крыльцо, уличная лестница, терраса, садовые дорожки, укладка на опоры, зона бассейна. Требования, монтаж, расчёт комплекта.",
   alternates: { canonical: "/resheniya" },

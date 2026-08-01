@@ -45,6 +45,15 @@ export function invalidateOverridesCache(): void {
   cachedAt = 0;
 }
 
+/**
+ * Когда артикул последний раз правили в админке (ISO), либо undefined.
+ * Нужно карте сайта: цена товара может лежать от даты прайса, а текст, фото
+ * или скидку поменяли вчера — без этого lastmod врал бы о свежести страницы.
+ */
+export function overrideUpdatedAt(id: string): string | undefined {
+  return cache.get(id)?.updatedAt;
+}
+
 /** Применяет переопределение к артикулу сида (иммутабельно). */
 export function applyOverride(p: Product, o: ProductOverride | undefined): Product {
   if (!o) return p;

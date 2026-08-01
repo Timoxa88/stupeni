@@ -26,6 +26,7 @@ import {
   sortProducts,
 } from "@/lib/catalog/facets";
 import { primeOverrides } from "@/lib/store/products";
+import { clampTitle } from "@/lib/seo/title";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
 export const revalidate = 60;
@@ -48,7 +49,9 @@ export async function generateMetadata({ params, searchParams }: Params): Promis
   const page = parsePage(sp.page);
   const pages = Math.max(1, Math.ceil(getProductsByBrand(b.name).length / PER_PAGE));
   return {
-    title: `${b.name} — клинкер и керамогранит купить, цена${pageSuffix(page, pages)}`,
+    title: {
+      absolute: clampTitle(`${b.name} — клинкер и керамогранит, цена${pageSuffix(page, pages)}`),
+    },
     description: `${b.name} (${b.country}${b.founded ? `, с ${b.founded}` : ""}): ${b.tagline} Каталог коллекций, цены, расчёт комплекта и доставка.`,
     alternates: { canonical: pageHref(`/producers/${b.slug}`, page) },
     ...(hasActiveFilters(parseCatalogQuery(sp)) ? { robots: { index: false, follow: true } } : {}),

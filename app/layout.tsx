@@ -3,6 +3,7 @@ import { Manrope, Unbounded } from "next/font/google";
 import "./globals.css";
 import { WebVitals } from "@/components/analytics/WebVitals";
 import { YandexMetrika } from "@/components/analytics/YandexMetrika";
+import { GoalTracker } from "@/components/analytics/GoalTracker";
 import { CookieBanner } from "@/components/sections/CookieBanner";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { ContactsProvider } from "@/components/layout/ContactsProvider";
@@ -47,8 +48,9 @@ export async function generateMetadata(): Promise<Metadata> {
   // Превью на домене агентства не должно индексироваться (правильный домен — TBD).
   ...(IS_PREVIEW ? { robots: { index: false, follow: false } } : {}),
   title: {
-    default:
-      "Клинкерные ступени и крупноформат для крыльца, лестниц и террас — Hit Ceramics",
+    // Держим в пределах ~70 символов вместе с « — Hit Ceramics»:
+    // всё, что длиннее, выдача обрезает вместе с названием магазина.
+    default: "Клинкерные ступени для крыльца, лестниц и террас — Hit Ceramics",
     template: "%s — Hit Ceramics",
   },
   description:
@@ -114,6 +116,7 @@ export default async function RootLayout({
         <CookieBanner />
         <WebVitals />
         <YandexMetrika counterId={settings.ymCounterId} />
+        <GoalTracker />
       </body>
     </html>
   );

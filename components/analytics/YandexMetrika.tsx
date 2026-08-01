@@ -1,35 +1,25 @@
 "use client";
 
 import Script from "next/script";
-import { useEffect, useState } from "react";
 
 /**
  * Яндекс.Метрика (ТЗ §15). Номер счётчика приходит из админки («Настройки»),
  * поэтому включение не требует пересборки.
  *
- * Загружаем только после согласия на cookie (CookieBanner пишет
- * `cookie-consent-v1` в localStorage и рассылает событие `consentchange`) —
- * иначе аналитика ставится без согласия (152-ФЗ / ТЗ B.2).
+ * Счётчик грузится сразу, не дожидаясь согласия на cookie (решение заказчика
+ * 01.08.2026). Прежняя схема ставила его только после нажатия «Принять»:
+ * статистика собиралась по меньшинству посетителей, Директ не мог строить
+ * сегменты, а Вебмастер счётчик не видел вовсе.
+ *
+ * ВАЖНО: в паре с этим ОТКЛЮЧЁН вебвизор — он записывает сессию целиком,
+ * включая ввод в формы, и без явного согласия это уже обработка персональных
+ * данных. Связка «посещения считаем сразу / сессии не пишем» осознанная:
+ * вернуть webvisor:true можно только вместе с баннером согласия.
+ * Вебвизор выключен и в настройках самого счётчика — чтобы его нельзя было
+ * включить из интерфейса Метрики в обход этого решения.
  */
 export function YandexMetrika({ counterId }: { counterId: string }) {
-  const [allowed, setAllowed] = useState(false);
-
-  useEffect(() => {
-    // CookieBanner хранит объект { necessary, analytics, ads } под этим ключом.
-    const read = () => {
-      try {
-        const raw = localStorage.getItem("cookie-consent-v1");
-        setAllowed(!!raw && JSON.parse(raw)?.analytics === true);
-      } catch {
-        setAllowed(false);
-      }
-    };
-    read();
-    window.addEventListener("consentchange", read);
-    return () => window.removeEventListener("consentchange", read);
-  }, []);
-
-  if (!counterId || !allowed) return null;
+  if (!counterId) return null;
 
   return (
     <>
@@ -38,7 +28,7 @@ export function YandexMetrika({ counterId }: { counterId: string }) {
         m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
         k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
         (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-        ym(${JSON.stringify(counterId)}, "init", {clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});`}
+        ym(${JSON.stringify(counterId)}, "init", {clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});`}
       </Script>
       <noscript>
         <div>

@@ -15,6 +15,8 @@ import {
   getApplication,
   brandBySlug,
   collectionBySlug,
+  collectionsOf,
+  collectionInOtherApps,
   colorLabel,
   allPaths,
 } from "@/lib/catalog/taxonomy";
@@ -59,6 +61,12 @@ export default async function CollectionLevel({ params }: Props) {
   await primeOverrides();
   const { app, brand, collection, node, name, coll } = await resolve(params);
   if (!node || !name || !coll) notFound();
+
+  // Соседи по бренду внутри назначения и та же коллекция под другими задачами.
+  const siblings = collectionsOf(node.code, name)
+    .filter((c) => c.slug !== coll.slug)
+    .slice(0, 12);
+  const elsewhere = collectionInOtherApps(node.code, name, coll.slug);
 
   return (
     <>
@@ -112,6 +120,50 @@ export default async function CollectionLevel({ params }: Props) {
             <ProductGrid products={coll.products} />
           </div>
         </section>
+
+        {/* Перелинковка: до этого на страницу коллекции вела одна-единственная
+            ссылка с бренда — обход глох на четвёртом уровне. */}
+        {(siblings.length > 0 || elsewhere.length > 0) && (
+          <section className="mx-auto max-w-7xl px-5 pb-16 sm:pb-20">
+            {elsewhere.length > 0 && (
+              <div className="mb-8">
+                <h2 className="font-display text-2xl font-extrabold text-ink">
+                  {name} {coll.base} для других задач
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  {elsewhere.map((e) => (
+                    <Link
+                      key={e.href}
+                      href={e.href}
+                      className="rounded-full border border-ink/12 bg-white px-4 py-2 text-sm font-medium text-stone transition hover:border-clinker hover:text-clinker"
+                    >
+                      {e.node.purpose.replace(/^для /, "Для ")}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+            {siblings.length > 0 && (
+              <div>
+                <h2 className="font-display text-2xl font-extrabold text-ink">
+                  Другие коллекции {name} {node.purpose}
+                </h2>
+                <div className="mt-4 flex flex-wrap gap-2.5">
+                  {siblings.map((s) => (
+                    <Link
+                      key={s.href}
+                      href={s.href}
+                      className="rounded-full border border-ink/12 bg-white px-4 py-2 text-sm font-medium text-stone transition hover:border-clinker hover:text-clinker"
+                    >
+                      {s.base}
+                      <span className="ml-1.5 text-stone/50">{s.products.length}</span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+        )}
 
         <section className="bg-graphite-deep text-sand">
           <div className="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:py-20 lg:grid-cols-[1fr_1.1fr] lg:items-center">

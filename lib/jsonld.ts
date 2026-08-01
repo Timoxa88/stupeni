@@ -216,6 +216,29 @@ export function articleSchema(a: {
   };
 }
 
+/**
+ * Калькулятор как веб-приложение. Единственная страница сайта, у которой не было
+ * микроразметки, — а это ровно тот тип страницы, который поисковики показывают
+ * расширенным сниппетом («рассчитать онлайн»).
+ */
+export function calculatorSchema(c: { name: string; description: string; url: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: c.name,
+    description: c.description,
+    url: abs(c.url),
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Требуется JavaScript",
+    inLanguage: "ru-RU",
+    isAccessibleForFree: true,
+    // Расчёт бесплатный — без Offer поисковик считает приложение платным.
+    offers: { "@type": "Offer", price: 0, priceCurrency: "RUB" },
+    provider: { "@type": "Organization", name: SITE.name, url: SITE.baseUrl },
+  };
+}
+
 export function howToSchema(h: {
   name: string;
   steps: { name: string; text: string }[];

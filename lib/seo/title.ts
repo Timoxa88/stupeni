@@ -26,19 +26,30 @@ function stripTails(raw: string): string {
     .trim();
 }
 
+export interface ClampOptions {
+  limit?: number;
+  /**
+   * Дописывать ли «— цена», если помещается. Уместно на коммерческих страницах
+   * (карточка, листинг) и неуместно на информационных — «Доставка и оплата —
+   * цена» читается как ошибка. По умолчанию включено.
+   */
+  sell?: boolean;
+}
+
 /**
  * Возвращает готовый title (абсолютный — шаблон лейаута к нему уже не
  * применяется, поэтому в page.tsx его передавать как `title: { absolute }`).
  */
-export function clampTitle(raw: string, limit = TITLE_LIMIT): string {
+export function clampTitle(raw: string, options: ClampOptions = {}): string {
+  const { limit = TITLE_LIMIT, sell = true } = options;
   const base = stripTails(raw);
   // «Цену» дописываем только если её ещё нет: у листингов в заголовке уже
   // стоит «цвета и цены», и второй раз выходит «…цены, крыльцо — цена».
   // Без \b: в JS он работает по ASCII и на кириллице границу не находит.
   const priced = /цен[аыуе]/i.test(base);
 
-  const candidates = (
-    priced
+  const candidates =
+    priced || !sell
       ? [`${base}${SUFFIX}`, base]
       : [
           `${base} — цена, характеристики${SUFFIX}`,
@@ -46,8 +57,7 @@ export function clampTitle(raw: string, limit = TITLE_LIMIT): string {
           `${base}${SUFFIX}`,
           `${base} — цена`,
           base,
-        ]
-  );
+        ];
   const fits = candidates.find((c) => c.length <= limit);
   if (fits) return fits;
 

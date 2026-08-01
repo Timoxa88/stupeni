@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import type { CalcResult } from "@/lib/calculator";
 import { formatNum, formatRub } from "@/lib/format";
+import { GOALS, reachGoal } from "@/lib/analytics/goals";
 
 export function ResultPanel({
   result,
@@ -12,6 +13,18 @@ export function ResultPanel({
   onSend: () => void;
 }) {
   const detail = result.detail;
+
+  /*
+   * Цель «довёл калькулятор до результата» — один раз за визит страницы.
+   * Панель перерисовывается на каждое нажатие в полях, поэтому без флага
+   * цель улетала бы десятками за один расчёт и конверсия стала бы фикцией.
+   */
+  const goalSent = useRef(false);
+  useEffect(() => {
+    if (goalSent.current || result.grandTotal <= 0) return;
+    goalSent.current = true;
+    reachGoal(GOALS.calc, { mode: result.mode, city: result.city });
+  }, [result.grandTotal, result.mode, result.city]);
 
   // Смета читается с итога: сопутствующие материалы по умолчанию свёрнуты
   // в одну строку с подытогом, детализация — по клику.

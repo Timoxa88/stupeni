@@ -47,7 +47,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   const pages = Math.max(1, Math.ceil(activeProducts().length / PER_PAGE));
   return {
     title:
-      "Каталог — клинкерные ступени и керамогранит 20 мм для улицы" +
+      "Каталог ступеней и керамогранита 20 мм для улицы" +
       pageSuffix(page, pages),
     description:
       "Каталог уличной керамики: шесть производителей, клинкерные ступени и керамогранит 20 мм. Подбор по цвету и задаче, цены по элементам системы, расчёт комплекта.",

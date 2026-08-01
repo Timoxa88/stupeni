@@ -4,6 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { Calculator } from "@/components/calculator/Calculator";
 import { getProductById } from "@/lib/catalog/queries";
 import { primeOverrides } from "@/lib/store/products";
+import { SchemaScript } from "@/components/seo/SchemaScript";
+import { calculatorSchema } from "@/lib/jsonld";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
 export const revalidate = 60;
@@ -16,7 +18,7 @@ export async function generateMetadata({ searchParams }: Props): Promise<Metadat
   await primeOverrides();
   const { product } = await searchParams;
   return {
-    title: "Калькулятор ступеней и керамогранита для террасы — расчёт онлайн",
+    title: "Калькулятор ступеней и террасной плитки — расчёт онлайн",
     description:
       "Рассчитайте комплект клинкерных ступеней поэлементно или керамогранит для террасы по площади: опоры HILST, сопутствующие материалы по городу, мгновенный результат.",
     alternates: { canonical: "/calculator" },
@@ -79,6 +81,15 @@ export default async function CalculatorPage({ searchParams }: Props) {
         </div>
       </main>
       <Footer />
+
+      <SchemaScript
+        data={calculatorSchema({
+          name: "Калькулятор ступеней и террасной плитки",
+          description:
+            "Расчёт комплекта клинкерных ступеней поэлементно и керамогранита 20 мм для террасы по площади: количество элементов, опоры HILST, сопутствующие материалы и стоимость по городу.",
+          url: "/calculator",
+        })}
+      />
     </>
   );
 }

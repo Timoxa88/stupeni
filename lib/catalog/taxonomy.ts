@@ -251,6 +251,28 @@ export function collectionBySlug(
   return collectionsOf(app, brand).find((c) => c.slug === collSlug);
 }
 
+/**
+ * Та же коллекция под другими назначениями.
+ *
+ * Страницы коллекций — самый глубокий уровень каталога, и до 01.08.2026 на них
+ * вела ровно ОДНА ссылка (со страницы бренда). Ссылки между «сёстрами» и
+ * замыкают обход, и полезны человеку: та же плитка часто годится и на террасу,
+ * и на дорожки.
+ */
+export function collectionInOtherApps(
+  app: ApplicationCode,
+  brand: string,
+  collSlug: string,
+): { node: AppNode; href: string }[] {
+  const out: { node: AppNode; href: string }[] = [];
+  for (const a of applications()) {
+    if (a.code === app) continue;
+    const coll = collectionBySlug(a.code, brand, collSlug);
+    if (coll) out.push({ node: a, href: coll.href });
+  }
+  return out;
+}
+
 /** Все связки, у которых есть товары, — для generateStaticParams и sitemap. */
 export function allPaths() {
   const out: { app: string; brand?: string; collection?: string }[] = [];

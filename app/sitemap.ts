@@ -9,6 +9,7 @@ import { BRANDS } from "@/lib/catalog/brands";
 import { SEED_PRODUCTS } from "@/lib/catalog/seed";
 import { productCategory } from "@/lib/catalog/queries";
 import { allPaths } from "@/lib/catalog/taxonomy";
+import { overrideUpdatedAt } from "@/lib/catalog/overrides-cache";
 
 /**
  * lastmod (ТЗ B.4 — freshness как GEO-сигнал).
@@ -94,7 +95,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     .filter((p) => !noindex.has(`product:${p.id}`))
     .map((p) => ({
       url: url(`/catalog/tovar/${p.id}`),
-      lastModified: p.price_updated_at ? new Date(p.price_updated_at) : BUILD_DATE,
+      // Позже из двух: дата прайса и дата правки артикула в админке. Правка
+      // текста, фото или скидки меняет страницу, даже если цена осталась старой.
+      lastModified: latest([p.price_updated_at, overrideUpdatedAt(p.id)]),
       priority: 0.6,
     }));
   const postPages = posts

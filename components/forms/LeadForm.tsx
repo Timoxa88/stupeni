@@ -4,6 +4,7 @@ import { useEffect, useId, useRef, useState } from "react";
 import type { City } from "@/lib/calculator";
 import { withBase } from "@/lib/base";
 import { enqueueLead, flushLeads, installLeadQueueAutoFlush } from "@/lib/leadQueue";
+import { GOALS, reachGoal } from "@/lib/analytics/goals";
 
 type FieldKey = "email" | "company" | "interest" | "region" | "comment" | "catalog";
 
@@ -144,11 +145,13 @@ export function LeadForm({
       });
       if (res.ok) {
         setState("done");
+        reachGoal(GOALS.lead, { form: tag, source });
         onSuccess?.();
       } else if (res.status >= 500) {
         // Сервер/Битрикс недоступен — кладём в очередь, до-отправим позже (ТЗ B.5)
         enqueueLead(url, payloadBody);
         setState("done");
+        reachGoal(GOALS.lead, { form: tag, source });
         onSuccess?.();
       } else {
         setState("error");
@@ -157,6 +160,9 @@ export function LeadForm({
       // Обрыв сети — сохраняем и до-отправляем при возврате онлайн (ТЗ B.5)
       enqueueLead(url, payloadBody);
       setState("done");
+      // Цель шлём и здесь: заявка принята и дойдёт до CRM из очереди, а сам
+      // вызов Метрика буферизует до восстановления сети.
+      reachGoal(GOALS.lead, { form: tag, source });
       onSuccess?.();
     }
   }
