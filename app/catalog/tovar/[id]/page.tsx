@@ -10,6 +10,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { SEED_PRODUCTS } from "@/lib/catalog/seed";
 import { productTitle } from "@/lib/catalog/display";
+import { clampTitle } from "@/lib/seo/title";
 import {
   getProductById,
   getRelatedProducts,
@@ -58,7 +59,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     description: p.seo.description,
   });
   return {
-    title: seo.title,
+    // absolute: clampTitle сам решает, влезает ли « — Hit Ceramics»,
+    // иначе шаблон лейаута добавил бы его поверх лимита.
+    title: { absolute: clampTitle(seo.title) },
     description: seo.description,
     alternates: { canonical: `/catalog/tovar/${p.id}` },
     ...(seo.ogImage ? { openGraph: { images: [seo.ogImage] } } : {}),

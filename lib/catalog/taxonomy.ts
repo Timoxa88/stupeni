@@ -90,6 +90,13 @@ export function colorLabel(p: Product): string {
 export interface AppNode {
   code: ApplicationCode;
   title: string;
+  /**
+   * Назначение в родительном падеже с предлогом: «для крыльца».
+   * Нужно, чтобы H1 и description одной коллекции различались между
+   * назначениями — иначе /catalog/terrasa/paradyz/magnetik и
+   * /catalog/dorozhki/paradyz/magnetik уходят в индекс как дубли.
+   */
+  purpose: string;
   href: string;
   image: string;
   imageAlt: string;
@@ -123,11 +130,22 @@ const SHORT: Record<string, string> = {
   bassein: "Зона бассейна",
 };
 
+/** Родительный падеж назначения — формулировки совпадают с тем, как спрашивают в поиске. */
+const PURPOSE: Record<string, string> = {
+  kryltso: "для крыльца",
+  "lestnitsa-ulitsa": "для уличной лестницы",
+  terrasa: "для террасы",
+  dorozhki: "для садовых дорожек",
+  "landshaft-opory": "для укладки на опоры",
+  bassein: "для зоны бассейна",
+};
+
 /** Первый уровень — назначения, у которых есть хоть один товар. */
 export function applications(): AppNode[] {
   return SOLUTIONS.map((s) => ({
     code: s.slug,
     title: SHORT[s.slug] ?? s.h1,
+    purpose: PURPOSE[s.slug] ?? `для назначения «${(SHORT[s.slug] ?? s.h1).toLowerCase()}»`,
     href: `/catalog/${s.slug}`,
     image: s.heroImage,
     imageAlt: s.heroAlt,

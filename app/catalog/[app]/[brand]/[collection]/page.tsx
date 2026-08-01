@@ -46,7 +46,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const colors = coll.products.map(colorLabel).join(", ");
   return {
     title: `${name} ${coll.base} — цвета и цены, ${node.title.toLowerCase()}`,
-    description: `Коллекция ${name} ${coll.base}: ${coll.products.length} ${plural(coll.products.length, "цвет", "цвета", "цветов")} (${colors}). Состав элементов, цены и расчёт комплекта.`,
+    // Назначение обязательно и в description: одна коллекция живёт под 3–5
+    // назначениями, без него описания страниц совпадают дословно.
+    description: `Коллекция ${name} ${coll.base} ${node.purpose}: ${coll.products.length} ${plural(coll.products.length, "цвет", "цвета", "цветов")} (${colors}). Состав элементов, цены и расчёт комплекта.`,
     alternates: { canonical: `/catalog/${app}/${brand}/${collection}` },
   };
 }
@@ -65,7 +67,7 @@ export default async function CollectionLevel({ params }: Props) {
           image={coll.cover ?? node.image}
           alt={coll.coverAlt ?? node.imageAlt}
           eyebrow={`${node.title} · ${name}`}
-          h1={`${name} ${coll.base}`}
+          h1={`${name} ${coll.base} ${node.purpose}`}
           intro={`${coll.products.length} ${plural(coll.products.length, "цвет и исполнение", "цвета и исполнения", "цветов и исполнений")} коллекции. Цвета одной серии совпадают по формату и составу элементов — проступь, угол, подступёнок и базовая плитка считаются одинаково.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },

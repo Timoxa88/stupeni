@@ -55,7 +55,7 @@ export default async function BrandLevel({ params }: Props) {
           image={collections[0]?.cover ?? node.image}
           alt={collections[0]?.coverAlt ?? node.imageAlt}
           eyebrow={node.title}
-          h1={`${name} — коллекции`}
+          h1={`${name} ${node.purpose} — коллекции`}
           intro={`${collections.length} ${plural(collections.length, "коллекция", "коллекции", "коллекций")} и ${total} ${plural(total, "позиция", "позиции", "позиций")} ${name} под сценарий «${node.title.toLowerCase()}». В коллекции — цвета одной серии с общим форматом и составом элементов.`}
           breadcrumbs={[
             { name: "Главная", url: "/" },
