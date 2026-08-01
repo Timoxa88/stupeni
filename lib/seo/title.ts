@@ -32,14 +32,21 @@ function stripTails(raw: string): string {
  */
 export function clampTitle(raw: string, limit = TITLE_LIMIT): string {
   const base = stripTails(raw);
+  // «Цену» дописываем только если её ещё нет: у листингов в заголовке уже
+  // стоит «цвета и цены», и второй раз выходит «…цены, крыльцо — цена».
+  const priced = /цен[аыу]?\b/i.test(base);
 
-  const candidates = [
-    `${base} — цена, характеристики${SUFFIX}`,
-    `${base} — цена${SUFFIX}`,
-    `${base}${SUFFIX}`,
-    `${base} — цена`,
-    base,
-  ];
+  const candidates = (
+    priced
+      ? [`${base}${SUFFIX}`, base]
+      : [
+          `${base} — цена, характеристики${SUFFIX}`,
+          `${base} — цена${SUFFIX}`,
+          `${base}${SUFFIX}`,
+          `${base} — цена`,
+          base,
+        ]
+  );
   const fits = candidates.find((c) => c.length <= limit);
   if (fits) return fits;
 

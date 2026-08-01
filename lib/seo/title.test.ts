@@ -34,6 +34,18 @@ describe("clampTitle", () => {
     }
   });
 
+  it("не дописывает «цена», если она уже есть в заголовке", () => {
+    const t = clampTitle("Paradyz Cloud — цвета и цены, крыльцо");
+    expect(t).toBe("Paradyz Cloud — цвета и цены, крыльцо — Hit Ceramics");
+    expect(t.match(/цен/gi)).toHaveLength(1);
+  });
+
+  it("длинный заголовок листинга жертвует брендом сайта, а не смыслом", () => {
+    const t = clampTitle("Westerwälder Klinker MONTMARTRE — цвета и цены, уличная лестница");
+    expect(t.length).toBeLessThanOrEqual(TITLE_LIMIT);
+    expect(t).toContain("уличная лестница");
+  });
+
   it("название длиннее лимита режется по границе слова", () => {
     const t = clampTitle("А".repeat(40) + " " + "Б".repeat(40));
     expect(t.length).toBeLessThanOrEqual(TITLE_LIMIT);

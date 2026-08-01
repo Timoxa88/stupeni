@@ -10,6 +10,7 @@ import { getApplication, brandsOf, brandBySlug, collectionsOf, allPaths } from "
 import { brandSlugByName } from "@/lib/catalog/brands";
 import { plural } from "@/lib/format";
 import { primeOverrides } from "@/lib/store/products";
+import { clampTitle } from "@/lib/seo/title";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
 export const revalidate = 60;
@@ -29,8 +30,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const name = node && brandBySlug(node.code, brand);
   if (!node || !name) return {};
   return {
-    title: `${name} для сценария «${node.title.toLowerCase()}» — коллекции и цены`,
-    description: `Коллекции ${name} под ${node.title.toLowerCase()}: состав, цвета, цены и расчёт комплекта.`,
+    // «для сценария «крыльцо»» — 11 лишних символов на ровном месте:
+    // в лимит title не влезало, а спрашивают всё равно «для крыльца».
+    title: { absolute: clampTitle(`${name} ${node.purpose} — коллекции и цены`) },
+    description: `Коллекции ${name} ${node.purpose}: состав, цвета, цены и расчёт комплекта.`,
     alternates: { canonical: `/catalog/${app}/${brand}` },
   };
 }

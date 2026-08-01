@@ -19,6 +19,7 @@ import {
   allPaths,
 } from "@/lib/catalog/taxonomy";
 import { primeOverrides } from "@/lib/store/products";
+import { clampTitle } from "@/lib/seo/title";
 
 /* Правки из админки (цены, тексты, скрытие) подхватываются за минуту. */
 export const revalidate = 60;
@@ -45,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!node || !name || !coll) return {};
   const colors = coll.products.map(colorLabel).join(", ");
   return {
-    title: `${name} ${coll.base} — цвета и цены, ${node.title.toLowerCase()}`,
+    title: { absolute: clampTitle(`${name} ${coll.base} — цвета и цены, ${node.title.toLowerCase()}`) },
     // Назначение обязательно и в description: одна коллекция живёт под 3–5
     // назначениями, без него описания страниц совпадают дословно.
     description: `Коллекция ${name} ${coll.base} ${node.purpose}: ${coll.products.length} ${plural(coll.products.length, "цвет", "цвета", "цветов")} (${colors}). Состав элементов, цены и расчёт комплекта.`,
