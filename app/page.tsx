@@ -9,6 +9,7 @@ import { Faq } from "@/components/ui/Faq";
 import { Gallery } from "@/components/sections/Gallery";
 import { PromoBar } from "@/components/sections/PromoBar";
 import { SceneCards } from "@/components/sections/SceneCards";
+import { Reviews } from "@/components/sections/Reviews";
 import { Showrooms } from "@/components/sections/Showrooms";
 import { Calculator } from "@/components/calculator/Calculator";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
@@ -284,7 +285,10 @@ export default async function Home() {
         {/* ── 6. ОБЪЕКТЫ ── */}
         <Gallery images={OBJECTS} />
 
-        {/* ── 7. FAQ (вобрал тезисы образовательного блока) ── */}
+        {/* ── 7. ОТЗЫВЫ (реальные, с Яндекс.Карт — см. lib/content/reviews.ts) ── */}
+        <Reviews />
+
+        {/* ── 8. FAQ (вобрал тезисы образовательного блока) ── */}
         <section className="bg-sand-deep">
           <div className="mx-auto max-w-3xl px-5 py-20 sm:py-28">
             <Reveal>
@@ -299,10 +303,10 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* ── 8. ШОУ-РУМЫ И СКЛАДЫ ── */}
+        {/* ── 9. ШОУ-РУМЫ И СКЛАДЫ ── */}
         <Showrooms />
 
-        {/* ── 9. ФОРМА (одна на страницу; #lead — якорь для CTA из других блоков) ── */}
+        {/* ── 10. ФОРМА (одна на страницу; #lead — якорь для CTA из других блоков) ── */}
         <section id="lead" className="relative overflow-hidden bg-graphite-deep text-sand">
           <div className="absolute inset-0" style={gridMotif} aria-hidden />
           <div className="relative mx-auto grid max-w-7xl gap-8 px-5 py-20 sm:py-28 lg:grid-cols-[1fr_1.1fr] lg:items-center">

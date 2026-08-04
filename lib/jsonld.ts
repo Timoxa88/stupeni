@@ -8,6 +8,7 @@ import { SITE, PLACES, CITY_CONTACTS } from "@/lib/content/site";
 import type { Product } from "@/lib/catalog/types";
 import { activePromo, basePrice } from "@/lib/catalog/queries";
 import { priceView } from "@/lib/catalog/pricing";
+import { REVIEWS, REVIEWS_SUMMARY } from "@/lib/content/reviews";
 
 const abs = (path: string) =>
   path.startsWith("http") ? path : `${SITE.baseUrl}${path}`;
@@ -29,6 +30,27 @@ export function organizationSchema() {
       "https://yandex.ru/maps/org/khit_keramiks/73097266609",
       "https://yandex.ru/maps/org/khit_keramiks/1343837569",
     ],
+    // Цифры обязаны совпадать с видимым блоком отзывов (components/sections/Reviews.tsx):
+    // Яндекс сверяет разметку с текстом страницы. Источник — тот же пул отзывов.
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: String(REVIEWS_SUMMARY.ratingValue),
+      reviewCount: REVIEWS_SUMMARY.reviewCount,
+      bestRating: String(REVIEWS_SUMMARY.bestRating),
+      worstRating: String(REVIEWS_SUMMARY.worstRating),
+    },
+    review: REVIEWS.map((r) => ({
+      "@type": "Review",
+      author: { "@type": "Person", name: r.author },
+      datePublished: r.date,
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: String(r.rating),
+        bestRating: String(REVIEWS_SUMMARY.bestRating),
+        worstRating: String(REVIEWS_SUMMARY.worstRating),
+      },
+      reviewBody: r.text,
+    })),
   };
 }
 
