@@ -30,6 +30,11 @@ export function Modal({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const restoreRef = useRef<HTMLElement | null>(null);
+  // Актуальный onClose в ref: сам эффект ниже вешается один раз, на монтирование.
+  const onCloseRef = useRef(onClose);
+  useEffect(() => {
+    onCloseRef.current = onClose;
+  });
 
   useEffect(() => {
     restoreRef.current = document.activeElement as HTMLElement;
@@ -44,7 +49,7 @@ export function Modal({
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         e.preventDefault();
-        onClose();
+        onCloseRef.current();
         return;
       }
       if (e.key === "Tab") {
@@ -67,7 +72,12 @@ export function Modal({
       document.body.style.overflow = prevOverflow;
       restoreRef.current?.focus?.();
     };
-  }, [onClose]);
+    // Эффект — строго на монтирование. С зависимостью [onClose] он перезапускался
+    // на КАЖДЫЙ ререндер родителя (стрелка `() => setOpen(false)` каждый раз новая)
+    // и заново уводил фокус на первый элемент диалога: в ловце уходящих фокус
+    // прыгал из поля телефона на крестик, стоило ввести символ.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   // z-[100] — выше cookie-баннера (z-[90]): при z-[80] баннер накрывал низ любого
   // диалога, у квиза за ним оставались «Далее» и счётчик шагов, на мобильном —
