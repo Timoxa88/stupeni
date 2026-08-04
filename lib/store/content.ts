@@ -57,7 +57,7 @@ export const CONTENT_DEFAULTS: ContentMap = {
     subtitle:
       "Морозостойко, не скользит, открытые цены. Считаем комплект в штуках, а не «в квадратах» — поэлементно для ступеней и по площади для террасы. Доставка по России и СНГ.",
     primaryCta: { label: "Рассчитать комплект", href: "#calc" },
-    secondaryCta: { label: "Подобрать за 5 шагов", href: "/podbor" },
+    secondaryCta: { label: "Подобрать за минуту", href: "/podbor" },
   },
   advantages: { items: ADVANTAGES },
   services: { items: SERVICES },

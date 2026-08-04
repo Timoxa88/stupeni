@@ -44,7 +44,7 @@ export default function ResheniyaPage() {
             href="/podbor"
             className="rounded-full border border-sand/25 px-7 py-4 font-semibold text-sand transition hover:bg-sand/10"
           >
-            Подобрать за 5 шагов
+            Подобрать за минуту
           </Link>
         </SubHero>
 

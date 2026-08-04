@@ -63,6 +63,8 @@ export function CatalogQuiz({
   context,
   titleId,
   onClose,
+  tag = "Квиз в каталоге",
+  source = "quiz-catalog",
 }: {
   data: QuizData;
   /** Сценарий со страницы каталога — шаг 1 отвечен заранее. */
@@ -72,6 +74,9 @@ export function CatalogQuiz({
   context?: string;
   titleId?: string;
   onClose?: () => void;
+  /** Метка заявки и слаг формы: модалка каталога и страница /podbor различаются. */
+  tag?: string;
+  source?: string;
 }) {
   const { steps, pool } = data;
   const total = steps.length + 1; // + шаг контактов
@@ -232,8 +237,8 @@ export function CatalogQuiz({
           ) : null}
           <div className="mt-5 grid gap-6 lg:grid-cols-2 lg:items-start">
             <LeadForm
-              tag="Квиз в каталоге"
-              source="quiz-catalog"
+              tag={tag}
+              source={source}
               fields={["email"]}
               data={{
                 // area → «Площадь/кол-во» в заголовке лида и UF-поле портала.

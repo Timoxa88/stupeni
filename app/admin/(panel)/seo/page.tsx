@@ -15,7 +15,7 @@ async function targets() {
       { key: "home", label: "Главная", url: "/" },
       { key: "static:calculator", label: "Калькулятор", url: "/calculator" },
       { key: "static:catalog", label: "Каталог — листинг", url: "/catalog" },
-      { key: "static:podbor", label: "Подбор за 5 шагов", url: "/podbor" },
+      { key: "static:podbor", label: "Подбор за минуту", url: "/podbor" },
       { key: "static:services", label: "Услуги", url: "/services" },
       { key: "static:contacts", label: "Контакты", url: "/contacts" },
       { key: "blog", label: "Блог — список", url: "/blog" },
