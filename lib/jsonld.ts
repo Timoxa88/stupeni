@@ -22,6 +22,13 @@ export function organizationSchema() {
     telephone: SITE.phone,
     taxID: SITE.inn,
     identifier: SITE.ogrn,
+    // Связь сущности бренда с внешними профилями: YandexGPT и нейроответы сверяют
+    // сайт с карточками организации, без sameAs связь не читается. Только реально
+    // существующие профили — выдумывать нельзя.
+    sameAs: [
+      "https://yandex.ru/maps/org/khit_keramiks/73097266609",
+      "https://yandex.ru/maps/org/khit_keramiks/1343837569",
+    ],
   };
 }
 
