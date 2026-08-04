@@ -69,9 +69,12 @@ export function Modal({
     };
   }, [onClose]);
 
+  // z-[100] — выше cookie-баннера (z-[90]): при z-[80] баннер накрывал низ любого
+  // диалога, у квиза за ним оставались «Далее» и счётчик шагов, на мобильном —
+  // пол-экрана. Диалог модальный, баннер информирующий: приоритет у диалога.
   return (
     <div
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-graphite-deep/70 p-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-graphite-deep/70 p-4"
       onClick={onClose}
     >
       <div

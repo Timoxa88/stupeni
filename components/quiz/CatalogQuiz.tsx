@@ -116,9 +116,15 @@ export function CatalogQuiz({
     ? [labelOf("volume", answers.volume), volumeNote].filter(Boolean).join(", ")
     : volumeNote;
 
+  // В CRM уходят подписи вариантов, а не их коды: «Цвет: Бежевый», не «bezhevyy».
   const summaryLines = steps
     .map((s) => {
-      const value = s.key === "volume" ? volumeLabel : answers[s.key];
+      const value =
+        s.key === "volume"
+          ? volumeLabel
+          : answers[s.key]
+            ? labelOf(s.key, answers[s.key])
+            : "";
       return value ? `${SUMMARY_LABELS[s.key] ?? s.question}: ${value}` : "";
     })
     .filter(Boolean);

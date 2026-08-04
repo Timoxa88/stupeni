@@ -50,6 +50,7 @@ export function ExitIntent() {
   const [phone, setPhone] = useState("");
   const [consent, setConsent] = useState(false);
   const [touched, setTouched] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [state, setState] = useState<"idle" | "sending" | "done" | "error">("idle");
   const fired = useRef(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -112,21 +113,29 @@ export function ExitIntent() {
   }, [disabled]);
 
   // Фокус в поле — только там, где есть мышь: на телефоне это выбросило бы
-  // клавиатуру поверх попапа. setTimeout обязателен: Modal ставит фокус на
-  // первый интерактивный элемент в своём эффекте, а он выполняется позже.
+  // клавиатуру поверх попапа. Задержка обязательна и не нулевая: Modal ставит
+  // фокус на первый интерактивный элемент (крестик) в своём эффекте, и с
+  // setTimeout(0) он перебивал наш фокус — поле теряло его сразу после onFocus.
   useEffect(() => {
     if (!open) return;
     if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
-    const t = setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 0);
+    const t = setTimeout(() => inputRef.current?.focus({ preventScroll: true }), 60);
     return () => clearTimeout(t);
   }, [open]);
 
   if (disabled || !open) return null;
 
   const valid = digitsOf(phone).length >= 11;
+  // «+7» подставляется автофокусом, а не пользователем: пока в поле только оно,
+  // претензий не предъявляем — иначе попап открывался бы сразу с двумя
+  // красными строками (поймано на скриншоте прода).
+  const started = digitsOf(phone).length > 1;
+  const phoneErr = !valid && (submitted || (touched && started));
+  const consentErr = submitted && !consent;
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
+    setSubmitted(true);
     setTouched(true);
     if (!valid || !consent) return;
     setState("sending");
@@ -241,20 +250,18 @@ export function ExitIntent() {
                   setPhone(maskPhone(d));
                 }}
                 onBlur={() => setTouched(true)}
-                aria-invalid={touched && !valid ? true : undefined}
+                aria-invalid={phoneErr ? true : undefined}
                 className="field-input"
               />
             </label>
-            {touched && !valid ? (
-              <span className="field-err">Введите номер полностью.</span>
-            ) : null}
+            {phoneErr ? <span className="field-err">Введите номер полностью.</span> : null}
 
             <label className="flex items-start gap-2.5">
               <input
                 type="checkbox"
                 checked={consent}
                 onChange={(e) => setConsent(e.target.checked)}
-                aria-invalid={touched && !consent ? true : undefined}
+                aria-invalid={consentErr ? true : undefined}
                 className="mt-0.5 h-4 w-4 shrink-0 accent-[var(--color-clinker)]"
               />
               <span className="text-xs text-stone">
@@ -270,7 +277,7 @@ export function ExitIntent() {
                 .
               </span>
             </label>
-            {touched && !consent ? (
+            {consentErr ? (
               <span className="field-err">Отметьте согласие, чтобы отправить заявку.</span>
             ) : null}
 

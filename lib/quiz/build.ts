@@ -97,15 +97,17 @@ export function buildQuiz(): QuizData {
   const ordered = paradyzFirst(all);
   const facets = facetsOf(all, { sort: "recommended" });
 
-  // 1. Сценарий: те же кадры, что на карточках решений главной.
+  // 1. Сценарий: hero-кадры страниц решений — это фото готовых объектов.
+  // cardImage сюда не годится: у крыльца это CGI-рендер способа укладки
+  // (гребёнка клея), и на вопрос «что облицовываем?» он не отвечает.
   const appOptions: QuizOption[] = applications().map((a) => {
     const s = SOLUTIONS.find((x) => x.slug === a.code);
     return {
       value: a.code,
       label: a.title,
       hint: positions(a.count),
-      image: s?.cardImage ?? s?.heroImage ?? a.image,
-      imageAlt: s?.cardAlt ?? s?.heroAlt ?? a.imageAlt,
+      image: s?.heroImage ?? a.image,
+      imageAlt: s?.heroAlt ?? a.imageAlt,
     };
   });
 
