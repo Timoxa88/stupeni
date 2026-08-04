@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
+import { QuizLauncher } from "@/components/quiz/QuizLauncher";
 import { LeadForm } from "@/components/forms/LeadForm";
 import { SchemaScript } from "@/components/seo/SchemaScript";
 import { collectionPageSchema } from "@/lib/jsonld";
@@ -86,9 +87,14 @@ export default async function CollectionLevel({ params }: Props) {
             { name: coll.base, url: `/catalog/${node.code}/${brand}/${collection}` },
           ]}
         >
+          <QuizLauncher
+            label="Подобрать за минуту"
+            app={node.code}
+            context={`${name} ${coll.base} · ${node.title}`}
+          />
           <Link
             href="/calculator"
-            className="sheen rounded-full bg-clinker px-7 py-4 font-semibold text-white shadow-glow transition hover:bg-clinker-hover"
+            className="rounded-full border border-sand/25 px-7 py-4 font-semibold text-sand transition hover:bg-sand/10"
           >
             Рассчитать комплект →
           </Link>

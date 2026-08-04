@@ -30,6 +30,7 @@ export const FORM_TITLES: Record<string, string> = {
   sample: "Образец",
   price: "Запрос каталога и прайса",
   quiz: "Квиз — подбор",
+  "quiz-catalog": "Квиз в каталоге",
   architect: "Архитектор / бюро",
   service: "Услуга",
   measure: "Замер на объекте",

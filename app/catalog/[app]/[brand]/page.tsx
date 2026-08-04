@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { QuizLauncher } from "@/components/quiz/QuizLauncher";
 import { getApplication, brandsOf, brandBySlug, collectionsOf, allPaths } from "@/lib/catalog/taxonomy";
 import { brandSlugByName } from "@/lib/catalog/brands";
 import { plural } from "@/lib/format";
@@ -67,6 +68,11 @@ export default async function BrandLevel({ params }: Props) {
             { name, url: `/catalog/${node.code}/${brand}` },
           ]}
         >
+          <QuizLauncher
+            label="Подобрать за минуту"
+            app={node.code}
+            context={`Каталог · ${node.title} · ${name}`}
+          />
           {producerSlug ? (
             <Link
               href={`/producers/${producerSlug}`}

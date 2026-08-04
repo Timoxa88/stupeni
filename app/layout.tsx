@@ -6,6 +6,7 @@ import { YandexMetrika } from "@/components/analytics/YandexMetrika";
 import { GoalTracker } from "@/components/analytics/GoalTracker";
 import { CookieBanner } from "@/components/sections/CookieBanner";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
+import { ExitIntent } from "@/components/marketing/ExitIntent";
 import { ContactsProvider } from "@/components/layout/ContactsProvider";
 import { SITE, IS_PREVIEW } from "@/lib/content/site";
 import { getContent } from "@/lib/store/content";
@@ -114,6 +115,7 @@ export default async function RootLayout({
           <MobileCtaBar />
         </ContactsProvider>
         <CookieBanner />
+        <ExitIntent />
         <WebVitals />
         <YandexMetrika counterId={settings.ymCounterId} />
         <GoalTracker />

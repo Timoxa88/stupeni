@@ -7,6 +7,7 @@ import { Reveal } from "@/components/ui/Reveal";
 import { Img as Image } from "@/components/ui/Img";
 import { ProductGrid } from "@/components/catalog/ProductGrid";
 import { FilterBar } from "@/components/catalog/FilterBar";
+import { QuizLauncher } from "@/components/quiz/QuizLauncher";
 import { Pagination } from "@/components/ui/Pagination";
 import { PER_PAGE, pageHref, pageSuffix, paginate, parsePage } from "@/lib/pagination";
 import {
@@ -196,9 +197,10 @@ export default async function CatalogPage({ searchParams }: Props) {
             { name: "Каталог", url: "/catalog" },
           ]}
         >
+          <QuizLauncher label="Подобрать за минуту" context="Каталог" />
           <Link
             href="/calculator"
-            className="sheen rounded-full bg-clinker px-7 py-4 font-semibold text-white shadow-glow transition hover:bg-clinker-hover"
+            className="rounded-full border border-sand/25 px-7 py-4 font-semibold text-sand transition hover:bg-sand/10"
           >
             Рассчитать комплект →
           </Link>

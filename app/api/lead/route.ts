@@ -27,6 +27,9 @@ type Payload = {
   idempotencyKey?: string;
 };
 
+/** Формы, где имя не спрашиваем (одно поле = выше отклик). */
+const PHONE_ONLY_SOURCES = new Set(["exit-popup"]);
+
 /** Идемпотентность и дедуп (ТЗ B.5/B.7). In-memory: один процесс pm2. */
 const IDEMP_TTL = 10 * 60_000;
 const DEDUP_TTL = 5 * 60_000;
@@ -61,13 +64,18 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true, id: crypto.randomUUID() });
     }
 
-    if (!body.name?.trim()) return badRequest("Укажите имя");
+    // Ловец уходящих спрашивает только телефон: имя там — лишнее поле на пути
+    // к отправке, а в CRM заголовок лида и так собирается из телефона
+    // (см. `who` в buildLeadFields). Для всех остальных форм имя обязательно.
+    if (!body.name?.trim() && !PHONE_ONLY_SOURCES.has(body.source ?? "")) {
+      return badRequest("Укажите имя");
+    }
     if (!body.phone?.trim()) return badRequest("Укажите телефон");
     if (body.consent !== true) {
       return badRequest("Требуется согласие на обработку персональных данных");
     }
 
-    const name = body.name.trim().slice(0, 120);
+    const name = (body.name ?? "").trim().slice(0, 120);
     const phone = normalizePhone(body.phone);
     if (!/^\+\d{10,15}$/.test(phone)) return badRequest("Некорректный телефон");
 

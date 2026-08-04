@@ -5,6 +5,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { SubHero } from "@/components/sections/SubHero";
 import { Reveal } from "@/components/ui/Reveal";
+import { QuizLauncher } from "@/components/quiz/QuizLauncher";
 import { getApplication, brandsOf, applications, productHref } from "@/lib/catalog/taxonomy";
 import { getProductById } from "@/lib/catalog/queries";
 import { getSolution } from "@/lib/content/solutions";
@@ -63,6 +64,11 @@ export default async function AppLevel({ params }: Props) {
             { name: node.title, url: `/catalog/${node.code}` },
           ]}
         >
+          <QuizLauncher
+            label="Подобрать за минуту"
+            app={node.code}
+            context={`Каталог · ${node.title}`}
+          />
           {solution ? (
             <Link
               href={`/resheniya/${solution.slug}`}
