@@ -49,7 +49,10 @@ function envDefaults(): SiteSettings {
     yandexMapsKey: e("NEXT_PUBLIC_YANDEX_MAPS_API_KEY"),
 
     bitrixTitlePrefix: e("LEAD_TITLE_PREFIX", "ступени ХИТ"),
-    bitrixSourceId: e("LEAD_BITRIX_SOURCE_ID", "WEB"),
+    // Собственный источник портала «Сайт Ступени Hit Ceramics» (заведён 04.08.2026).
+    // Прежний дефолт «WEB» в справочнике источников портала ОТСУТСТВУЕТ: лид с ним
+    // получал нераспознанный источник и выпадал из отчётов по источникам.
+    bitrixSourceId: e("LEAD_BITRIX_SOURCE_ID", "STUPENI_HC"),
     bitrixAssignedById: e("BITRIX_ASSIGNED_BY_ID", "6"),
     bitrixSiteLabel: e("LEAD_SITE_LABEL", "Лендинг ступени/террасы Hit Ceramics"),
     bitrixCurrencyId: e("BITRIX_CURRENCY_ID", "RUB"),
