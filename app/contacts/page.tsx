@@ -67,7 +67,15 @@ export default function ContactsPage() {
               <h2 className="font-display text-2xl font-bold text-ink">Написать нам</h2>
               <p className="mt-2 text-sm text-stone">Ответим в течение 15 минут в рабочее время.</p>
               <div className="mt-5">
-                <LeadForm tag="Контакты" submitLabel="Отправить" fields={["email", "comment"]} />
+                {/* source обязателен: без него форма уходит слагом по умолчанию
+                    (cta) и в CRM неотличима от формы главной — обе «Обратная
+                    связь». Слаг `contacts` в FORM_TITLES для неё и заведён. */}
+                <LeadForm
+                  tag="Контакты"
+                  source="contacts"
+                  submitLabel="Отправить"
+                  fields={["email", "comment"]}
+                />
               </div>
             </div>
           </div>
