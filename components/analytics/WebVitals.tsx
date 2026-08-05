@@ -3,22 +3,20 @@
 import { useEffect } from "react";
 import type { Metric } from "web-vitals";
 import { withBase } from "@/lib/base";
+import { ymCall } from "@/lib/analytics/ym";
 
 /**
  * RUM Core Web Vitals (ТЗ §15/§16): LCP / INP / CLS с атрибуцией через
  * библиотеку `web-vitals`, бикон в аналитику. Особый фокус — INP < 200 мс
  * (калькулятор, Режим A). Грузится динамически, чтобы не влиять на сам INP.
+ *
+ * Метрики уходят во все подключённые счётчики (см. lib/analytics/ym.ts);
+ * раньше номер брался из отдельной переменной NEXT_PUBLIC_YM_ID и мог
+ * разойтись с тем, чем счётчик инициализирован.
  */
-declare global {
-  interface Window {
-    ym?: (id: number, action: string, params?: Record<string, unknown>) => void;
-  }
-}
-
 export function WebVitals() {
   useEffect(() => {
     let cancelled = false;
-    const ymId = Number(process.env.NEXT_PUBLIC_YM_ID) || 0;
 
     import("web-vitals/attribution")
       .then(({ onCLS, onINP, onLCP }) => {
@@ -54,9 +52,7 @@ export function WebVitals() {
             }).catch(() => {});
           }
 
-          if (ymId && typeof window.ym === "function") {
-            window.ym(ymId, "params", { [`cwv_${metric.name}`]: metric.value });
-          }
+          ymCall("params", { [`cwv_${metric.name}`]: metric.value });
         };
 
         onLCP(report);

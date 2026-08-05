@@ -3,6 +3,11 @@ import { Manrope, Unbounded } from "next/font/google";
 import "./globals.css";
 import { WebVitals } from "@/components/analytics/WebVitals";
 import { YandexMetrika } from "@/components/analytics/YandexMetrika";
+import {
+  GoogleTagManager,
+  GoogleTagManagerNoScript,
+} from "@/components/analytics/GoogleTagManager";
+import { Callibri } from "@/components/analytics/Callibri";
 import { GoalTracker } from "@/components/analytics/GoalTracker";
 import { CookieBanner } from "@/components/sections/CookieBanner";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
@@ -93,12 +98,17 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const [contacts, settings] = await Promise.all([getContent("contacts"), getSettings()]);
+  // «0» в поле админки = выключено; пустое поле означает «берём значение из .env»,
+  // поэтому снять виджет очисткой поля нельзя — только явным нулём.
+  const callibriOn = settings.callibri.trim() !== "0";
   return (
     <html
       lang="ru"
       className={`${manrope.variable} ${unbounded.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-sand text-ink">
+        {/* Требование Google: сразу за открывающим <body>. */}
+        <GoogleTagManagerNoScript containerId={settings.gtmId} />
         <a href="#main" className="skip-link">
           К основному содержимому
         </a>
@@ -117,7 +127,9 @@ export default async function RootLayout({
         <CookieBanner />
         <ExitIntent />
         <WebVitals />
-        <YandexMetrika counterId={settings.ymCounterId} />
+        <YandexMetrika counterIds={[settings.ymCounterId, settings.ymCounterIdExtra]} />
+        <GoogleTagManager containerId={settings.gtmId} />
+        <Callibri enabled={callibriOn} />
         <GoalTracker />
       </body>
     </html>

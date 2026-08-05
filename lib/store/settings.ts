@@ -14,6 +14,12 @@ import { db, hasDb, schema } from "@/lib/db/client";
 export type SiteSettings = {
   /** Номер счётчика Яндекс.Метрики. */
   ymCounterId: string;
+  /** Второй счётчик Метрики (из набора кодов hc-sftk.ru, 05.08.2026). */
+  ymCounterIdExtra: string;
+  /** Контейнер Google Tag Manager (GTM-XXXXXXX). Пусто = тег не ставится. */
+  gtmId: string;
+  /** Виджет Callibri: `0` — выключить, любое другое значение — включён. */
+  callibri: string;
   /** Код подтверждения Яндекс.Вебмастера. */
   yandexVerification: string;
   /** Код подтверждения Google Search Console. */
@@ -44,6 +50,13 @@ function envDefaults(): SiteSettings {
   const e = (k: string, fb = "") => process.env[k]?.trim() || fb;
   return {
     ymCounterId: e("NEXT_PUBLIC_YM_COUNTER_ID"),
+    // Коды от 05.08.2026 (папка Downloads: Callibri / Yandex.Metrika hc-sftk.ru /
+    // Google Tag Manager hc-sftk.ru). Дефолты стоят прямо здесь, а не только в
+    // .env, чтобы теги пережили пересоздание окружения; перекрыть или снять их
+    // можно из админки, не трогая код.
+    ymCounterIdExtra: e("NEXT_PUBLIC_YM_COUNTER_ID_EXTRA", "102026434"),
+    gtmId: e("NEXT_PUBLIC_GTM_ID", "GTM-MSV4KZSD"),
+    callibri: e("NEXT_PUBLIC_CALLIBRI", "1"),
     yandexVerification: e("YANDEX_VERIFICATION"),
     googleVerification: e("GOOGLE_SITE_VERIFICATION"),
     yandexMapsKey: e("NEXT_PUBLIC_YANDEX_MAPS_API_KEY"),

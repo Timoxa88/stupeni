@@ -53,6 +53,24 @@ export default async function AdminSettings({
               env={env.ymCounterId}
             />
             <Field
+              name="ymCounterIdExtra"
+              label="Яндекс.Метрика — второй счётчик"
+              value={override.ymCounterIdExtra}
+              env={env.ymCounterIdExtra}
+            />
+            <Field
+              name="gtmId"
+              label="Google Tag Manager — контейнер"
+              value={override.gtmId}
+              env={env.gtmId}
+            />
+            <Field
+              name="callibri"
+              label="Callibri — виджет (0 = выключить)"
+              value={override.callibri}
+              env={env.callibri}
+            />
+            <Field
               name="yandexMapsKey"
               label="Яндекс.Карты — API-ключ"
               value={override.yandexMapsKey}

@@ -12,6 +12,9 @@ export async function saveSettingsAction(fd: FormData) {
   await requireAdmin();
   const value: Partial<SiteSettings> = {
     ymCounterId: s(fd, "ymCounterId"),
+    ymCounterIdExtra: s(fd, "ymCounterIdExtra"),
+    gtmId: s(fd, "gtmId"),
+    callibri: s(fd, "callibri"),
     yandexVerification: s(fd, "yandexVerification"),
     googleVerification: s(fd, "googleVerification"),
     yandexMapsKey: s(fd, "yandexMapsKey"),

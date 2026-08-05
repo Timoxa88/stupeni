@@ -71,8 +71,23 @@ export default async function AdminDashboard() {
     },
     {
       label: "Яндекс.Метрика",
-      ok: !!settings.ymCounterId,
-      note: settings.ymCounterId ? `счётчик ${settings.ymCounterId}` : "выключена — включить в «Настройках»",
+      ok: !!settings.ymCounterId || !!settings.ymCounterIdExtra,
+      note:
+        [settings.ymCounterId, settings.ymCounterIdExtra].filter(Boolean).join(" + ") ||
+        "выключена — включить в «Настройках»",
+    },
+    {
+      label: "Google Tag Manager",
+      ok: !!settings.gtmId,
+      note: settings.gtmId ? `контейнер ${settings.gtmId}` : "контейнер не задан",
+    },
+    {
+      label: "Callibri",
+      ok: settings.callibri.trim() !== "0",
+      note:
+        settings.callibri.trim() !== "0"
+          ? "виджет подключён (площадка должна быть заведена в кабинете Callibri)"
+          : "выключен в «Настройках»",
     },
     {
       label: "Яндекс.Вебмастер / Google",
