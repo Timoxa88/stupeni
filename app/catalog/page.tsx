@@ -114,18 +114,24 @@ function ObjectMosaic({ images }: { images: MosaicImage[] }) {
   );
 }
 
-/** Наборы мозаик: кадры фиксированы по src (порядок OBJECTS меняется). */
+/**
+ * Наборы мозаик: кадры фиксированы по src (порядок OBJECTS меняется).
+ * 07.08.2026 — собственная съёмка объектов (/images/objects/works/, см.
+ * scripts/import_works_photos.py) вместо прежних кадров архива Б24.
+ * Порядок в наборе — [большой 2×2, широкий, вертикальный, широкий]:
+ * в третий слот ставим ТОЛЬКО вертикальный кадр, иначе его срежет.
+ */
 const MOSAIC_1: MosaicImage[] = [
-  { src: "/images/objects/scandiano-ochra-lestnica.jpg", alt: "Уличная лестница в семь ступеней с капиносом, клинкер Paradyz Scandiano Ochra" },
-  { src: "/images/objects/cloud-brown-terrasa.jpg", alt: "Терраса с кованым ограждением, клинкер Paradyz Cloud Brown" },
-  { src: "/images/objects/catalog/viano-grys-1.jpg", alt: "Лестница с перилами у дома, клинкер Paradyz Viano Grys" },
-  { src: "/images/objects/semir-rosa-kryltso.jpg", alt: "Входная группа с терракотовыми ступенями, клинкер Paradyz Semir Rosa" },
+  { src: "/images/objects/works/kryltso-terrakota.jpg", alt: "Крыльцо с терракотовой плиткой и цветами у входной двери" },
+  { src: "/images/objects/works/scandiano-ochra-kryltso.jpg", alt: "Крыльцо с охристой площадкой и ступенями с насечкой, клинкер Paradyz Scandiano Ochra" },
+  { src: "/images/objects/works/viano-grys-lestnica.jpg", alt: "Полукруглая парадная лестница с коваными перилами, клинкер Paradyz Viano Grys" },
+  { src: "/images/objects/works/viano-antracite-kryltso.jpg", alt: "Крыльцо в две ступени у входной двери, клинкер Paradyz Viano Antracite" },
 ];
 const MOSAIC_2: MosaicImage[] = [
-  { src: "/images/objects/catalog/ilario-ochra-1.jpg", alt: "Крыльцо с каменными колоннами, клинкер Paradyz Ilario Ochra" },
-  { src: "/images/objects/scandiano-brown-terrasa.jpg", alt: "Терраса с обеденной зоной у кирпичного дома, клинкер Paradyz Scandiano Brown" },
-  { src: "/images/objects/catalog/semir-brown-1.jpg", alt: "Крыльцо у входной двери, клинкер Paradyz Semir Brown" },
-  { src: "/images/objects/catalog/mattone-grafit-1.jpg", alt: "Крыльцо в три ступени у входа, клинкер Paradyz Mattone Grafit" },
+  { src: "/images/objects/works/viano-grys-antracite-veranda.jpg", alt: "Веранда с полом в шахматную укладку, клинкер Paradyz Viano Grys и Viano Antracite" },
+  { src: "/images/objects/works/lestnica-v-sad.jpg", alt: "Уличная лестница в сад из тёмного клинкера" },
+  { src: "/images/objects/works/scandiano-brown-terrasa.jpg", alt: "Терраса с обеденной зоной у кирпичного дома, клинкер Paradyz Scandiano Brown" },
+  { src: "/images/objects/works/shirokaya-lestnica.jpg", alt: "Широкая уличная лестница входной группы" },
 ];
 
 /**

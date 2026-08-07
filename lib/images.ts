@@ -8,12 +8,16 @@
  * этих заводов. Карта соответствия «файл ← источник» и пометка о логотипе
  * производителя на кадре — в scripts/replace_site_images.py, там же перегенерация.
  *
- * Своей съёмки объектов пока нет — когда появится, приоритет за ней.
+ * Своя съёмка объектов появилась 07.08.2026 и по приоритету источников идёт
+ * первой — она собрана ниже, в OBJECTS.
  */
 
 export interface SiteImage {
   src: string;
   alt: string;
+  /** Реальные пропорции кадра — чтобы масонри-галерея не резала вертикальные фото. */
+  w?: number;
+  h?: number;
 }
 
 export const IMAGES = {
@@ -36,46 +40,54 @@ export const IMAGES = {
 } satisfies Record<string, SiteImage>;
 
 /**
- * Галерея объектов (ТЗ §6, блок 14) — реальные крыльца, лестницы и террасы,
- * снятые на объектах, по коллекциям Paradyz.
+ * Галерея объектов (ТЗ §6, блок 14) — реальные крыльца, уличные лестницы,
+ * площадки и террасы, которые мы сделали.
  *
- * Источник: внутренняя папка Битрикс24.Диска «Информация для дилера / Фото
- * объекты Paradyz / Paradyz наполка» (folderId 187687) — 246 файлов в 19 папках
- * по коллекциям. Отбор и выгрузка — scripts/fetch_b24_objects.py, там же подписи
- * и имена исходников на Диске; там же тянуть ещё, если понадобится больше.
+ * 07.08.2026 подборка ЗАМЕНЕНА ЦЕЛИКОМ: вместо кадров из архива Битрикс24.Диска
+ * («Информация для дилера / Фото объекты Paradyz», scripts/fetch_b24_objects.py)
+ * здесь собственная съёмка объектов — папка Кирилла `Downloads/ступени`.
+ * Обработка и таблица «исходник → файл → подпись» — scripts/import_works_photos.py,
+ * оттуда же перегенерация. Прежние /images/objects/*.jpg удалены; кадры
+ * /images/objects/catalog/*.jpg НЕ трогать — они живут в карточках товаров.
  *
- * Файлы /images/gal-*.jpg остались на своих местах: они служат hero-картинками
- * страниц решений и фолбэком карточек товаров без своего фото.
+ * Три кадра из папки в подборку не вошли: два с вывесками сторонних заведений
+ * (правило «никаких упоминаний других компаний») и один слишком тёмный —
+ * причины перечислены в SKIPPED импортёра.
  *
  * ПРАВИЛО (Кирилл, 28.07.2026): **никакой гео-привязки к фото объектов** — ни
  * города, ни района, ни посёлка ни в подписи, ни в alt, ни в имени файла. Объекты
- * частные, и локация клиента не наша, чтобы её публиковать. Подпись = сценарий +
- * коллекция, этого достаточно. EXIF при пересохранении не копируется (PIL пишет
- * файл заново), но при смене пайплайна проверять, что GPS-тегов в JPEG нет.
+ * частные, и локация клиента не наша, чтобы её публиковать. EXIF при пересохранении
+ * не копируется (PIL пишет файл заново), но при смене пайплайна проверять, что
+ * GPS-тегов в JPEG нет.
+ *
+ * Коллекция в подписи стоит только там, где она известна из имени исходника;
+ * у безымянных кадров подпись описывает сцену — угадывать коллекцию по фото нельзя.
+ *
+ * Порядок перемешан вручную: соседние кадры — разные объекты, тёмные и светлые
+ * чередуются. `w`/`h` — реальные пропорции, иначе масонри режет вертикальные кадры.
  */
 export const OBJECTS: SiteImage[] = [
-  // 30.07.2026: галерея покрывает ВСЕ 17 цветов Paradyz, по которым есть фото
-  // объектов (кадры /objects/catalog/ — те же, что в карточках товаров, отбор
-  // см. коммит 8a1dada). Порядок перемешан вручную: соседние кадры — разные
-  // коллекции, тёмные/светлые чередуются.
-  { src: "/images/objects/scandiano-brown-terrasa.jpg", alt: "Терраса с обеденной зоной у кирпичного дома, клинкер Paradyz Scandiano Brown" },
-  { src: "/images/objects/viano-grys-lestnica.jpg", alt: "Парадная лестница в сад с коваными перилами, клинкер Paradyz Viano Grys" },
-  { src: "/images/objects/semir-rosa-kryltso.jpg", alt: "Входная группа с терракотовыми ступенями, клинкер Paradyz Semir Rosa" },
-  { src: "/images/objects/catalog/ilario-beige-3.jpg", alt: "Крыльцо на каменном цоколе, клинкер Paradyz Ilario Beige" },
-  { src: "/images/objects/cloud-brown-kryltso.jpg", alt: "Крыльцо с тёмными ступенями и каменным цоколем, клинкер Paradyz Cloud Brown" },
-  { src: "/images/objects/catalog/scandiano-beige-2.jpg", alt: "Крыльцо в три ступени у входной группы, клинкер Paradyz Scandiano Beige" },
-  { src: "/images/objects/semir-brown-kryltso.jpg", alt: "Широкое крыльцо с кирпичным цоколем, клинкер Paradyz Semir Brown" },
-  { src: "/images/objects/catalog/viano-antracite-3.jpg", alt: "Крыльцо на брусчатой площадке, клинкер Paradyz Viano Antracite" },
-  { src: "/images/objects/scandiano-ochra-lestnica.jpg", alt: "Уличная лестница в семь ступеней с капиносом, клинкер Paradyz Scandiano Ochra" },
-  { src: "/images/objects/ilario-brown-kryltso.jpg", alt: "Крыльцо под навесом у кирпичного дома, клинкер Paradyz Ilario Brown" },
-  { src: "/images/objects/catalog/mattone-grafit-1.jpg", alt: "Крыльцо в три ступени у входа, клинкер Paradyz Mattone Grafit" },
-  { src: "/images/objects/natural-brown-kryltso.jpg", alt: "Крыльцо-подиум в три ступени, клинкер Paradyz Natural Brown" },
-  { src: "/images/objects/scandiano-brown-kryltso.jpg", alt: "Входная группа и площадка с креслом, клинкер Paradyz Scandiano Brown" },
-  { src: "/images/objects/catalog/semir-grafit-1.jpg", alt: "Ступени входной группы с перилами, клинкер Paradyz Semir Grafit" },
-  { src: "/images/objects/catalog/ilario-ochra-1.jpg", alt: "Крыльцо с каменными колоннами, клинкер Paradyz Ilario Ochra" },
-  { src: "/images/objects/cloud-brown-terrasa.jpg", alt: "Терраса с кованым ограждением, клинкер Paradyz Cloud Brown" },
-  { src: "/images/objects/scandiano-ochra-stupeni.jpg", alt: "Ступени с капиносом крупным планом, клинкер Paradyz Scandiano Ochra" },
-  { src: "/images/objects/catalog/viano-beige-1.jpg", alt: "Ступени с рифлёной проступью у кирпичной стены, клинкер Paradyz Viano Beige" },
-  { src: "/images/objects/catalog/semir-beige-1.jpg", alt: "Полукруглое крыльцо, клинкер Paradyz Semir Beige" },
-  { src: "/images/objects/scandiano-rosso-stupeni.jpg", alt: "Терракотовые ступени с рифлёной проступью, клинкер Paradyz Scandiano Rosso" },
+  { src: "/images/objects/works/viano-grys-lestnica.jpg", w: 1200, h: 1600, alt: "Полукруглая парадная лестница с коваными перилами, клинкер Paradyz Viano Grys" },
+  { src: "/images/objects/works/semir-rosa-lestnica.jpg", w: 1080, h: 1080, alt: "Уличная лестница в четыре ступени вдоль фасада, клинкер Paradyz Semir Rosa" },
+  { src: "/images/objects/works/viano-grys-antracite-veranda.jpg", w: 1600, h: 1066, alt: "Веранда с полом в шахматную укладку, клинкер Paradyz Viano Grys и Viano Antracite" },
+  { src: "/images/objects/works/ilario-beige-kryltso.jpg", w: 1080, h: 1080, alt: "Крыльцо с широкой площадкой и ступенями с насечкой, клинкер Paradyz Ilario Beige" },
+  { src: "/images/objects/works/lestnica-v-sad.jpg", w: 1280, h: 960, alt: "Уличная лестница в сад из тёмного клинкера" },
+  { src: "/images/objects/works/scandiano-ochra-kryltso.jpg", w: 1080, h: 810, alt: "Крыльцо с охристой площадкой и ступенями с насечкой, клинкер Paradyz Scandiano Ochra" },
+  { src: "/images/objects/works/viano-antracite-kryltso.jpg", w: 1500, h: 1125, alt: "Крыльцо в две ступени у входной двери, клинкер Paradyz Viano Antracite" },
+  { src: "/images/objects/works/kryltso-terrakota.jpg", w: 1600, h: 1200, alt: "Крыльцо с терракотовой плиткой и цветами у входной двери" },
+  { src: "/images/objects/works/shirokaya-lestnica.jpg", w: 1280, h: 960, alt: "Широкая уличная лестница входной группы" },
+  { src: "/images/objects/works/natural-brown-lestnica.jpg", w: 1080, h: 1080, alt: "Уличная лестница с коваными перилами, клинкер Paradyz Natural Brown" },
+  { src: "/images/objects/works/semir-beige-kryltso.jpg", w: 594, h: 594, alt: "Многоугольное крыльцо в три ступени, клинкер Paradyz Semir Beige" },
+  { src: "/images/objects/works/viano-antracite-ploshchadka.jpg", w: 1500, h: 1125, alt: "Площадка со ступенью и капиносом из тёмного клинкера, Paradyz Viano Antracite" },
+  { src: "/images/objects/works/scandiano-brown-terrasa.jpg", w: 1200, h: 1600, alt: "Терраса с обеденной зоной у кирпичного дома, клинкер Paradyz Scandiano Brown" },
+  { src: "/images/objects/works/viano-beige-kryltso.jpg", w: 769, h: 578, alt: "Крыльцо с площадкой в диагональной укладке и ступенями с насечкой, клинкер Paradyz Viano Beige" },
+  { src: "/images/objects/works/lestnica-kovanye-perila.jpg", w: 1080, h: 1350, alt: "Крыльцо-лестница с коваными перилами у кирпичного дома" },
+  { src: "/images/objects/works/scandiano-rosso-ploshchadka.jpg", w: 1080, h: 1080, alt: "Площадка перед входом с гранитным бордюром, клинкер Paradyz Scandiano Rosso" },
+  { src: "/images/objects/works/kryltso-chetyre-stupeni.jpg", w: 1280, h: 960, alt: "Крыльцо в четыре ступени у кирпичного дома" },
+  { src: "/images/objects/works/scandiano-brown-lestnica.jpg", w: 1080, h: 1080, alt: "Лестница входной группы в тёмном клинкере, Paradyz Scandiano Brown" },
+  { src: "/images/objects/works/ploshchadka-moshchenie.jpg", w: 1080, h: 1350, alt: "Мощение двора крупноформатным керамогранитом 20 мм" },
+  { src: "/images/objects/works/kryltso-dve-stupeni.jpg", w: 1200, h: 1600, alt: "Крыльцо в две ступени с площадкой у входной двери" },
+  { src: "/images/objects/works/viano-grys-stupen.jpg", w: 1080, h: 1080, alt: "Ступень с насечкой и террасная плита крупным планом, Paradyz Viano Grys" },
+  { src: "/images/objects/works/lestnica-vhodnaya-gruppa.jpg", w: 960, h: 1280, alt: "Уличная лестница входной группы со ступенями с насечкой" },
+  { src: "/images/objects/works/vnutrennyaya-lestnica.jpg", w: 960, h: 1280, alt: "Внутренняя лестница со ступенями с насечкой" },
 ];

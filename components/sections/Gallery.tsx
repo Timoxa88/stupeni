@@ -4,19 +4,21 @@ import { Reveal } from "@/components/ui/Reveal";
 export interface GalleryImage {
   src: string;
   alt: string;
+  /** Реальные пропорции кадра; без них вертикальные фото режутся под 4:3. */
+  w?: number;
+  h?: number;
 }
 
 /**
  * Наши работы — масонри-сетка с hover-зумом (ТЗ §6, блок 14).
  *
- * 28.07.2026 сюда встали реальные объекты из архива компании на Битрикс24.Диске
- * (см. lib/images.ts → OBJECTS): крыльца, лестницы и террасы, снятые на участках,
- * с указанием коллекции Paradyz. До этого блок держал сначала сток, потом рендеры
- * заводов.
+ * 07.08.2026 подборка заменена на собственную съёмку объектов (см. lib/images.ts →
+ * OBJECTS и scripts/import_works_photos.py). До этого блок держал сначала сток,
+ * потом рендеры заводов, потом кадры из архива Битрикс24.Диска.
  *
  * Заголовок «Наши работы» поставлен после прямого подтверждения заказчика, что
- * объекты наши. Подписи — только сценарий и коллекция: **без городов, районов и
- * прочей географии**, объекты частные.
+ * объекты наши. Подписи — только сценарий и, где известна, коллекция: **без
+ * городов, районов и прочей географии**, объекты частные.
  */
 export function Gallery({ images }: { images: GalleryImage[] }) {
   if (!images.length) return null;
@@ -29,8 +31,9 @@ export function Gallery({ images }: { images: GalleryImage[] }) {
             Наши работы
           </h2>
           <p className="mt-4 max-w-2xl text-stone">
-            Крыльца, уличные лестницы и террасы на наших объектах. У каждого кадра —
-            коллекция, по которой можно найти материал в каталоге.
+            Крыльца, уличные лестницы, площадки и террасы на наших объектах —
+            фотографии с самих объектов, а не каталожные рендеры. Где известна
+            коллекция, она указана в подписи к кадру.
           </p>
         </Reveal>
         <div className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 [&>*]:mb-5">
@@ -40,8 +43,8 @@ export function Gallery({ images }: { images: GalleryImage[] }) {
                 <Image
                   src={img.src}
                   alt={img.alt}
-                  width={800}
-                  height={600}
+                  width={img.w ?? 800}
+                  height={img.h ?? 600}
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="img-rich h-auto w-full object-cover transition duration-700 group-hover:scale-105"
                 />
